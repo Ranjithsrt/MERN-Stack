@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>List in tailwindcss</title>
+    <style>
+      body {
+        padding: 50px;
+      }
+      ul,
+      ol {
+        margin: 20px 0;
+      }
+      @theme {
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="list-disc">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Pineapple</li>
+    </ul>
+    <ul class="list-decimal">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Pineapple</li>
+    </ul>
+
+    <ul class="list-none">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Pineapple</li>
+    </ul>
+    <ul class="list-decimal md:list-disc">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Pineapple</li>
+    </ul>
+
+    <ul class="list-[upper-roman]">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Pineapple</li>
+    </ul>
+    <ul class="list-[lower-roman]">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Pineapple</li>
+    </ul>
+    <ul class="list-[lower-alpha]">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Pineapple</li>
+    </ul>
+    <ul>
+      <li class="list-none before:content-['■'] before:mr-1">Apple</li>
+      <li class="list-none before:content-['■'] before:mr-1">Orange</li>
+      <li class="list-none before:content-['■'] before:mr-1">Banana</li>
+      <li class="list-none before:content-['■'] before:mr-1">Pineapple</li>
+    </ul>
+
+    <ul class="list-image-[url(./tick.svg)]">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Pineapple</li>
+    </ul>
+
+    <ul class="list-image-none md:list-image-[url('./tick.svg')]">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Pineapple</li>
+    </ul>
+
+    <ul class="list-decimal list-inside">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Pineapple</li>
+    </ul>
+
+    <ul class="list-decimal list-outside">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Pineapple</li>
+    </ul>
+  </body>
+</html>

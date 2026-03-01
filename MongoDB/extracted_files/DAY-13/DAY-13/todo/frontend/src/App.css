@@ -1,0 +1,8 @@
+button.btnDel {
+  padding: 4px 8px;
+  background-color: red;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        box-sizing: border-box;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        border: 10px solid black;
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Box Sizing : content-box | border-box</h2>
+
+    <div>content box</div>
+  </body>
+</html>
+
+<!--
+
+Box-Sizing  :  content-box (Default) | 300 px naa content ku mattum width height set pannum. padding, border, margin extra add agum 350 vaarum.|
+W = 100
+H = 100
+     W    PR   PL   BR   BL    Width
+W = 100 + 20 + 20 + 10 + 10 => 160
+    
+    H     PT   PB   BT   BB => Height
+H = 100 + 20 + 20 + 10 + 10 => 160
+
+
+Box-Sizing  :  Border-box  | 300  content ullayea padding width height margin set pannum.  |
+W = 100
+H = 100
+
+     W    PR   PL   BR   BL    Width
+W = 40 + 20 + 20 + 10 + 10 => 100
+    
+    H     PT   PB   BT   BB => Height
+H = 40 + 20 + 20 + 10 + 10 => 100
+
+-->

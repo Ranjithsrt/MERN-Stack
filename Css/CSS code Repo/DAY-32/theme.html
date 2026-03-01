@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --bg-color: white;
+        --text--color: black;
+      }
+
+      .dark-mode {
+        --bg-color: #121212;
+        --text--color: #e0e0e0;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text--color);
+      }
+    </style>
+  </head>
+  <body>
+    <button>Toggle Theme</button>
+    <h1>Sample Headings</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nam culpa, magnam in adipisci est vero eos rerum, dignissimos, mollitia id quis expedita laboriosam libero quam tempore sit nostrum quo.</p>
+
+    <script>
+      const btn = document.querySelector("button");
+      const body = document.querySelector("body");
+      btn.innerHTML = body.classList.contains("dark-mode") ? "Switch to Light" : "Switch to Dark";
+      btn.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        btn.innerHTML = body.classList.contains("dark-mode") ? "Switch to Light" : "Switch to Dark";
+      });
+    </script>
+  </body>
+</html>

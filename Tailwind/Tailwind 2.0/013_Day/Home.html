@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=shield_lock" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="min-h-screen bg-[#f8f9fc] flex items-center justify-center py-24 relative overflow-hidden">
+      <!-- Background Design -->
+      <div class="absolute bg-indigo-100 top-[-15%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[120px]"></div>
+      <div class="absolute bg-indigo-100 bottom-[-15%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[120px]"></div>
+
+      <div class="max-w-lg w-full relative z-10">
+        <!-- Logo -->
+        <div class="text-center mb-14">
+          <div class="bg-white w-16 h-16 rounded-xl shadow-xl shadow-indigo-100 mb-8 hover:scale-105 transition-transform border border-slate-50 inline-flex items-center justify-center">
+            <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+              <div class="w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                <div class="w-1.5 h-1.5 bg-indigo-600 rounded-sm"></div>
+              </div>
+            </div>
+          </div>
+          <h1 class="text-4xl font-bold text-slate-800 tracking-tight mb-3 uppercase selection:text-white selection:bg-indigo-500">Super Bank</h1>
+          <p class="text-slate-400 text-base font-semibold tracking-widest uppercase opacity-80">Financial Protocol</p>
+        </div>
+
+        <!-- Form -->
+        <div class="bg-white rounded-2xl shadow-sm border border-white p-10 lg:p-14">
+          <h2 class="text-xl font-bold mb-10 text-slate-800 border-b-2 border-slate-50 pb-5 uppercase tracking-tight">Registration</h2>
+          <form class="space-y-2.5">
+            <div class="space-y-3.5">
+              <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">User Name</label>
+              <input type="text" placeholder="Ex.John Doe" class="w-full bg-slate-50/50 border border-slate-100 rounded text-slate-800 px-6 py-4 text-[15px] focus:outline-none focus:bg-white focus:border-indigo-100 transition-all font-semibold placeholder:text-slate-300" />
+            </div>
+            <div class="space-y-2.5">
+              <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Password</label>
+              <input type="passowd" placeholder="Password" class="w-full bg-slate-50/50 border border-slate-100 rounded text-slate-800 px-6 py-4 text-[15px] focus:outline-none focus:bg-white focus:border-indigo-100 transition-all font-semibold placeholder:text-slate-300" />
+            </div>
+
+            <button class="w-full bg-indigo-600 text-white hover:bg-indigo-700 font-bold py-4.5 rounded-lg transition-all duration-300 shadow-lg shadow-indigo-100 active:scale-[0.98] text-sm uppercase tracking-widest">Register Now</button>
+          </form>
+        </div>
+        <div class="mt-4">
+          <p class="text-slate-400 text-[11px] uppercase font-bold tracking-[0.2rem] flex items-center justify-center gap-2.5">
+            <span class="material-symbols-outlined"> shield_lock </span>
+            End-to-End Secure
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,166 @@
+Day 1
+
+
+Feature           JavaScript in the Browser     Node.js
+Global Object     window                       global
+DOM Access        Yes (can change HTML/CSS)    No (no document or window)
+File System       No (for security reasons)    Yes (can read/write files via fs)
+Operating System  Very limited access          Full access (CPU Memory OS info)
+Modules           ES Modules (import/export)   CommonJS (require) & ES Modules
+Purpose           UI/UX and user interaction    Data processing and server logic
+
+
+npm init     -> add additional info  to create package.json file
+npm init -y  -> create package.json file without additional info (skip info)
+
+
+Add new Third party packages to your project
+
+npm i date-fns     -> node package manager   install    package name latest version
+npm i date-fns -g  -> Global 
+
+
+npm i json-server@0.17.3  -> Install Specific version
+npm i json-server         -> Install the lastest version of json-server from NPM
+
+
+
+npm uninstall json-server ->  uninstall json-server
+npm  removejson-server
+npm remove -g json-server
+
+json-server@0.17.3 
+date-fns@4.1.0
+
+1       .0           .0
+0       .17          .3
+4       .1           .0
+Major    Minor        Patch  
+
+--------------------------------
+
+console.log("Hi");
+
+console.log(global);
+
+module vs common js
+
+
+
+//ES6 Module
+/*
+import { format } from "date-fns";
+console.log(new Date());
+console.log(format(new Date(), "dd-MM-yyyy"));
+*/
+
+const dateFuns = require("date-fns");
+console.log(new Date());
+console.log(dateFuns.format(new Date(), "dd-MM-yyyy"));
+
+
+
+------------------------------------------------
+
+Day 2
+
+file sys module
+
+-- read file
+-- write file
+-- append file
+-- delete file
+-- rename file
+
+-- create folder
+-- remove folder
+-- read folder
+
+async vs sync diff
+
+----------------------------
+
+Day - 3
+
+http module in node.js
+
+The built-in http module allows you to:
+  Create web servers
+  Handle requests (GET, POST, etc.)
+  Send responses
+  Build APIs
+  Work without any framework (pure Node.js)
+
+ Handle request
+ GET
+ POST
+ PUT
+ DELETE
+----
+
+1 create server
+2 Http req & res (routing - / , /about,/contact)
+3 serve Dummy Json - belike ( Jsonplaceholder web) api res 
+4 URL(packeage) - query parameters
+5 POST req - from 
+6 Build API
+7 serve HTML Files
+
+-----------
+
+Day 4
+
+Express package 
+
+
+What is express? 
+
+Express is a lightweight web framework for Node.js that makes it easy to build web servers, APIs, and backend applications.
+
+
+Why Express is used ?
+ 
+    - Create a server in few lines
+    - Handle GET, POST, PUT, DELETE requests easily
+    - Build REST APIs
+    - Manage routes
+    - Use middleware (auth, logging, validation)
+    - Send JSON responses
+    - Handle errors cleanly
+
+npm init -y
+npm i express
+
+npm i nodemon -D
+npi i archiver
+
+create server and routes
+
+Handle GET, POST, PUT, DELETE requests
+
+serving static files ( html css js img ...) -  send files  server to client 
+
+static middleware - app.use(express.static('public'))
+
+params
+  single params
+  multi
+
+client download files from server
+ download
+ rename file while ownload
+ download using route params
+ download  with headers
+
+archiver - multiple zip files
+
+
+Exp crud - json data
+
+
+------------------------------------
+  
+
+
+ 
+

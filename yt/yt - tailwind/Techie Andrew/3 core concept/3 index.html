@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    /* p div h1 span etc... */
+    @layer base {
+      h1 {
+        @apply text-3xl font-semibold text-gray-800;
+      }
+    }
+
+    /*  button - reuseple component */
+    @layer components {
+      .btn {
+        @apply bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded;
+      }
+    }
+
+    /* m p .btn # id etc*/
+    @layer utilities {
+      .skewed {
+        transform: skewY(-10deg);
+      }
+    }
+  </style>
+</head>
+
+<body class="container p-5 m-5">
+  <h3 class="text-3xl font-bold uppercase my-5">
+    classes - variant - layers
+  </h3>
+
+  <!-- class -->
+
+  <div class="bg-blue-500 text-white p-5 mb-5">
+    This div has blue background and white text using Tailwind classes.
+  </div>
+
+  <!-- variant -->
+
+  <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-5">
+    Hover Me
+  </button>
+
+  <!-- Responsive Design  -->
+
+  <div class="bg-purple-500 text-white p-5 mb-5 sm:bg-orange-500 md:bg-purple-900 lg:bg-green-500 xl:bg-red-500">
+    Resize the window to see background color change on small and medium
+    screens.
+  </div>
+
+  <!-- layers -->
+
+  <div class="relative w-64 h-64 bg-gray-200">
+    <div class="absolute top-0 left-0 w-32 h-32 bg-red-500 opacity-75"></div>
+    <div class="absolute top-8 left-8 w-32 h-32 bg-yellow-500 opacity-75"></div>
+    <div class="absolute top-16 left-16 w-32 h-32 bg-blue-500 opacity-75"></div>
+  </div>
+
+  <!-- base -->
+
+  <h1>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ipsam
+    provident blanditiis magnam id ad ducimus quisquam, Lorem ipsum dolor sit
+    amet, consectetur adipisicing elit. Quis itaque dolor cumque ipsa.
+    Consequuntur dolore, deleniti nisi deserunt illum nam saepe! Laborum
+    tempore deleniti repellat assumenda cum esse omnis eius.
+  </h1>
+
+  <!-- components -->
+
+  <button class="btn">Click Me</button>
+
+  <!-- utilities -->
+  <p class="skewed text-3xl mt-5">
+    This paragraph uses a custom utility class to set the font size to 3xl.
+  </p>
+</body>
+
+</html>

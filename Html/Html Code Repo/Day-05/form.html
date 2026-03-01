@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input,
+      button,
+      select {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="radio"],
+      input[type="checkbox"] {
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <form autocomplete="off">
+      <input type="hidden" />
+      <label for="name">Enter Your Name</label>
+      <input type="text" placeholder="Name" name="name" id="name" required />
+      <input type="password" placeholder="Password" name="password" required />
+      <input type="email" placeholder="Email" name="email" required />
+      <input type="number" name="age" min="5" max="10" />
+      <input type="date" />
+      <input type="time" />
+      <input type="datetime-local" name="datetime" />
+      <input type="month" name="month" />
+      <input type="week" name="week" />
+
+      <input type="search" name="search" placeholder="Search" />
+
+      <input type="range" name="price" min="0" max="10" />
+      <input type="color" name="color" />
+
+      <label><input type="radio" name="gender" />Male</label>
+      <input type="radio" name="gender" id="female" />
+      <label for="female">Female</label>
+
+      <hr />
+
+      <label><input type="checkbox" /> C </label>
+      <label><input type="checkbox" /> C++ </label>
+      <label><input type="checkbox" /> Java </label>
+
+      <input type="file" />
+      <input type="file" multiple />
+
+      <textarea rows="10" cols="50"></textarea>
+
+      <button type="submit">Register Now</button>
+      <input type="submit" value="Save" />
+      <input type="reset" value="Clear All" />
+      <input type="button" value="Save All" />
+
+      <select name="" id="">
+        <option value="">Select Course</option>
+        <option value="C">C</option>
+        <option value="C++">C++</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+      </select>
+
+      <select name="" id="" multiple>
+        <option value="">Select Course</option>
+        <option value="C">C</option>
+        <option value="C++">C++</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+      </select>
+
+      <select name="" id="">
+        <optgroup label="Web Design">
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
+        </optgroup>
+        <optgroup label="Programming">
+          <option value="C">C</option>
+          <option value="C++">C++</option>
+          <option value="Java">Java</option>
+          <option value="Python">Python</option>
+        </optgroup>
+      </select>
+
+      <fieldset>
+        <legend>User Login</legend>
+        <input type="text" placeholder="Name" value="joes" readonly name="name" id="name" required />
+        <input type="password" maxlength="5" placeholder="Password" name="password" required />
+
+        <label><input type="checkbox" checked /> C </label>
+        <label><input type="checkbox" /> C++ </label>
+        <label><input type="checkbox" /> Java </label>
+        <button type="submit">Login Now</button>
+      </fieldset>
+    </form>
+  </body>
+</html>
+
+<!--
+
+disabled
+readonly
+required
+value
+autocomplete=on | off
+checked
+maxlength
+id
+class
+placeholder
+-->

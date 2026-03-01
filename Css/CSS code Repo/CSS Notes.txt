@@ -1,0 +1,2299 @@
+Day 1
+--------------------------------------
+
+Different Ways to Add CSS Styles :
+
+inline
+
+internal
+
+external
+
+--------------------------------------
+
+General selectors :
+
+Element selector h1 p div ...
+ID Selector      #
+Class Selector   .
+
+------------------------------------------
+
+Day 2
+-----------------------------------------
+
+Box Models :
+
+width - px,rem ,em,%,vw
+height - px,rem ,em,%,vw
+
+---- content = 250px-150px w/h---
+
+RIght click ----inspect - computed
+
+-------------------------------------------------------
+
+padding :
+
+padding: 20px;                     All Side
+padding: 10px 20px;                TB LR
+padding: 10px 20px 30px;           Top LR Bottom
+padding: 10px 20px 30px 40px;      Top Right Bottom Left
+padding-top: 25px;
+padding-right: 35px;
+padding-bottom: 45px;
+padding-left: 55px;
+
+------------------------------------------------------
+
+margin :
+
+margin: 20px;                     All Side
+margin: 10px 20px;                TB LR
+margin: 10px 20px 30px;           Top LR Bottom
+margin: 10px 20px 30px 40px;      Top Right Bottom Left
+margin-top: 25px;
+margin-right: 35px;
+margin-bottom: 45px;
+margin-left: 55px;
+
+margin-auto:
+
+margin:0 auto center tb/rl  herizonal centering
+margin: 100 auto;    tb/rl
+margin:auto    tb/rl 0/0
+
+-----------------------------------------------------------
+
+Border:
+
+All Side
+    border-width: 5px; /* thin medium thick | values */
+    border-color: red; /* color , rgb,#00ABc.inherlt */
+    border-style: solid;
+    /*
+      none
+      solid
+      dashed
+      dotted
+      groove
+      ridge
+      inset
+      outset
+    */
+Top
+  border-top-width: 5px;
+  border-top-color: green;
+  border-top-style: solid;
+
+Right
+  border-right-width: 10px;
+  border-right-color: red;
+  border-right-style: dashed;
+Bottom
+  border-bottom-width: 5px;
+  border-bottom-color: yellow;
+  border-bottom-style: dotted;
+Left
+  border-left-width: 5px;
+  border-left-color: greenyellow;
+  border-left-style: ridge;
+      
+
+All Side : 
+        Size Style color
+border: 5px solid orangered;
+
+
+border-top: 5px solid orangered;
+border-right: 5px solid red;
+border-bottom: 5px solid green;
+border-left: 5px solid yellowgreen;
+
+Border-radius
+  border-radius: 50%;
+
+All Side
+  border-radius: 3px;
+
+Each Side Diffrent Values
+
+  border-top-left-radius: 50px;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 100px; 
+
+------------------------------------------------------
+
+Box-Sizing  : 
+
+
+content-box (Default) | 300 px naa content ku mattum width height set pannum. padding, border, margin extra add agum 350 vaarum.|
+W = 100
+H = 100
+     W    PR   PL   BR   BL    Width
+W = 100 + 20 + 20 + 10 + 10 => 160
+    
+    H     PT   PB   BT   BB => Height
+H = 100 + 20 + 20 + 10 + 10 => 160
+
+
+Box-Sizing  :  Border-box  | 300  content ullayea padding width height margin set pannum.  |
+W = 100
+H = 100
+
+     W    PR   PL   BR   BL    Width
+W = 40 + 20 + 20 + 10 + 10 => 100
+    
+    H     PT   PB   BT   BB => Height
+H = 40 + 20 + 20 + 10 + 10 => 100
+
+-----------------------------------------------------------------
+
+Day 3
+
+Typography
+
+
+ color : red | #ff0000 | rgb(255,0,0) | inherit (parent)
+
+    font-size  : 16px | 18em | 20rem | 1.5vw
+     
+    font-family :  "Roboto", sans-serif | google fonts
+
+    font-weight : normal | bold | 500 | 700
+
+    font-style : normal | italic
+
+    font- variant : normal | small-caps
+
+    line-height : normal | 1.6 | 1.8 | 1.9 | 2
+
+    text-align : left | center | right | justify
+
+    text-decoration : none | underline | overline | line-through 
+
+    text-underline-offset:10px; 
+
+    text-transform : none | capitalize | uppercase | lowercase
+
+    letter-spacing : normal | 1px | 2px
+
+    word-spacing : normal | 1px | 2px
+
+    white-space : normal | nowrap | pre | pre-line | pre-wrap
+
+-------------------------------------------------------------------
+
+Day 4
+
+Background property's 
+
+
+
+  * {
+        /* 
+          * - Universal Selector
+          CSS RESET
+        */
+        margin: 0;
+        padding: 0;
+        box-sizing: ;
+      }
+
+
+background-color : red | #fff | rgb(255, 255, 255) | rgba(255, 255, 255, 0.5) | transparent
+
+background-image :  background-image: url("small.png"); | Height | Width ( main )
+
+background-repeat :  no-repeat | repeat | repeat-x | repeat-y | repeat-x, repeat-y
+
+background-position : left top | right bottom | center center | 50% 50% | 150px 50px x,y
+
+background-size : auto | cover | contain
+
+background-attachment : fixed | scroll | local
+
+
+coffee Design (25.00)
+
+pexcels
+
+Adobe colors
+
+-------------------------------------------------------------
+
+Day 5
+
+CSS Display Property :
+
+1. inline
+
+Behavior: Elements do not start on a new line and only occupy as much width as necessary.​ 
+
+don't set margin Top and bottom
+
+width and height - auto
+
+
+Limitations: Width and height properties are ineffective; top and bottom margins and paddings are not respected.​
+DigitalOcean
+
+Common Inline Elements: <span>, <a>, <strong>, <em>​
+
+2. block
+
+Behavior: Elements start on a new line and take up the full width available.​
+
+
+Capabilities: Width, height, margin, and padding properties are effective.​
+
+Common Block Elements: <div>, <p>, <h1> to <h6>, <section>, <article>​
+
+3. inline-block
+
+Behavior: Similar to inline elements but allows setting width and height.​
+ 
+
+Capabilities: Respects width, height, margin, and padding properties.​
+
+Use Cases: Useful for creating navigation links, buttons, or any element that requires inline positioning with block capabilities.​
+
+--------------------------------------------------------
+
+CSS Position Property :
+
+1. static (Default)
+
+Behavior: Elements are positioned according to the normal document flow.​
+
+Limitations: top, right, bottom, and left properties have no effect.​
+
+2. relative
+
+Behavior: Elements are positioned relative to their normal position.​
+
+Capabilities: top, right, bottom, and left properties move the element from its normal position without affecting surrounding elements.​
+
+parent - parent element
+
+3. absolute
+
+Behavior: Elements are removed from the normal document flow and positioned relative to the nearest positioned ancestor (an ancestor with a position other than static).​
+
+Capabilities: top, right, bottom, and left properties specify the exact position. Surrounding elements ignore the space the element would have occupied.​
+
+parent - body
+
+4. fixed
+
+Behavior: Elements are positioned relative to the viewport; they remain in the same position regardless of scrolling.​
+
+Use Cases: Commonly used for persistent headers, footers, or sidebars that remain visible during scrolling.​
+
+parent - body 
+
+5. sticky 
+
+Behavior: Elements act like relatively positioned elements until they reach a specified scroll position, then they become fixed.​
+ 
+
+Use Cases: Useful for headers or navigation menus that remain at the top of the viewport after a certain scroll position.​
+
+top: 10px;
+
+card Design 33.54
+
+random profile pictures
+
+anny studio color picker  -- alt x
+
+
+z-index 
+
+The z-index property controls the stacking order of elements (which one appears in front or behind others).
+
+It only works on elements with a position value other than static (like relative, absolute, or fixed).
+ 
+selector {
+  position: relative | absolute | fixed | sticky;
+  z-index: number;
+}
+
+🔹 How it works:
+Higher z-index = on top
+
+
+
+ -------------------------------------------------------
+
+Day 6
+
+vertical centering
+
+vertical and horizontal centering element
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section {
+        height: 500px;
+        border: 1px dashed #000;
+
+        position: relative;    parent
+        cursor: pointer;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        border: 2px solid #333;
+        text-align: center;
+        line-height: 100px;
+
+        position: absolute;   child
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); x ,y
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="box">Box</div>
+    </section>
+  </body>
+</html>
+
+---------------------------------------------------
+
+::before and ::after pseudo element
+
+::before and ::after are pseudo-elements used to add content before or after the content of an element using CSS.
+
+They're not part of the HTML, but they show up visually when styled with CSS.
+
+ 
+selector::before {
+  content: "some content";
+  /* styling */
+}
+
+selector::after {
+  content: "some content";
+  /* styling */
+}
+
+Example with ::before and ::after 
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .box::before {
+      content: "👉 ";
+      color: green;
+    }
+
+    .box::after {
+      content: " ✅";
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+
+<p class="box">Learn CSS Pseudo-elements</p>
+
+</body>
+</html>
+
+-----------------------------------------------
+
+Day 7
+
+float
+
+The float property is used to position elements to the left or right side of their container, allowing other content to wrap around them — like how text wraps around images in newspapers.
+ 
+selector {
+  float: left | right | none | inherit;
+}
+
+
+Values of float:
+
+
+left	Floats the element to the left
+right	Floats the element to the right
+none	Default. The element does not float
+inherit	Inherits the float value from its parent
+
+placeholder image
+
+http://placeholder.co/"600x100"
+
+ionicicons
+
+background:auto Explains 
+
+
+Drop down Navbar 35.00
+
+----------------------------------------------------
+
+Day - 8 to  Day - 9
+
+
+flex box
+
+container property :
+
+parent
+
+display: flex | flex-inline;
+
+
+Direction property ;
+
+flex-direction: row; Default 
+flex-direction: column;
+
+reverese Direction prop:
+
+flex-direction: row-reverse;
+flex-direction: column-reverse;
+
+wrap :
+
+flex-wrap: nowrap; Default
+flex-wrap: wrap;
+flex-wrap: wrap-reverse;
+
+shorthand:
+
+flex-flow: <flex-direction> <flex-wrap>; 
+
+flex-flow: row nowrap;
+flex-flow: column wrap;
+
+
+gap: <row-gap> <column-gap>;
+    column-gap: 10px;
+    row-gap: 10px;
+    gap: 15px 5px; row column 
+    gap: 10px;
+
+justify-content  
+
+
+flex-direction: row       main-axis (x)
+flex-direction: column    main-axis (y)
+
+
+        flex-direction: row;
+        justify-content: flex-start;
+        justify-content: flex-end;
+        justify-content: center;
+        justify-content: space-around;
+        justify-content: space-evenly;
+        justify-content: space-between; 
+
+
+        height:300px;
+        align-items:stretch;  Default
+        align-items:flex-start;
+        align-items:center;
+        align-items:flex-end;
+        align-items:baseline;
+ 
+
+ 
+flex-direction: row     main-axis (y)
+flex-direction: column    main-axis (x)
+        
+        height: 600px;
+        flex-direction: column;
+        justify-content: flex-start;
+        justify-content: flex-end;
+        justify-content: center;
+        justify-content: space-around;
+        justify-content: space-evenly;
+        justify-content: space-between; 
+
+       
+   
+        align-items:stretch; Default
+        align-items:flex-start;
+        align-items:center;
+        align-items:flex-end;
+        align-items:baseline;
+
+
+       
+
+
+DAy -9
+
+        
+align-content  y (Cross Axis)
+
+        height:500px
+        align-content: stretch;
+        align-content: flex-start;
+        align-content: flex-end;
+        align-content: space-between;
+        align-content: space-around;
+        align-content: space-evenly;
+        align-content: center;
+       
+
+
+
+flex box frooggy
+flex card design 20.00
+
+
+Day 10
+
+
+item properties:
+
+
+1. order
+Controls the order in which flex items appear.
+ 
+.item {
+  order: 2; /* default is 0 */
+}
+
+2. flex-grow
+Defines how much a flex item should grow relative to others.
+
+ 
+.item {
+  flex-grow: 1;
+}
+
+3. flex-shrink
+Defines how much a flex item should shrink if needed.
+
+ 
+.item {
+  flex-shrink: 1;
+}
+
+4. flex-basis
+Defines the initial size of a flex item before space is distributed.
+ 
+.item {
+  flex-basis: 200px;
+}
+
+5. flex
+Shorthand for flex-grow, flex-shrink, and flex-basis.
+
+ 
+.item {
+  flex: 1 1 200px;
+}
+Or simply:
+ 
+.item {
+  flex: 1; /* Same as flex: 1 1 0 */
+}
+
+
+6. align-self  y axis
+Overrides the container’s align-items value for a single item.
+
+.item {
+  align-self: flex-start; /* or center, flex-end, stretch, baseline */
+}
+
+ 
+7 flex: flex-grow,flex-shrink,flex-basic
+ 
+order	        flex item	Controls item position/order
+
+flex-grow	flex item	Controls how item grows
+
+flex-shrink	flex item	Controls how item shrinks
+
+flex-basis	flex item	Sets initial size before 
+
+grow/shrink
+
+flex	         flex item	Shorthand for grow, shrink, basis
+
+align-self	flex item	Aligns item individually
+
+---------------------------------------------------------
+
+Day - 11
+
+
+Vertical Centering 
+
+1. Position
+body {
+  position: relative;
+}
+
+#box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+2.Flex
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+3.Grid
+body {
+  display: grid;
+  place-items: center;
+}
+
+
+Box shadow
+
+
+Normal Shadow : 
+            x    y  blur  color
+box-shadow: 2px 2px 3px red; 
+
+Inset Shadow       x  y   spread  color 
+box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.5);
+
+Multiple Shadow
+             x   y  spread                   x    y
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -2px -2px 4px rgba(255, 0, 0, 0.3);
+
+Glow Shadow
+            x  y  blur
+box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+
+
+box shadow generator
+
+
+transition:
+
+parent:
+
+  transition: 0.5s;
+
+
+child:
+
+        transform: translateX(200px);
+        transform: translateY(200px);
+        transform: translateY(-200px);
+        transform: translateX(-200px);
+          
+shorthand                    
+                               x       y
+        transform: translate(-200px, -200px);
+
+        transform: scaleX(1.5);
+        transform: scaleY(1.5);
+
+shorthand                    
+
+        transform: scale(1.5);
+        transform: scale(2.5);
+
+
+        transform: rotate(360deg);
+        transform: rotate(4turn);
+        transform: rotate(45deg);
+
+  
+ transition: property duration timing-function delay;
+
+        transition: background-color 0.3s ease; 
+
+        transition: background-color 0.3s ease, width 0.5s ease-in-out, height 0.5s ease-in-out;
+  
+        transition: all 0.5s ease-in-out;
+
+timing:
+
+ease: Starts slow, then speeds up, then slows down at the end (default).
+linear: Transition at a constant speed.
+ease-in: Slow at the beginning, then faster.
+ease-out: Fast at the beginning, then slower.
+ease-in-out: A combination of ease-in and ease-out.
+
+cubic-bezier(x1, y1, x2, y2): Custom easing.
+
+cubic-bizar
+
+
+delay :
+
+        transition-property: background-color;
+        transition-duration: 2s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0s;
+
+------------------------------------------------
+
+Day 12 
+
+
+Absolute Units  i want
+
+  1. px 
+  2. cm  => 1cm = 37.8px
+  3. mm  => 1 mm = 0.1cm = 3.78px
+  4. in  => 1in = 2.54cm
+  5. pt  => 1pt = 1/72end of inch => 1.33px
+  6. pc  => 1pc = 12-pt = 16px
+
+Relative Units  related to parent
+ 
+  1. %
+  2. em   = 16px 
+  3. rem  = root em
+  4. vw
+  5. vh
+  6. vmin
+  7. vmax
+  8. ch
+
+
+viewport
+
+        width: 100%;
+        height: auto; 
+
+        width: 100vw;
+        height: 50vh; 
+
+        height: 100vmin;
+        height: 100vmax;
+        
+        vmin min - viewport value
+        vmax max - viewport value 
+        
+
+Gradients in CSS  (multiple colors)
+
+  Linear Gradients :
+
+    horizontally, vertically, or diagonally
+    background: linear-gradient([direction | angle], color-stop1, color-stop2, ...);
+
+    # Direction
+
+      to right (left to right)
+      to left (right to left)
+      to top (bottom to top)
+      to bottom (top to bottom)
+
+    # angle (0-360deg)
+      45deg for a diagonal gradient.
+
+  Radial Gradients :
+
+    radial-gradient([shape size at position], color-stop1, color-stop2, ...);
+
+      Shape
+        circle
+        ellipse (default: ellipse).
+
+      Position
+        center
+        top
+        top left
+        top right
+        bottom
+        bottom left
+        bottom right
+        specific coordinates (e.g., 100px 200px).
+
+
+  Conic Gradients :
+
+
+  -moz-
+  -o-
+  -webkit-
+
+can i use?
+
+css gradiant generator
+
+-----------------------------------------------------
+
+Day 13
+
+col:
+
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-columns: 100px 300px 200px;
+  grid-template-columns: 1fr 1fr 1fr ; 1fr - 33%
+  grid-template-columns: (3fr, 1fr 2fr);
+  grid-template-columns:repeat(4,1fr) ;
+  grid-template-columns:repeat(4,1fr)100px ;
+  grid-template-columns:repeat(3,minmax(200px,1fr)) ;
+
+row:
+
+   display: grid;     
+   grid-template-columns: repeat(3,1fr);
+   grid-template-rows: 100px 150px 200px;
+   grid-template-rows: 1fr;
+   grid-template-rows: 3fr 1fr 2fr;
+
+   grid-template-rows:repeat(4,1fr) ;
+   grid-template-rows:repeat(4,1fr)100px ;
+   grid-template-rows:repeat(3.minmax(200px,1fr)) ;
+
+shorthand:
+                     /* row          col */
+  grid-template: repeat(4,1fr)/ repeat(3,1fr) ;
+
+  gap :
+
+  column-gap: 10px;
+  row-gap: 10px;
+
+   /*     row col */
+  gap: 20px 30px;
+
+  gap:100px;
+
+  /* justify items*/  horizontal  x
+
+    display: grid;
+
+  /* x axis */
+
+  justify-items: stretch;
+  justify-items: flex-start;
+  justify-items: center;
+  justify-items: flex-end;
+  
+  /*  y axis */  vertical  y
+
+  align-items: stretch;
+  align-items: flex-start;
+  align-items: center;
+  align-items: flex-end;
+  align-items: baseline;
+
+  /* shorthand */
+
+               /* align justify */
+  place-items: start center;
+  place-items: center center;
+  place-items: center;
+  place-items: end center;
+
+
+  /* justify content */
+
+  /* x axis */
+
+  justify-content: flex-start;
+  justify-content: center;
+  justify-content: end;
+  justify-content: space-around;
+  justify-content: space-between;
+  justify-content: space-evenly;
+  justify-content: stretch;
+
+  /* align content */
+
+  /* y axis */
+
+  align-content: flex-start;
+  align-content: flex-end;
+  align-content: center;
+  align-content: space-around;
+  align-content: space-between;
+  align-content: space-evenly;
+  align-content: stretch;
+
+Day 14 
+
+
+     /* x-axis */ horizontal 
+
+        justify-content: start;
+        justify-content: center;
+        justify-content: end;
+        justify-content: space-around;
+        justify-content: space-between;
+        justify-content: space-evenly;
+
+        /* y-axis */  vertical
+
+        align-content: start;
+        align-content: center;
+        align-content: end;
+        align-content: space-around;
+        align-content: space-between;
+        align-content: space-evenly;
+
+        /* align-content  justify-content*/
+
+        place-content: start end;
+        place-content: center center;
+        place-content: center;
+
+grid-auto-flow:
+
+        display: grid;
+                               col 1  col 2
+        grid-template-columns: 300px 300px;
+        grid-template-rows: 300px 200px; row 1  row 2
+
+        grid-auto-flow: row;  default
+
+        grid-auto-rows: 100px; Balance row
+        grid-auto-flow: column; Balance col
+
+        grid-auto-columns: 100px; balance col
+
+repeat:
+
+       display: grid;
+ 
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr)1fr;
+        grid-template-columns: repeat(2fr, 1fr,2fr);
+
+auto-fill
+
+        grid-template-columns: repeat(auto-fill, 150px); 
+
+cards design ku important:
+
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        
+auto-fit 
+
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+
+cards design ku important:
+
+
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+
+ 
+food website 35.00
+https://docs.emmet.io/cheat-sheet/
+
+Day 15
+
+grid span
+
+   display: grid;
+        grid-template: repeat(3, 200px) / repeat(3, 200px);
+      }
+
+      .box-1 {
+        grid-column-start: 1;
+        /* grid-column-end: 4; */
+        grid-column-end: span 3;
+      }
+
+      .box-2 {
+        grid-row-start: 2;
+        grid-row-end: span 2;
+
+
+  justify-self: stretch; /* X axis */
+        justify-self: start;
+        justify-self: center;
+        justify-self: end;
+
+        align-self: stretch; /* Y axis */
+        align-self: start;
+        align-self: center;
+        align-self: end;
+
+        /* align-self  justify-self*/
+        place-self: start end;
+        place-self: center end;
+        place-self: center center;
+        place-self: center;
+
+grid-area: 25.00
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Rubik", sans-serif;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 50px 200px 1fr 200px 50px;
+
+        grid-template-areas:
+          "navbar navbar navbar"
+          "header header header"
+          "sidebar main  main"
+          "section1 section2 section3"
+          "footer footer footer";
+      }
+
+      #navbar,
+      #header,
+      #sidebar,
+      #main,
+      #section1,
+      #section2,
+      #section3,
+      #footer {
+        background-color: orangered;
+        color: white;
+        padding: 20px;
+        border: 1px solid white;
+      }
+      #navbar {
+        grid-area: navbar;
+      }
+      #header {
+        grid-area: header;
+      }
+      #sidebar {
+        grid-area: sidebar;
+      }
+      #main {
+        grid-area: main;
+      }
+      #section1 {
+        grid-area: section1;
+      }
+      #section2 {
+        grid-area: section2;
+      }
+      #section3 {
+        grid-area: section3;
+      }
+      #footer {
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">Navigation</div>
+    <div id="header">Header</div>
+    <div id="sidebar">Sidebar</div>
+    <div id="main">Main Content</div>
+    <div id="section1">Section</div>
+    <div id="section2">Section</div>
+    <div id="section3">Section</div>
+    <div id="footer">Footer</div>
+  </body>
+</html>
+
+---------------------------------------------
+
+Day 16
+
+form property's 
+
+form designs
+forget
+login
+password register
+
+------------------------------------------------
+
+Day 17
+
+signup
+
+--------------------------------------------------
+
+Day 18
+
+transform
+
+  
+
+    -X Left
+    +X Right
+    -Y Top 
+    +Y Bottom
+
+    transform: translate(X, Y);
+
+    ----------------------------------------------
+    transform: translateX(125px);
+    transform: translateY(125px);
+    transform: translateX(-125px);
+    transform: translateY(-125px);
+    transform: translateX(125px) translateY(125px);
+
+    transform: translateX(125px);
+    transform: translateY(125px);
+    transform: translateZ(805px);
+    ----------------------------------------------
+
+
+    transform: scale(times for both x,y);
+    transform: scaleX(times of width);
+    transform: scaleY(times of height);
+    transform: scale(1.5); => enlarge it to 1.5 times of its original
+
+
+    transform: scale(1.5); 1 =100%
+    transform: scale(0.5);
+    transform: scaleX(2);
+    transform: scaleY(2);
+    transform: scaleX(2) scaleY(2);
+    transform: scale(2);
+    transform: scale(0.5) translateX(250px);
+    
+     size (both x & Y)
+
+       transform: rotateX(160deg);
+        transform: rotateY(160deg);
+        transform: rotateY(360deg);
+        transform: rotateY(2turn);
+        transform: rotateZ(160deg);
+        transform: rotate(160deg); 
+
+
+        transform: skewX(10deg);
+        transform: skewX(-50deg);
+        transform: skewY(10deg);
+        transform: skewY(-10deg);
+        transform: skew(20deg, 10deg) rotate(60deg);
+
+      
+      transfrom-origin: top left;
+      transfrom-origin: top right;
+      transfrom-origin: bottom left;
+      transfrom-origin: center center;
+
+
+
+  
+spinners
+rotating
+bounce
+nav animation skew 
+
+---------------------------------------------
+
+Day 19
+
+Wave Text Effect
+Button Effect
+Pendulum Clock Animation
+Infinite Scrolling Background
+
+.box{
+   width:250px;
+   height:250px;
+   background-image:url();
+   animation:scroll 10s linear infinite;
+
+@keyftames scroll{
+0%{
+background-positiob: 0 0;
+}
+100%{
+background-positiob: -800px 0;
+
+}
+
+image compressor online
+animated.css
+
+
+
+matrix 
+
+matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY()).
+
+
+---------------------------------------------------
+
+Day 20
+
+
+animation
+
+        animation-name: sample;
+        animation-duration: 5s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: 2;
+        animation-direction: normal;
+        animation-direction: reverse;
+        animation-direction: alternate;
+        animation-direction: alternate-reverse;
+
+  @keyframes sample {
+        0% {
+          background-color: orangered;
+          transform: translateX(0);
+        }
+        25% {
+          background-color: green;
+          transform: translateX(300px);
+        }
+        50% {
+          background-color: rebeccapurple;
+          transform: translateX(300px) translateY(300px);
+        }
+        75% {
+          background-color: olivedrab;
+          transform: translateX(0) translateY(300px);
+        }
+        100% {
+          background-color: blue;
+          transform: translateY(0);
+        }
+      }
+
+fillmode
+
+        animation-fill-mode: forwards
+        animation-fill-mode: backwards;
+        animation-fill-mode: none; default
+     
+
+progress
+
+ripple
+
+
+-------------------------------------------------------------------
+
+Day 21
+
+animation
+
+clock
+
+heart
+
+color squares
+
+rotate squares
+
+step
+
+squares
+
+
+css shapes 
+
+---------------------------------------------------------------
+
+Day 22
+
+list and counters :
+
+
+ordered  list   1 | a | A | i |I
+
+unordered list  Disc | square | circle
+
+description list 
+
+list properties :
+
+        list-style-type: none;
+        list-style-type: disc;
+        list-style-type: circle;
+        list-style-type: square;
+
+        list-style-type: decimal;
+        list-style-type: decimal-leading-zero;
+        list-style-type: lower-alpha;
+        list-style-type: upper-alpha;
+        list-style-type: lower-roman;
+        list-style-type: upper-roman;
+        list-style-type: lower-greek;
+        list-style-image: url("img.gif");
+
+         
+        list-style-position: inside;
+        list-style-position: outside; /* (default) */
+
+markers :
+
+        li::marker {
+        color: red;
+        font-size: 18px;
+        content: "➤ ";
+      }
+
+counters :
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ol {
+        list-style: none;
+        counter-reset: chapter;
+      }
+
+      li {
+        counter-increment: chapter;
+      }
+
+      li::before {
+        content: "Chapter " counter(chapter) ": ";
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>CSS animations</li>
+      <ol>
+        <li>Transform</li>
+        <li>Timing Function</li>
+        <li>Delay</li>
+      </ol>
+      <li>CSS backgrounds</li>
+      <li>CSS combinators</li>
+      <li>CSS comments</li>
+      <li>CSS display</li>
+    </ol>
+    <ol>
+      <li>CSS animations</li>
+      <li>CSS backgrounds</li>
+      <li>CSS combinators</li>
+      <li>CSS comments</li>
+      <li>CSS display</li>
+    </ol>
+  </body>
+</html>
+
+nested list  ( counters )
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ol {
+        counter-reset: section;
+        list-style: none;
+      }
+      ol li::before {
+        content: counters(section, ".") ". ";
+        counter-increment: section;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>Table of Content</h4>
+    <ol>
+      <li>Item</li>
+      <ol>
+        <li><a href="#">Subitem</a></li>
+        <li>Subitem</li>
+      </ol>
+      <li>Item</li>
+      <ol>
+        <li>Subitem</li>
+        <li>Subitem</li>
+        <li>Subitem</li>
+        <li>Subitem</li>
+        <ol>
+          <li>Subitem</li>
+          <li>Subitem</li>
+        </ol>
+      </ol>
+    </ol>
+  </body>
+</html>
+
+
+    <style>
+      @counter-style emoji {
+        system: cyclic;
+        symbols: 💁 👌 🎍 😍;
+        suffix: " ";
+      }
+      ul {
+        list-style: emoji;
+      }
+    </style>
+
+   <ul>
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Pineapple</li>
+      <li>Mango</li>
+      <li>Grapes</li>
+    </ul>
+
+Day 23
+
+description list 
+
+ design 1
+
+custom scrollbar
+
+/* width */
+.stack::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.stack::-webkit-scrollbar-track {
+  background: #30336b;
+}
+
+/* Handle */
+.stack::-webkit-scrollbar-thumb {
+  background: #eb4d4b;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.stack::-webkit-scrollbar-thumb:hover {
+  background: #f4423f;
+}
+
+.stack > dl {
+  margin: 0 0 1rem;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  align-items: center;
+}
+
+design 2
+
+list road map type design  custom data
+
+
+-------------------------------------------------------------------
+
+Day 24
+
+tables
+
+border : 1px solid red;
+border-collapse:collapse;
+
+caption-side : TOP | BOTTOM
+
+text-align: RIGHT | LEFT | CENTER
+
+vertical-align : sup | super | center | middle |top | bottom
+
+
+data.table 
+
+
+-------------------------------------------------------------------
+
+Day 25
+
+custom select
+
+appearance : none
+
+custom check box
+
+
+custom radio 
+
+custom range
+
+
+---------------------------------------------------------------
+
+Day 26
+
+
+miscellaneous  :
+
+ clip-path generator
+
+ css shapes
+ 
+
+clip-path :
+
+ syn : clip-path: circle(radius at cx cy); 
+            cx cy px or %
+            left,top,right, bottom
+
+      .circle {
+       
+                          radius    x    y
+        clip-path: circle(50px at 50px 50px);
+
+                                   position
+        clip-path: circle(50px at right bottom);
+                                   
+                                  centering
+        clip-path: circle(50px at 50% 50%);
+      }
+
+
+      .ellipse {
+
+        /*2 radius : rx,ry*/
+
+                            radius       radius
+        clip-path: ellipse(80px 50px at 50% 50%);
+        clip-path: ellipse(80px 50px at center);
+        clip-path: ellipse(40% 50% at center);
+      }
+
+
+      .inset {  inside  padding type
+
+        /* 
+        clip-path:inset(top right bottom left round(border-radius))
+
+      */   
+                          t    r    b    l   border-radius
+        clip-path: inset(20px 30px 40px 10px round 10px);
+        clip-path: inset(20px 30px 40px 10px round 20px 0);
+        clip-path: inset(20px 30px 40px 10px);
+        clip-path: inset(20px);
+      }
+
+      .polygon {
+
+        /*  
+          custom shape
+          clip-path:polygon(x1 y1,x2 y2, ....) px % etc
+        */
+
+                            x y   x   y   x y     x   y   multipe values
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        clip-path: polygon(52% 0, 0 100%, 100% 100%);
+        clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      }
+
+path:
+
+      .path {
+        /*
+               M - Start Draw
+               L Stright line
+               A Curve  => (rx,ry x-axis-rotation,large-arc-flag,sweep-flag)
+               C
+            Z - End Draw
+
+        */
+        clip-path: path("M100 30 C 60 0, 0 50, 100 170 C 220 50, 130 0, 100 30 Z");
+
+        clip-path: path("M 0 60,10 50,90 50,100 40,100 10,110 0 ,190 0,200 10,200 190, 190 200,10 200,0 190 Z");
+
+        clip-path: path(" M 0 60 A 10,10 0,0,1 10 50 L 90 50 A 10,10 0,0,0 100 40 L 100 10 A 10,10 0,0,1 110 0 L 190 0 A 10,10 0,0,1 200 10 L 200 190 A 10,10 0,0,1 190 200 L 10 200 A 10,10 0,0,1 0 190 Z");
+      }
+
+---------------
+Cursor
+
+    
+        cursor: default;
+        
+        cursor: pointer;
+     
+     
+        cursor: wait;
+  
+        cursor: text; 
+
+        cursor: move;
+      
+        cursor: not-allowed;
+      
+        cursor: url("cursor.png"), auto;
+
+-------------------------
+
+visibility :
+
+visibblity:visible
+
+visibility:hidden
+  
+
+----------------------
+Overflow
+
+     
+        overflow: visible;
+      
+      
+        overflow: hidden;
+      
+
+      
+        overflow: scroll;
+     
+      
+        overflow: auto;
+      
+
+-------------------------------
+filter
+
+  img {
+        filter: none;
+        filter: blur(5px);
+        filter: grayscale(100%);
+        filter: brightness(0.1);
+        filter: contrast(200%);
+        filter: saturate(200%);
+        filter: Opacity(25%);
+        filter: hue-rotate(90deg);
+        filter: drop-shadow(16px 16px 20px blue);
+        filter: invert(100%);
+      }
+
+-----------------------
+object-fit
+ 
+        object-fit: fill;
+    
+      
+        object-fit: contain;
+      
+       
+        object-fit: cover;
+      
+       
+        object-fit: none;
+      
+      
+        object-fit: scale-down;
+      
+
+Stretches image to fill the box, may distort it 
+Fits the whole image inside box, may leave empty space.
+Fills box completely, image cropped to fit. 
+Shows image at original size (800x800), overflows box.
+Behaves like none or contain, whichever is smaller.
+
+------------------------
+
+resize
+
+   <h1>CSS <code>resize</code> Property Examples</h1>
+
+    <div class="example">
+      <h2>1. Resizable Textarea (both)</h2>
+      <textarea style="resize: both; width: 300px; height: 100px">
+Resizable in both directions
+    </textarea
+      >
+    </div>
+
+    <div class="example">
+      <h2>2. Vertical Resize Only</h2>
+      <textarea style="resize: vertical; width: 300px; height: 100px">
+Only vertical resizing
+    </textarea
+      >
+    </div>
+
+    <div class="example">
+      <h2>3. Horizontal Resize Only</h2>
+      <textarea style="resize: horizontal; width: 300px; height: 100px">
+Only horizontal resizing
+    </textarea
+      >
+    </div>
+
+    <div class="example">
+      <h2>4. Resize Disabled</h2>
+      <textarea style="resize: none; width: 300px; height: 100px">
+Resize is disabled
+    </textarea
+      >
+    </div>
+
+    <div class="example">
+      <h2>5. Resizable Div</h2>
+      <div class="resizable-box">This div is resizable both horizontally and vertically. You can add content and scroll inside if it overflows.</div>
+    </div>
+
+------------------------
+
+user-select
+
+<h1>CSS <code>user-select</code> Property</h1>
+
+    <div class="box none">
+      <strong>user-select: none;</strong><br />
+      You <b>cannot</b> select this text.
+    </div>
+
+    <div class="box text">
+      <strong>user-select: text;</strong><br />
+      You can select this text freely, just like normal behavior.
+    </div>
+
+    <div class="box all">
+      <strong>user-select: all;</strong><br />
+      Click and drag any part — the <b>entire content</b> is selected.
+    </div>
+
+    <div class="box auto">
+      <strong>user-select: auto;</strong><br />
+      This uses the browser's default selection behavior.
+    </div>
+
+------------------------------
+
+Day 27
+
+opacity: 0 |  1 ; 
+visibility: visible;
+visibility: hidden; 
+display : none;
+
+
+toggle design Accordion 
+
+Advanced Layout and Spacing
+
+gap
+row-gap
+column-gap
+aspect-ratio
+inset    
+min-width
+max-width
+min-height 
+max-height 
+
+box declaration:
+
+        box-decoration-break: slice; default
+        box-decoration-break: clone; 
+
+aspect-ratio :
+
+box - squre set panna
+
+        aspect-ratio: 1/1; w/h
+        aspect-ratio: 35%; w/h
+        aspect-ratio: 3/1;
+        aspect-ratio: 9/16;
+        aspect-ratio: 16/9;
+
+inset:  margin padding pola
+
+        inset: 5px 10px 15px 30px; /* T R B L */
+        inset: 20px 40px; /* TB LR*/
+        inset: 20px 0 40px; /* T RL B */
+        inset: 50p
+
+
+------------------------------------------------
+
+Day-28
+
+width -  auto - 100%  - default 
+height - auto - 100% - default 
+
+max-width 
+
+maximum 500px
+
+content kammiyaa irundhalum athikam irundhalum 500px  mela poga koofathu ... 500px width maintain pannum
+
+content 500px mela extre irundga overflow  agum.
+
+min-width 100px
+
+content kamiya irundhalum athikkam irundhalum 100px maintain pannum
+
+content 100px mela ponna container or div expand agum
+
+
+max-height  500px
+
+500px height maintain pannum ..500px mela pona overflow agum
+ 
+min-height 
+
+
+content irundhalum illanalum 500px height maintain pannum ..500px mela pona expend agum
+
+---------------------
+
+columns anfd multi-column layout
+
+columns :
+
+column-width :
+
+            column-count: 4;
+            column-width: 250px;
+
+
+shorthand :
+
+            columns: 4 250px;
+            columns: 4;
+            columns: 250px;
+            columns: 250px 4;
+
+
+column-count:
+          column-count: 4;
+
+
+column-rule :  
+        column-rule: 2px dashed green;
+        column-rule-width: 3px;
+        column-rule-color: brown;
+        column-rule-style: double;
+
+column gap :
+            column-gap: 32px;
+            gap
+
+column-span :
+          column-span: none;
+          column-span: all;
+
+column-fill :
+        column-fill: balance;
+        column-fill: auto;
+
+fixed heightku use agum .. content full aa 300px fill pannittu.next coumn pogum
+
+Day 29
+      
+print time use agum  ctrl + p
+
+<link rel="stylesheet" media="print" href="print.css" />
+
+
+break-before  (print pg)
+
+  break-before: avoid;
+  break-before: page; 
+  break-after: page;
+
+column pg :
+
+  break-inside:auto;
+  break-inside:avoid;
+
+ 
+  break-before: column; 
+  break-after: column;
+
+
+break-after
+break-inside
+
+---------------------
+
+Advanced Background and Borders
+
+
+background-blend-mode
+
+        background-size: cover;
+
+        background-image:url("1.jpg"), url("girl.jpg");
+
+        background-image: linear-gradient(to right, #12c2e9, #c471ed, red), url("1.jpg"), url("girl.jpg");
+        background-blend-mode: overlay;
+
+
+        background-blend-mode: multiply;
+        background-blend-mode: screen;
+        background-blend-mode: hard-light;
+        background-blend-mode: color-dodge;
+        background-blend-mode: soft-light;
+
+    background-blend-mode: hard-light, color-burn, overlay; 
+
+
+
+background-clip ;
+
+   padding-box
+   border-box
+   content-box
+
+        background-clip: padding-box;
+        background-clip: border-box;
+        background-clip: content-box;
+
+   text
+          
+        font-size: 500px;
+        background-image: linear-gradient(to right, #12c2e9, #c471ed, red);
+        background-image: url("girl.jpg");
+        color: transparent;
+        background-clip: text;
+
+
+
+background-origin :
+
+   padding-box
+   border-box
+   content-box
+
+       background-origin: padding-box; /* Default */
+        background-origin: content-box;
+        background-origin: border-box;
+
+border-image :
+
+      border-image-source
+      border-image-slice
+      border-image-width
+      border-image-repeat
+      border-image-outset
+      border-image
+
+border-image:source | slice | width | outset | repeat
+
+        border-image-source: url("heart.png");
+
+        border-image-slice: 260 200;
+        border-image-slice: 260;
+        border-image-repeat: stretch;
+        border-image-repeat: repeat;
+        border-image-repeat: round;
+        border-image-repeat: space;
+        border-image-repeat: space stretch;
+        border-image-repeat: round;
+
+        background-color: bisque;
+        margin: auto;
+        border-image-outset: 10px;
+        border-image-width: 25px;
+
+        border-image: url("border1.png") 25 / 25px / 5px round;
+
+
+        border-image-source: url("heart.png");
+
+        border-image-slice: 260 200; w/h
+        border-image-slice: 260;
+        border-image-repeat: stretch;
+        border-image-repeat: repeat;
+        border-image-repeat: round;
+        border-image-repeat: space;
+        border-image-repeat: space stretch;
+        border-image-repeat: round;
+
+        background-color: bisque;
+        margin: auto;
+        border-image-outset: 10px;
+        border-image-width: 25px;
+
+        border-image: url("border1.png") 25 / 25px / 5px round;
+
+
+
+border-spacing :
+
+  table {
+        background-color: #f9f9f9;
+        border-spacing: 15px;
+        border-spacing: 20px 10px; /* 20px horizontal, 10px vertical */
+        border-spacing: 0px;
+      }
+
+
+outline :
+
+       outline
+       outline-style
+       outline-width
+       outline-color
+       outline-offset
+
+
+   div {
+        width: 200px;
+        height: 100px;
+        background-color: aliceblue;
+        border: 2px solid blue;
+
+        outline-style: solid;
+        outline-width: 3px;
+        outline-color: red;
+
+        outline: 3px solid red;
+        outline-offset: 5px;
+        outline-offset: -5px;
+      }
+
+-----------------------------------------
+
+Day-30
+
+Text and Font Details :
+    
+      font-variant - font-variant : Small-caps
+      font-size-adjust - font-size-adjust :0.5
+      text-indent - text-indent 
+      text-overflow - clip | ellipsis 
+
+    p {
+      line-clamp: 4; /* New syntax */
+      }
+
+ text-shadow -  text-shadow: h-shadow v-shadow blur-radius color;
+ word-break -  word-wrap: normal -break-word - keep-all- break-all; 
+      word-wrap
+ hyphens -  hyphens: none | hyphens: auto
+
+
+text shadow css
+
+
+Color and Visual Effects :
+    
+ accent-color :
+    
+    input {
+        accent-color: #ff5722;
+      }
+
+
+ mix-blend-mode
+
+        mix-blend-mode: difference;
+        mix-blend-mode: color-burn;
+        mix-blend-mode: darken;
+        mix-blend-mode: color-dodge;
+        mix-blend-mode: exclusion;
+        mix-blend-mode: hard-light;
+        mix-blend-mode: hue;
+        mix-blend-mode: luminosity; 
+
+      isolation
+      backdrop-filter
+
+         backdrop-filter: brightness(60%);
+        backdrop-filter: contrast(40%);
+        backdrop-filter: drop-shadow(4px 4px 10px blue);
+        backdrop-filter: grayscale(30%);
+        backdrop-filter: hue-rotate(120deg);
+        backdrop-filter: invert(70%);
+        backdrop-filter: opacity(20%);
+        backdrop-filter: sepia(90%);
+        backdrop-filter: saturate(80%);
+        backdrop-filter: blur(5px);
+
+      color-scheme
+
+
+------------------------------------------------------
+
+Day 31
+
+css Final task explanation
+
+membwe card
+
+----------------------------------------------
+
+Day 32
+
+css variables 
+
+:root {
+    --primary-color: #6d66d5;
+     --margin: 25px;
+      }
+ h1 {
+    color: var(--primary-color); 
+     margin-bottom: var(--margin);
+      }
+
+1st priority  = container(parent) next body 
+inherit marri work agum root la values illana.
+
+fafault value - browser
+
+
+Dark theme:
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --bg-color: white;
+        --text--color: black;
+      }
+
+      .dark-mode {
+        --bg-color: #121212;
+        --text--color: #e0e0e0;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text--color);
+      }
+    </style>
+  </head>
+  <body>
+    <button>Toggle Theme</button>
+    <h1>Sample Headings</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nam culpa, magnam in adipisci est vero eos rerum, dignissimos, mollitia id quis expedita laboriosam libero quam tempore sit nostrum quo.</p>
+
+    <script>
+      const btn = document.querySelector("button");
+      const body = document.querySelector("body");
+      btn.innerHTML = body.classList.contains("dark-mode") ? "Switch to Light" : "Switch to Dark";
+      btn.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        btn.innerHTML = body.classList.contains("dark-mode") ? "Switch to Light" : "Switch to Dark";
+      });
+    </script>
+  </body>
+</html>
+
+--------------------
+
+writing modes and text orientation:
+
+writing modes:
+
+writing modes : Horizontal (Default) |  vertical-rl | vertical-lr |
+sideways-rl |  sideways-lr
+
+
+---------------------
+
+text orientation:
+
+
+text orientation: mixed  | upright | sideways 
+  
+-------------------
+
+direction:
+
+direction :  ltr | rtl;
+
+-------------------------------------------
+
+Day -33
+
+media queries :
+
+1st laptop ku web design panna...mobile response ku max-width
+
+mobile device ist web design panna .. laptop ku min-width
+
+
+
+Breakpoint	       Class             infix	                     Dimensions
+
+Extra                  small	          None	                     1px    to 575px
+Small                  sm	                                     576px  to 767px
+Medium	               md	                                     768px  to 991px
+Large	               lg	                                     992px  to 1199px
+Extra large	       xl	                                     1200px to 1399px
+Extra extra large      xxl	                                     1400px to max
+
+
+@media screen and (max-width: 767px) {
+  body {
+    background-color: tomato;
+  }
+  main {
+    flex-direction: column;
+  }
+  .content-box,
+  .sidebar {
+    flex: auto; --- full width
+  }
+}
+
+
+@media screen and (max-width: 479px) {
+  body {
+    background-color: lightgreen;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  } 
+
+
+
+@media print {    ctrl + p
+  body {
+    background-color: #fff;
+    color: #333;
+  }
+  header,
+  footer,
+  .sidebar {
+    display: none;
+  }
+  .content-box {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+Google fonts icon
+
+hamburg navebar 25.00
+
+svg{
+fill:white ;
+}
+
+

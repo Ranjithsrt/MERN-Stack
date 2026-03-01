@@ -1,0 +1,18 @@
+button {
+  padding: 4px 8px;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+button.btnAdd {
+  background-color: purple;
+  margin-left: 10px;
+}
+button.btnDel {
+  background-color: red;
+}
+
+button.btnEdit {
+  background-color: blue;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Iterating Over Objects
+      const fruit = {
+        name: "Apple",
+        color: "Red",
+        weight: 150,
+      };
+      //1 for...in Loop
+      for (let key in fruit) {
+        console.log(`${key}  : ${fruit[key]}`);
+      }
+      //2. Object.keys(), Object.values(), Object.entries()
+      console.log(Object.keys(fruit));
+      console.log(Object.values(fruit));
+      console.log(Object.entries(fruit));
+
+      Object.entries(fruit).forEach(([key, value]) => {
+        console.log(key, value);
+      });
+
+      //Object Prototypes and Inheritance
+      const animal = {
+        makeSound: function () {
+          console.log("Animal Sound");
+        },
+      };
+
+      animal.makeSound();
+      const cat = Object.create(animal);
+      cat.name = "Rocky";
+      cat.color = "Black";
+      cat.makeSound = function () {
+        console.log("Meow");
+      };
+      console.log(cat);
+
+      //Common Methods
+      const obj1 = { a: 1 };
+      const obj2 = { b: 2 };
+
+      const merged = Object.assign(obj1, obj2, {});
+      console.log(merged);
+
+      const freezeObj = Object.freeze({ name: "Joes", city: "Salem" });
+      freezeObj.name = "Ram";
+      freezeObj.gender = "Male";
+      console.log(freezeObj);
+
+      const normalObj = { name: "Joes", city: "Salem" };
+      normalObj.name = "Ram";
+      normalObj.gender = "Male";
+      console.log(normalObj);
+
+      const sealedObj = Object.seal({ name: "Joes", city: "Salem" });
+      sealedObj.name = "Ram";
+      sealedObj.gender = "Male";
+      console.log(sealedObj);
+
+      console.log(sealedObj.hasOwnProperty("name"));
+      console.log(sealedObj.hasOwnProperty("gender"));
+
+      console.clear();
+
+      //Nested Object
+      const college = {
+        name: "SRM College",
+        location: {
+          city: "Chennai",
+          country: "India",
+        },
+        employees: [
+          { name: "Tiya", role: "Developer", city: "Salem" },
+          { name: "Geetha", role: "Faculty", city: "Banglore" },
+        ],
+      };
+      console.log(college);
+      console.log(college.location.city);
+      console.log(college.employees[0].name);
+
+      //Destructuring Objects
+      const { name, location: address } = college;
+      console.log(name);
+      console.log(address);
+
+      const numbers = [10, 20, 30];
+      const [a, b, c] = numbers;
+      console.log(a);
+      console.log(b);
+      console.log(c);
+    </script>
+  </body>
+</html>

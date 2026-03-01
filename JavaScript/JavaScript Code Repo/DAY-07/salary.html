@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      3. If his basic salary is less than Rs. 1500, then HRA = 10% of basic salary and DA = 90% of basic salary. If his salary is either equal to or above Rs. 1500, then HRA = Rs. 500 and DA = 98% of basic salary. If the employee's salary is input through the keyboard write a program to find his
+      gross salary
+    </p>
+
+    <script>
+      const basicSalary = 1253;
+      if (basicSalary < 1500) {
+        hra = basicSalary * 0.1;
+        da = basicSalary * 0.9;
+      } else {
+        hra = 500;
+        da = basicSalary * 0.98;
+      }
+      const grossSalary = basicSalary + hra + da;
+
+      console.log(`Basic Salary : ${basicSalary.toFixed(2)}`);
+      console.log(`HRA          : ${hra.toFixed(2)}`);
+      console.log(`DA           : ${da.toFixed(2)}`);
+      console.log(`Gross Salary : ${grossSalary.toFixed(2)}`);
+    </script>
+  </body>
+</html>

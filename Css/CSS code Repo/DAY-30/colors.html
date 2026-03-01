@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 30px;
+        background-image: url("girl.jpg");
+      }
+      input {
+        accent-color: #ff5722;
+      }
+
+      .circles {
+        width: 220px;
+        height: 200px;
+        border: 1px solid #ccc;
+        position: relative;
+        isolation: auto;
+        isolation: isolate;
+      }
+      .circle {
+        position: absolute;
+        width: 150px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        top: 0;
+        mix-blend-mode: difference;
+        /* mix-blend-mode: color-burn;
+        mix-blend-mode: darken;
+        mix-blend-mode: color-dodge;
+        mix-blend-mode: exclusion;
+        mix-blend-mode: hard-light;
+        mix-blend-mode: hue;
+        mix-blend-mode: luminosity; */
+      }
+      .circle:first-child {
+        background-color: #f1c40f;
+        left: 0;
+      }
+      .circle:last-child {
+        background-color: #d35400;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Color and Visual Effects</h1>
+    <ul>
+      <li>accent-color</li>
+      <li>mix-blend-mode</li>
+      <li>isolation</li>
+      <li>backdrop-filter</li>
+      <!-- <li>color-scheme</li> -->
+    </ul>
+
+    <!-- accent-color -->
+    <input type="checkbox" checked />
+    <input type="radio" checked />
+    <input type="range" />
+    <!--- mix-blend-mode -->
+
+    <div class="circles">
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </body>
+</html>

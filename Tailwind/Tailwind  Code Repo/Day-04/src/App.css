@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@font-face {
+  font-family: "Lobster";
+  src: url("../src/assets/Lobster-Regular.ttf");
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-doto:"Doto", sans-serif;
+  --font-lobster: "Lobster", sans-serif;
+}
+
+#title {
+  font-size: 30px;
+  font-weight: 500;
+  color: brown;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

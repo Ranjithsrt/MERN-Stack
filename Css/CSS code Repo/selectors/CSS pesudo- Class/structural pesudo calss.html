@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Structural Pseudo-classes</title>
+
+    <!-- nth first child and last child -->
+    <style>
+        div {
+            background-color: burlywood;
+            padding: 10px;
+        }
+
+        li:first-child {
+            color: red;
+        }
+
+        p:first-child {
+            color: red;
+        }
+
+        li:last-child {
+            color: green;
+        }
+
+        p:last-child {
+            color: green;
+        }
+    </style>
+
+    <!-- nth child and last child -->
+    <style>
+        /*
+        li:nth-child(2) {
+          color: blue;
+        }
+      */
+        /*
+      n->0,1,2......
+      2n 
+        2*0=0
+        2*1=2
+        2*2=4
+        2*3=6
+      3n
+        3*0=0
+        3*1=3
+        3*2=6
+
+      2n+1
+        2*0+1=1
+        2*1+1=3
+        2*2+1=5
+*/
+        /*
+      li:nth-child(odd) {
+        color: blue;
+      }
+      li:nth-child(even) {
+        color: red;
+      }
+      p:nth-child(odd) {
+        color: red;
+      }
+      */
+
+        li:nth-last-child(1) {
+            color: red;
+        }
+
+        p:nth-last-child(1) {
+            color: red;
+        }
+
+        /*  */
+
+        div {
+            background-color: burlywood;
+            padding: 10px;
+        }
+
+        li:only-child {
+            color: blue;
+        }
+
+        p:only-child {
+            color: blue;
+        }
+    </style>
+
+    <!-- nth-of-type & nth-last-of-type -->
+
+    <style>
+        /* nth-of-type & nth-last-of-type*/
+
+        div {
+            background-color: burlywood;
+            padding: 10px;
+        }
+
+        /*
+      p:nth-of-type(1) {
+        color: red;
+      }
+      p:nth-of-type(3) {
+        color: blue;
+      }
+
+      */
+    </style>
+
+    <!-- first-of-type & last-of-type -->
+
+    <style>
+        p:nth-last-of-type(1) {
+            color: red;
+        }
+
+        li:nth-last-of-type(2) {
+            color: red;
+        }
+    </style>
+
+    <!-- only-of-type -->
+    <style>
+        p:only-of-type {
+            color: red;
+        }
+
+        li:only-of-type {
+            color: blue;
+        }
+
+        span:only-of-type {
+            color: orangered;
+        }
+    </style>
+
+    <!-- first-of-type & last-of-type  -->
+
+    <style>
+        div {
+            background-color: burlywood;
+            padding: 10px;
+        }
+
+        p:first-of-type {
+            color: red;
+        }
+
+        p:last-of-type {
+            color: blue;
+        }
+    </style>
+    <!--  Empty Pseudo Classes -->
+    <style>
+        div:empty {
+            background-color: #f1f1f1;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Structural Pseudo-classes</h1>
+    <h3>:first-child :last-child</h3>
+    <ul>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Pineapple</li>
+        <li>Banana</li>
+        <li>Mango</li>
+        <li>Watermelon</li>
+        <li>Papaya</li>
+    </ul>
+    <p>
+        P-1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+    <p>
+        P-2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+    <p>
+        P-3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+    <ul>
+        <li>Pencil</li>
+        <li>Pen</li>
+        <li>Eraser</li>
+        <li>Book</li>
+        <li>Ball</li>
+        <li>Stabler</li>
+        <li>Box</li>
+        <li>Compass</li>
+    </ul>
+    <div>
+        <p>
+            P-1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+        <p>
+            P-2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+        <p>
+            P-3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+    </div>
+
+    <!-- nth-child and nth-last-child  -->
+
+    <h1>Structural Pseudo-classes</h1>
+    <h3>:nth-child() :nth-last-child()</h3>
+    <ul>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Pineapple</li>
+        <li>Banana</li>
+        <li>Mango</li>
+        <li>Watermelon</li>
+        <li>Papaya</li>
+    </ul>
+    <p>
+        P-1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+    <p>
+        P-2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+    <p>
+        P-3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+    <ul>
+        <li>Pencil</li>
+        <li>Pen</li>
+        <li>Eraser</li>
+        <li>Book</li>
+        <li>Ball</li>
+        <li>Stabler</li>
+        <li>Box</li>
+        <li>Compass</li>
+    </ul>
+    <div>
+        <p>
+            P-1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+        <p>
+            P-2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+        <p>
+            P-3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+    </div>
+
+    <h1>Structural Pseudo-classes</h1>
+    <h3>:nth-of-type() :nth-last-of-type()</h3>
+    <p>
+        P-1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+
+    <div>
+        <p>
+            P-1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+        <p>
+            P-2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+        <p>
+            P-3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+    </div>
+
+    <ul>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Pineapple</li>
+        <li>Banana</li>
+        <li>Mango</li>
+        <li>Watermelon</li>
+        <li>Papaya</li>
+    </ul>
+
+    <p>
+        P-2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+    <p>
+        P-3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+
+    <ul>
+        <li>Pencil</li>
+        <li>Pen</li>
+        <li>Eraser</li>
+        <li>Book</li>
+        <li>Ball</li>
+        <li>Stabler</li>
+        <li>Box</li>
+        <li>Compass</li>
+    </ul>
+    <!--  -->
+
+    <h1>Structural Pseudo-classes</h1>
+    <h3>:only-child</h3>
+
+    <p>
+        P-1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+
+    <div>
+        <p>
+            P-1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+    </div>
+
+    <ul>
+        <li>Apple</li>
+    </ul>
+
+    <p>
+        P-2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+    <p>
+        P-3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+
+    <ul>
+        <li>Pencil</li>
+        <li>Pen</li>
+        <li>Eraser</li>
+        <li>Book</li>
+        <li>Ball</li>
+        <li>Stabler</li>
+        <li>Box</li>
+        <li>Compass</li>
+    </ul>
+
+    <!-- only-of-type -->
+
+    <h1>Structural Pseudo-classes</h1>
+    <h3>:only-of-type</h3>
+
+    <p>
+        P-1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+
+    <ul>
+        <li>Apple</li>
+    </ul>
+
+    <div>
+        <p>
+            P-1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+        <span>Span Tag</span>
+        <b>Bold Tag</b>
+    </div>
+
+    <h1>Structural Pseudo-classes</h1>
+    <h3>:first-of-type :last-of-type</h3>
+
+    <p>
+        P-1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+    <div>
+        <p>
+            PD-1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+        <span>Span Tag</span>
+        <b>Bold Tag</b>
+        <span>Span Tag</span>
+        <p>
+            PD-2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+        <p>
+            PD-3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+            laborum, rerum illo id molestiae aliquid.
+        </p>
+    </div>
+
+    <p>
+        P-2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+    <p>
+        P-3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        laborum, rerum illo id molestiae aliquid.
+    </p>
+
+    <h1>Structural Pseudo-classes</h1>
+    <h3>:empty</h3>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quasi
+        officiis, earum nostrum magnam voluptas!
+    </p>
+    <div></div>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eos sit
+        voluptatum odio iste similique.
+    </div>
+    <div></div>
+</body>
+
+</html>

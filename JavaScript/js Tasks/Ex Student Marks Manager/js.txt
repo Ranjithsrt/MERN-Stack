@@ -1,0 +1,208 @@
+<script>
+// -----------------------------
+// Sample Data (Corrected)
+// -----------------------------
+if (!localStorage.getItem("studentList")) {
+  let sample = [
+    {
+      name: "john",
+      rollNo: 101,
+      marks: [50, 50, 50, 50, 50]
+    },
+    {
+      name: "mike",
+      rollNo: 102,
+      marks: [90, 82, 94, 86, 97]
+    },
+    {
+      name: "angela white",
+      rollNo: 103,
+      marks: [40, 50, 60, 70, 80]
+    },
+    {
+      name: "ana d armas",
+      rollNo: 104,
+      marks: [30, 30, 40, 50, 60]
+    },
+    {
+      name: "mila monroe",
+      rollNo: 105,
+      marks: [90, 90, 95, 90, 95]
+    }
+  ];
+
+  sample.forEach(s => {
+    let total = s.marks.reduce((a,b)=>a+b,0);
+    s.total = total;
+    s.percentage = (total / 500 * 100).toFixed(2);
+    s.result = total >= 250 ? "Pass" : "Fail";
+  });
+
+  localStorage.setItem("studentList", JSON.stringify(sample));
+}
+
+// -----------------------------
+// Load Data
+// -----------------------------
+function loadData() {
+  let studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+  displayStudents(studentList);
+  updateStats();
+}
+
+// -----------------------------
+// Display Table
+// -----------------------------
+function displayStudents(list) {
+  let tbody = document.getElementById("StdTableBody");
+  tbody.innerHTML = "";
+
+  list.forEach((s, i) => {
+    tbody.innerHTML += `
+      <tr>
+        <td>${s.name}</td>
+        <td>${s.rollNo}</td>
+        <td>${s.marks[0]}</td>
+        <td>${s.marks[1]}</td>
+        <td>${s.marks[2]}</td>
+        <td>${s.marks[3]}</td>
+        <td>${s.marks[4]}</td>
+        <td>${s.total}</td>
+        <td>${s.percentage}</td>
+        <td>${s.result}</td>
+        <td><button onclick="editStudent(${i})" class="Edit-btn">Edit</button></td>
+        <td><button onclick="deleteStudent(${i})" class="Dlt-btn">Delete</button></td>
+      </tr>
+    `;
+  });
+}
+
+// -----------------------------
+// Save Student
+// -----------------------------
+function saveData() {
+  let name = document.getElementById("StdName").value;
+  let roll = document.getElementById("StdRoll").value;
+  let marks = [
+    document.getElementById("m1").value,
+    document.getElementById("m2").value,
+    document.getElementById("m3").value,
+    document.getElementById("m4").value,
+    document.getElementById("m5").value,
+  ];
+
+  if (!name || !roll || marks.some(m => m === "")) {
+    alert("Fill all fields");
+    return;
+  }
+
+  if (marks.some(m => isNaN(m) || m < 0 || m > 100)) {
+    alert("Marks must be between 0–100");
+    return;
+  }
+
+  let studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+
+  let markNums = marks.map(Number);
+  let total = markNums.reduce((a,b)=>a+b,0);
+  let percentage = (total/500*100).toFixed(2);
+  let result = total >= 250 ? "Pass" : "Fail";
+
+  let student = {
+    name,
+    rollNo: roll,
+    marks: markNums,
+    total,
+    percentage,
+    result
+  };
+
+  if (editIndex !== null) {
+    studentList[editIndex] = student;
+    editIndex = null;
+    document.getElementById("AddBtn").textContent = "Add Student";
+  } else {
+    studentList.push(student);
+  }
+
+  localStorage.setItem("studentList", JSON.stringify(studentList));
+  loadData();
+  resetForm();
+}
+
+// -----------------------------
+// Edit
+// -----------------------------
+let editIndex = null;
+
+function editStudent(i) {
+  let list = JSON.parse(localStorage.getItem("studentList")) || [];
+  let s = list[i];
+
+  document.getElementById("StdName").value = s.name;
+  document.getElementById("StdRoll").value = s.rollNo;
+  document.getElementById("m1").value = s.marks[0];
+  document.getElementById("m2").value = s.marks[1];
+  document.getElementById("m3").value = s.marks[2];
+  document.getElementById("m4").value = s.marks[3];
+  document.getElementById("m5").value = s.marks[4];
+
+  editIndex = i;
+  document.getElementById("AddBtn").textContent = "Update Student";
+}
+
+// -----------------------------
+// Delete
+// -----------------------------
+function deleteStudent(i) {
+  let list = JSON.parse(localStorage.getItem("studentList")) || [];
+  list.splice(i, 1);
+  localStorage.setItem("studentList", JSON.stringify(list));
+  loadData();
+}
+
+// -----------------------------
+// Search
+// -----------------------------
+function searchStudents() {
+  let input = document.getElementById("StdSearch").value.toLowerCase();
+  let list = JSON.parse(localStorage.getItem("studentList")) || [];
+  let results = list.filter(s => s.name.toLowerCase().includes(input));
+  displayStudents(results);
+}
+
+// -----------------------------
+// Reset Form
+// -----------------------------
+function resetForm() {
+  document.getElementById("StdName").value = "";
+  document.getElementById("StdRoll").value = "";
+  document.getElementById("m1").value = "";
+  document.getElementById("m2").value = "";
+  document.getElementById("m3").value = "";
+  document.getElementById("m4").value = "";
+  document.getElementById("m5").value = "";
+}
+
+// -----------------------------
+// Stats
+// -----------------------------
+function updateStats() {
+  let list = JSON.parse(localStorage.getItem("studentList")) || [];
+
+  let totalStudents = list.length;
+  let pass = list.filter(s => s.result === "Pass").length;
+  let fail = list.filter(s => s.result === "Fail").length;
+  let average = (
+    list.reduce((sum, s) => sum + Number(s.percentage), 0) / (list.length || 1)
+  ).toFixed(2);
+
+  document.getElementById("totalStd").textContent = totalStudents;
+  document.getElementById("passStd").textContent = pass;
+  document.getElementById("failStd").textContent = fail;
+  document.getElementById("avgMarks").textContent = average + "%";
+}
+
+// Run on start
+loadData();
+</script>

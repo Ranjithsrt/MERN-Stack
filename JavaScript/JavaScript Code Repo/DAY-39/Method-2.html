@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="p-5">
+    <h3 class="font-semibold uppercase text-purple-700 tracking-wide mb-3">User Details</h3>
+    <div class="bg-slate-100 p-3 flex flex-wrap gap-3" id="users"></div>
+    <p id="para"></p>
+    <script>
+      function loadUsers() {
+        const users = document.getElementById("users");
+        const url = "https://jsonplaceholder.typicode.com/users";
+
+        fetch(url) //Default method GET
+          .then((response) => {
+            //200
+            //Readable
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            data.forEach((user) => {
+              users.innerHTML += `
+            <div class="bg-white p-3">
+              <h3 class="font-semibold mb-3">${user.name}</h3>
+              <p class="text-sm mb-2 text-gray-400">${user.email}</p>
+              <p class="text-sm mb-2 text-gray-400">${user.address.city}</p>
+            </div>`;
+            });
+          })
+          .then(() => {
+            document.getElementById("para").innerHTML = "Data Loaded";
+          })
+          .catch((err) => console.log(err));
+      }
+
+      loadUsers();
+    </script>
+  </body>
+</html>

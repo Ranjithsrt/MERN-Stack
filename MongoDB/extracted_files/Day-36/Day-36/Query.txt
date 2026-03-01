@@ -1,0 +1,86 @@
+Capped Collections
+     A capped collection is a fixed-size collection that maintains insertion order and automatically overwrites the oldest documents when it reaches its maximum size.
+
+Key Features of Capped Collections
+
+  Fixed Size
+    - You define the maximum size (in bytes) when creating the collection.
+    - MongoDB automatically removes the oldest documents when new ones are inserted beyond this limit.
+
+  Insertion Order
+    - Documents are stored and returned in the order they were inserted (natural order).
+
+  High Performance
+    - Capped collections are fast for insert and read operations.
+    - No Document Deletion or Size Change
+    - You cannot delete individual documents (only the whole collection).
+    - You cannot increase the size once it’s created (you must recreate it).
+
+Use : 
+  - Logging
+  - Real-Time Monitoring
+  - Message Queues
+  - Sensor / IoT Data
+  - Temporary Buffers
+
+
+
+db.createCollection("logs",{
+  capped:true,
+  size:1024,
+  max:3
+})
+
+db.logs.insertMany([
+  { level: "info", message: "Server started" },
+  { level: "warn", message: "High memory usage" },
+  { level: "error", message: "Connection lost" }
+])
+
+
+db.logs.insertOne({ level: "info", message: "Server Reconnected" })
+
+
+//Check if a Collection is Capped
+db.logs.isCapped()
+
+//Ascending Order
+db.logs.find().sort({ _id: 1 })
+
+//Descending Order
+db.logs.find().sort({ _id: -1 })
+
+//🕒 Sort by Timestamp Instead of _id
+
+db.logs.find().sort({ time: 1 })   // ascending by time
+db.logs.find().sort({ time: -1 })  // descending by time
+
+//insertion order by default.
+db.logs.find().sort({ $natural: 1 })   // ascending (oldest first)
+db.logs.find().sort({ $natural: -1 })  // descending (newest first)
+
+//Increase cappedMax & cappedSize
+db.runCommand({
+  collMod:"logs",
+  cappedSize:20480,
+  cappedMax:5
+})
+
+
+db.logs.insertOne({ level: "error", message: "Server ShutDown" })
+
+
+
+
+db.samples.insertMany([
+  { level: "info", message: "Server started" },
+  { level: "warn", message: "High memory usage" },
+  { level: "error", message: "Connection lost" }
+])
+
+Convert an Existing Collection to Capped
+db.runCommand({
+  convertToCapped:"samples",
+  size:1024,
+  max: 3
+})

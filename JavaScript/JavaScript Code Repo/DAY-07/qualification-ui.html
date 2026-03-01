@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: inline-block;
+        width: 150px;
+      }
+      .form-group input,
+      .form-group select {
+        padding: 5px;
+        width: 200px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      #result {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Salary Calculator</h2>
+    <form id="salaryForm">
+      <div class="radio-group">
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="male" id="male" required checked />
+
+        <label for="male">Male</label>
+        <input type="radio" name="gender" value="female" id="female" />
+        <label for="female">Female</label>
+      </div>
+      <div class="form-group">
+        <label>Years of Service:</label>
+        <input type="number" id="yearsOfService" min="0" required />
+      </div>
+      <div class="form-group">
+        <label>Qualifications:</label>
+        <select id="qualifications" required>
+          <option value="">Select Qualification</option>
+          <option value="post-graduate">Post-Graduate</option>
+          <option value="graduate">Graduate</option>
+        </select>
+      </div>
+      <button type="button" onclick="calc()">Calculate Salary</button>
+    </form>
+    <div id="result">Please fill all details</div>
+
+    <script>
+      function calc() {
+        const gender = document.querySelector('input[name="gender"]:checked').value;
+        const yearsOfService = Number(document.getElementById("yearsOfService").value);
+        const qualifications = document.getElementById("qualifications").value;
+        let salary;
+        if (gender === "male" && yearsOfService >= 10 && qualifications === "post-graduate") {
+          salary = 15000;
+        } else if (gender === "male" && yearsOfService >= 10 && qualifications === "graduate") {
+          salary = 10000;
+        } else if (gender === "male" && yearsOfService < 10 && qualifications === "post-graduate") {
+          salary = 10000;
+        } else if (gender === "male" && yearsOfService < 10 && qualifications === "graduate") {
+          salary = 7000;
+        } else if (gender === "female" && yearsOfService >= 10 && qualifications === "post-graduate") {
+          salary = 12000;
+        } else if (gender === "female" && yearsOfService >= 10 && qualifications === "graduate") {
+          salary = 9000;
+        } else if (gender === "female" && yearsOfService < 10 && qualifications === "post-graduate") {
+          salary = 10000;
+        } else if (gender === "female" && yearsOfService < 10 && qualifications === "graduate") {
+          salary = 6000;
+        } else {
+          salary = 0;
+          console.log("Invalid input for gender, years of service, or qualifications.");
+        }
+
+        document.getElementById("result").innerHTML = `Your Salary is Rs : ${salary}`;
+      }
+    </script>
+  </body>
+</html>

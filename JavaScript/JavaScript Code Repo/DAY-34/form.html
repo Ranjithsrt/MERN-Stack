@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f4f4f4;
+      }
+      form {
+        width: 450px;
+        background-color: #fff;
+        min-height: 300px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-radius: 3px;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      }
+      form div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      form div.inline {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        height: 20px;
+        padding: 0 5px;
+      }
+      input,
+      select {
+        border: 2px solid #ebeaea;
+        padding: 10px;
+        border-radius: 3px;
+        margin-top: 10px;
+        outline: none;
+      }
+      button {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        background-color: darkblue;
+        color: #fff;
+        border-radius: 3px;
+      }
+      button[type="submit"] {
+        margin-top: 15px;
+      }
+      button[type="reset"] {
+        background-color: crimson;
+      }
+
+      .focus {
+        border-color: lightblue;
+      }
+      .form-text {
+        font-weight: 300;
+        font-size: 14px;
+        color: crimson;
+        margin-top: 5px;
+        display: none;
+      }
+      h3 {
+        font-weight: 500;
+        color: crimson;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ccc;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <!---
+Focus
+Blur
+Input
+Change
+submit
+-->
+
+    <form id="frm" autocomplete="off">
+      <h3>User Registration</h3>
+      <div>
+        <label for="username">User Name</label>
+        <input type="text" id="username" />
+        <p class="form-text">Please fill username</p>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" />
+        <p class="form-text">Please fill password</p>
+      </div>
+      <div>
+        <label for="course">Courses</label>
+        <select id="course">
+          <option value="">Select Course</option>
+          <option value="C">C</option>
+          <option value="C++">C++</option>
+          <option value="Java">Java</option>
+          <option value="Python">Python</option>
+        </select>
+      </div>
+
+      <div class="inline">
+        <input type="checkbox" id="agree" />
+        <label for="agree">I agree the terms & condition</label>
+      </div>
+
+      <button type="submit">Submit</button>
+      <button type="reset">Clear All</button>
+    </form>
+    <script>
+      const username = document.getElementById("username");
+      const password = document.getElementById("password");
+      const course = document.getElementById("course");
+      const frm = document.getElementById("frm");
+
+      function checkPasswordStrength(passwordText) {
+        let strength = 0;
+        const minLength = 8;
+
+        const hasUpperCase = /[A-Z]/.test(passwordText);
+        const hasLowerCase = /[a-z]/.test(passwordText);
+        const hasNumbers = /[0-9]/.test(passwordText);
+        const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(passwordText);
+
+        if (passwordText.length >= minLength) strength++;
+        if (passwordText.length >= 12) strength++;
+        if (hasUpperCase) strength++;
+        if (hasLowerCase) strength++;
+        if (hasNumbers) strength++;
+        if (hasSpecialChars) strength++;
+
+        if (strength <= 2) {
+          password.nextElementSibling.style.display = "block";
+          password.nextElementSibling.textContent = "Password is too weak.Use at least 6 characters mix of upper,lower,numbers,symbols";
+        } else if (strength <= 4) {
+          password.nextElementSibling.style.display = "block";
+          password.nextElementSibling.textContent = "Password is decent but could be stronger. consider adding more character";
+        } else {
+          password.nextElementSibling.style.display = "none";
+          password.style.borderColor = "green";
+        }
+      }
+
+      username.addEventListener("focus", function () {
+        this.style.borderColor = "lightblue";
+      });
+      username.addEventListener("blur", function () {
+        this.style.borderColor = "#ebeaea";
+      });
+
+      password.addEventListener("input", function () {
+        checkPasswordStrength(this.value);
+        console.log(this.value);
+      });
+
+      course.addEventListener("change", function () {
+        console.log(this.value);
+      });
+
+      frm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Form Submit");
+      });
+    </script>
+  </body>
+</html>

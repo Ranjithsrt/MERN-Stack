@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <pre>
+Task : 3* Contact Book and Search Utility (Focus on Array Searching/Sorting)
+</pre
+    >
+
+    <pre>
+        This project focuses on manipulating an array of simple contact objects to implement search and organization features.
+        
+        // Array of Objects
+        let contacts = [
+          { firstName: "Ram", lastName: "Kumar", phone: "9859785895", email: "ram@example.com" },
+          { firstName: "Sam", lastName: "Sundar", phone: "7859685785", email: "sam@example.com" },
+          { firstName: "Ravi", lastName: "Teja", phone: "7858958896", email: "ravi@example.com" }
+        ];
+        
+        *Required Functions*
+         - *addContact(fName, lName, phone, email)*: Creates a new contact object and pushes it to the contacts array.
+         - *searchByLastName(lastName)*: Uses the array's filter() method to return an array of contacts whose last name matches
+        the input.
+         - *sortByFirstName()*: Uses the array's sort() method to arrange the contacts alphabetically by their firstName.
+         - *updateEmail(phone, newEmail)*: Finds the contact with the matching phone number and changes their email property.
+        
+    </pre>
+
+    <!-- <div id="inventory-list" class="pre"></div> -->
+
+    <script>
+      let contacts = [
+        {
+          firstName: "Ram",
+          lastName: "Kumar",
+          phone: "9859785895",
+          email: "ram@example.com",
+        },
+        {
+          firstName: "Sam",
+          lastName: "Sundar",
+          phone: "7859685785",
+          email: "sam@example.com",
+        },
+        {
+          firstName: "Ravi",
+          lastName: "Teja",
+          phone: "7858958896",
+          email: "ravi@example.com",
+        },
+      ];
+
+      function addContact(fName, lName, phone, email) {
+        const newContact = {
+          firstName: fName,
+          lastName: lName,
+          phone: phone,
+          email: email,
+        };
+        contacts.push(newContact);
+        console.log(
+          ` Contact added: Name: ${fName} - lastName: ${lName} - Phone: ${phone} - Email: ${email}`
+        );
+      }
+
+      function searchByLastName(lastName) {
+        const results = contacts.filter(
+          (contact) => contact.lastName.toLowerCase() === lastName.toLowerCase()
+        );
+
+        if (results.length > 0) {
+          console.log(
+            `Found ${results.length} contact(s) with last name "${lastName}":`
+          );
+          console.log(results);
+        } else {
+          console.log(` No contacts found with last name "${lastName}".`);
+        }
+
+        return results;
+      }
+
+      function sortByFirstName() {
+        contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
+        console.log("Contacts sorted by first name:");
+        console.table(contacts);
+      }
+
+      function updateEmail(phone, newEmail) {
+        const contact = contacts.find((c) => c.phone === phone);
+        if (contact) {
+          contact.email = newEmail;
+          console.log(
+            `Email updated for ${contact.firstName} ${contact.lastName}: ${newEmail}`
+          );
+        } else {
+          console.log(` No contact found with phone number ${phone}`);
+        }
+      }
+
+      addContact("Sita", "Reddy", "9998887770", "sita@example.com");
+      searchByLastName("Kumar");
+      sortByFirstName();
+      updateEmail("7859685785", "samkumar@newmail.com");
+    </script>
+  </body>
+</html>

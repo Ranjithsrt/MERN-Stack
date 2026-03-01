@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        font-size: 1.5em;
+        font-family: monospace;
+        text-align: center;
+      }
+
+      h1 {
+        margin-top: 0.5em;
+        color: #000;
+      }
+
+      li {
+        list-style: none;
+        margin: 15px 0;
+        background: yellow;
+      }
+
+      li a {
+        display: block;
+        width: 300px;
+        padding: 20px 0;
+        background: pink;
+        color: black;
+      }
+
+      #ease {
+        transition: 3s;
+      }
+
+      #linear {
+        transition: 3s linear;
+      }
+
+      #ease-in {
+        transition: 3s ease-in;
+      }
+
+      #ease-out {
+        transition: 3s ease-out;
+      }
+
+      #ease-in-out {
+        transition: 3s ease-in-out;
+      }
+
+      #cubic-bezier {
+        transition: 3s cubic-bezier(0.5, 0.5, 0, 1);
+      }
+
+      #cubic-bezier2 {
+        transition: 3s cubic-bezier(0, 0.75, 1, -0.72);
+      }
+
+      li a:hover {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Transition Timing Functions</h1>
+    <ul>
+      <li><a href="" id="ease">ease</a></li>
+      <li><a href="" id="linear">linear</a></li>
+      <li>
+        <a href="" id="ease-in"><code>ease-in</code></a>
+      </li>
+      <li>
+        <a href="" id="ease-out"><code>ease-out</code></a>
+      </li>
+      <li>
+        <a href="" id="ease-in-out"><code>ease-in-out</code></a>
+      </li>
+      <li>
+        <a href="" id="cubic-bezier"><code>cubic-bezier(0.5,0.5,0,1)</code></a>
+      </li>
+      <li>
+        <a href="" id="cubic-bezier2"><code>cubic-bezier(0.5,1,0.5,-0.25)</code></a>
+      </li>
+    </ul>
+  </body>
+</html>
+
+<!---
+
+ease: Starts slow, then speeds up, then slows down at the end (default).
+linear: Transition at a constant speed.
+ease-in: Slow at the beginning, then faster.
+ease-out: Fast at the beginning, then slower.
+ease-in-out: A combination of ease-in and ease-out.
+cubic-bezier(x1, y1, x2, y2): Custom easing.
+-->

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 150px;
+        height: 150px;
+        background-color: orangered;
+        animation-name: sample;
+        animation-duration: 5s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: 2;
+        animation-direction: normal;
+        animation-direction: reverse;
+        animation-direction: alternate;
+        animation-direction: alternate-reverse;
+      }
+
+      @keyframes sample {
+        0% {
+          background-color: orangered;
+          transform: translateX(0);
+        }
+        25% {
+          background-color: green;
+          transform: translateX(300px);
+        }
+        50% {
+          background-color: rebeccapurple;
+          transform: translateX(300px) translateY(300px);
+        }
+        75% {
+          background-color: olivedrab;
+          transform: translateX(0) translateY(300px);
+        }
+        100% {
+          background-color: blue;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "bank_account": { "name": "Tivin", "accountNumber": "ACC-48159422", "balance": 4900, "createdAt": "2026-01-02T06:53:41.697Z" },
+
+  "bank_transactions": [
+    { "id": 1767336866719, "type": "WITHDRAW", "amount": 100, "date": "2026-01-02T06:54:26.719Z", "description": "Petrol" },
+    { "id": 1767336859850, "type": "WITHDRAW", "amount": 500, "date": "2026-01-02T06:54:19.850Z", "description": "Movie" },
+    { "id": 1767336850893, "type": "DEPOSIT", "amount": 5000, "date": "2026-01-02T06:54:10.893Z", "description": "Salary" },
+    { "id": 1767336821697, "type": "INITIAL_DEPOSIT", "amount": 500, "date": "2026-01-02T06:53:41.697Z", "description": "Account Created" }
+  ]
+}

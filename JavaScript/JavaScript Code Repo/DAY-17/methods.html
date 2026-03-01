@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        //fill() ->  fill(value, start, end)
+        let arr = [1, 2, 3, 4];
+        //         0   1  2  3
+        arr.fill(0, 1, 3);
+        console.log(arr);
+
+        arr.fill(9);
+        console.log(arr);
+
+        //copyWithin()  -> copyWithin(target, start, end)
+        let arr = [1, 2, 3, 4, 5];
+        arr.copyWithin(0, 3, 5);
+        console.log(arr);
+      
+      //concat()
+      let arr1 = [1, 2];
+      let arr2 = [3, 4];
+      let result = arr1.concat(arr2, [4, 5]);
+      console.log(result);
+
+      //slice()
+      let arr = [1, 2, 3, 4];
+      let subArray = arr.slice(1, 3);
+      console.log(subArray);
+
+      //join()
+      let arr = ["a", "b", "c"]; //a,b,c
+      let str = arr.join("-");
+      console.log(str);
+    
+      let arr = [1, 2, 3];
+      let str = arr.toString();
+      console.log(str);
+
+      let arr = [1000, "apple", new Date()];
+      let str = arr.toLocaleString();
+      console.log(str);
+     
+      let arr = [10, 20, 30, 40];
+      for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+      }
+         
+      //forEach()
+      let arr = [10, 20, 30, 40];
+      arr.forEach((a, i) => {
+        console.log(a, i);
+      });
+      */
+
+      //map
+      let arr = [1, 2, 3];
+      let double = [];
+      // for (i = 0; i < arr.length; i++) {
+      //   double.push(arr[i] + arr[i]);
+      // }
+
+      // arr.forEach((number) => {
+      //   double.push(number + number);
+      // });
+
+      // double = arr.map((number) => number + number);
+
+      double = arr.map((number) => {
+        return number + number;
+      });
+      console.log(double);
+    </script>
+  </body>
+</html>
+<!---
+1.Mutating Methods (Modify the Original Array)
+  - push     ✅
+  - pop      ✅
+  - unshift  ✅
+  - shift    ✅
+  - splice   ✅
+  - sort     ✅
+  - reverse  ✅  
+  - fill     ✅
+  - copyWithin ✅
+2. Non-Mutating Methods (Do Not Modify the Original Array)
+  - concat  ✅
+  - slice  ✅  
+  - join ✅
+  - toString✅
+  - toLocaleString✅
+3.Iteration Methods 
+  - forEach ✅
+  - map ✅
+  - filter
+  - find
+  - findIndex
+  - findLast
+  - findLastIndex
+  - every 
+  - some
+  - reduce
+  - reduceRight
+4.Searching Methods
+  - includes
+  - indexOf
+  - lastIndexOf
+5.Array Transformation
+  - flat
+  - flatMap
+6.Other Methods
+  - at
+  - entries
+  - keys
+  - values
+  - Array.isArray()
+  - Array.from()
+  - Array.of() 
+
+
+
+-->

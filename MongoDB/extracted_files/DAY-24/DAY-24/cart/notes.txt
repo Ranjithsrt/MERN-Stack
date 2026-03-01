@@ -1,0 +1,9 @@
+backend
+  npm init -y
+  npm i express mongoose cors
+  npm i nodemon -D
+
+frontend
+  npm create vite@latest .
+  npm install tailwindcss @tailwindcss/vite
+  npm i axios

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        height: 100px;
+        width: 300px;
+        padding: 10px;
+        margin: 3px;
+        border: 5px solid blue;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Dimension in jQuery</h3>
+    <ul>
+      <li>width</li>
+      <li>height</li>
+      <li>innerWidth</li>
+      <li>innerHeight</li>
+      <li>outerWidth</li>
+      <li>outerHeight</li>
+    </ul>
+    <hr />
+    <button id="btnWidth">width</button>
+    <button id="btnHeight">height</button>
+    <button id="btnInnerWidth">innerWidth</button>
+    <button id="btnInnerHeight">innerHeight</button>
+    <button id="btnOuterWidth">outerWidth</button>
+    <button id="btnOuterHeight">outerHeight</button>
+
+    <div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script>
+      $("#btnWidth").click(function () {
+        console.log($("div").width());
+      });
+      $("#btnHeight").click(function () {
+        console.log($("div").height());
+      });
+      $("#btnInnerWidth").click(function () {
+        console.log($("div").innerWidth());
+      });
+
+      $("#btnInnerHeight").click(function () {
+        console.log($("div").innerHeight());
+      });
+      $("#btnOuterWidth").click(function () {
+        console.log($("div").outerWidth(true));
+      });
+
+      $("#btnOuterHeight").click(function () {
+        console.log($("div").outerHeight(true));
+      });
+    </script>
+  </body>
+</html>

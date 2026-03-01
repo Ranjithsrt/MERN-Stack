@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using CDN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+     <!-- Position -->
+      
+         <div class="relative h-32 border border-black mt-4">
+            <div class="absolute top-0 left-0 bg-blue-500 text-white p-2">Top Left</div>
+            <div class="absolute top-0 right-0 bg-green-500 text-white p-2">Top Right</div>
+            <div class="absolute bottom-0 left-0 bg-red-500 text-white p-2">Bottom Left</div>
+            <div class="absolute bottom-0 right-0 bg-yellow-500 text-white p-2">Bottom Right</div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-pink-500 text-white p-2">center</div>
+        </div>
+
+        <!-- relative -->
+        <div class="relative h-32 border border-black my-[100px]">
+            <div class="relative top-4 left-4 bg-blue-500 text-white p-2">Relative Position</div>
+            <div class="relative top-8 left-8 bg-green-500 text-white p-2">Relative Position</div>
+            <div class="relative top-12 left-12 bg-red-500 text-white p-2">Relative Position</div>
+        </div>
+
+        <!-- Z-index -->
+        <div class="relative h-32 border border-black my-[100px]">
+            <div class="absolute top-4 left-4 bg-blue-500 text-white p-2 z-10">Z-Index 10</div>
+            <div class="absolute top-8 left-8 bg-green-500 text-white p-2 z-20">Z-Index 20</div>
+            <div class="absolute top-12 left-12 bg-red-500 text-white p-2 z-30">Z-Index 30</div>
+        </div>
+
+        <!-- static -->
+
+        <div class="border border-black mt-4">
+            <div class="static bg-blue-500 text-white p-2">Static Position</div>
+            <div class="static bg-green-500 text-white p-2">Static Position</div>
+            <div class="static bg-red-500 text-white p-2">Static Position</div>
+        </div>
+
+        <!-- sticky -->
+        <div class="h-64 overflow-y-scroll border border-black mt-4">
+            <div class="h-96 relative">
+                <div class="sticky top-0 bg-blue-500 text-white p-2">Sticky Position</div>
+                <div class="h-72"></div>
+            </div>
+        </div>
+
+        <!-- fixed -->
+        <div class="h-64 overflow-y-scroll border border-black mt-4">
+            <div class="h-96 relative">
+                <div class="fixed bottom-4 right-4 bg-blue-500 text-white p-2">Fixed Position</div>
+                <div class="h-72"></div>
+            </div>
+        </div>
+
+
+
+     
+</body>
+
+</html>

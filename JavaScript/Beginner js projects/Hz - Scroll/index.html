@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horizontal Scroll image gallery</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div class="gallery-wrap">
+    <!--less than 900  -->
+    <span>
+      <img src="./images/back.png" alt="" id="backbtn">
+    </span>
+    <!-- end of less than 900 -->
+
+    <div class="gallery">
+      <!-- first row -->
+      <div>
+        <!-- first image -->
+        <span>
+          <img src="./images/image-1.png" alt="" />
+        </span>
+
+        <!-- second image -->
+        <span>
+          <img src="./images/image-2.png" alt="" />
+        </span>
+
+        <!-- third image -->
+        <span>
+          <img src="./images/image-3.png" alt="" />
+        </span>
+      </div>
+      <!-- end of first row -->
+
+      <!-- second row -->
+      <div>
+        <!-- first image -->
+        <span>
+          <img src="./images/image-4.png" alt="" />
+        </span>
+
+        <!-- second image -->
+        <span>
+          <img src="./images/image-5.png" alt="" />
+        </span>
+
+        <!-- third image -->
+        <span>
+          <img src="./images/image-6.png" alt="" />
+        </span>
+      </div>
+      <!-- end of second row -->
+    </div>
+
+    <!-- more than 900 -->
+    <span>
+      <img src="./images/next.png" alt="" id="nextbtn">
+    </span>
+    
+    <!-- end of more than 900 -->
+  </div>
+  <script>
+    let scrollContainer = document.querySelector(".gallery");
+    let backbtn = document.getElementById("backbtn");
+    let nextbtn = document.getElementById("nextbtn");
+
+    scrollContainer.addEventListener("wheel", (evt) => {
+      e.preventDefault();
+      scrollContainer.scrollLeft += evt.deltaY;
+      scrollContainer.style.scrollBehavior = "auto";
+    });
+
+    nextbtn.addEventListener("click", () => {
+      scrollContainer.style.scrollBehavior = "smooth";
+      scrollContainer.scrollLeft += 900;
+    });
+
+    backbtn.addEventListener("click", () => {
+      scrollContainer.style.scrollBehavior = "smooth";
+      scrollContainer.scrollLeft -= 900;
+    });
+
+
+  </script>
+</body>
+
+</html>

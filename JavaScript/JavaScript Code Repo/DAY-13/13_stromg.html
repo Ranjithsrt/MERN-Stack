@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>13.Write a program to find the given number is strong number</p>
+
+    <script>
+      const number = 146;
+      let temp = number;
+      let result = 0;
+      while (temp > 0) {
+        rem = temp % 10;
+        console.log(rem);
+        fact = 1;
+        for (i = 1; i <= rem; i++) {
+          fact *= i;
+        }
+        result += fact;
+        temp = Math.floor(temp / 10);
+      }
+
+      if (number == result) {
+        console.log(`${number} is a strong number`);
+      } else {
+        console.log(`${number} is not a strong number`);
+      }
+    </script>
+  </body>
+</html>

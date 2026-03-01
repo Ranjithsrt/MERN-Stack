@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "cinzel", sans-serif;
+ }
+
+ .app-container{
+   width:100%;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .app-container h1{
+    font-size: 40px;
+    font-weight: 600;
+    margin: 20px 0;
+    color: #3498db;
+ }
+
+ .qr-code-image{
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 20px 0;
+ }
+
+ .input-label{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0;
+    display: block;
+    color: #3498db;
+ }
+
+ input[type="text"]{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin: 10px 0;
+    width: 100%;
+        cursor: pointer;
+
+ }
+
+ button{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px 5px;
+ }
+
+ .generate-button:hover{
+    background-color: #2980b9;
+ }
+
+ .generate-button:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+ }
+
+ .downlod-button{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color:green;
+    color: #fff;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px 5px;
+ }
+ .downlod-button:hover{
+    background-color: #0ad803;
+  }
+
+  p{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0;
+    color: #000000;
+  }
+
+  a{
+    text-decoration: none;
+    color: #ff0019;
+  }
+

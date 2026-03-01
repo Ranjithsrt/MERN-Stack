@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Input pseudo-classes</title>
+  <style>
+    /*  
+       Input pseudo-classes
+       enabled & :disabled
+     */
+    input:enabled {
+      background-color: #bbed95;
+    }
+
+    input:disabled {
+      background-color: pink;
+    }
+
+    /* 
+        Input pseudo-classes 
+         checked | not(:checked)
+    
+    */
+    input[type="radio"]:checked+label {
+      color: blue;
+    }
+
+    input[type="radio"]:not(:checked)+label {
+      color: red;
+    }
+
+    /*  :placeholder-shown - */
+
+    textarea {
+      outline: none;
+      border-radius: 2px;
+    }
+
+    textarea:placeholder-shown {
+      border-color: #e93e3e;
+    }
+
+    textarea:not(placeholder-shown) {
+      border-color: #74e93e;
+    }
+
+    /* focus */
+
+    input {
+      outline: none;
+    }
+
+    input:focus {
+      border-color: blue;
+      border-radius: 3px;
+    }
+
+    /* valid & invalid */
+    input {
+      outline: none;
+      border-radius: 3px;
+    }
+
+    input:invalid {
+      border-color: red;
+    }
+
+    input:valid {
+      border-color: green;
+    }
+
+    /* required and optional  */
+
+
+    input {
+      outline: none;
+      border: 1px solid;
+    }
+
+    input:required {
+      border-color: rgb(18, 18, 230);
+    }
+
+    input:optional {
+      border-color: #ccc;
+    }
+
+    /* :read-only & :read-write */
+
+    input {
+      outline: none;
+    }
+
+    input:read-only {
+      background-color: pink;
+    }
+
+    input:read-write {
+      background-color: lime;
+    }
+
+    /* in-range & out-of-range */
+
+    input {
+      outline: none;
+    }
+
+    input[type="number"]:in-range {
+      color: green;
+    }
+
+    input[type="number"]:out-of-range {
+      color: red;
+    }
+
+    /*  default */
+
+    input:default + label {
+        color: brown;
+      }
+      option:default {
+        color: green;
+        font-weight: bold;
+      }
+  </style>
+</head>
+
+<body>
+
+  <h3>Input pseudo-classes</h3>
+  <p>:enabled & :disabled</p>
+
+  <input type="text" />
+  <input type="text" disabled />
+
+  <h3>Input pseudo-classes</h3>
+  <p>:checked | not(:checked)</p>
+
+  <input type="radio" name="gender" id="male" checked />
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="gender" />
+  <label for="female">Female</label>
+
+  <h3>Input pseudo-classes</h3>
+  <p>:placeholder-shown</p>
+
+  <textarea placeholder="Enter Your Comments"></textarea>
+
+  <h3>Input pseudo-classes</h3>
+  <p>:focus</p>
+
+  <input type="text" placeholder="first name" id="fname" />
+  <input type="text" placeholder="last name" />
+
+  <h3>Input pseudo-classes</h3>
+  <p>:valid & :invalid</p>
+  <form>
+    <input type="email" placeholder="Enter Your Email" value="" />
+  </form>
+
+  <h3>Input pseudo-classes</h3>
+  <p>:required and :optional</p>
+
+  <input type="text" placeholder="first name" required />
+  <input type="text" placeholder="last name" />
+
+  <h3>Input pseudo-classes</h3>
+  <p>:read-only and :read-write</p>
+
+  <input type="text" placeholder="first name" readonly />
+  <input type="text" placeholder="last name" />
+
+  <h3>Input pseudo-classes</h3>
+  <p>:in-range and :out-of-range</p>
+
+  <input type="number" min="1" max="5" />
+  <input type="number" min="1" max="5" />
+
+    <h3>Input pseudo-classes</h3>
+    <p>:default</p>
+
+    <input type="checkbox" id="c" checked />
+    <label for="c">C Program</label>
+    <br />
+
+    <input type="checkbox" id="cpp" />
+    <label for="cpp">C++</label>
+    <br />
+
+    <input type="checkbox" id="java" />
+    <label for="java">Java</label>
+    <br />
+
+    <hr />
+    <input type="radio" id="male" checked name="gender" />
+    <label for="male">Male</label>
+    <br />
+    <input type="radio" id="female" name="gender" />
+    <label for="female">Female</label>
+    <br />
+    <hr />
+    <label for="course">Course Name</label>
+    <select id="course">
+      <option value="">Select Value</option>
+      <option value="c">C</option>
+      <option value="cpp" selected>C++</option>
+      <option value="java">Java</option>
+    </select>
+
+</body>
+
+</html>

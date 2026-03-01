@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="document.getElementById('modal').show()">Show Dialog</button>
+
+    <details>
+      <summary>What is HTML</summary>
+      <p>HTML is for Hypertext Markup Language</p>
+    </details>
+    <details>
+      <summary>What is JavaScript</summary>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsa aut eaque consectetur praesentium sapiente!</p>
+    </details>
+
+    <dialog id="modal">
+      <h3>Sample Heading</h3>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, nihil recusandae. Asperiores, esse optio. Pariatur atque illo expedita, ducimus quos nam, at aut nulla fuga saepe, officia provident sint amet?</p>
+      <button onclick="document.getElementById('modal').close()">Close</button>
+    </dialog>
+  </body>
+</html>

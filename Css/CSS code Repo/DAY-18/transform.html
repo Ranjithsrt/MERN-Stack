@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transform</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", serif;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        width: 500px;
+        height: 500px;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        perspective: 1000px;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        transition: 0.5s;
+      }
+      .line {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        border: 2px dashed #000;
+      }
+      /*-------------------------------------*/
+      /*
+
+    -X Left
+    +X Right
+    -Y Top 
+    +Y Bottom
+
+    transform: translate(X, Y);
+
+    ----------------------------------------------
+    transform: translateX(125px);
+    transform: translateY(125px);
+    transform: translateX(-125px);
+    transform: translateY(-125px);
+    transform: translateX(125px) translateY(125px);
+
+    transform: translateX(125px);
+    transform: translateY(125px);
+    transform: translateZ(805px);
+    ----------------------------------------------
+
+
+    transform: scale(times for both x,y);
+    transform: scaleX(times of width);
+    transform: scaleY(times of height);
+    transform: scale(1.5); => enlarge it to 1.5 times of its original
+
+
+    transform: scale(1.5);
+    transform: scale(0.5);
+    transform: scaleX(2);
+    transform: scaleY(2);
+    transform: scaleX(2) scaleY(2);
+    transform: scale(2);
+    transform: scale(0.5) translateX(250px);
+    
+     size (both x & Y)
+
+      transform: rotateX(160deg);
+        transform: rotateY(160deg);
+        transform: rotateY(360deg);
+        transform: rotateY(2turn);
+        transform: rotateZ(160deg);
+        transform: rotate(160deg);
+*/
+      .container:hover .box {
+        transform: skewX(10deg);
+        transform: skewX(-50deg);
+        transform: skewY(10deg);
+        transform: skewY(-10deg);
+        transform: skew(20deg, 10deg) rotate(60deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">Hover Me</div>
+      <div class="line"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form-2</title>
+  </head>
+  <body>
+    <h2>Services Login</h2>
+    <form>
+      <table cellpadding="5px">
+        <tr>
+          <td><label for="username">Username:</label></td>
+          <td><input type="text" id="username" /></td>
+        </tr>
+        <tr>
+          <td><label for="password">Password:</label></td>
+          <td><input type="password" id="password" /></td>
+        </tr>
+        <tr>
+          <td><label for="city">City of Employment:</label></td>
+          <td><input type="text" id="city" /></td>
+        </tr>
+        <tr>
+          <td><label for="server">Web server:</label></td>
+          <td>
+            <select name="server" id="server">
+              <option value="">-- Choose a server --</option>
+              <option value="server1">Server 1</option>
+              <option value="server2">Server 2</option>
+              <option value="server3">Server 3</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <label>Please specify your role:</label><br />
+            <input type="radio" name="role" id="admin" />
+            <label for="admin">Admin</label><br />
+
+            <input type="radio" name="role" id="engineer" />
+            <label for="engineer">Engineer</label><br />
+
+            <input type="radio" name="role" id="manager" />
+            <label for="manager">Manager</label><br />
+
+            <input type="radio" name="role" id="guest" checked />
+            <label for="guest">Guest</label><br />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <label>Single Sign-on to the following:</label><br />
+            <input type="checkbox" name="mail" id="mail" />
+            <label for="mail">Mail</label><br />
+            <input type="checkbox" name="payroll" id="payroll" />
+            <label for="payroll">Payroll</label><br />
+            <input type="checkbox" name="selfservice" id="selfservice" />
+            <label for="selfservice">Self-service</label><br />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit">Login</button>
+            <button type="reset">Reset</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

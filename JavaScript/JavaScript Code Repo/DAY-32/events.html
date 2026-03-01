@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Event Handlers</h2>
+    <ul>
+      <li>Inline event listeners</li>
+      <li>Inline properties</li>
+      <li>Event listeners</li>
+    </ul>
+
+    <h3>1.Inline event listeners</h3>
+    <button onclick="console.log('Welcome to js-1')">click me</button>
+
+    <h3>2.Inline properties</h3>
+    <button id="btn2">click me</button>
+
+    <h3>3.Event listeners</h3>
+    <button id="btn3">click me</button>
+
+    <script>
+      const btn2 = document.getElementById("btn2");
+      btn2.onclick = function () {
+        console.log("Welcome to js-2");
+      };
+      //---------------------------------------
+      const btn3 = document.getElementById("btn3");
+      btn3.addEventListener("click", function () {
+        console.log("Welcome to js-3");
+      });
+    </script>
+  </body>
+</html>

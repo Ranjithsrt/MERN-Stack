@@ -1,0 +1,50 @@
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* card container */
+
+.baby-img {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* img */
+
+img {
+  width: 300px;
+  border-radius: 8px;
+  transition: 0.5s;
+  opacity: 1;
+  outline: none;
+  border: none;
+}
+
+/* img hover */
+
+img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* img:not(:hover) */
+
+.baby-img:has(img:hover) img:not(:hover) {
+  opacity: 0.5;
+}
+
+/* img:not(:hover) {
+            opacity: 0.5;
+        } */
+
+/* .baby-img :nth-child(1){
+            opacity:1 ;
+        } */

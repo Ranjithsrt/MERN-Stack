@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <style>
+      .box,
+      .box * {
+        padding: 10px;
+        border: 4px solid #ccc;
+        margin-bottom: 5px;
+        display: block;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      .box-Father
+      <p>
+        p-(child)
+        <span>Span-(grandchild)</span>
+      </p>
+      <p>
+        p-(child)
+        <span>Span-(grandchild)</span>
+      </p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+      // $(".box").children().css("border-color", "green");
+
+      const box = document.querySelector(".box");
+      const children = box.children;
+      console.log(children);
+      // for (let i = 0; i < children.length; i++) {
+      //   children[i].style.borderColor = "red";
+      // }
+
+      console.log(Array.from(children));
+
+      Array.from(children).forEach((p) => (p.style.borderColor = "red"));
+    </script>
+  </body>
+</html>

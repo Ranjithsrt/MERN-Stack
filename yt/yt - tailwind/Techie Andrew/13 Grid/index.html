@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+   <body>
+
+    <!-- Grid -->
+    
+    <div class="grid grid-cols-3 gap-4 p-4">
+      <div class="bg-blue-500 text-white p-4">Item 1</div>
+      <div class="bg-blue-500 text-white p-4">Item 2</div>
+      <div class="bg-blue-500 text-white p-4">Item 3</div>
+      <div class="bg-blue-500 text-white p-4">Item 4</div>
+      <div class="bg-blue-500 text-white p-4">Item 5</div>
+      <div class="bg-blue-500 text-white p-4">Item 6</div>
+    </div>
+
+    <!-- responsive grid -->
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+      <div class="bg-green-500 text-white p-4">Item 1</div>
+      <div class="bg-green-500 text-white p-4">Item 2</div>
+      <div class="bg-green-500 text-white p-4">Item 3</div>
+      <div class="bg-green-500 text-white p-4">Item 4</div>
+      <div class="bg-green-500 text-white p-4">Item 5</div>
+      <div class="bg-green-500 text-white p-4">Item 6</div>
+      <div class="bg-green-500 text-white p-4">Item 7</div>
+      <div class="bg-green-500 text-white p-4">Item 8</div>
+    </div>
+
+    <!-- grid rows -->
+
+    <div class="grid grid-rows-3 gap-4 p-4 h-[300px]">
+      <div class="bg-red-500 text-white p-4">Row 1</div>
+      <div class="bg-red-500 text-white p-4">Row 2</div>
+      <div class="bg-red-500 text-white p-4">Row 3</div>
+    </div>
+
+    <!-- col span -->
+
+    <div class="grid grid-cols-4 gap-4 p-4">
+      <div class="bg-yellow-500 text-white p-4 col-span-2">Col Span 2</div>
+      <div class="bg-yellow-500 text-white p-4">Item 2</div>
+      <div class="bg-yellow-500 text-white p-4">Item 3</div>
+      <div class="bg-yellow-500 text-white p-4 col-span-3">Col Span 3</div>
+      <div class="bg-yellow-500 text-white p-4">Item 5</div>
+    </div>
+
+    <!-- row span -->
+
+    <div class="grid grid-rows-4 gap-4 p-4 h-[400px]">
+      <div class="bg-purple-500 text-white p-4 row-span-2">Row Span 2</div>
+      <div class="bg-purple-500 text-white p-4">Item 2</div>
+      <div class="bg-purple-500 text-white p-4">Item 3</div>
+      <div class="bg-purple-500 text-white p-4 row-span-3">Row Span 3</div>
+      <div class="bg-purple-500 text-white p-4">Item 5</div>
+    </div>
+
+    <!-- gap -->
+
+    <div class="grid grid-cols-3 gap-8 p-4">
+      <div class="bg-pink-500 text-white p-4">Item 1</div>
+      <div class="bg-pink-500 text-white p-4">Item 2</div>
+      <div class="bg-pink-500 text-white p-4">Item 3</div>
+      <div class="bg-pink-500 text-white p-4">Item 4</div>
+      <div class="bg-pink-500 text-white p-4">Item 5</div>
+      <div class="bg-pink-500 text-white p-4">Item 6</div>
+    </div>
+
+    <!-- Nested Grid -->
+
+    <div class="grid grid-cols-2 gap-4 p-4">
+      <div class="bg-gray-500 text-white p-4">
+        Parent Item 1
+        <div class="grid grid-cols-2 gap-2 mt-2">
+          <div class="bg-gray-700 text-white p-2">Child 1</div>
+          <div class="bg-gray-700 text-white p-2">Child 2</div>
+          <div class="bg-gray-700 text-white p-2">Child 3</div>
+          <div class="bg-gray-700 text-white p-2">Child 4</div>
+        </div>
+      </div>
+      <div class="bg-gray-500 text-white p-4">Parent Item 2</div>
+    </div>
+
+
+   </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Get & Set Content</h3>
+
+    <ul>
+      <li>get</li>
+      <ul>
+        <li>attr()</li>
+      </ul>
+      <li>
+        set
+        <ul>
+          <li>text()</li>
+          <li>html()</li>
+          <li>val()</li>
+        </ul>
+      </li>
+    </ul>
+
+    <input type="text" value="Apple" /> <br />
+    <img src="https://cdn-imgix.headout.com/media/images/c9db3cea62133b6a6bb70597326b4a34-388-dubai-img-worlds-of-adventure-tickets-01.jpg?auto=format&w=1222.3999999999999&h=687.6&q=90&ar=16%3A9&crop=faces&fit=crop" alt="Cartoon" width="200" />
+    <br />
+    <button id="btnAttr">Get</button>
+    <button id="btnText">Text</button>
+    <button id="btnHtml">HTML</button>
+    <button id="btnVal">val</button>
+
+    <p>This is <b>Sample</b></p>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+      const flower = "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQNrnOXGRMv-8LzUmRT5pf6DFDgEpBsUL3oeGZ9BsEVr9GOpAdVEsRbJgdBHUfufHrprIvCLbAOJHP0znf22HNAXhYrLT7xYb4YAEC-SJnXoae3BJZHsIFG5w";
+      /*
+      const btnAttr = document.getElementById("btnAttr");
+      btnAttr.addEventListener("click", function () {
+        const img = document.querySelector("img");
+        console.log(img.src);
+
+        img.src = flower;
+      });
+      */
+
+      $("#btnAttr").click(function () {
+        const src = $("img").attr("src");
+        console.log(src);
+        $("img").attr("src", flower);
+      });
+
+      $("#btnText").click(function () {
+        const text = $("p").text();
+        console.log(text);
+        $("p").text("Hi i am <b>bold</b>");
+      });
+
+      $("#btnHtml").click(function () {
+        const text = $("p").html();
+        console.log(text);
+        $("p").html("Hi i am <b>bold</b>");
+      });
+
+      /*
+      $("#btnVal").click(function () {
+        const value = $("input").val();
+        console.log(value);
+        $("input").val("Orange");
+      });
+
+      */
+
+      const btnVal = document.querySelector("#btnVal");
+      btnVal.addEventListener("click", function () {
+        const value = document.querySelector("input").value;
+        console.log(value);
+        document.querySelector("input").value = "Orange";
+      });
+    </script>
+  </body>
+</html>

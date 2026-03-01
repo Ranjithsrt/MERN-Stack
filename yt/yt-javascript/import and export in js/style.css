@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: aliceblue;
+}
+body {
+  width: 100%;
+  background-color: antiquewhite;
+}
+
+h1 {
+  color: red;
+}
+
+p {
+  color: green;
+}
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div class="top">
+          <h1>Pure JS News App</h1>
+          <div class="controls" style="margin-left: auto">
+            <div class="search">
+              <input type="search" placeholder="Search articles" id="search" />
+            </div>
+          </div>
+        </div>
+
+        <nav class="categories">Sample</nav>
+      </header>
+
+      <main>
+        <div id="status"></div>
+        <section id="grid" class="grid">Loading..</section>
+      </main>
+    </div>
+
+    <div id="modalBackdrop" class="modal-backdrop">
+      <article class="modal">
+        <img src="https://placehold.co/600x400" alt="" class="modal-img" id="modalImage" />
+        <div class="modal-body">
+          <div class="modal-title" id="modalTitle">Sample Title</div>
+          <div class="modal-meta" id="modalMeta">Author / 25-02-2025</div>
+          <div class="modal-desc" id="modalDescription">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui maxime consequuntur officiis earum, asperiores possimus cupiditate exercitationem nesciunt at dolorum, quam quibusdam quaerat consequatur eligendi architecto. Velit pariatur
+            nesciunt fuga.
+          </div>
+          <div class="modal-content-preview" id="modalContent"></div>
+          <div class="modal-actions">
+            <a href="" id="modalUrl" class="btn btn-primary" target="_blank">Read full article</a>
+            <button id="modalClose" class="btn btn-ghost">Close</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

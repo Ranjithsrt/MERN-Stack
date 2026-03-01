@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Full-screen image viewer (hidden by default) -->
+    <div id="fullImgBox" class="full-img">
+      <span onclick="closeFullImg()">X</span>
+      <img src="images/img1.jpg" id="fullImg" />
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="img-gallery">
+      <img src="./Grid_Gallery_Img/img1.jpg" onclick="openFullImg(this.src)" />
+      <img src="./Grid_Gallery_Img/img2.jpg" onclick="openFullImg(this.src)" />
+      <img src="./Grid_Gallery_Img/img3.jpg" onclick="openFullImg(this.src)" />
+      <img
+        src="./Grid_Gallery_Img/img4.jpg"
+        onclick="openFullImg(this.src)"
+      /><img
+        src="./Grid_Gallery_Img/img5.jpg"
+        onclick="openFullImg(this.src)"
+      />
+      <img src="./Grid_Gallery_Img/img6.jpg" onclick="openFullImg(this.src)" />
+      <img src="./Grid_Gallery_Img/img7.jpg" onclick="openFullImg(this.src)" />
+      <img src="./Grid_Gallery_Img/img8.jpg" onclick="openFullImg(this.src)" />
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+      var fullImgBox = document.getElementById("fullImgBox");
+      var fullImg = document.getElementById("fullImg");
+
+      // Show full image
+      function openFullImg(pic) {
+        fullImg.src = pic;
+        fullImgBox.style.display = "flex";
+      }
+
+      // Hide full image
+      function closeFullImg() {
+        fullImgBox.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

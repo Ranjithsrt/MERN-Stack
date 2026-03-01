@@ -1,0 +1,135 @@
+
+
+db.students.insertMany([
+  {
+    name: "Ram",
+    age: 18,
+    marks: 75,
+    fees: 1000,
+    subjects: ["Math", "English"]
+  },
+  {
+    name: "Sita",
+    age: 17,
+    marks: 88,
+    fees: 1500,
+    subjects: ["Science", "History"]
+  }
+])
+
+//$push a course to update
+db.students.updateOne({name:"Ram"},{$push:{subjects:"Computer"}})
+
+
+//$addToSet avoid duplicate
+db.students.updateOne({name:"Sita"},{$addToSet:{subjects:"Math"}})
+
+//$pop Remove First or Last Item from Array -1 -> First 1 -> Last Element
+db.students.updateOne({name:"Sita"},{$pop:{subjects:-1 }})
+db.students.updateOne({name:"Ram"},{$pop:{subjects:1 }})
+
+
+
+
+
+db.students.insertMany([
+  { name: "Arun", subjects: ["Math", "English", "Physics"] },
+  { name: "Divya", subjects: ["Biology", "Chemistry"] },
+  { name: "Rahul", subjects: ["Math", "Physics"] },
+  { name: "Kavya", subjects: ["English", "History"] },
+  { name: "Ravi", subjects: ["Computer", "Math"] }
+])
+
+
+db.students.find();
+
+// $all
+db.students.find({subjects:{$all:["Math", "Physics"]}})
+
+// $in
+db.students.find({subjects:{$in:["Computer","History"]}})
+
+// $size
+db.students.find({subjects:{$size:3}})
+
+
+db.students.insertMany([
+  { name: "Arun Kumar", age: 18, city: "Chennai", gender: "Male" },
+  { name: "Divya Lakshmi", age: 19, city: "Coimbatore", gender: "Female" },
+  { name: "Praveen Raj", age: 20, city: "Madurai", gender: "Male" },
+  { name: "Sneha Ramesh", age: 21, city: "Trichy", gender: "Female" },
+  { name: "Vignesh", age: 18, city: "Salem", gender: "Male" },
+  { name: "Meena Kumari", age: 19, city: "Tirunelveli", gender: "Female" },
+  { name: "Kiran Kumar", age: 20, city: "Bangalore", gender: "Male" },
+  { name: "Anjali Nair", age: 18, city: "Kochi", gender: "Female" },
+  { name: "Rahul Krishna", age: 21, city: "Thiruvananthapuram", gender: "Male" },
+  { name: "Lakshmi Priya", age: 19, city: "Kozhikode", gender: "Female" },
+  { name: "Santosh Babu", age: 18, city: "Hyderabad", gender: "Male" },
+  { name: "Harini", age: 20, city: "Warangal", gender: "Female" },
+  { name: "Ravi Teja", age: 21, city: "Vijayawada", gender: "Male" },
+  { name: "Sowmya", age: 18, city: "Visakhapatnam", gender: "Female" },
+  { name: "Ajith Kumar", age: 19, city: "Mysore", gender: "Male" },
+  { name: "Kavya", age: 20, city: "Hubli", gender: "Female" },
+  { name: "Manoj", age: 21, city: "Nellore", gender: "Male" },
+  { name: "Revathi", age: 18, city: "Erode", gender: "Female" },
+  { name: "Suresh", age: 20, city: "Tuticorin", gender: "Male" },
+  { name: "Keerthana", age: 19, city: "Kurnool", gender: "Female" }
+])
+
+
+// Projection
+//db.collection.find(query,projection)  1-show 0-hide
+db.students.find({},{name:1,age:1,_id:0})
+db.students.find({}).projection({name:1,age:1,_id:0})
+
+
+/*
+Comparison Operators
+
+| Operator | Meaning                   | Example Query                    | Description                            |
+| -------- | ------------------------- | -------------------------------- | -------------------------------------- |
+|  $eq     | Equals                    |  { age: { $eq: 20 } }            | Matches documents where age = 20       |
+|  $ne     | Not equal                 |  { age: { $ne: 20 } }            | Matches documents where age ≠ 20       |
+|  $gt     | Greater than              |  { age: { $gt: 20 } }            | Matches documents where age > 20       |
+|  $gte    | Greater than or equal to  |  { age: { $gte: 20 } }           | Matches documents where age ≥ 20       |
+|  $lt     | Less than                 |  { age: { $lt: 20 } }            | Matches documents where age < 20       |
+|  $lte    | Less than or equal to     |  { age: { $lte: 20 } }           | Matches documents where age ≤ 20       |
+|  $in     | Value is in array         |  { age: { $in: [20, 24, 28] } }  | Matches if age is any of 20, 24, or 28 |
+|  $nin    | Value is **not** in array |  { age: { $nin: [20, 24] } }     | Matches if age is **not** 20 or 24     |
+
+*/
+
+//Count no of Record using find
+db.students.find({},{name:1,age:1,_id:0}).count()
+db.students.find({age:{$eq:20}},{name:1,age:1,_id:0})
+db.students.find({age:{$ne:20}},{name:1,age:1,_id:0})
+db.students.find({age:{$gt:20}},{name:1,age:1,_id:0})
+db.students.find({age:{$gte:20}},{name:1,age:1,_id:0})
+db.students.find({age:{$lt:20}},{name:1,age:1,_id:0})
+db.students.find({age:{$lte:20}},{name:1,age:1,_id:0})
+db.students.find({city:{$in:["Chennai","Bangalore"]}},{name:1,city:1,_id:0})
+db.students.find({city:{$nin:["Chennai","Bangalore"]}},{name:1,city:1,_id:0})
+
+
+
+
+//Get all Record
+db.students.find({},{name:1,age:1,_id:0})
+
+//Show First 5 Records Only
+db.students.find({},{name:1,age:1,_id:0}).limit(5)
+
+//Show Second 5 Records Only
+db.students.find({},{name:1,age:1,_id:0}).limit(5).skip(5)
+
+//Show Third 5 Records Only
+db.students.find({},{name:1,age:1,_id:0}).limit(5).skip(10)
+
+
+
+db.students.find({},{name:1,age:1,_id:0}).sort({age:1})  //Age in 1 asc order
+db.students.find({},{name:1,age:1,_id:0}).sort({age:-1}) //Age in -1 desc order
+
+db.students.find({},{name:1,age:1,_id:0}).sort({name:1})
+
+

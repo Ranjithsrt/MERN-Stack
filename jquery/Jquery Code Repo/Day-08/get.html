@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        padding: 15px;
+      }
+      button {
+        margin-bottom: 15px;
+      }
+      .container {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        border: 1px solid #ccc;
+        padding: 10px;
+        gap: 10px;
+        margin-top: 15px;
+
+        align-content: start;
+      }
+      .box {
+        width: 200px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Load Data</button>
+    <div class="container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+    <script>
+      /*
+      $("document").ready(function () {
+        const url = "https://jsonplaceholder.typicode.com/users";
+        $("button").click(function () {
+          $.get(url, function (data) {
+            let output = ``;
+            data.forEach((user) => {
+              output += `
+                <div class='box'>
+                    <h3>${user.name}</h3>
+                    <p>${user.email}</p>
+                </div>              
+              `;
+            });
+            $(".container").html(output);
+          });
+        });
+      });
+      */
+
+      $("document").ready(function () {
+        const url = "http://localhost:5000/api/people";
+        $("button").click(function () {
+          $.get(url, function (data) {
+            let output = ``;
+            data.forEach((user) => {
+              output += `
+                <div class='box'>
+                    <h3>${user.name}</h3>
+                    <p>${user.age}</p>
+                    <p>${user.city}</p>
+                </div>              
+              `;
+            });
+            $(".container").html(output);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

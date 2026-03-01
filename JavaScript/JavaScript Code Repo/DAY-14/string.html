@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let first_name = "TuTor";
+      let last_name = "Joes";
+
+      let fullname = first_name + " " + last_name;
+      console.log(fullname);
+      let details = first_name.concat(" ", last_name, " From Salem");
+      console.log(details);
+
+      let c = "Tutor";
+      c += " Joes";
+      console.log(c);
+
+      //Escaping
+      c = "She can't run";
+      console.log(c);
+
+      //Length
+      c = first_name.length;
+      console.log("Length : " + c);
+
+      //Change Case
+      c = first_name.toUpperCase();
+      console.log("Uppercase : " + c);
+      c = first_name.toLowerCase();
+      console.log("Lowercase : " + c);
+
+      let name = "tutor";
+      console.log(name[1]);
+      console.log(name);
+
+      console.log(name.indexOf("a"));
+      console.log(name.indexOf("t"));
+      console.log(name.lastIndexOf("t"));
+      console.log(name.charAt(1));
+      name = "abc";
+      console.log(name.charCodeAt(0));
+      console.log("-------------------------");
+      c = first_name.substr(0, 3);
+      console.log("substr : " + c);
+      c = first_name.substr(25, 30);
+      console.log("substr Invalid Length : " + c);
+      console.log("-------------------------");
+      //Substring
+      let text = "01234567890";
+      c = text.substring(0, 4); //1
+      console.log("Substring : " + c);
+      c = text.substring(4); //2
+      console.log("Substring : " + c);
+      c = text.substring(4, 0);
+      console.log("Substring : " + c);
+      c = text.substring(25, 30);
+      console.log("substring Invalid Length : " + c);
+      c = text.substring(-3);
+      console.log("-3 : " + c);
+      console.log("-------------------------");
+      c = text.slice(2, 4);
+      console.log("slice : " + c);
+      c = text.slice(4, 2);
+      console.log("slice : " + c);
+      c = text.slice(25, 30);
+      console.log("slice Invalid Length : " + c);
+      c = text.slice(-5); //3
+      console.log("slice -5: " + c);
+      console.log("-------------------------");
+      //Split in JS
+      let a = "Tutor Joes Computer Education";
+      c = a.split(" ");
+      console.log("Split : ", c);
+
+      let para = c.join(",");
+      console.log(para);
+      console.log("-------------------------");
+      console.clear();
+      //Replace
+      a = "I am from Salem";
+      console.log("Before Replace : " + a);
+      c = a.replace("Salem", "Chennai");
+      console.log("After Replace : " + c);
+      //includes
+      const pets = ["cat", "dog", "bat"];
+      console.log(pets.includes("cat"));
+      console.log(pets.includes("rat"));
+
+      //trim
+      a = " Tutor Joes ";
+      console.log("Before Trim : " + a.length);
+
+      a = a.trim();
+      console.log("After Trim : " + a.length);
+
+      //padStart padEnd
+      a = "25";
+      a = a.padStart(4, 0);
+      console.log(a);
+
+      a = "15";
+      a = a.padEnd(4, 0);
+      console.log(a);
+    </script>
+  </body>
+</html>
+
+<!---
+https://www.tutorjoes.in/JS_tutorial/string_function_in_javascript
+-->

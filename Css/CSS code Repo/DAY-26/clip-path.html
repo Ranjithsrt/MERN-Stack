@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+      .line {
+        width: 200px;
+        height: 200px;
+        background-color: #dbdada;
+        position: relative;
+      }
+      .line::before {
+        content: "";
+        position: absolute;
+        width: 350px;
+        height: 2px;
+        border-top: 3px dashed #333;
+        top: -7px;
+        left: -4px;
+      }
+      .line::after {
+        content: "";
+        position: absolute;
+        width: 350px;
+        height: 2px;
+        border-top: 3px dashed #333;
+        transform: rotate(90deg);
+        left: -90%;
+        top: 83%;
+      }
+
+      span {
+        position: absolute;
+        font-size: 14px;
+        color: #333;
+      }
+      span:nth-of-type(1) {
+        right: 0;
+        top: -30px;
+      }
+      span:nth-of-type(2) {
+        left: -50px;
+      }
+      /* ------------------------------------- */
+
+      .shape {
+        height: 200px;
+        width: 200px;
+        background-color: rgb(210, 20, 20);
+      }
+      .circle {
+        /* 
+        clip-path: circle(radius at cx cy); 
+            cx cy px or %
+            left,top,right, bottom
+        */
+        clip-path: circle(50px at 50px 50px);
+        clip-path: circle(50px at right bottom);
+        clip-path: circle(50px at 50% 50%);
+      }
+      .ellipse {
+        /*2 radius : rx,ry*/
+        clip-path: ellipse(80px 50px at 50% 50%);
+        clip-path: ellipse(80px 50px at center);
+        clip-path: ellipse(40% 50% at center);
+      }
+      .inset {
+        /* 
+        clip-path:inset(top right bottom left round(border-radius))
+
+      */
+        clip-path: inset(20px 30px 40px 10px round 10px);
+        clip-path: inset(20px 30px 40px 10px round 20px 0);
+        clip-path: inset(20px 30px 40px 10px);
+        clip-path: inset(20px);
+      }
+
+      .polygon {
+        /* 
+          custom shape
+          clip-path:polygon(x1 y1,x2 y2, ....) px % etc
+        */
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        clip-path: polygon(52% 0, 0 100%, 100% 100%);
+        clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      }
+
+      .path {
+        /*
+            M - Start Draw
+               L Stright line
+               A Curve  => (rx,ry x-axis-rotation,large-arc-flag,sweep-flag)
+               C
+            Z - End Draw
+
+        */
+        clip-path: path("M100 30 C 60 0, 0 50, 100 170 C 220 50, 130 0, 100 30 Z");
+
+        clip-path: path("M 0 60,10 50,90 50,100 40,100 10,110 0 ,190 0,200 10,200 190, 190 200,10 200,0 190 Z");
+
+        clip-path: path(" M 0 60 A 10,10 0,0,1 10 50 L 90 50 A 10,10 0,0,0 100 40 L 100 10 A 10,10 0,0,1 110 0 L 190 0 A 10,10 0,0,1 200 10 L 200 190 A 10,10 0,0,1 190 200 L 10 200 A 10,10 0,0,1 0 190 Z");
+      }
+    </style>
+  </head>
+  <body>
+    <div class="line">
+      <span>X-axis</span>
+      <div class="shape path"></div>
+      <span>Y-axis</span>
+    </div>
+  </body>
+</html>

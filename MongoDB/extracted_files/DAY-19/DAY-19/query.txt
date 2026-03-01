@@ -1,0 +1,114 @@
+db.users.insertMany([
+  { "_id": 1, "name": "Arjun Reddy", "age": 15, "class": "10th" },
+  { "_id": 2, "name": "Sai Kumar", "age": 16, "class": "11th" },
+  { "_id": 3, "name": "Vishnu Nair", "age": 17, "class": "11th" },
+  { "_id": 4, "name": "Karthik Raj", "age": 18, "class": "12th" },
+  { "_id": 5, "name": "Anjali Menon", "age": 16, "class": "11th" },
+  { "_id": 6, "name": "Ravi Shankar", "age": 14, "class": "10th" },
+  { "_id": 7, "name": "Priya Varghese", "age": 15, "class": "10th" },
+  { "_id": 8, "name": "Siddharth Rao", "age": 17, "class": "11th" },
+  { "_id": 9, "name": "Lakshmi Suresh", "age": 16, "class": "11th" },
+  { "_id": 10, "name": "Vignesh Pillai", "age": 18, "class": "12th" },
+  { "_id": 11, "name": "Meena Iyer", "age": 15, "class": "10th" },
+  { "_id": 12, "name": "Naveen Kumar", "age": 16, "class": "11th" },
+  { "_id": 13, "name": "Shalini Nambiar", "age": 17, "class": "11th" },
+  { "_id": 14, "name": "Ramesh Goud", "age": 18, "class": "12th" },
+  { "_id": 15, "name": "Divya Krishna", "age": 14, "class": "10th" },
+  { "_id": 16, "name": "Srinivas Rao", "age": 16, "class": "11th" },
+  { "_id": 17, "name": "Aishwarya Nair", "age": 15, "class": "10th" },
+  { "_id": 18, "name": "Mohan Raju", "age": 17, "class": "11th" },
+  { "_id": 19, "name": "Kavya Shetty", "age": 16, "class": "11th" },
+  { "_id": 20, "name": "Aditya Menon", "age": 18, "class": "12th" }
+]);
+
+
+db.users.find({"class": "11th"})
+
+#----------------------------------------
+# $match
+db.users.aggregate([
+  {$match:{"class": "11th"}}
+])
+
+db.users.aggregate([
+  {$match:{"age": 16}}
+])
+
+db.users.aggregate([
+  {$match:{
+    $and:[
+      {age:{$gt:16}},
+      {"class": "11th"}
+    ]
+  }}
+])
+
+#----------------------------------------
+# $match with $count
+
+db.users.aggregate([
+  {$match:{age:{$gt:16}}},
+  {$count:"names"}
+])
+
+#----------------------------------------
+# $match with $sort
+db.users.aggregate([
+  {$match:{age:{$gt:15}}},
+  {$sort:{age:-1}}
+])
+
+
+db.users.aggregate([
+  {$match:{$and:[
+    {age:{$gt:15}},
+    {"class": "11th"}
+  ]}},
+  {$sort:{age:-1}}
+])
+
+#----------------------------------------
+# $project
+
+db.users.aggregate([
+  {$match:{$and:[
+    {age:{$gt:15}},
+    {"class": "11th"}
+  ]}},
+  {$sort:{age:-1}},
+  {$project:{name:1,class:1,age:1,_id:0}}
+])
+
+
+# Custom Field Projection
+
+db.users.aggregate([
+  {$match:{$and:[
+    {age:{$gt:15}},
+    {"class": "11th"}
+  ]}},
+  {$sort:{age:-1}},
+  {$project:{name:1,class:1,age:1,_id:0,isEligible:{$gt:["$age",17]}}}
+])
+
+
+#----------------------------------------
+# $sortByCount
+
+db.users.aggregate([
+  {$sortByCount:"$class"}
+])
+
+#----------------------------------------
+# $skip and $limit
+db.users.aggregate([
+  {$match: {age:{$gt:1}}},
+  {$skip:0},
+  {$limit:5}
+])
+
+
+#------------------------------------------
+# $sample
+
+db.users.aggregate([{$sample:{size:2}}])

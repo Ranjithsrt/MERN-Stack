@@ -1,0 +1,172 @@
+String Operator
+    toUpper         ✔
+    toLower         ✔
+    strLenBytes     ✔  
+    strLenCP        ✔
+    strcasecmp      ✔
+    substrBytes     ✔
+    substrCP        ✔
+    replaceOne      ✔
+    replaceAll      ✔
+    split           ✔    
+    concat          ✔
+    toString        ✔
+    ltrim           ✔   
+    rtrim           ✔
+    trim            ✔
+    dateFromString  ✔
+    regexMatch      ✔
+    regexFind       ✔
+    regexFindAll    ✔
+    indexOfBytes    ✔
+
+//---------------------------------------------
+db.actors.insertMany([
+  { _id: 1, name: 'Arun Kumar', dob: 'jan 10 2010',age:25,city:"Salem" },
+  { _id: 2, name: 'Vijay Sethupathi', dob: '2010-02-03' ,age:22,city:"Chennai"},
+  { _id: 3, name: 'Nithya Menen', dob: 'june 15 2010' ,age:35,city:"Coimbatore"},
+  { _id: 4, name: 'Dulquer Salmaan', dob: 'WED jan 31 12:05:28 +03:30 2010',age:27,city:"Banglore" },
+  { _id: 5, name: 'Keerthy Suresh', dob: 'dec 22 2010' ,age:36,city:"Salem"},
+  { _id: 6,name:" Test "},
+  { _id: 7,name:"தமிழ்"},
+])
+
+
+db.actors.aggregate([
+    {
+        $project:{
+            name:1,
+            uppercase:{$toUpper:"$name"},
+            lowercase:{$toLower:"$name"},
+            lengthInBytes:{$strLenBytes:"$name"},
+            lengthInCodePoint:{$strLenCP:"$name"},
+            compareCase:{$strcasecmp:["$name","arun kumar"]},  //0 if equal else 1 not equal
+            substring:{$substrBytes:["$name",0,4]},            //(index,char)substr for older version
+            substringCP:{$substrCP:["$name",0,4]}
+
+        }
+    }
+])
+
+
+//---------------------------------------------
+//replaceOne
+db.actors.aggregate([
+    {
+        $project:{
+            updatedString:{$replaceOne:{
+                input:"$name",
+                find:"Kumar",
+                replacement:"Prakesh"
+            }}
+        }
+    }
+])
+
+db.actors.aggregate([
+    {
+        $project:{
+            updatedString:{$replaceOne:{
+                input:"My name is Kumar and his name is Kumar",
+                find:"Kumar",
+                replacement:"Prakesh"
+            }}
+        }
+    }
+])
+
+
+
+//replaceAll
+
+db.actors.aggregate([
+    {
+        $project:{
+            updatedString:{$replaceAll:{
+                input:"My name is Kumar and his name is Kumar",
+                find:"Kumar",
+                replacement:"Prakesh"
+            }}
+        }
+    }
+])
+
+
+db.actors.aggregate([
+    {
+        $project:{
+            name:1,
+            fullname:{$split:["$name"," "]},
+            concat:{$concat:["$name"," - ","$city"]}
+        }
+    }
+])
+
+db.actors.aggregate([
+    {
+        $project:{
+            age:1,
+            stringFeild:{$toString:"$age"}
+        }
+    }
+])
+
+db.actors.aggregate([
+    {
+        $project:{
+            name:1,
+            ltrim:{$ltrim:{input:"$name",chars:" "}},
+            rtrim:{$rtrim:{input:"$name",chars:" "}},
+            trim:{$trim:{input:"$name",chars:" "}},
+        }
+    }
+])
+
+db.actors.aggregate([
+    {
+        $project:{
+            dob:1,
+            dateString:{$dateFromString:{dateString:"$dob"}}
+        }
+    }
+])
+
+
+//---------------------------------------------
+
+db.actors.aggregate([
+    {
+        $project:{
+            name:1,
+            isMatch:{$regexMatch:{input:"$name",regex:"^A"}},
+            isEndMatch:{$regexMatch:{input:"$name",regex:"n$"}},
+            isMatchFind:{$regexFind:{input:"$name",regex:"Arun"}},
+        }
+    }
+])
+
+db.actors.aggregate([
+    {
+        $project:{
+            name:1,
+            isMatchFind:{$regexFindAll:{input:"$name",regex:"a"}},
+        }
+    }
+])
+
+
+Arun Kumar
+0123456789
+
+
+db.actors.aggregate([
+    {
+        $project:{
+            name:1,
+            index_1:{$indexOfBytes:["$name","a"]},
+            index_2:{$indexOfBytes:["$name","a",4]}, //start from 4th index
+            index_3:{$indexOfBytes:["$name","a",4,8]}, //start from 4th index and end index 8
+            index_4:{$indexOfCP:["$name","a"]},
+        }
+    }
+])

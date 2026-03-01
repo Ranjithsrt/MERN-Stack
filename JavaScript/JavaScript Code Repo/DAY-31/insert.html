@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 2px solid #ccc;
+        width: 300px;
+        margin: 10px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul></ul>
+
+    <div id="target">
+      <p>Existing content</p>
+    </div>
+
+    <script>
+      const li1 = document.createElement("li");
+      li1.textContent = "Apple";
+      const li2 = document.createElement("li");
+      li2.textContent = "Orange";
+      const li3 = document.createElement("li");
+      li3.textContent = "Pinapple";
+
+      const ul = document.getElementsByTagName("ul")[0];
+      ul.appendChild(li1);
+      ul.append(li2, li3, "Test");
+
+      const li4 = document.createElement("li");
+      li4.textContent = "Grapes";
+      ul.prepend(li4);
+
+      const li = ul.children[2];
+
+      const li5 = document.createElement("li");
+      li5.textContent = "Kiwi";
+      ul.insertBefore(li5, li);
+
+      //--------------------------------------
+
+      const target = document.getElementById("target");
+
+      const s1 = document.createElement("span");
+      s1.textContent = "beforebegin";
+      target.insertAdjacentElement("beforebegin", s1);
+
+      const s2 = document.createElement("span");
+      s2.textContent = "afterbegin";
+      target.insertAdjacentElement("afterbegin", s2);
+
+      const s3 = document.createElement("span");
+      s3.textContent = "beforeend";
+      target.insertAdjacentElement("beforeend", s3);
+
+      const s4 = document.createElement("span");
+      s4.textContent = "afterend";
+      target.insertAdjacentElement("afterend", s4);
+    </script>
+  </body>
+</html>
+
+<!---
+appendChild
+append
+prepend
+insertBefore
+insertAdjacentElement 
+    beforebegin
+    afterbegin
+    beforeend
+    afterend
+  
+
+
+-->

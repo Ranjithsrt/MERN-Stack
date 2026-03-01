@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Elements</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Name" />
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control form-control-sm" id="name" placeholder="Enter Name" readonly />
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control form-control-lg" id="name" placeholder="Enter Name" disabled />
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Address</label>
+            <textarea class="form-control" rows="5" placeholder="Enter Address"></textarea>
+          </div>
+
+          <div class="row">
+            <div class="col-8">
+              <div class="mb-3">
+                <label for="" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="" placeholder="Enter First Name" />
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="mb-3">
+                <label for="name" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="" placeholder="Enter Last Name" />
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Plain Text</label>
+            <input type="text" class="form-control-plaintext" id="" placeholder="Enter Plain Name" />
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Pick Your Color</label>
+            <input type="color" class="form-control-color" id="" />
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Course</label>
+            <select class="form-select">
+              <option value="">Select Course</option>
+              <option value="C">C</option>
+              <option value="C++">C++</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Course</label>
+            <select class="form-select form-select-sm">
+              <option value="">Select Course</option>
+              <option value="C">C</option>
+              <option value="C++">C++</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Course</label>
+            <select class="form-select form-select-lg">
+              <option value="">Select Course</option>
+              <option value="C">C</option>
+              <option value="C++">C++</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Select City</label>
+            <input type="text" class="form-control" id="city" list="cityList" />
+            <datalist id="cityList">
+              <option value="Salem"></option>
+              <option value="Chennai"></option>
+              <option value="Banglore"></option>
+            </datalist>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" />
+            <label for="" class="form-check-label">C</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" />
+            <label for="" class="form-check-label">C++</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" />
+            <label for="" class="form-check-label">Java</label>
+          </div>
+
+          <hr />
+          <div class="form-check">
+            <input type="radio" class="form-check-input" name="gender" id="male" />
+            <label for="male" class="form-check-label">Male</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" name="gender" id="female" />
+            <label for="female" class="form-check-label">Female</label>
+          </div>
+          <hr />
+
+          <div class="form-check form-switch">
+            <input type="checkbox" class="form-check-input" id="switch" checked />
+            <label for="switch">Dark Mode</label>
+          </div>
+          <hr />
+
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="gender" id="male1" />
+            <label for="male1" class="form-check-label">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="gender" id="female1" />
+            <label for="female1" class="form-check-label">Female</label>
+          </div>
+
+          <hr />
+          <div class="mb-3">
+            <input type="range" class="form-range" value="0" min="0" max="10" step="2" />
+          </div>
+          <!--- col-md-6 End -->
+        </div>
+        <!--- Row End -->
+      </div>
+      <!--- Container End -->
+    </div>
+  </body>
+</html>

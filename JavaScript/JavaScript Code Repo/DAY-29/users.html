@@ -1,0 +1,176 @@
++<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .form-container {
+        margin-bottom: 20px;
+      }
+
+      input {
+        padding: 8px;
+        margin: 5px;
+        width: 200px;
+      }
+      button {
+        padding: 8px 16px;
+        margin: 5px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+      td button {
+        padding: 4px 8px;
+        margin: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Manage Users</h2>
+      <form autocomplete="off">
+        <input type="text" id="name" placeholder="Enter Name" />
+        <input type="number" id="age" placeholder="Enter Age" />
+        <button id="btnSave" onclick="saveData()">Save</button>
+        <button id="btnReset" onclick="resetForm()">Reset</button>
+      </form>
+
+      <p id="error" class="error"></p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr>
+          <td>Ram</td>
+          <td>25</td>
+          <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      let editIndex = null;
+      //Load localStorage data to HTML Table
+      function loadData() {
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        console.log(users);
+        const tableBody = document.getElementById("tableBody");
+        tableBody.innerHTML = "";
+        users.forEach((user, index) => {
+          const row = ` 
+          <tr>
+          <td>${user.name}</td>
+          <td>${user.age}</td>
+          <td>
+            <button onclick="editData(${index})">Edit</button>
+            <button onclick="deleteData(${index})">Delete</button>
+          </td>
+        </tr>`;
+          tableBody.innerHTML += row;
+        });
+      }
+
+      //Clear Form Inputs
+      function resetForm() {
+        document.getElementById("name").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("error").innerHTML = "";
+        editIndex = null;
+        document.getElementById("btnSave").textContent = "Save";
+        document.getElementById("btnReset").textContent = "Reset";
+      }
+
+      //Save latest data to localStorage
+      function saveData() {
+        const name = document.getElementById("name").value.trim();
+        const age = document.getElementById("age").value.trim();
+        const errorElement = document.getElementById("error");
+
+        if (!name || !age || isNaN(age) || age <= 0) {
+          errorElement.textContent = "Please enter a valid name and age";
+          return;
+        }
+
+        const user = { name, age };
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        if (editIndex !== null) {
+          //Update
+          users[editIndex] = user;
+          resetForm();
+        } else {
+          //Insert
+          users.push(user);
+        }
+
+        localStorage.setItem("users", JSON.stringify(users));
+        loadData();
+      }
+
+      //Delete Record form localStorage
+
+      function deleteData(index) {
+        if (confirm("Are you sure to delete ?")) {
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+          users.splice(index, 1);
+          localStorage.setItem("users", JSON.stringify(users));
+          loadData();
+        }
+      }
+
+      //Edit User Data in localStorage
+
+      function editData(index) {
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const user = users[index];
+        console.log(user);
+        document.getElementById("name").value = user.name;
+        document.getElementById("age").value = user.age;
+
+        document.getElementById("btnSave").textContent = "Update";
+        document.getElementById("btnReset").textContent = "Cancel";
+
+        editIndex = index;
+      }
+
+      //Init Load
+      loadData();
+    </script>
+  </body>
+</html>

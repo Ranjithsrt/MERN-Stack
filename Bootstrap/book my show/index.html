@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Page Title -->
+    <title>Book My Show</title>
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="/img/bookmyshow-icon.png"
+      alt="Netflix Logo"
+      width="200"
+    />
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS style sheet -->
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+        .navbar-search::placeholder{
+            color: #5e5e5e93;
+            font-size: 13px;
+            margin-left:100px;
+         }
+    </style>
+  </head>
+
+  <body style="font-family: 'Poppins', sans-serif">
+    <!-- start Navbar -->
+    <div class="container-fluid d-flex justify-content-around bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./img/bookmyshow-icon.png" alt="" width="40px" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex position-relative" role="search">
+              <!-- Search icon -->
+              <i
+                class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-4"
+              ></i>
+              <input
+                class="form-control me-2 p-2 navbar-search"
+                style="width: 750px"
+                type="search"
+                placeholder="Search for movies, events, plays, sports and activities"
+                aria-label="Search"
+              />
+            </form>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn border-0 outline-0 mx-3"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Coimbatore <i class="bi bi-caret-down-fill"></i>
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        <img src="./img/bookmyshow-icon.png" alt="" style="width: 30px;;">
+                        Select your location
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <form class="d-flex position-relative" role="search">
+                        <!-- Search icon -->
+
+                        <input
+                          class="form-control me-2"
+                          type="search"
+                          placeholder="Search  "
+                          aria-label="Search"
+                        />
+                        <i
+                          class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"
+                        ></i>
+                      </form>
+
+                      <!-- location icon -->
+                      <h5 class="d-block mt-3 mb-3">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span class="text-danger small"
+                          >Detect your location</span
+                        >
+                        <hr />
+                      </h5>
+
+                      <!-- location -->
+
+                      <div class="d-flex">
+                        <div class="d-flex flex-column mx-3 m-0 p-0">
+                          <img
+                            src="./img/city-vector.jpg"
+                            alt=""
+                            style="width: 100px"
+                            class="img-fluid m-0 p-0"
+                          />
+                          <span class="text-center">Coimbatore</span>
+                        </div>
+
+                        <div class="d-flex flex-column m-0 p-0">
+                          <img
+                            src="./img/city-vector.jpg"
+                            alt=""
+                            style="width: 100px"
+                            class="img-fluid m-0 p-0"
+                          />
+                          <span class="text-center">Chennai</span>
+                        </div>
+
+                        <div class="d-flex flex-column m-0 p-0">
+                          <img
+                            src="./img/city-vector.jpg"
+                            alt=""
+                            style="width: 100px"
+                            class="img-fluid m-0 p-0"
+                          />
+                          <span class="text-center">mumbai</span>
+                        </div>
+
+                        <div class="d-flex flex-column m-0 p-0">
+                          <img
+                            src="./img/city-vector.jpg"
+                            alt=""
+                            style="width: 100px"
+                            class="img-fluid m-0 p-0"
+                          />
+                          <span class="text-center">Bangalore</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button type="button" class="btn btn-primary">
+                        Save changes
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-danger btn-sm">
+                Sign In
+              </button>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- offcanvas -->
+      <button
+        class="border-0 outline-0 m-0 p-0 bg-transparent  d-sm-none 
+        d-md-block
+        "
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight"
+      >
+        <i
+          class="bi bi-list"
+          style="height: 500px !important; width: 500px"
+        ></i>
+      </button>
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">Hey !</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <!-- Login Box -->
+          <div
+            class="d-flex justify-content-between align-items-center p-3 border-bottom"
+          >
+            <div>
+              <p class="mb-0 fw-semibold">
+                Unlock special offers &<br />
+                great benefits
+              </p>
+            </div>
+            <button class="btn btn-outline-danger btn-sm">
+              Login / Register
+            </button>
+          </div>
+
+          <!-- Menu List -->
+          <div class="list-group list-group-flush">
+            <a
+              href="#"
+              class="list-group-item list-group-item-action d-flex align-items-center text-black fs-6"
+            >
+              <i class="bi bi-bell me-3"></i> Notifications
+            </a>
+
+            <a
+              href="#"
+              class="list-group-item list-group-item-action d-flex align-items-center text-black fs-6"
+            >
+              <i class="bi bi-bag-check me-3"></i>
+              <div>
+                <div>Your Orders</div>
+                <small class="text-muted"
+                  >View all your bookings & purchases</small
+                >
+              </div>
+            </a>
+
+            <a
+              href="#"
+              class="list-group-item list-group-item-action d-flex align-items-center text-black fs-6"
+            >
+              <i class="bi bi-tv me-3"></i>
+              <div>
+                <div>Stream Library</div>
+                <small class="text-muted">Rented & Purchased Movies</small>
+              </div>
+            </a>
+
+            <a
+              href="#"
+              class="list-group-item list-group-item-action d-flex align-items-start justify-content-between text-black fs-6"
+            >
+              <div class="d-flex">
+                <i class="bi bi-credit-card-2-front me-3"></i>
+                <div>
+                  <div>Play Credit Card</div>
+                  <small class="text-muted"
+                    >View your Play Credit Card details and offers</small
+                  >
+                </div>
+              </div>
+              <span class="badge bg-danger rounded-pill small mt-1 "
+                >NEW</span
+              >
+            </a>
+
+            <a
+              href="#"
+              class="list-group-item list-group-item-action d-flex align-items-center text-black fs-6"
+            >
+              <i class="bi bi-chat-left-text me-3"></i>
+              <div>
+                <div>Help & Support</div>
+                <small class="text-muted"
+                  >View commonly asked queries and Chat</small
+                >
+              </div>
+            </a>
+
+            <div class="list-group-item d-flex align-items-center text-muted">
+              <i class="bi bi-gear me-3 text-black fs-6"></i>
+              <div>
+                <div>Accounts & Settings</div>
+                <small>Location, Payments, Permissions & More</small>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="list-group-item list-group-item-action d-flex align-items-center text-black fs-6"
+            >
+              <i class="bi bi-gift me-3"></i>
+              <div>
+                <div>Rewards</div>
+                <small class="text-muted"
+                  >View your rewards & unlock new ones</small
+                >
+              </div>
+            </a>
+
+            <a
+              href="#"
+              class="list-group-item list-group-item-action d-flex align-items-center text-black fs-6"
+            >
+              <i class="bi bi-globe-americas me-3"></i> BookAChange
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- End offcanvas -->
+
+      <!-- End Navbar content -->
+    </div>
+    <!-- End Navbar -->
+
+    <!-- start menu -->
+    <div class="container">
+      <div class="row my-4">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex gap-3">
+            <a href="./index.html" class="text-decoration-none text-dark small">Movies</a>
+            <a href="./Movies.html" class="text-decoration-none text-dark small">Stream</a>
+            <a href="./Events.html" class="text-decoration-none text-dark small">Events</a>
+            <a href="#" class="text-decoration-none text-dark small">Plays</a>
+            <a href="#" class="text-decoration-none text-dark small">Sports</a>
+            <a
+              href="#"
+              class="text-decoration-none text-dark small text-dark small"
+              >Activities</a
+            >
+          </div>
+          <div class="d-flex gap-3">
+            <a href="#" class="text-decoration-none text-dark small"
+              >list your show</a
+            >
+            <a href="#" class="text-decoration-none text-dark small"
+              >Corporates</a
+            >
+            <a href="#" class="text-decoration-none text-dark small">offers</a>
+            <a href="./Gift-cards.html" class="text-decoration-none text-dark small"
+              >Gift Cards</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End menu -->
+
+    <!-- start carousel -->
+    <div class="container">
+      <div
+        id="carouselExampleCaptions"
+        class="carousel slide carsousel-fade"
+        style="height: 500px"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="./img/netflix-carouseljpg.jpg"
+              class="d-block w-100"
+              alt="..."
+              style="height: 500px"
+            />
+            <div class="carousel-caption d-none d-md-block position-absolute top-50 left-50 start-50 translate-middle  ">
+              <div>
+                <img src="./img/next.png" alt="" style="width: 25px;">
+                <span class="fw-bold small me-5">PREMIERE</span>
+                <span class="fw-bold small">streaming Now</span>
+              </div>
+              <h1 class="fw-bold my-3 display-4 " style="font-family: 'Courier New', Courier, monospace;">HARRY POTTER</h1>
+              <div class="d-flex justify-content-center gap-3 fw-bold fs-6">
+                <span>2h 30m .</span>
+                <span>Adventure .</span> <span>Thriller</span>
+                <span>1 Apr. 2022</span>
+              </div>
+              <div>
+                <button class="btn btn-outline-light my-4">More Info</button>
+                <button class="btn btn-danger my-4">Buy Ticket </button>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./img/netflix-carouseljpg.jpg"
+              class="d-block w-100"
+              alt="..."
+              style="height: 500px"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>
+                Some representative placeholder content for the second slide.
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./img/netflix-carouseljpg.jpg"
+              class="d-block w-100"
+              alt="..."
+              style="height: 500px"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>
+                Some representative placeholder content for the third slide.
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <!-- End carousel -->
+
+    <!-- start movie cards -->
+    <div class="container mt-5">
+      <!-- Premiere of the week -->
+      <div class="container mt-5">
+        <h5 class="fw-bold my-1 text-uppercase">Premiere of the week</h5>
+        <!-- button -->
+        <div class="d-flex justify-content-end mb-3">
+          <button class="btn border-0">
+            <img src="./img/back.png" alt="" style="width: 30px" />
+          </button>
+          <button class="btn border-0">
+            <img src="./img/next.png" alt="" style="width: 30px" />
+          </button>
+        </div>
+        <!-- End button -->
+        <div
+          class="d-flex gap-3 overflow-x-auto"
+          style="height: 250px; width: 100%; scrollbar-width: none"
+        >
+          <img src="img/img3webp.webp" alt="" class="w-100 h-100 img-fluid" />
+          <img src="./img/img2.jpeg" alt="" class="w-100 h-100 img-fluid" />
+          <img
+            src="img/hollywood-movies-8.jpg"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="./img/65_1671448856.avif"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img src="./img/img1.jpg" alt="" class="w-100 h-100 img-fluid" />
+          <img
+            src="./img/top-13-movies-based-off-true-stories.jpg"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="./img/zodiac-movie-based-on-true-story-1517346932.avif"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+        </div>
+      </div>
+      <!-- End Premiere of the week -->
+
+      <!-- New on stream -->
+      <div class="container mt-5">
+        <h5 class="fw-bold my-1 text-uppercase">New on stream</h5>
+        <!-- button -->
+        <div class="d-flex justify-content-end mb-3">
+          <button class="btn border-0">
+            <img src="./img/back.png" alt="" style="width: 30px" />
+          </button>
+          <button class="btn border-0">
+            <img src="./img/next.png" alt="" style="width: 30px" />
+          </button>
+        </div>
+        <!-- End button -->
+        <div
+          class="d-flex gap-3 overflow-x-auto"
+          style="height: 250px; width: 100%; scrollbar-width: none"
+        >
+          <img src="img/img3webp.webp" alt="" class="w-100 h-100 img-fluid" />
+          <img src="./img/img2.jpeg" alt="" class="w-100 h-100 img-fluid" />
+          <img
+            src="img/hollywood-movies-8.jpg"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="./img/65_1671448856.avif"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img src="./img/img1.jpg" alt="" class="w-100 h-100 img-fluid" />
+          <img
+            src="./img/top-13-movies-based-off-true-stories.jpg"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="./img/zodiac-movie-based-on-true-story-1517346932.avif"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+        </div>
+      </div>
+      <!-- End New on stream -->
+
+      <!-- Upcoming Releases -->
+      <div class="container mt-5">
+        <h5 class="fw-bold my-1 text-uppercase">Upcoming Releases</h5>
+        <!-- button -->
+        <div class="d-flex justify-content-end mb-3">
+          <button class="btn border-0">
+            <img src="./img/back.png" alt="" style="width: 30px" />
+          </button>
+          <button class="btn border-0">
+            <img src="./img/next.png" alt="" style="width: 30px" />
+          </button>
+        </div>
+        <!-- End button -->
+        <div
+          class="d-flex gap-3 overflow-x-auto"
+          style="height: 250px; width: 100%; scrollbar-width: none"
+        >
+          <img src="img/img3webp.webp" alt="" class="w-100 h-100 img-fluid" />
+          <img src="./img/img2.jpeg" alt="" class="w-100 h-100 img-fluid" />
+          <img
+            src="img/hollywood-movies-8.jpg"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="./img/65_1671448856.avif"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img src="./img/img1.jpg" alt="" class="w-100 h-100 img-fluid" />
+          <img
+            src="./img/top-13-movies-based-off-true-stories.jpg"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="./img/zodiac-movie-based-on-true-story-1517346932.avif"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+        </div>
+      </div>
+      <!-- End Upcoming Releases -->
+
+      <!-- Top TV Shows -->
+      <div class="container mt-5">
+        <h5 class="fw-bold my-1 text-uppercase">Top TV Shows</h5>
+        <!-- button -->
+        <div class="d-flex justify-content-end mb-3">
+          <button class="btn border-0">
+            <img src="./img/back.png" alt="" style="width: 30px" />
+          </button>
+          <button class="btn border-0">
+            <img src="./img/next.png" alt="" style="width: 30px" />
+          </button>
+        </div>
+        <!-- End button -->
+        <div
+          class="d-flex gap-3 overflow-x-auto"
+          style="height: 250px; width: 100%; scrollbar-width: none"
+        >
+          <img src="img/img3webp.webp" alt="" class="w-100 h-100 img-fluid" />
+          <img src="./img/img2.jpeg" alt="" class="w-100 h-100 img-fluid" />
+          <img
+            src="img/hollywood-movies-8.jpg"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="./img/65_1671448856.avif"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img src="./img/img1.jpg" alt="" class="w-100 h-100 img-fluid" />
+          <img
+            src="./img/top-13-movies-based-off-true-stories.jpg"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="./img/zodiac-movie-based-on-true-story-1517346932.avif"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+        </div>
+      </div>
+      <!-- End Top TV Shows -->
+
+      <!-- Korean cinema -->
+      <div class="container mt-5">
+        <h5 class="fw-bold my-1 text-uppercase">Korean cinema</h5>
+        <!-- button -->
+        <div class="d-flex justify-content-end mb-3">
+          <button class="btn border-0">
+            <img src="./img/back.png" alt="" style="width: 30px" />
+          </button>
+          <button class="btn border-0">
+            <img src="./img/next.png" alt="" style="width: 30px" />
+          </button>
+        </div>
+        <!-- End button -->
+        <div
+          class="d-flex gap-3 overflow-x-auto"
+          style="height: 250px; width: 100%; scrollbar-width: none"
+        >
+          <img src="img/img3webp.webp" alt="" class="w-100 h-100 img-fluid" />
+          <img src="./img/img2.jpeg" alt="" class="w-100 h-100 img-fluid" />
+          <img
+            src="img/hollywood-movies-8.jpg"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="./img/65_1671448856.avif"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img src="./img/img1.jpg" alt="" class="w-100 h-100 img-fluid" />
+          <img
+            src="./img/top-13-movies-based-off-true-stories.jpg"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="./img/zodiac-movie-based-on-true-story-1517346932.avif"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+          <img
+            src="https://placehold.co/10x10"
+            alt=""
+            class="w-100 h-100 img-fluid"
+          />
+        </div>
+      </div>
+      <!-- End Korean cinema -->
+    </div>
+    <!-- End movie cards -->
+
+    <!-- start footer -->
+    <footer class="bg-dark text-light p-5 mt-5">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <!-- Section 1 -->
+          <div class="col-md-3 mb-3">
+            <h5 class="fw-bold my-3">Explore</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-light text-decoration-none">Movies</a>
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none">Events</a>
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none">Plays</a>
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none">Sports</a>
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Activities</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Section 2 -->
+          <div class="col-md-3 mb-3">
+            <h5 class="fw-bold my-3">Help</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-light text-decoration-none">About Us</a>
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none">FAQs</a>
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Terms & Conditions</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Section 3 -->
+          <div class="col-md-3 mb-3">
+            <h5 class="fw-bold my-3">Connect</h5>
+            <a href="#" class="text-light me-2"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a href="#" class="text-light me-2"
+              ><i class="bi bi-twitter"></i
+            ></a>
+            <a href="#" class="text-light me-2"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a href="#" class="text-light"><i class="bi bi-youtube"></i></a>
+          </div>
+
+          <!-- Section 4 -->
+          <div class="col-md-3 mb-3">
+            <h5 class="fw-bold my-3">Download App</h5>
+            <img
+              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              width="100"
+            />
+          </div>
+        </div>
+
+        <hr class="border-light" />
+
+        <div class="text-center small">
+          &copy; 2025 BookMyShow Clone. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <!-- End footer -->
+
+    <!-- popper js CDN -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap Bundle JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- ✅ Bootstrap Bundle (already in your full code) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-...your-integrity..."
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

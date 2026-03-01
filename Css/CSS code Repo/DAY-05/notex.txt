@@ -1,0 +1,65 @@
+CSS Display Property
+1. inline
+Behavior: Elements do not start on a new line and only occupy as much width as necessary.​
+SamanthaMing.com
++1
+dillionmegida.com
++1
+
+Limitations: Width and height properties are ineffective; top and bottom margins and paddings are not respected.​
+DigitalOcean
+
+Common Inline Elements: <span>, <a>, <strong>, <em>​
+
+2. block
+Behavior: Elements start on a new line and take up the full width available.​
+SamanthaMing.com
+
+Capabilities: Width, height, margin, and padding properties are effective.​
+
+Common Block Elements: <div>, <p>, <h1> to <h6>, <section>, <article>​
+
+3. inline-block
+Behavior: Similar to inline elements but allows setting width and height.​
+DigitalOcean
++3
+SamanthaMing.com
++3
+Stack Overflow
++3
+
+Capabilities: Respects width, height, margin, and padding properties.​
+
+Use Cases: Useful for creating navigation links, buttons, or any element that requires inline positioning with block capabilities.​
+
+CSS Position Property
+1. static (Default)
+Behavior: Elements are positioned according to the normal document flow.​
+
+Limitations: top, right, bottom, and left properties have no effect.​
+
+2. relative
+Behavior: Elements are positioned relative to their normal position.​
+
+Capabilities: top, right, bottom, and left properties move the element from its normal position without affecting surrounding elements.​
+
+3. absolute
+Behavior: Elements are removed from the normal document flow and positioned relative to the nearest positioned ancestor (an ancestor with a position other than static).​
+
+Capabilities: top, right, bottom, and left properties specify the exact position. Surrounding elements ignore the space the element would have occupied.​
+
+4. fixed
+Behavior: Elements are positioned relative to the viewport; they remain in the same position regardless of scrolling.​
+
+Use Cases: Commonly used for persistent headers, footers, or sidebars that remain visible during scrolling.​
+Showwcase
+
+5. sticky
+Behavior: Elements act like relatively positioned elements until they reach a specified scroll position, then they become fixed.​
+Showwcase
++1
+depayan.hashnode.dev
++1
+
+Use Cases: Useful for headers or navigation menus that remain at the top of the viewport after a certain scroll position.​
+

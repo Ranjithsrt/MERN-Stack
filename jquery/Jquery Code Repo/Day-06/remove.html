@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Remove Elements</h3>
+    <ul>
+      <li>remove</li>
+      <li>empty</li>
+    </ul>
+
+    <button id="btnRemove">Remove</button>
+    <button id="btnEmpty">Empty</button>
+    <div style="width: 150px; background-color: aqua; margin: 10px 0px; padding: 15px">Sample Text</div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+    <script>
+      $("#btnRemove").click(function () {
+        $("div").remove();
+      });
+
+      $("#btnEmpty").click(function () {
+        $("div").empty();
+      });
+    </script>
+  </body>
+</html>

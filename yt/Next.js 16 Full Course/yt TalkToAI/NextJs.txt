@@ -1,0 +1,437 @@
+
+NEXT JS Tutorial
+
+#1 Introduction to Next JS and it's type of rendering  
+
+
+Intro :
+
+   React is a js library
+   Next js is a React framework
+      
+Rendering:
+  client side Rendering
+  server side Rendering  
+  Static Site Generation
+  Incremental Static Regeneration
+
+
+               req
+CSR    client ------ Browser ------------- > server
+                             Blank HTML + JS Bundle
+                < -----------------------
+
+               req
+SSR    client ------ Browser -------- server
+                              Full Html
+                        < --------------
+
+
+              req
+SSG   client ------ Browser  -------  CDN -------- > server ---> static webs - Blog
+                            html        Full Html  
+                     < ------------------------------
+
+
+               req
+ISR    client ------ Browser -------  CDN --------- > server --->  static webs - updates (1hr ..2hr)
+                              html         Full Html
+                                Revalidation
+                         < ---------------
+
+Data fetching - 
+
+styling - Tailwind css
+
+optimization - img ,fonts
+
+support Typescript
+
+----------------------------------------------------------------------------
+
+#2 How to setup/install and structure of the Next JS project 
+
+install node 18.00 v and npm
+
+create next app :
+                                  Folder Name
+    1   npx create-next-app@latest my-next  
+    2   cd my-next
+    3   npm run dev
+
+-------------------
+
+What is your project named? my-app
+
+Would you like to use the recommended Next.js defaults?
+    Yes, use recommended defaults - TypeScript, ESLint, Tailwind CSS, App Router, Turbopack
+    No, reuse previous settings
+    No, customize settings - Choose your own preferences
+
+--------------------------
+
+Would you like to use TypeScript? No / Yes
+Which linter would you like to use? ESLint / Biome / None
+Would you like to use React Compiler? No / Yes
+Would you like to use Tailwind CSS? No / Yes
+Would you like your code inside a `src/` directory? No / Yes
+Would you like to use App Router? (recommended) No / Yes
+Would you like to customize the import alias (`@/*` by default)? No / Yes
+What import alias would you like configured? @/*
+
+------------------------------------------
+
+Folder structures:
+
+next - next config
+node_modules - dependencies packeage
+app - next app
+public - images
+eslint - js errors
+.ignore -
+README.md -
+
+next.config.ts - next config
+next-env.d.ts -  ts config
+tsconfig.json -
+
+packeage-lock.json - dependencies packeage
+packeage.json - dev dependencies packeage
+
+app :
+
+layout.tsx - Header,footer
+page.tsx - root home page
+globals.css - css
+favicon - icon
+
+
+Run - npm run dev
+
+--------------------------------------------------
+
+#3 Learn Routing - Static, Dynamic and Parallel Routes in Next JS
+
+Static Route :
+
+app -  
+
+   book ( 1st letter small letter) - page.jsx - http://localhost:3000/book
+
+   dashboard ( 1st letter small letter) - page.jsx - http://localhost:3000/dashboard
+
+---------------------------------------------------------
+
+maintain Routes ( Routing groups) :
+
+app - (Routing) - create route folder
+
+move book and dashboard Routing folder this called Routing Group.
+
+-----------------------------------------------------
+
+Nested route :
+
+app - book - category - page.jsx - http://localhost:3000/book/category
+
+
+----------------------------------------------
+
+single Dynamic :
+
+app - book - category - [fiction] - page.jsx
+
+http://localhost:3000/book/category/fiction/
+
+params :
+
+ const FictionPage = async ({ params }) => {
+   const { fiction } = await params; // <-- Important
+
+   return (
+     <div className="flex justify-center items-center h-screen">
+       <h1 className="text-4xl font-bold">Book Fiction Page : {fiction}</h1>
+     </div>
+   );
+ };
+
+ export default FictionPage;
+
+
+ --------------------------------
+
+select All Dynamic : 3 dot
+
+
+app - book - category - [...fiction] - page.jsx
+
+http://localhost:3000/book/category/fiction/1/2/3
+
+ 
+  const FictionPage = async ({ params }) => {
+   const { fiction } = await params; // <-- Important
+
+   return (
+     <div className="flex justify-center items-center h-screen">
+
+       <h1 className="text-4xl font-bold">Book Fiction Page : {fiction}</h1>
+      
+       <h1 className="text-4xl font-bold"> Book Fiction Page : {fiction[0]}</h1>
+       <h1 className="text-4xl font-bold"> Book Fiction Page : {fiction[1]}</h1>
+       <h1 className="text-4xl font-bold"> Book Fiction Page : {fiction[2]}</h1>
+
+     </div>
+   );
+ };
+
+ export default FictionPage;
+
+
+ --------------------------------------------------------
+
+parallel route : 
+
+app -
+  @about - default.jsx
+  @contact - default.jsx
+
+@about - is not considerd route - ( x )
+
+http://localhost:3000/about - not work
+ 
+app - root layout.jsx
+ 
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Create Next App",
+  description: "Generated by create next app",
+};
+
+export default function RootLayout({
+  children,
+  about,
+  contact,
+}: Readonly<{
+
+
+main - Typescript
+-----------------------------------------------------------
+
+  children: React.ReactNode;
+
+  ------ xxxxxxxxxx ----------------
+  about: React.ReactNode;
+  contact: React.ReactNode;
+
+
+  -------------------------------------------------
+
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
+        {about}
+        {contact}
+        
+      </body>
+    </html>
+  );
+}
+
+group parallel routes :
+
+app - (slot) F Name
+
+move :
+
+@about
+@contact
+
+----------------------------------------------
+
+private  route
+
+app - _lip - page.js
+
+--------------------------------------------
+
+#4 Learn Layout and Nested Layout also Linking and Navigation in Next 
+
+app - layout.jsx - root layout disply main app - root - page.jsx
+
+-----------------------------
+
+main layout or common Layout :
+
+app - page.tsx
+
+import Image from "next/image";
+
+export default function Home() {
+  return (
+    <>
+      <header>
+        <nav className="flex items-center justify-between p-10 bg-black  text-white">
+          <div className="text-2xl font-bold">My Next.js App</div>
+          <ul className="flex space-x-4 ">
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </nav>
+      </header>
+
+      <div className="flex min-h-screen flex-col items-center justify-center font-sans bg-white text-black ">
+        <h1 className="text-4xl font-bold my-5 uppercase">Root Page </h1>
+        <h3 className="text-2xl font-bold">Hello World..!</h3>
+      </div>
+
+      <footer>
+        <div className="p-10 bg-black text-white text-center">
+          &copy; 2024 My Next.js App. All rights reserved.
+        </div>
+      </footer>
+    </>
+  );
+}
+
+-----------------------------------------
+
+children.layout - affect only dashboard 
+
+app - 
+
+dashboard - layout.jsx - seprate - Header - footer
+
+
+import React from "react";
+
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <>
+      <header>
+        <nav className="flex items-center justify-between p-10 bg-black text-800 text-white">
+          <div className="text-2xl font-bold">My Next.js App</div>
+          <ul className="flex space-x-4 ">
+            <li>Home</li>
+            <li>Dashboard</li>
+            <li>Settings</li>
+          </ul>
+        </nav>
+
+        <main className="p-10 bg-blue-400 my-5 ">{children}</main>
+
+        {/* <div className="flex min-h-screen flex-col items-center justify-center font-sans bg-white text-black ">
+          <h1 className="text-4xl font-bold my-5 uppercase">
+            Dashboard Layout Page{" "}
+          </h1>
+          <h3 className="text-2xl font-bold">Welcome to the Dashboard..!</h3>
+        </div> */}
+
+        <footer>
+          <div className="p-10 bg-black text-white text-center">
+            &copy; 2024 My Next.js App. All rights reserved.
+          </div>
+        </footer>
+      </header>
+    </>
+  );
+};
+
+export default DashboardLayout;
+
+-----------------------------------------------------------
+
+Navigate :
+
+app - root layout.jsx
+
+import Link from "next/link";
+
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import Link from "next/link";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Create Next App",
+  description: "Generated by create next app",
+};
+
+export default function RootLayout({
+  children,
+  about,
+  contact,
+}: Readonly<{
+  children: React.ReactNode;
+  about: React.ReactNode;
+  contact: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <header>
+          <nav className="flex items-center justify-between p-10 bg-black  text-white">
+            <div className="text-2xl font-bold">
+              <Link href="/">My Next.js App</Link>
+            </div>
+            <ul className="flex space-x-4 ">
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li> 
+                <Link href="/book">About</Link>
+              </li>
+              <li>
+                <Link href="/dashboard">dashboard</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        {children}
+        {about}
+        {contact}
+        <footer>
+          <div className="p-10 bg-black text-white text-center">
+            &copy; 2024 My Next.js App. All rights reserved.
+          </div>
+        </footer>
+      </body>
+    </html>
+  );
+}
+
+-------------------------------------------------
+
+#5 Data Fetching and Caching in Next JS ("Use cache" - Canary Version) in Tamil
+
+
+

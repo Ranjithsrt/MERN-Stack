@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+
+      .box {
+        width: 300px;
+        height: 200px;
+        border: 2px solid #333;
+        overflow: hidden;
+        position: relative;
+        background: #fff;
+      }
+
+      .box img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .label {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 2px 6px;
+        font-size: 14px;
+        border-radius: 4px;
+      }
+
+      .fill img {
+        object-fit: fill;
+      }
+      .contain img {
+        object-fit: contain;
+      }
+      .cover img {
+        object-fit: cover;
+      }
+      .none img {
+        object-fit: none;
+      }
+      .scaledown img {
+        object-fit: scale-down;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box fill">
+      <span class="label">object-fit: fill</span>
+      <!-- Stretches image to fill the box, may distort it  -->
+      <img src="dog.jpg" alt="Dog" />
+    </div>
+
+    <div class="box contain">
+      <span class="label">object-fit: contain</span>
+      <!-- Fits the whole image inside box, may leave empty space. -->
+      <img src="dog.jpg" alt="Dog" />
+    </div>
+
+    <div class="box cover">
+      <span class="label">object-fit: cover</span>
+      <!--	Fills box completely, image cropped to fit.  -->
+      <img src="dog.jpg" alt="Dog" />
+    </div>
+
+    <div class="box none">
+      <span class="label">object-fit: none</span>
+      <!-- Shows image at original size (800x800), overflows box.  -->
+      <img src="dog.jpg" alt="Dog" />
+    </div>
+
+    <div class="box scaledown">
+      <span class="label">object-fit: scale-down</span>
+      <!-- Behaves like none or contain, whichever is smaller.-->
+      <img src="dog.jpg" alt="Dog" />
+    </div>
+  </body>
+</html>

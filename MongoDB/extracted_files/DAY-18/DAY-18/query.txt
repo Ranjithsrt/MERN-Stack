@@ -1,0 +1,14 @@
+- FindOneAndReplace 
+- FindOneAndDelete
+
+db.students.findOneAndReplace(
+  {_id:4},
+  {name:"Priya",age:22, grade: "B", subjects: ["Chemistry", "Biology"]},
+  {returnDocument:"after"}
+)
+
+db.students.find({_id:4});
+
+db.students.findOneAndDelete(
+  {_id:19}
+);

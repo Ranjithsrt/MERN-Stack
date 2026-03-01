@@ -1,0 +1,83 @@
+- FindOneAndUpdate 
+   - Syntax
+        db.collection.findOneAndUpdate(
+        <filter>, // Query to match a document
+        <update>, // Update operation
+        <options> // Optional settings
+        )
+
+
+db.students.insertMany([
+  { _id: 1, name: "Aarav Nair", age: 20, grade: "A", subjects: ["Math", "Physics"], gpa: 3.8, lastUpdated: ISODate("2025-01-01"), status: "active", address: { city: "Chennai", state: "Tamil Nadu" } },
+  { _id: 2, name: "Bhavana Reddy", age: 19, grade: "B", subjects: ["Chemistry", "Biology"], gpa: 3.2, lastUpdated: ISODate("2025-02-01"), status: "active", address: { city: "Hyderabad", state: "Telangana" } },
+  { _id: 3, name: "Chetan Kumar", age: 21, grade: "A", subjects: ["Math", "English"], gpa: 3.9, lastUpdated: ISODate("2025-03-01"), status: "inactive", address: { city: "Bengaluru", state: "Karnataka" } },
+  { _id: 4, name: "Deepika Menon", age: 22, grade: "C", subjects: ["History", "Art"], gpa: 2.8, lastUpdated: ISODate("2025-01-15"), status: "active", address: { city: "Kochi", state: "Kerala" } },
+  { _id: 5, name: "Eshwar Rao", age: 20, grade: "B", subjects: ["Physics", "Chemistry"], gpa: 3.4, lastUpdated: ISODate("2025-02-15"), status: "active", address: { city: "Visakhapatnam", state: "Andhra Pradesh" } },
+  { _id: 6, name: "Fathima Beevi", age: 23, grade: "A", subjects: ["Math", "Computer Science"], gpa: 3.7, lastUpdated: ISODate("2025-03-10"), status: "active", address: { city: "Thiruvananthapuram", state: "Kerala" } },
+  { _id: 7, name: "Gowri Shankar", age: 19, grade: "B", subjects: ["English", "History"], gpa: 3.3, lastUpdated: ISODate("2025-01-20"), status: "inactive", address: { city: "Coimbatore", state: "Tamil Nadu" } },
+  { _id: 8, name: "Harish Varghese", age: 21, grade: "C", subjects: ["Biology", "Art"], gpa: 2.9, lastUpdated: ISODate("2025-02-20"), status: "active", address: { city: "Mysuru", state: "Karnataka" } },
+  { _id: 9, name: "Indira Suresh", age: 20, grade: "A", subjects: ["Math", "Physics"], gpa: 3.85, lastUpdated: ISODate("2025-03-05"), status: "active", address: { city: "Chennai", state: "Tamil Nadu" } },
+  { _id: 10, name: "Jagan Mohan", age: 22, grade: "B", subjects: ["Chemistry", "English"], gpa: 3.1, lastUpdated: ISODate("2025-01-25"), status: "active", address: { city: "Vijayawada", state: "Andhra Pradesh" } },
+  { _id: 11, name: "Kavya Pillai", age: 19, grade: "A", subjects: ["Computer Science", "Math"], gpa: 3.95, lastUpdated: ISODate("2025-02-25"), status: "active", address: { city: "Bengaluru", state: "Karnataka" } },
+  { _id: 12, name: "Lakshmi Priya", age: 20, grade: "C", subjects: ["History", "Biology"], gpa: 2.7, lastUpdated: ISODate("2025-03-15"), status: "inactive", address: { city: "Hyderabad", state: "Telangana" } },
+  { _id: 13, name: "Manish Iyer", age: 21, grade: "B", subjects: ["English", "Art"], gpa: 3.4, lastUpdated: ISODate("2025-01-30"), status: "active", address: { city: "Madurai", state: "Tamil Nadu" } },
+  { _id: 14, name: "Naveen Thomas", age: 22, grade: "A", subjects: ["Physics", "Math"], gpa: 3.6, lastUpdated: ISODate("2025-02-10"), status: "active", address: { city: "Kochi", state: "Kerala" } },
+  { _id: 15, name: "Omana Joseph", age: 19, grade: "B", subjects: ["Chemistry", "History"], gpa: 3.2, lastUpdated: ISODate("2025-03-20"), status: "active", address: { city: "Bengaluru", state: "Karnataka" } },
+  { _id: 16, name: "Pranav Raj", age: 20, grade: "C", subjects: ["Art", "English"], gpa: 2.85, lastUpdated: ISODate("2025-01-10"), status: "inactive", address: { city: "Tirupati", state: "Andhra Pradesh" } },
+  { _id: 17, name: "Qadir Khan", age: 21, grade: "A", subjects: ["Computer Science", "Physics"], gpa: 3.9, lastUpdated: ISODate("2025-02-05"), status: "active", address: { city: "Hyderabad", state: "Telangana" } },
+  { _id: 18, name: "Radhika Nair", age: 22, grade: "B", subjects: ["Math", "Biology"], gpa: 3.3, lastUpdated: ISODate("2025-03-25"), status: "active", address: { city: "Chennai", state: "Tamil Nadu" } },
+  { _id: 19, name: "Siddharth Pillai", age: 20, grade: "A", subjects: ["English", "Physics"], gpa: 3.75, lastUpdated: ISODate("2025-01-05"), status: "active", address: { city: "Thiruvananthapuram", state: "Kerala" } },
+  { _id: 20, name: "Tejaswini Rao", age: 21, grade: "C", subjects: ["History", "Chemistry"], gpa: 2.9, lastUpdated: ISODate("2025-02-15"), status: "inactive", address: { city: "Visakhapatnam", state: "Andhra Pradesh" } }
+]);
+
+
+
+
+db.students.find({"_id":1})
+db.students.updateOne({_id:1},{$set:{grade:"A+"}})
+
+
+db.students.findOneAndUpdate(
+    {"_id":1},
+    {$set:{grade:"A"}},
+    {returnDocument:"after"}
+);
+
+- {returnDocument:"after"} -> Retuns the updated document with grade:A+
+
+#------ Increase student GPA by 0.2
+db.students.findOneAndUpdate(
+    {"_id":1},
+    {$inc:{gpa:0.2}},
+    {returnDocument:"after"}
+)
+
+#------  upsert 
+
+db.students.findOneAndUpdate(
+    {name:"Joes"},
+    {$set:{age:35,grade:"B"}},
+    {upsert:true,returnDocument:"after"}
+)
+
+#----- 
+- Tamil Nadu
+- Good
+- gpa highest
+
+db.students.findOneAndUpdate(
+    {"address.state":"Tamil Nadu"},
+    {$set:{status:"Good"}},
+    {sort:{gpa:-1},returnDocument:"after"}
+)
+
+
+db.students.findOneAndUpdate(
+    {"address.state":"Tamil Nadu"},
+    {$set:{status:"Good"}},
+    {sort:{gpa:1},returnDocument:"after",projection:{name:1,gpa:1}}
+)
+# -------------------------------------------------------------
+- FindOneAndReplace 
+- FindOneAndDelete 
+

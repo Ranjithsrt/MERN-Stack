@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 5px;
+      }
+      .parent *,
+      .parent {
+        padding: 5px;
+        border: 2px solid #ccc;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      parent
+      <h3>H3 Tag-1 - child</h3>
+      <p class="p1">Para Tag - child P1</p>
+      <p>Para Tag - child</p>
+      <p>Para Tag - child</p>
+      <h2>H2 Tag - child</h2>
+      <div id="innerDiv">
+        div - child
+        <p>para inside div - Grand child</p>
+      </div>
+      <p>Para Tag - child</p>
+      <p class="p4">Para Tag - child p4</p>
+      <p>Para Tag - child</p>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $("h2").prevUntil(".p1").css("border-color", "red");
+      $("h2").nextUntil(".p4").css("border-color", "blue");
+    </script>
+
+    <script>
+      // javascript
+      document.addEventListener("DOMContentLoaded", function () {
+        let h2 = document.querySelector("h2");
+        let nextElements = h2.nextElementSibling;
+        while (nextElements && !nextElements.classList.contains("p4")) {
+          nextElements.style.borderColor = "red";
+          nextElements = nextElements.nextElementSibling;
+        }
+      });
+    
+      document.addEventListener("DOMContentLoaded", function () {
+        let h2 = document.querySelector("h2");
+        let prevElements = h2.previousElementSibling;
+        while (prevElements && !prevElements.classList.contains("p1")) {
+          prevElements.style.borderColor = "blue";
+          prevElements = prevElements.previousElementSibling;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const todoList = {
+        tasks: [],
+        addTask: function (description) {
+          const task = {
+            id: this.tasks.length + 1,
+            description: description,
+            completed: false,
+          };
+          this.tasks.push(task);
+          console.log("Task Added");
+        },
+        completeTask: function (id) {
+          const task = this.tasks.find((task) => task.id === id);
+          if (task) {
+            task.completed = true;
+            console.log("Task Completed");
+          } else {
+            console.log("Task Not Found");
+          }
+          
+        },
+        listTasks: function () {
+          console.log(this.tasks);
+        },
+      };
+
+      todoList.addTask("Buy groceries");
+      todoList.addTask("Do Home Work");
+      todoList.listTasks();
+    </script>
+  </body>
+</html>
+
+
+<!-- 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const todoList = {
+        tasks: [],
+        addTask: function (description,f1) {
+          const task = {
+            id: this.tasks.length + 1,
+            description: description,
+            completed: f1,
+          };
+          this.tasks.push(task);
+          console.log("Task Added");
+        },
+        completeTask: function (id) {
+          const task = this.tasks.find((task) => task.id === id);
+          if (task) {
+            task.completed = true;
+            console.log("Task Completed");
+          } else {
+            console.log("Task Not Found");
+          }
+          
+        },
+        listTasks: function () {
+          console.log(this.tasks);
+        },
+      };
+
+      todoList.addTask("Buy groceries",true);
+      todoList.addTask("Do Home Work",false);
+      todoList.listTasks();
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+-->

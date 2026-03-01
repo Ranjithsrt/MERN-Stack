@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Logical Operators in JavaScript</h3>
+    <ul>
+      <li>AND (&&) <small>All Condition Must True</small></li>
+      <li>OR (||) <small>Anyone of Condition Must True</small></li>
+      <li>NOT (!) <small>Invert the boolean value</small></li>
+    </ul>
+
+    <script>
+      let a = 5;
+      let b = 10;
+
+      console.log(a > 0 && b > 0);
+      console.log(a > 0 && b < 0);
+
+      let x = 0,
+        y = 20;
+      console.log(x > 0 || y > 0);
+      console.log(x < 0 || y < 0);
+
+      let isActive = false;
+      console.log(!isActive);
+    </script>
+  </body>
+</html>

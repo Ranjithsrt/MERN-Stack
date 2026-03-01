@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>5. The length & breadth of a rectangle and radius of a circle are input through the keyboard. Write a program to calculate the area & perimeter of the rectangle, and the area & circumference of the circle</p>
+    <script>
+      const length = 300;
+      const breadth = 150;
+      const area_react = length * breadth;
+      const peri_react = 2 * (length + breadth);
+
+      const radius = 25;
+      const area_circle = 3.14 * (radius * radius);
+      const circumference = 2 * 3.14 * radius;
+
+      document.write(`<br>Area of Rectangle : ${area_react}`);
+      document.write(`<br>Perimeter of Rectangle : ${peri_react}`);
+      document.write(`<br>Area of Circle : ${area_circle}`);
+      document.write(`<br>circumference of Circle : ${circumference}`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,301 @@
+/* food detail container */
+
+.food-detail {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  margin: 100px auto;
+  padding: 20px;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------- */
+
+/* food detail img */
+
+.food-detail img {
+  width: 400px;
+  height: 400px;
+  margin-right: 150px;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.food-detail img:hover {
+  transform: scale(1.05);
+  transition: all 0.3s linear;
+}
+
+/* ---------------------------------------------------- */
+
+/* food detail content */
+
+.food-detail-content>h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: rgba(5, 5, 66, 0.837);
+}
+
+.food-detail-content p {
+  font-size: 15px;
+  margin: 15px 0;
+  color: rgba(5, 5, 66, 0.837);
+}
+
+.food-detail-content button {
+  padding: 10px 20px;
+  background-color: rgba(5, 5, 66, 0.837);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+/* ---------------------------------------------------- */
+
+/* table */
+
+table {
+  border-collapse: collapse;
+  margin: 20px 0;
+  width: 100%;
+}
+
+tr,
+td,
+th {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+th {
+  background-color: rgba(5, 5, 66, 0.837);
+  color: white;
+  text-align: left;
+  width: 230px;
+}
+
+th:hover {
+  background-color: rgba(204, 204, 210, 0.105);
+  color: rgba(5, 5, 66, 0.837);
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #dddddda6;
+}
+
+/* ---------------------------------------------------- */
+
+/* scroll cards */
+
+.scroll-cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px;
+  scroll-behavior: smooth;
+  /* background-color: #ed0b0b; */
+  width: 90%;
+  margin: 0 auto;
+  /* position: relative; */
+
+}
+
+.scroll-cards::before {
+  width: 100px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  left: 0;
+  top: 1210px;
+  right: 0;
+  content: "";
+  z-index: 100;
+  box-shadow: 0 0 100px rgb(253, 249, 249);
+  opacity: 1;
+}
+
+
+.scroll-cards::after {
+  width: 100px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  right: 0;
+  top: 1210px;
+  right: 0;
+  content: "";
+  z-index: 100;
+  box-shadow: 0 0 100px rgb(253, 249, 249);
+  opacity: 1;
+}
+
+
+
+/* hide scrollbar */
+
+.scroll-cards::-webkit-scrollbar {
+  height: 8px;
+  display: none;
+  scrollbar-width: none;
+}
+
+.scroll-cards::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.scroll-cards::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* scroll card img */
+
+.scroll-card img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.scroll-card {
+  /* max-width: 350px; */
+  width: 280px;
+  /* border-radius: 50px */
+  background-color: rgba(206, 206, 206, 0.604);
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+  flex-shrink: 0;
+
+}
+
+.scroll-card:hover {
+  transform: scale(1.05);
+  transition: all 0.3s linear;
+}
+
+
+
+.scroll-card-img {
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+/* scroll card content */
+
+.scroll-card-content {
+  padding: 10px;
+  background-color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.scroll-card-content h4 {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+/* scroll card price */
+
+.scroll-card-content .food-price {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+/* scroll card offer */
+
+.scroll-card-content .food-offer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.food-offer p {
+  background-color: #ed0b0b;
+  color: white;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.food-offer button {
+  font-size: 14px;
+  margin: 5px 0;
+  font-weight: 500;
+  color: #2b2a2a;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #4a19dc;
+  color: white;
+}
+
+/* scroll card rating */
+
+.scroll-card-rating {
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.food-rating {
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* checkbox */
+
+input {
+  display: none;
+}
+
+label::before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+label::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+  position: relative;
+  left: -73px;
+  top: -3px;
+}

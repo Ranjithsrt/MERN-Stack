@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>infinite Autiplay slider</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      .slider {
+        height: 300px;
+        margin: 0 auto;
+        position: relative;
+        width: 90%;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      .slider-track {
+        display: flex;
+        width: calc(250px * 18);
+        /* animation: scroll 20s linear infinite; */
+      }
+
+      .slide {
+        width: 250px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        perspective: 100px;
+      }
+
+      .slider-track {
+        display: flex;
+        width: calc(250px * 18);
+        animation: scroll 20s linear infinite;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-250px * 9));
+        }
+      }
+
+      img {
+        width: 100%;
+        transition: transform 1s;
+      }
+
+      .slider::before,
+      .slider::after {
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        content: "";
+        height: 100%;
+        position: absolute;
+        width: 15%;
+        z-index: 2;
+      }
+
+      .slider::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+      }
+
+      .slider::before {
+        left: 0;
+        top: 0;
+      }
+
+      img:hover {
+        transform: translateZ(20px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <div class="slider-track">
+        <!-- slider items -->
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://placehold.co/100x100" alt="" />
+        </div>
+      </div>
+
+      <!-- same 9 slider items -->
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide"></div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://placehold.co/100x100" alt="" />
+      </div>
+    </div>
+  </body>
+</html>

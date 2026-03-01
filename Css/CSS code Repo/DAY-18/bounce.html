@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .ball-spinner {
+        width: 100px;
+        display: flex;
+        justify-content: space-around;
+      }
+      .ball {
+        width: 15px;
+        height: 15px;
+        background-color: #e74c3c;
+        border-radius: 50%;
+        animation: bounce 1s infinite ease-in-out;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-50px) scale(1.2);
+        }
+      }
+
+      .ball:nth-child(2) {
+        animation-delay: 0.2s;
+        background-color: #3300ff;
+      }
+
+      .ball:nth-child(3) {
+        animation-delay: 0.4s;
+        background-color: #ff0000;
+      }
+      .ball:nth-child(4) {
+        animation-delay: 0.6s;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ball-spinner">
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+    </div>
+  </body>
+</html>

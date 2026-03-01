@@ -1,0 +1,26 @@
+npm init     -> add additional info  to create package.json file
+npm init -y  -> create package.json file without additional info (skip info)
+
+
+Add new Third party packages to your project
+
+npm i date-fns     -> node package manager   install    package name latest version
+npm i date-fns -g  -> Global
+
+
+npm i json-server@0.17.3  -> Install Specific version
+npm i json-server         -> Install the lastest version of json-server from NPM
+
+
+
+npm uninstall json-server ->  uninstall json-server
+npm  removejson-server
+npm remove -g json-server
+
+json-server@0.17.3 
+date-fns@4.1.0
+
+1       .0           .0
+0       .17          .3
+4       .1           .0
+Major    Minor        Patch  

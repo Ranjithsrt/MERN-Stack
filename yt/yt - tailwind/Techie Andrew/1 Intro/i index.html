@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Custom CSS (NO @apply / @tailwind / @layer allowed in CDN) -->
+    <style>
+      .bg-custom-blue {
+        background-color: #2563eb;
+        /* blue-600 */
+      }
+
+      .text-custom-yellow {
+        color: #facc15;
+        /* yellow-400 */
+      }
+    </style>
+  </head>
+
+  <body class="container p-5 m-5">
+    <h1 class="text-3xl font-bold underline my-5">Hello world!</h1>
+
+    <button class="bg-[#ff0000] text-white px-5 py-3 rounded-lg">Button</button>
+
+    <!-- custom theme -->
+    <div class="bg-custom-blue text-custom-yellow p-5 mt-5 rounded-lg">
+      lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+    </div>
+  </body>
+</html>
+
+<!--  
+
+
+❗ முக்கிய பிரச்சனை
+
+Tailwind v4 CDN பயன்படுத்தும்போது <style>
+    டேக் உள்ளே @tailwind, @apply, @layer வேலை செய்யாது. அவை build tools (PostCSS / Tailwind CLI) பயன்படுத்தினால்தான் compile ஆகும். அதாவது: ✔ CDN → utility classes மட்டும் ❌ CDN → @tailwind, @apply, @layer support இல்லை
+
+    
+
+-->

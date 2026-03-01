@@ -1,0 +1,60 @@
+db.students.insertMany([
+  {_id:1,name:"Rakesh",class:"BCA"},
+  {_id:2,name:"Sundar",class:"BTech"},
+  {_id:3,name:"Sara",class:"Bsc"},
+  {_id:4,name:"Tiya",class:"BCA"},
+])
+
+db.library.insertMany([
+  {_id:1,book:"Let Us C",student_id:1},
+  {_id:2,book:"Java Programming",student_id:3},
+  {_id:3,book:"C++ Guide",student_id:4},
+  {_id:4,book:"Head First in C#",student_id:1},
+  {_id:5,book:"Python The Monster",student_id:3},
+  {_id:6,book:"JavaScript DSA",student_id:1},
+])
+
+
+
+db.students.aggregate([
+  {
+    $lookup:{
+      from:"library",
+      localField:"_id",
+      foreignField:"student_id",
+      as:"books"
+    }
+  }
+])
+
+
+db.students.aggregate([
+  {
+    $lookup:{
+      from:"library",
+      localField:"_id",
+      foreignField:"student_id",
+      as:"books"
+    }
+  },
+  {
+    $unwind:"$books",
+  }
+])
+
+db.students.aggregate([
+  {
+    $lookup:{
+      from:"library",
+      localField:"_id",
+      foreignField:"student_id",
+      as:"books"
+    }
+  },
+  {
+    $unwind:{
+      path:"$books",
+      preserveNullAndEmptyArrays: true
+    },
+  }
+])

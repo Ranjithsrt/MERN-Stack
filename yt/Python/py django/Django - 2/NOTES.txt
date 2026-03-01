@@ -1,0 +1,583 @@
+
+Create Virtual Environment
+
+--- python -m pip install --upgrade pip
+--- python -m venv Env  
+--- Env\Scripts\activate
+--- deactivate
+----------------------------------------
+
+install django 
+
+--- pip install django
+
+-------------------------------------------
+
+Create Django Project 
+
+--- django-admin startproject DjangoProject .
+
+---- python manage.py runserver
+
+Open a web browser and navigate to http://127.0.0.1:8000 to see your Django application in action.
+
+the first time you run it, a new database will be created automatically 
+
+--------------------------------------------------
+
+create a Django app 
+
+--- python manage.py startapp MyApp
+
+project - settings 
+
+After creating your app, you'll need to add it to the `INSTALLED_APPS` list in the `settings.py` file of your Django project:
+
+INSTALLED_APPS = [\n    'MyApp',\n    # other apps...\n]
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'Inventory'
+]
+
+--------------------------------------------------------
+
+temple rendering
+
+Create Template Folder in App
+
+app -- create new folder templates -- MyApp -- html.files
+
+app - views.py
+
+function base views
+
+from django.shortcuts import render
+
+from django.shortcuts import render
+
+# Home page view
+def index(request):
+    return render(request, 'index.html')
+
+class base View:
+ 
+----
+
+project = urls.py -- redirect - includes
+
+from django.contrib import admin
+from django.urls import path, include
+ 
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('inventory/', include('Inventory.urls'))
+]
+
+
+----
+
+App = create new file - urls.py
+
+from django.urls import path
+from Inventory import views
+
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+
+----
+
+setting --- Reg -- TEMPLATES
+
+import os
+
+'DIRS': [os.path.join(BASE_DIR, 'templates')],
+
+-------------------------------------------------
+
+dynamic data
+
+view
+
+from django.shortcuts import render
+
+# Home page view
+def index(request):
+    data = {
+        'title': 'Home Page', 
+        'message': 'Welcome to the Home Page!',
+        "numbers": [1, 2, 3, 4, 5],
+        "subjects": {"Math", "Science", "English", "History", "Geography"}
+
+    }
+
+    return render(request,'index.html', data)
+
+
+
+
+html :
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+   
+    <h1>This is the home </h1>
+    <!-- key -->
+     {{ title}}
+     {{ message}}
+  </body>
+</html>
+
+
+-----------------------------------------------
+
+if.for 
+
+app -- view
+
+from django.shortcuts import render
+
+def index(request):
+    data = {
+        "name": "John Doe",
+        "title": "Home Page", 
+        "role": "Admin",
+        "message": "Welcome to the Home Page!",
+        "numbers": [1, 2, 3, 4, 5],
+        "subjects": {"Math", "Science", "English", "History", "Geography"}
+    }
+    return render(request, 'index.html', data)
+
+html:
+
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>This is the home</h1>
+
+    <!-- Simple variable display -->
+    <h2>{{ message }}</h2>
+
+    {% if role == "Admin" %}
+      <h3>Welcome Admin {{ name }}</h3>
+    {% endif %}
+
+    <!-- Loop through numbers -->
+    <h4>Numbers:</h4>
+    <ul>
+      {% for number in numbers %}
+        <li>{{ number }}</li>
+      {% endfor %}
+    </ul>
+
+    <!-- Loop through subjects -->
+    <h4>Subjects:</h4>
+    <ul>
+      {% for subject in subjects %}
+        <li>{{ subject }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
+
+ 
+---------------------------------------
+
+Boostrap 
+
+use boostrap cdn
+
+pip install django-bootstrap-v5
+
+register bootstrap :
+
+INSTALLED_APPS = 'bootstrap5'
+
+
+ADD HTML FILE TOP:
+
+{%load_bootstrap%}
+{% bootstrap5_css %}
+{% bootstrap5_javascript%}
+
+---------------------------------
+
+template inheritance
+
+extends:
+
+{% extends 'base.html' %}
+{% block content %}{% endblock %}
+
+app - view
+
+
+def about(request):
+    return render(request, 'about.html')
+
+def service(request):
+    return render(request, 'service.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
+urls
+
+from . import views
+
+
+urlpatterns = [
+    path('home/', views.index, name='index'),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
+    path('service/', views.service, name='service'),
+]
+
+----
+
+create common html files base.html
+
+see base.html  how to extends content work?
+
+{% extends 'base.html' %}
+
+{% block content %}  <!-- This is where the content of each page will be inserted --> {% endblock %}
+
+--------
+
+include :
+
+create navbar.html then write {% include 'navbar.html' %} in base.html
+
+{% include 'header.html' %}
+
+------------
+
+db
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+python manage.py makemigrations
+
+
+app - models.py
+
+table - heading -- Name
+values - eNNa datatype?
+
+from django.db import models
+
+# Create your models here.
+
+class Product(models.Model):
+
+    product_name = models.CharField(max_length=200,null=True,blank=True)
+    product_code = models.CharField(max_length=200,null=True,blank=True)
+    price = models.FloatField(default=0)
+    gst = models.IntegerField(default=0)
+     
+
+
+python manage.py makemigrations - ready?
+
+run this commend..this file automatically crated inside app  
+
+after look-- migrations -- ooo1_initial.py
+
+python manage.py migrate -- create table in db
+
+look sqlite.py 
+
+
+
+reg model in admin page
+
+app -- admin --
+
+from django.contrib import admin
+from Inventory import models
+
+# Register your models here.
+
+admin.site.register(models.Product)
+
+view -- db.sqlite3 ... display you enter a data
+
+--------------------------
+
+# CRUD Operations
+
+C - creating data
+R - reading data
+U - updating data 
+D - Deletibg data
+
+------------------------------------------
+
+Django forms:
+
+app - create a new file forms,py
+
+app - new html file - projects-add.html
+
+app - views.py
+
+app - urls.py
+
+-----------
+
+adding data
+
+templates --- add submit button in your form html.page
+
+VIEWS -- LOgic
+
+def products(request):
+    context = {
+        'product_form': Product_Form()
+    }
+    if request.method == 'POST':
+        # print(request.POST)
+        form = Product_Form(request.POST)
+        if form.is_valid():
+            form.save()
+
+    return render(request, 'products.html', context)
+
+-----------------------
+
+rendering HTML
+
+app - templates -- new html file
+
+ {% for product in all_products %}
+            <tr>
+                <td>{{ product.product_name }}</td>
+                <td>{{ product.product_code }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.gst }}</td>
+            </tr>
+            {% endfor %}
+
+views - LOgic
+
+urls - path
+
+---------------------------
+
+UPDATE 
+
+view,py
+
+def Deleteproduct(request, id):
+    selected_product = Product.objects.get(id=id)
+    selected_product.delete()
+    # automatically redirect
+    return redirect('/inventory/products/')
+
+urls
+
+ path('products/delete/<int:id>/', views.Deleteproduct, name='Deleteprod)
+
+html:
+
+ <td> 
+<a href="{% url 'Deleteproduct' product.id %}">
+                     <button>Delete</button>
+                    </a>
+                 </td>
+
+
+DELETE
+
+view
+
+url
+
+  path('products/update/<int:id>/', views.productUpdate, name='updateproduct'),
+
+
+----------------------------------------------
+
+mysql
+
+proj --- setting----
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': BASE_DIR / 'django_db',
+        'USER': 'root',
+        'PASSWORD':'ranjithsrt1',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}
+
+next import package
+
+
+-- Env\Scripts\activate
+-- pip install mysqlclient
+-- python manage.py makemigrations 
+-- python manage.py migrate 
+
+Requirement already satisfied: mysqlclient in c:\users\ranji\desktop\django - 2\env\lib\site-packages (2.2.7)
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+(Env) PS C:\Users\ranji\Desktop\Django - 2> python manage.py makemigrations     
+No changes detected
+(Env) PS C:\Users\ranji\Desktop\Django - 2> python manage.py migrate            
+Operations to perform:                                                          
+  Apply all migrations: Inventory, admin, auth, contenttypes, sessions          
+Running migrations:                                                             
+  Applying Inventory.0001_initial... OK
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+(Env) PS C:\Users\ranji\Desktop\Django - 2> 
+
+-------------------------
+
+Log in :
+
+landing pg :
+
+create app -- authentication 
+
+reg -- setting -- authentication 
+
+model --- mysql -- table name 
+
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+# Create your models here.
+
+class User(AbstractUser):
+    age = models.IntegerField(default=0)
+
+
+reg --- setting ---
+
+AUTH_USER_MODEL = 'authentication.User'
+
+proj -- urls --redirect
+
+path('', include('authentication.urls')),
+
+
+app -- new file - urls
+
+from . import views
+
+
+urlpatterns = [
+    path('', views.LoginPage, name='login'),
+       
+]
+
+template -- login.html
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>login page</h1>
+
+    
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="mb-4">Login Form</h2>
+    <form action="" method="POST">
+      {% csrf_token %}
+      
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" required>
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
+
+
+app -- views
+
+from django.shortcuts import render
+
+# Create your views here.
+
+def LoginPage(request):
+    if request.method == 'POST':
+        print(request.POST)
+    return render(request, 'login.html')
+
+out:
+<'username': ['Ranjithsrt '], 'password': ['123456']>  
+
+-------------------------
+
+Log out :
+
+
+
+------------

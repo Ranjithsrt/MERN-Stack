@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play with CDN</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="flex p-3 justify-center gap-5 m-5 border border-gray-100">
+      <img src="./src/assets/1.jpg" class="w-10 h-10 rounded-full" alt="Sara" />
+      <img src="./src/assets/1.jpg" class="w-10 h-10 rounded-sm" alt="Sara" />
+      <img src="./src/assets/1.jpg" class="w-10 h-10 p-0.5 rounded-full ring-2 ring-gray-300" alt="Sara" />
+    </div>
+
+    <div class="flex p-3 justify-center gap-5 m-5 border border-gray-100">
+      <!------------------------------------->
+      <div class="w-10 h-10 relative bg-gray-100 rounded-full overflow-hidden">
+        <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+      </div>
+
+      <!------------------------------------->
+      <div class="w-10 h-10 bg-orange-600 rounded-full overflow-hidden inline-flex justify-center items-center ring-2 ring-gray-50">
+        <span class="font-medium text-white text-lg">S</span>
+      </div>
+      <!------------------------------------->
+    </div>
+
+    <div class="flex p-3 justify-center gap-5 m-5 border border-gray-100">
+      <div class="relative">
+        <img src="./src/assets/1.jpg" class="w-10 h-10 rounded-full" alt="Sara" />
+        <span class="w-3.5 h-3.5 bg-green-400 absolute rounded-full top-0 left-8"></span>
+      </div>
+      <div class="relative">
+        <img src="./src/assets/3.jpg" class="w-10 h-10 rounded-full" alt="Sara" />
+        <span class="w-3.5 h-3.5 bg-red-400 absolute rounded-full top-0 left-8"></span>
+      </div>
+    </div>
+
+    <div class="flex p-3 justify-center gap-5 m-5 border bg-amber-50 border-gray-100">
+      <div class="flex">
+        <img src="./src/assets/1.jpg" class="w-10 ms-[-20px] h-10 border-2 border-white rounded-full" alt="Sara" />
+        <img src="./src/assets/2.jpg" class="w-10 ms-[-20px] h-10 border-2 border-white rounded-full" alt="Sara" />
+        <img src="./src/assets/3.jpg" class="w-10 ms-[-20px] h-10 border-2 border-white rounded-full" alt="Sara" />
+        <img src="./src/assets/4.jpg" class="w-10 ms-[-20px] h-10 border-2 border-white rounded-full" alt="Sara" />
+        <img src="./src/assets/5.jpg" class="w-10 ms-[-20px] h-10 border-2 border-white rounded-full" alt="Sara" />
+      </div>
+    </div>
+
+    <div class="flex p-3 justify-center gap-5 m-5 border border-gray-100">
+      <div class="flex items-center gap-5 p-3">
+        <img src="./src/assets/4.jpg" class="w-10 h-10 border-2 border-white rounded-full" alt="Sara" />
+        <div class="font-medium">
+          <div>Tiya Patricia</div>
+          <div class="text-sm text-gray-500">Joined in August 2025</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

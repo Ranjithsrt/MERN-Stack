@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- jQuery -->
+    <script>
+      $(document).ready(function () {
+        $("button").click(function () {
+          $("*").hide();
+        });
+      });
+    </script>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let button = document.querySelector("button");
+        let elements = document.querySelectorAll("*");
+
+        button.addEventListener("click", function () {
+          elements.forEach((Ele) => (Ele.style.display = "none"));
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <h2>This is a heading</h2>
+
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+    <button>Click me</button>
+  </body>
+</html>

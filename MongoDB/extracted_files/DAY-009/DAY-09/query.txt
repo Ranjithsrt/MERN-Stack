@@ -1,0 +1,18 @@
+db.students.insertMany([
+  { name: "Priya Sharma", age: 19, gender: "Female", city: "Coimbatore", course: "B.Com" },
+  { name: "Ravi Raj", age: 22, gender: "Male", city: "Madurai", course: "B.Tech IT" },
+  { name: "Lakshmi Narayanan", age: 20, gender: "Male", city: "Trichy", course: "B.Sc Physics" },
+  { name: "Divya Bharathi", age: 18, gender: "Female", city: "Salem", course: "BA English" },
+  { name: "Manoj Kumar", age: 23, gender: "Male", city: "Chennai", course: "BCA" },
+  { name: "Anitha R", age: 21, gender: "Female", city: "Erode", course: "B.Sc Chemistry" },
+  { name: "Suresh Kumar", age: 24, gender: "Male", city: "Vellore", course: "MBA" },
+  { name: "Kavya M", age: 20, gender: "Female", city: "Thanjavur", course: "B.Sc Math" },
+  { name: "Vignesh P", age: 22, gender: "Male", city: "Tirunelveli", course: "B.E Mechanical" },
+  { name: "Meena S", age: 19, gender: "Female", city: "Chidambaram", course: "B.Sc Zoology" }
+])
+
+db.students.find({name: "Ravi Raj"})
+db.students.deleteOne({name: "Ravi Raj"})
+
+db.students.find({gender: "Female"})
+db.students.deleteMany({gender: "Female"})

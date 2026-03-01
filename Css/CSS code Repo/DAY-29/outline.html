@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 100px;
+        background-color: aliceblue;
+        border: 2px solid blue;
+
+        outline-style: solid;
+        outline-width: 3px;
+        outline-color: red;
+
+        outline: 3px solid red;
+        outline-offset: 5px;
+        outline-offset: -5px;
+      }
+
+      button {
+        margin-top: 50px;
+      }
+
+      button:focus {
+        outline: 2px solid #007bff;
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <code>outline: [outline-style] [outline-width] [outline-color];</code>
+    <ul>
+      <li>outline</li>
+      <li>outline-style</li>
+      <li>outline-width</li>
+      <li>outline-color</li>
+      <li>outline-offset</li>
+    </ul>
+
+    <div></div>
+
+    <button>Click Me</button>
+  </body>
+</html>

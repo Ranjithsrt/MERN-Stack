@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background in CSS</title>
+    <style>
+      h3 {
+        background-color: orangered;
+        width: 500px;
+        color: #fff;
+        padding: 15px;
+      }
+      div {
+        width: 500px;
+        height: 300px;
+        border: 1px solid #ccc;
+        background-color: pink;
+        background-image: url("small.png");
+        background-repeat: no-repeat;
+        /* background-repeat: repeat;
+        background-repeat: repeat-x;
+        background-repeat: repeat-y;
+        background-position: left top;
+        background-position: right bottom;
+        background-position: center center;
+        background-position: 50% 50%;
+        background-position: 150px 50px;
+        background-size: auto;
+        background-size: cover;
+        background-size: contain;
+         */
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Background in CSS</h3>
+    <ul>
+      <li>background-color</li>
+      <li>background-image</li>
+      <li>background-repeat</li>
+      <li>background-position</li>
+      <li>background-size</li>
+      <li>background-attachment</li>
+    </ul>
+
+    <div>
+      <h4>Sample Heading</h4>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur nulla est repellat ad culpa placeat, adipisci autem ab perferendis explicabo fugit at expedita inventore delectus natus non iusto! Dicta, magnam?</p>
+    </div>
+  </body>
+</html>
+
+<!--
+  * {
+        /* 
+          * - Universal Selector
+          CSS RESET
+        */
+        margin: 0;
+        padding: 0;
+        box-sizing: ;
+      }
+-->
+
+<!-- 
+
+background-color : red | #fff | rgb(255, 255, 255) | rgba(255, 255, 255, 0.5) | transparent
+
+background-image :  background-image: url("small.png"); | Height | Width ( main )
+
+background-repeat :  no-repeat | repeat | repeat-x | repeat-y | repeat-x, repeat-y
+
+background-position : left top | right bottom | center center | 50% 50% | 150px 50px x,y
+
+background-size : auto | cover | contain
+
+background-attachment : fixed | scroll | local
+
+ 
+
+-->

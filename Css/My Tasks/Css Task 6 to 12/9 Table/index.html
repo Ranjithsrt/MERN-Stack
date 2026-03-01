@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      table {
+        width: 700px;
+        height: 500px;
+        border: none;
+        outline: none;
+        border-collapse: collapse;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      }
+
+      table th {
+        background-color: orangered;
+        color: white;
+        padding: 25px;
+        border-bottom: 2px solid white;
+      }
+
+      table td {
+        padding: 10px;
+      }
+
+      table tr:nth-child(even) {
+        background-color: rgb(238, 238, 238);
+      }
+      table tr:nth-child(odd) {
+        background-color: white;
+      }
+
+      table tr:hover {
+        background-color: orangered;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Dhoni</td>
+          <td>7</td>
+          <td>Ranji</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Ravindra Jadeja</td>
+          <td>35</td>
+          <td>Delhi</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Stephen Fleming</td>
+          <td>18</td>
+          <td>chennai</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Ravichandran Ashwin</td>
+          <td>58</td>
+          <td>kottayam</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Noor Ahmad</td>
+          <td>19</td>
+          <td>mumbay</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Khaleel Ahmed</td>
+          <td>52</td>
+          <td>kerala</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Matheesha Pathirana</td>
+          <td>22</td>
+          <td>chennai</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

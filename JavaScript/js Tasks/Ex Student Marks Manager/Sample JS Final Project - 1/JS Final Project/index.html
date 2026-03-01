@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Page Title -->
+  <title>Student Marks Manager</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body class="bg-gray-100 min-h-100 font-[cinzel] select-none">
+  <!-- Header -->
+  <header>
+    <h1 class="text-center mt-[50px] my-3 font-bold text-[30px] tracking-[1px]">
+      Student Marks Manager
+    </h1>
+    <p class="text-center text-[15px] font-light text-gray-600 uppercase tracking-[1px] pt-1 py-[45px]">
+      Add - Edit - Delete - Search
+    </p>
+  </header>
+  <!-- Add Student -->
+  <section class="container max-w-4xl mx-auto p-[50px] bg-white add-student-section shadow-lg">
+    <div class="flex gap-2 justify-center items-center">
+      <span class="text-2xl">🤖</span>
+      <h1 class="text-2xl font-bold">Add New Student</h1>
+    </div>
+    <form autocomplete="off">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="flex gap-2 justify-center items-center">
+          <span class="text-2xl">🙋‍♂️</span>
+          <input type="text" placeholder="Name" id="StdName"
+            class="w-full my-8 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div class="flex gap-2 justify-center items-center">
+          <span>🆔</span>
+          <input type="text" placeholder="Roll No (Format: R101X)" id="StdRollNo"
+            class="w-full my-8 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+      </div>
+
+      <!-- Add your more form fields -->
+
+      <div class="grid md:grid-cols-5 gap-4">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">📝</span>
+          <input id="StdMark1" type="number" placeholder="Mark 1" min="0" max="100" required
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-xl">📝</span>
+          <input id="StdMark2" type="number" placeholder="Mark 2" min="0" max="100" required
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-xl">📝</span>
+          <input id="StdMark3" type="number" placeholder="Mark 3" min="0" max="100" required
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-xl">📝</span>
+          <input id="StdMark4" type="number" placeholder="Mark 4" min="0" max="100" required
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-xl">📝</span>
+          <input id="StdMark5" type="number" placeholder="Mark 5" min="0" max="100" required
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+
+        <!-- <input type="number" id="StdMark1" placeholder="Mark 1"  />
+          <input type="number" id="StdMark2" placeholder="Mark 2" />
+          <input type="number" id="StdMark3" placeholder="Mark 3" />
+          <input type="number" id="StdMark4" placeholder="Mark 4" />
+          <input type="number" id="StdMark5" placeholder="Mark 5" /> -->
+      </div>
+
+
+      <div class="text-center my-5">
+        <button type="button" id="AddBtn"
+          class="mt-4 text-center d-block bg-blue-500 text-white font-semibold px-6 py-2 rounded-md hover:bg-blue-600 transition-colors w-80"
+          onclick="saveData(); ">
+          Add Student
+        </button>
+        <button type="button" id="CancelBtn"
+          class="mt-4 bg-red-500 text-white font-semibold px-6 py-2 rounded-md hover:bg-red-600 transition-colors"
+          onclick="restform();" style="display: none">
+          Cancel
+        </button>
+      </div>
+    </form>
+
+    <p id="ErrorMsg" class="capitalize font-bold text-[25px] text-[red]"></p>
+  </section>
+  <!-- Stats -->
+  <section class="stats-section container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div class="bg-white w-full p-[50px] shadow-lg hover:scale-105 transition-transform">
+      <span class="text-3xl bg-blue-50 p-3 inline-block my-5">🧑‍🏫</span>
+      <h1 class="text-xl font-semibold text-gray-800 my-3">Total Students</h1>
+      <p id="StdTot" class="text-3xl font-bold text-blue-600">0</p>
+    </div>
+    <div class="bg-white w-full p-[50px] shadow-lg hover:scale-105 transition-transform">
+      <span class="text-3xl bg-blue-50 p-3 inline-block my-5">👍</span>
+      <h1 class="text-xl font-semibold text-gray-800 my-3">Passed</h1>
+      <h3 id="StdPass" class="text-3xl font-bold text-green-600">0</h3>
+      <p id="StdPerc" class="text-sm text-gray-500 my-3">(0%)</p>
+    </div>
+
+    <div class="bg-white w-full p-[50px] shadow-lg hover:scale-105 transition-transform">
+      <span class="text-3xl bg-blue-50 p-3 inline-block my-5">👎</span>
+      <h1 class="text-xl font-semibold text-gray-800 my-3">Failed</h1>
+      <h3 id="StdFail" class="text-3xl font-bold text-red-600">0</h3>
+      <p id="StdFailPerc" class="text-sm text-gray-500 my-3">(0%)</p>
+    </div>
+
+    <div class="bg-white w-full p-[50px] shadow-lg hover:scale-105 transition-transform">
+      <span class="text-3xl bg-blue-50 p-3 inline-block my-5">💁</span>
+      <h1 class="text-xl font-semibold text-gray-800 mb-2">Average</h1>
+      <h3 id="StdAvg" class="text-3xl font-bold text-purple-600">0</h3>
+    </div>
+  </section>
+  <!-- Table -->
+  <section class="student-list-section container mx-auto px-4 py-8 bg-white shadow-lg my-8 overflow-x-auto rounded-lg">
+    <h1 class="text-center text-2xl font-bold text-gray-800 mb-4">
+      😍Student List
+    </h1>
+    <input type="search" id="StdSearch" placeholder="Search by Name" autocomplete="off" onkeyup="searchStudents()"
+      class="w-full md:w-1/2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 mt-5 mb-[35px] block mx-auto" />
+    <!-- mark table -->
+    <table id="StdTable"
+      class="min-w-full table-auto border-collapse border border-gray-300 rounded-lg overflow-hidden shadow-sm w-full">
+      <thead class="bg-gray-50">
+        <tr>
+          <th
+            class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-300">
+            Name
+          </th>
+          <th
+            class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-300">
+            Roll Number
+          </th>
+          <th
+            class="py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-300">
+            Mark 1
+          </th>
+          <th
+            class="py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-300">
+            Mark 2
+          </th>
+          <th
+            class="py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-300">
+            Mark 3
+          </th>
+          <th
+            class="py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-300">
+            Mark 4
+          </th>
+          <th
+            class="py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-300">
+            Mark 5
+          </th>
+          <th
+            class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-300">
+            Total
+          </th>
+          <th
+            class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-300">
+            Percentage
+          </th>
+          <th
+            class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-300">
+            Result
+          </th>
+          <th
+            class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-300"
+            colspan="3">
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody id="StdTableBody" class="bg-white divide-y divide-gray-200"></tbody>
+    </table>
+  </section>
+  <!-- custom js -->
+  <script>
+    /*
+  // local storage
+  localStorage.setItem(
+    "studentList",
+    JSON.stringify([
+      {
+        name: "Ranjith",
+        rollNo: 101,
+        marks: [50, 50, 50, 50, 50],
+        total: 500,
+        percentage: 50,
+        result: "Pass",
+      },
+      {
+        name: "john doe",
+        rollNo: 102,
+        marks: [50, 60, 30, 80, 90],
+        total: 500,
+        percentage: 50,
+        result: "Fail",
+      },
+      {
+        name: "sydney ",
+        rollNo: 103,
+        marks: [50, 50, 50, 50, 50],
+        total: 500,
+        percentage: 50,
+        result: "Pass",
+      },
+      {
+        name: "mike",
+        rollNo: 104,
+        marks: [50, 50, 30, 30, 50],
+        total: 500,
+        percentage: 50,
+        result: "Fail",
+      },
+
+      {
+        name: "ana d armas",
+        rollNo: 105,
+        marks: [50, 50, 50, 50, 50],
+        total: 500,
+        percentage: 50,
+        result: "Pass",
+      },
+    ])
+  );
+
+  */
+
+    /*
+let editIndex = null;
+
+function loadData(list) {
+  let studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+  console.log(studentList);
+
+  let StdTableBody = document.getElementById("StdTableBody");
+  StdTableBody.innerHTML = "";
+
+  studentList.forEach((student, index) => {
+    let row = `
+      <tr>
+        <td>${student.name}</td>
+        <td>${student.rollNo}</td>
+        <td>${student.marks[0]}</td>
+        <td>${student.marks[1]}</td>
+        <td>${student.marks[2]}</td>
+        <td>${student.marks[3]}</td>
+        <td>${student.marks[4]}</td>
+        <td>${student.total}</td>
+        <td>${student.percentage}</td>
+        <td>${student.result}</td>
+        <td><button class="Edit-btn" onclick="editStudent(${index})">Edit</button></td>
+        <td><button class="Dlt-btn" onclick="deleteStudent(${index});alert('Student deleted')">Delete</button></td>
+      </tr>
+    `;
+    StdTableBody.innerHTML += row;
+  });
+  updateStats();
+}
+
+*/
+
+    //-------------------------------------------------------------
+    // START
+    //------------------------------------------------------------
+
+    let editIndex = null;
+
+    // Display Table
+
+    function displayStudents(list) {
+      let StdTableBody = document.getElementById("StdTableBody");
+      StdTableBody.innerHTML = "";
+
+      if (list.length === 0) {
+        StdTableBody.innerHTML = `
+                        <tr class="bg-white ">
+                            <td colspan="13" class="text-center font-bold text-red-600 py-6 tracking-wider text-[20px]">
+                               No data found
+                             </td>
+                         </tr>`;
+        return;
+      }
+
+      list.forEach((student, index) => {
+        let resultClass =
+          student.result === "Pass"
+            ? "text-green-600 font-semibold"
+            : "text-red-600 font-semibold";
+
+        let mark0Class =
+          student.marks[0] < 35 ? "text-red-600" : "text-gray-900";
+        let mark1Class =
+          student.marks[1] < 35 ? "text-red-600" : "text-gray-900";
+        let mark2Class =
+          student.marks[2] < 35 ? "text-red-600" : "text-gray-900";
+        let mark3Class =
+          student.marks[3] < 35 ? "text-red-600" : "text-gray-900";
+        let mark4Class =
+          student.marks[4] < 35 ? "text-red-600" : "text-gray-900";
+
+        let row = `
+            <tr class="hover:bg-gray-50 transition-colors">
+
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.name}</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.rollNo}</td>
+              
+              <td class="px-6 py-4 whitespace-nowrap text-sm ${mark0Class}">${student.marks[0]}</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm ${mark1Class}">${student.marks[1]}</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm ${mark2Class}">${student.marks[2]}</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm ${mark3Class}">${student.marks[3]}</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm ${mark4Class}">${student.marks[4]}</td>
+
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">${student.total}</td>
+
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.percentage}%</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm ${resultClass}">${student.result}</td>
+
+              <td class="px-6 py-4 whitespace-nowrap text-sm">
+                <button onclick="editStudent(${index})" class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition-colors">Edit</button>
+              </td>
+              
+              <td class="px-6 py-4 whitespace-nowrap text-sm" >
+                <button onclick="deleteStudent(${index});alert('Student deleted')" class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition-colors">Delete</button>
+              </td>
+            </tr>
+          `;
+        StdTableBody.innerHTML += row;
+      });
+    }
+
+    // Load Data
+
+    function loadData() {
+      let studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+      displayStudents(studentList);
+      updateStats(); // update total, pass, fail, average
+    }
+
+    // Save Data
+    function saveData() {
+      const StdName = document.getElementById("StdName").value.trim();
+      const StdRollNo = document.getElementById("StdRollNo").value.trim();
+      const StdMark1 = document.getElementById("StdMark1").value.trim();
+      const StdMark2 = document.getElementById("StdMark2").value.trim();
+      const StdMark3 = document.getElementById("StdMark3").value.trim();
+      const StdMark4 = document.getElementById("StdMark4").value.trim();
+      const StdMark5 = document.getElementById("StdMark5").value.trim();
+      const ErrorMsg = document.getElementById("ErrorMsg");
+
+      // Validation
+      if (
+        !StdName ||
+        !StdRollNo ||
+        !StdMark1 ||
+        !StdMark2 ||
+        !StdMark3 ||
+        !StdMark4 ||
+        !StdMark5
+      ) {
+        ErrorMsg.textContent = "Please fill all the fields";
+        ErrorMsg.style.color = "Red";
+        ErrorMsg.style.fontSize = "20px";
+        ErrorMsg.style.textAlign = "center";
+        ErrorMsg.style.marginTop = "10px";
+        return;
+      }
+
+      if (
+        isNaN(StdMark1) ||
+        isNaN(StdMark2) ||
+        isNaN(StdMark3) ||
+        isNaN(StdMark4) ||
+        isNaN(StdMark5)
+      ) {
+        ErrorMsg.textContent = "Marks must be numbers";
+        ErrorMsg.style.color = "orange";
+        ErrorMsg.style.fontSize = "20px";
+        ErrorMsg.style.textAlign = "center";
+        ErrorMsg.style.marginTop = "10px";
+        return;
+      }
+
+      if (
+        StdMark1 < 0 ||
+        StdMark2 < 0 ||
+        StdMark3 < 0 ||
+        StdMark4 < 0 ||
+        StdMark5 < 0
+      ) {
+        ErrorMsg.textContent = "Marks cannot be negative";
+        ErrorMsg.style.color = "orange";
+        ErrorMsg.style.fontSize = "20px";
+        ErrorMsg.style.textAlign = "center";
+        ErrorMsg.style.marginTop = "10px";
+        return;
+      }
+
+      if (
+        StdMark1 > 100 ||
+        StdMark2 > 100 ||
+        StdMark3 > 100 ||
+        StdMark4 > 100 ||
+        StdMark5 > 100
+      ) {
+        ErrorMsg.textContent = "Marks cannot be greater than 100";
+        ErrorMsg.style.color = "orange";
+        ErrorMsg.style.fontSize = "20px";
+        ErrorMsg.style.textAlign = "center";
+        ErrorMsg.style.marginTop = "10px";
+        return;
+      }
+
+      let student = {
+        name: StdName,
+        rollNo: StdRollNo,
+        marks: [StdMark1, StdMark2, StdMark3, StdMark4, StdMark5],
+      };
+
+      let studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+
+      // Calculate total, percentage and result for both new and edited students
+      student.marks = student.marks.map((mark) => Number(mark)); // Convert marks to numbers
+      student.total = student.marks.reduce((a, b) => a + b, 0);
+      student.percentage = Number(((student.total / 500) * 100).toFixed(2));
+
+      // Check if any subject has marks less than 35
+      const hasFailedSubject = student.marks.some((mark) => mark < 35);
+      student.result = hasFailedSubject ? "Fail" : "Pass";
+
+      if (editIndex !== null) {
+        studentList[editIndex] = student;
+      } else {
+        studentList.push(student);
+      }
+      localStorage.setItem("studentList", JSON.stringify(studentList));
+      alert("Student added!");
+
+      loadData();
+      restform();
+    }
+
+    // Reset form
+    function restform() {
+      document.getElementById("StdName").value = "";
+      document.getElementById("StdRollNo").value = "";
+      document.getElementById("StdMark1").value = "";
+      document.getElementById("StdMark2").value = "";
+      document.getElementById("StdMark3").value = "";
+      document.getElementById("StdMark4").value = "";
+      document.getElementById("StdMark5").value = "";
+      document.getElementById("ErrorMsg").textContent = "";
+
+      document.getElementById("AddBtn").textContent = "Add Student";
+      document.getElementById("CancelBtn").style.display = "none";
+
+      editIndex = null;
+    }
+
+    // Edit student
+
+    function editStudent(index) {
+      let studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+      let student = studentList[index];
+      console.log(student);
+
+      document.getElementById("StdName").value = student.name;
+      document.getElementById("StdRollNo").value = student.rollNo;
+      document.getElementById("StdMark1").value = student.marks[0];
+      document.getElementById("StdMark2").value = student.marks[1];
+      document.getElementById("StdMark3").value = student.marks[2];
+      document.getElementById("StdMark4").value = student.marks[3];
+      document.getElementById("StdMark5").value = student.marks[4];
+
+      student.total = student.marks.reduce((a, b) => a + b, 0);
+      student.percentage = Number(((student.total / 500) * 100).toFixed(2));
+      student.result = student.percentage >= 35 ? "Pass" : "Fail";
+
+      // studentList.push(student);
+      localStorage.setItem("studentList", JSON.stringify(studentList));
+
+      document.getElementById("AddBtn").textContent = "Update Student";
+      document.getElementById("CancelBtn").style.display = "inline-block";
+
+      editIndex = index;
+    }
+
+    // Delete student
+    function deleteStudent(index) {
+      let studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+      studentList.splice(index, 1);
+      localStorage.setItem("studentList", JSON.stringify(studentList));
+      loadData();
+    }
+
+    // total students
+    // function totalStudents() {
+    //   let StdTot = document.getElementById("StdTot");
+    //   let studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+    //   StdTot.textContent = studentList.length
+    // }
+
+    // totalStudents();
+    // loadData();
+
+    // passed students
+    // function passedStudents() {
+    //   let StdPass = document.getElementById("StdPass");
+    //   let StdPerc = document.getElementById("StdPerc");
+
+    //   let studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+    //   return studentList.filter((student) => student.result === "Pass")
+    //     .length;
+    // }
+
+    // passedStudents();
+    // loadData();
+
+    // failed students
+    // function failedStudents() {
+    //   let StdFail = document.getElementById("StdFail");
+    //   let StdFailPerc = document.getElementById("StdFailPerc");
+
+    //   let studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+    //   return studentList.filter((student) => student.result === "Fail")
+    //     .length;
+
+    // }
+
+    // failedStudents();
+    // loadData();
+
+    // average percentage
+    // function averagePercentage() {
+
+    //   let StdAvg = document.getElementById("StdAvg");
+    //   let StdAvgPerc = document.getElementById("StdAvgPerc");
+
+    //   let studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+    //   let totalPercentage = studentList.reduce(
+    //     (total, student) => total + student.percentage,
+    //     0
+    //   );
+    //   return (totalPercentage / studentList.length).toFixed(2);
+    // }
+
+    // averagePercentage();
+
+    // Stats
+
+    function updateStats() {
+      let studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+      const total = studentList.length;
+      const passed = studentList.filter((s) => s.result === "Pass").length;
+      const failed = studentList.filter((s) => s.result === "Fail").length;
+      const avg =
+        total > 0
+          ? (
+            studentList.reduce((a, s) => a + s.percentage, 0) / total
+          ).toFixed(2)
+          : 0;
+
+      /*
+      
+Breakdown:
+            
+           total > 0
+                  → If there are students, calculate average
+                  → If no students, average = 0
+      
+          reduce((a, s) => a + s.percentage, 0)
+                  → Adds all students' percentages together
+                    Example: 80 + 60 + 90 = 230
+      
+          / total
+                  → divides to get average
+                    Example: 230 / 3 = 76.67
+      
+          .toFixed(2)
+                 → keeps only 2 decimal places
+         
+*/
+
+      document.getElementById("StdTot").textContent = total;
+      document.getElementById("StdPass").textContent = passed;
+      document.getElementById("StdFail").textContent = failed;
+      document.getElementById("StdAvg").textContent = avg;
+
+      document.getElementById("StdPerc").textContent = `(${(
+        (passed / (total || 1)) *
+        100
+      ).toFixed(1)}%)`;
+
+      /*
+            
+      Breakdown:
+      
+            (total || 1) → avoids dividing by zero
+      
+            passed / total → pass ratio
+      
+            * 100 → convert to percentage
+      
+            .toFixed(1) → one decimal place
+      
+            Wrapped in "()" for display.
+      
+      Example:
+          Passed = 7, Total = 10 → (70.0%)
+            
+*/
+      document.getElementById("StdFailPerc").textContent = `(${(
+        (failed / (total || 1)) *
+        100
+      ).toFixed(1)}%)`;
+    }
+
+    /*
+    
+Breakdown:
+ 
+    (total || 1) → avoids dividing by zero
+ 
+    failed / total → pass ratio
+ 
+    * 100 → convert to percentage
+ 
+    .toFixed(1) → one decimal place
+ 
+    Wrapped in "()" for display.
+ 
+Example:
+failed = 7, Total = 10 → (70.0%)
+    
+ 
+*/
+
+    // Search
+
+    function searchStudents() {
+      let input = document.getElementById("StdSearch").value.toLowerCase();
+      let list = JSON.parse(localStorage.getItem("studentList")) || [];
+      let results = list.filter((s) => s.name.toLowerCase().includes(input));
+      displayStudents(results);
+    }
+
+    // Run on start
+    loadData();
+
+    //------------------------------------------------------------------------------------
+    // END OF SCRIPT
+    //------------------------------------------------------------------------------------
+  </script>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

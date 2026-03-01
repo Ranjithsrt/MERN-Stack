@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        margin-bottom: 20px;
+      }
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: #856745;
+        position: absolute;
+        /* transition: 1s ease-in-out; */
+      }
+    </style>
+  </head>
+  <body>
+    <button>Animate</button>
+    <div id="box"></div>
+
+    <script>
+      /*
+      document.querySelector("button").addEventListener("click", function () {
+        const box = document.querySelector("#box");
+        box.style.width = "50px";
+        box.style.height = "50px";
+        box.style.transform = "translateX(250px)";
+      });
+      */
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+      $("button").click(function () {
+        $("#box").animate({
+          height: "50px",
+          width: "50px",
+          left: "250px",
+          top: "150px",
+        });
+      });
+    </script>
+  </body>
+</html>

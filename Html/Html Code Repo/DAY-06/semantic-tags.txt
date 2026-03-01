@@ -1,0 +1,34 @@
+Semantic Tags
+    Structural Semantic Tags
+        header
+        nav
+        main
+        article
+        section
+        aside
+        footer
+
+    Text-Level Semantic Tags
+       h1 to h6 
+       p
+       blockquote
+       cite
+       q
+       time
+       address
+       pre
+       code
+       kbd
+       samp
+       var
+       abbr
+       strong
+       em
+       mark
+       del
+       ins
+    Grouping and Media Semantic Tags
+    List Semantic Tags
+    Table Semantic Tags
+    Form Semantic Tags
+    Other Semantic Tags

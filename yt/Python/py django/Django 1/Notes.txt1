@@ -1,0 +1,307 @@
+python - python --version
+
+vscode
+
+mysql
+
+------------
+
+----
+Django setup :
+------
+
+virtual Environment :
+
+-- python -m venv Env
+
+Activate -- Env/Scripts/Activate
+
+Deactivate -- deactivate
+
+----
+Install Django:
+-------
+
+--- pip install django
+
+------------
+DjangoProject  :
+------------
+
+--- django-admin startproject DjangoProject . 
+
+--- python manage.py runserver
+
+--- Starting development server at http://127.0.0.1:8000/
+
+---  ctrl c -- stop server
+
+__init__.py
+asgi.py
+setting.py
+urls.py
+wsgi.py
+
+manage.py
+
+db --- Django provide Bulid in db and server 
+
+db.sqlite3
+
+------------
+
+------
+DjangoProject App:
+------------
+
+--- python manage.py startapp Inventory
+
+App Name : Inventory
+
+migrations
+
+__init__.py
+models.py
+admin.py
+views.py
+apps.py
+tests.py
+
+--------------
+
+---
+Reg App :
+--
+
+project -- setting.py --- instal -- My_App
+
+-----------------------
+
+----
+Templates
+---------
+
+project -- Templates -- html.Files
+
+---
+Templates Reg:
+------
+
+project -- setting -- Templates
+
+from pathlib import Path
+import os
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+TEMPLATES = [
+    {
+      'DIRS': [os.path.join(BASE_DIR,'templates')],
+
+    }
+]
+
+--------
+
+---
+views,py
+--
+
+from pathlib import Path
+import os
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# C:\Users\ranji\Desktop\Django\Djangoproject 
+
+
+def home(request):
+     result = os.path.join(BASE_DIR, 'templates')
+     print(result) 
+     # C:\Users\ranji\Desktop\Django\Djangoproject\templates
+     return render(request, 'home.html')
+
+#dynamic
+     return render(request, 'home.html',{
+          'Name': 'Ranjih'
+     })
+
+---
+html:
+-----
+
+<html>
+<body>
+       # dynamic value view.py laa irunthu
+       <h1>Welcome {{Name}}</h1>  
+</body>
+</html>
+
+----------
+--
+forms
+---
+
+home.html
+
+{% block content %}
+    <form action="product" autocomplete="off">
+        <!-- {% csrf_token %} -->
+
+        <!-- {{form.as_p}} -->
+        <h1>product</h1>
+
+        mobile: <input type="text" name="mobile" id="mobile"><br><br>
+        model: <input type="text" name="model" id="model"><br><br>
+        quantity: <input type="text" name="quantity" id="quantity"><br><br>
+        <input type="submit" value="submit">
+    </form>
+{% endblock content %}
+
+urls.py
+
+    path('product/',views.product,name='product'),
+
+views.py
+
+    Mobile =int (request.GET['mobile'])
+     Model =int (request.GET['model'])
+     Quantity =int (request.GET['quantity'])
+   
+     price = Mobile * Model * Quantity
+    
+     return render(request, 'result.html',{
+          'price': price
+     })
+
+result.html
+
+   Price: {{price}}
+
+GET not recommeneded : http://127.0.0.1:8000/product/?mobile=10&model=10&quantity=10
+
+recommeneded : POST
+-----
+
+----
+static 
+----
+
+img 
+css
+js
+
+
+setting -- static
+
+project -- new file static
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+ ]
+
+ -----------
+
+ MVT 
+
+ CREATE
+
+ model.py
+
+ from django.db import models
+
+# Create your models here.
+
+class Datas(models.Model):
+    name=models.CharField(max_length=100)
+    email=models.EmailField(max_length=100)
+    password=models.CharField(max_length=100)
+
+admin.py
+
+from django.contrib import admin
+from .models import Datas
+
+# Register your models here.
+
+admin.site.register(Datas)
+
+
+python manage.py makemigrations 
+python manage.py  migrate 
+python manage.py createsuperuser    
+
+-----
+
+---
+READ
+---
+
+model -- html
+
+------------
+
+----------------------------------------------
+
+mysql
+
+proj --- setting----
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': BASE_DIR / 'django_db',
+        'USER': 'root',
+        'PASSWORD':'ranjithsrt1',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}
+
+next import package
+
+
+-- Env\Scripts\activate
+-- pip install mysqlclient
+-- python manage.py makemigrations 
+-- python manage.py migrate 
+
+Requirement already satisfied: mysqlclient in c:\users\ranji\desktop\django - 2\env\lib\site-packages (2.2.7)
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+(Env) PS C:\Users\ranji\Desktop\Django - 2> python manage.py makemigrations     
+No changes detected
+(Env) PS C:\Users\ranji\Desktop\Django - 2> python manage.py migrate            
+Operations to perform:                                                          
+  Apply all migrations: Inventory, admin, auth, contenttypes, sessions          
+Running migrations:                                                             
+  Applying Inventory.0001_initial... OK
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+(Env) PS C:\Users\ranji\Desktop\Django - 2> 
+
+-------------------------
+
+create app -- authentication 
+
+reg -- setting -- authentication 

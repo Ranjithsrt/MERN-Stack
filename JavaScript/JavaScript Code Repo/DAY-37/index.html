@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 400px;
+        height: 200px;
+        background-color: aquamarine;
+        text-align: center;
+        color: #333;
+        font-size: 25px;
+        line-height: 200px;
+        font-weight: bold;
+        text-transform: uppercase;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="touchArea">Touch Me</div>
+
+    <script>
+      /*
+          touchstart
+          touchmove
+          touchend
+          touchcancel
+      */
+
+      const touchArea = document.getElementById("touchArea");
+      touchArea.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        touchArea.style.background = "blue";
+        touchArea.style.color = "#fff";
+        touchArea.textContent = "Touch Started";
+      });
+
+      touchArea.addEventListener("touchmove", function (e) {
+        e.preventDefault();
+        touchArea.style.background = "red";
+        touchArea.textContent = "Touch Moved";
+      });
+      touchArea.addEventListener("touchend", function (e) {
+        e.preventDefault();
+        touchArea.style.background = "aquamarine";
+        touchArea.textContent = "Touch End";
+      });
+
+      touchArea.addEventListener("touchcancel", function (e) {
+        e.preventDefault();
+        touchArea.style.background = "black";
+        touchArea.textContent = "Touch Cancelled";
+      });
+    </script>
+  </body>
+</html>

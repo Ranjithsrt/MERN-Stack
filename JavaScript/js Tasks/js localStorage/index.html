@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cizen:wght@400;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <h2>contact management system</h2>
+  <div class="container">
+    <form action="" autocomplete="off">
+      <input type="text" placeholder="First name" id="name" />
+      <input type="text" placeholder="Last name" id="lastName" />
+      <input type="email" placeholder="email" id="email" />
+      <input type="number" placeholder="phone number" id="phone" />
+      <button type="button" id="addBtn" onclick="saveData()">
+        Add Contact
+      </button>
+      <button type="button" id="resetBtn" onclick="resetForm()">Reset</button>
+    </form>
+    <p></p>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="contactList">
+          <!-- 
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>John@gmail.com</td>
+                        <td>1234567890</td>
+                        <td><button class="EditBtn">Edit</button></td>
+                        <td><button class="deleteBtn">Delete</button></td>
+
+                    </tr> 
+                    -->
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      // localStorage.setItem("users", JSON.stringify([
+      //     {
+      //         "firstName": "John",
+      //         "lastName": "Doe",
+      //         "email": "ranjth@gmail.com",
+      //         "phone": 1234567890,
+      //     },
+
+      // ]));
+
+      let editIndex = null;
+
+      function loadData() {
+        let contacts = JSON.parse(localStorage.getItem("users")) || [];
+        console.log(contacts);
+
+        let tableBody = document.getElementById("contactList");
+        tableBody.innerHTML = "";
+
+        contacts.forEach((contact, index) => {
+          let row = `
+                    <tr>
+                        <td>${contact.firstName}</td>
+                        <td>${contact.lastName}</td>
+                        <td>${contact.email}</td>
+                        <td>${contact.phone}</td>
+                        <td>
+                            <button class="EditBtn" onclick="editContact(${index})">Edit</button>
+                            <button class="deleteBtn" onclick="deleteContact(${index})">Delete</button>
+                        </td>
+                    </tr>
+                    `;
+          tableBody.innerHTML += row;
+        });
+      }
+
+      function saveData() {
+        const firstName = document.getElementById("name").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const errorMessage = document.querySelector("p");
+
+        // Clear previous error message
+
+        if (!firstName || !lastName || !email || !phone) {
+          errorMessage.textContent = "All fields are required.";
+          return;
+        }
+
+        let user = { firstName, lastName, email, phone };
+        let contacts = JSON.parse(localStorage.getItem("users")) || [];
+
+        if (editIndex !== null) {
+          // Update 
+          contacts[editIndex] = user;
+          // editIndex = null;
+          // resetForm();
+        } else {
+          // insert 
+          contacts.push(user);
+        }
+
+        localStorage.setItem("users", JSON.stringify(contacts));
+        loadData();
+        resetForm();
+      }
+
+      function resetForm() {
+        document.getElementById("name").value = "";
+        document.getElementById("lastName").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("phone").value = "";
+        document.querySelector("p").textContent = "";
+
+        editIndex = null;
+
+        document.getElementById("addBtn").textContent = "Add Contact";
+        document.getElementById("resetBtn").textContent = "Reset";
+      }
+
+      function editContact(index) {
+        const contacts = JSON.parse(localStorage.getItem("users")) || [];
+        const contact = contacts[index];
+        console.log(contact);
+
+
+        document.getElementById("name").value = contact.firstName;
+        document.getElementById("lastName").value = contact.lastName;
+        document.getElementById("email").value = contact.email;
+        document.getElementById("phone").value = contact.phone;
+
+        document.getElementById("addBtn").textContent = "Update Contact";
+        document.getElementById("resetBtn").textContent = "Cancel";
+
+        editIndex = index;
+      }
+
+      function deleteContact(index) {
+        let contacts = JSON.parse(localStorage.getItem("users")) || [];
+        contacts.splice(index, 1);
+        localStorage.setItem("users", JSON.stringify(contacts));
+        loadData();
+      }
+
+      loadData();
+    </script>
+  </div>
+</body>
+
+</html>

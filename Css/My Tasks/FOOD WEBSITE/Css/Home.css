@@ -1,0 +1,427 @@
+/* Home page css */
+
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* css reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* root variables */
+
+:root {
+  --primary-color: #463983;
+  --secondary-color: #1f1f5c;
+  --background-color: #f7f7f7;
+  --text-color: #797a7a;
+  --text-color2: #000000;
+  --text-color3: #474750;
+  --text-color4: #f7f7f7;
+  --text-color5: #f7d794;
+  --font-family: "Poppins", sans-serif;
+  --offer-bg-color: #f7d794;
+  --brand-font-family: "Dancing Script", cursive;
+  --primary-font-family: "Roboto", sans-serif;
+}
+
+/* ------------------------------------------------- */
+
+/* Navigation */
+
+nav {
+  background-color: var(--primary-color);
+  color: var(--text-color4);
+  width: 100%;
+  height: 60px;
+  font-family: var(--primary-font-family);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* padding: 0 30px; */
+  font-size: 11px;
+  /* position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999 */
+}
+
+nav h3 {
+  display: inline;
+}
+
+i {
+  color: var(--text-color4);
+  margin-right: 5px;
+}
+
+nav a {
+  color: var(--text-color4);
+  display: inline-block;
+  padding: 25px 13px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.052);
+}
+
+nav ul li {
+  display: inline;
+  padding: 0 20px;
+  font-size: 11px;
+  cursor: pointer;
+  color: var(--text-color4);
+}
+
+/* ------------------------------------------------ */
+
+/* Header section */
+
+.header-Banner {
+  width: 100%;
+  height: 500px;
+  background-image: url("../images/banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.header-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #000000af;
+  color: var(--text-color4);
+  /* margin: 10px 0; */
+  font-family: var(--brand-font-family);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-color5);
+  text-shadow: 1px 1px 1px #000000;
+  box-shadow: 0 5px 3px #0000008a;
+}
+
+.header-content h1 {
+  font-size: 78px;
+  margin-top: 15px;
+  text-shadow: 1px 1px 1px #000000;
+  color: #f7d894b8;
+}
+
+.header-content h5 {
+  font-size: 25px;
+  margin-top: 15px;
+  text-shadow: 1px 1px 1px #000000;
+  color: #f7d894b8;
+}
+
+/* ------------------------------------------------------- */
+
+/* Food cards section */
+
+.food-section > h3 {
+  font-size: 25px;
+  margin: 35px 0;
+  font-family: var(--brand-font-family);
+  font-weight: 700;
+  text-align: center;
+  color: #0a0a6b;
+  text-shadow: 1px 1px 3px #fcac00b0;
+}
+
+/* red radio button */
+
+.food-country {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  margin: 5px 0 0 5px;
+  border-radius: 3px;
+}
+
+.food-country .country-name {
+  position: relative;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.723);
+  padding: 5px 15px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--primary-font-family);
+
+}
+
+.food-country .country::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-top: 3px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 2px;
+  border: 1px solid red;
+}
+
+.food-country .country::after {
+  content: "";
+  line-height: 5px;
+  position: relative;
+  left: -15px;
+  bottom: 5px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #ff0606;
+  border-radius: 50%;
+}
+
+/* green radio button */
+
+.food-country .country1::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-top: 3px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 2px;
+  border: 1px solid rgb(10, 238, 48);
+}
+
+.food-country .country1::after {
+  content: "";
+  line-height: 5px;
+  position: relative;
+  left: -15px;
+  bottom: 5px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #02ff45;
+  border-radius: 50%;
+}
+
+.indian {
+  color: #7a06ff;
+  position: relative;
+  bottom: 4px;
+}
+
+/* food cards container */
+
+.food-container {
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+/* food cards */
+
+.food-cards {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 25px;
+  background-color: whitesmoke;
+}
+
+/* single food card */
+
+.food-card {
+  /* width: 300px; */
+  padding: 10px;
+  /* height: 300px; */
+  background-color: white;
+  box-shadow: 0px 1px 3px #00000056;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* food card image */
+
+.food-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* food card content */
+
+.food-card h4 {
+  font-size: 15px;
+  margin: 5px 0;
+  font-weight: 500;
+  color: #2b2a2a;
+  padding: 5px 5px;
+}
+
+/* food card price */
+
+.food-card .price {
+  display: inline-block;
+  font-size: 15px;
+  margin: 5px 0;
+  padding: 5px;
+  font-weight: 900;
+  color: #000000;
+  margin-right: 35px;
+}
+
+.food-card .price1 {
+  font-size: 15px;
+  margin: 5px 0;
+  font-weight: 900;
+  color: #00000031;
+  padding: 5px;
+}
+
+/* food card offer */
+
+.food-card .offer {
+  display: inline-block;
+  font-size: 15px;
+  margin: 5px 0;
+  font-weight: 900;
+  color: #0a0a6b;
+  background-color: #f7d794;
+  padding: 5px 10px;
+  background-color: #f7d794;
+  color: #000000;
+  display: inline-block;
+  margin-right: 130px;
+  margin-left: 5px;
+}
+
+.food-card button {
+  font-size: 14px;
+  margin: 5px 0;
+  font-weight: 500;
+  color: #2b2a2a;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--text-color4);
+}
+
+/* Food cards hover */
+
+.food-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* -------------------------------------------------------- */
+
+/* Food cards section */
+
+footer {
+  width: 100%;
+  height: 400px;
+  background-color: #1f1f5c;
+  margin-top: 50px;
+}
+
+.footer-container {
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+}
+
+/* footer item */
+
+.footer-item h3 {
+  color: #fff;
+  margin: 20px 0 35px 0;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--primary-font-family);
+}
+
+.footer-item ul li a {
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: var(--primary-font-family);
+  cursor: pointer;
+  padding: 5px;
+  display: block;
+}
+
+/*  copyright */
+
+.copyright {
+  color: #fff;
+  margin: 20px 0 35px 0;
+  font-size: 10px;
+  font-family: var(--primary-font-family);
+  text-align: center;
+}
+
+/* Footer hover */
+
+.footer-item ul li a:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* ------------------------------------------------ */
+
+/* Scroll bar */
+
+/* width */
+ 
+.scroll-Bar::-webkit-scrollbar {
+  width: 10px;
+  
+}
+
+/* Track */
+
+.scroll-Bar::-webkit-scrollbar-track {
+  background: #30336b;
+}
+
+/* Handle */
+
+.scroll-Bar::-webkit-scrollbar-thumb {
+  background: #4834d4;
+  border-radius: 10px;
+
+}
+
+/* Handle on hover */
+
+.scroll-Bar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+ 

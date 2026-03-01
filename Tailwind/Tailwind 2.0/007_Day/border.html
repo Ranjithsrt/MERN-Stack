@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Border tailwind css</title>
+    <style></style>
+  </head>
+  <body class="p-10 bg-slate-300">
+    <h3 class="text-2xl font-bold">border-radius</h3>
+
+    <div class="w-[150px] h-[150px] m-3 bg-stone-700 text-white text-center leading-[150px] rounded-br-xl">border-radius</div>
+    <!--
+    rounded
+    rounded-sm
+    rounded-md
+    rounded-lg
+    rounded-xl
+    rounded-2xl
+    rounded-3xl
+    rounded-full
+    rounded-[25px]
+
+    rounded-s-xl
+    rounded-l-xl
+    rounded-e-xl
+    rounded-r-xl
+    rounded-t-xl
+    rounded-b-xl
+    rounded-ss-xl
+    rounded-se-xl
+    rounded-ee-xl
+    rounded-es-xl
+    rounded-tr-xl
+    rounded-tr-xl
+    rounded-bl-xl
+    rounded-br-xl
+    -->
+
+    <h3 class="text-2xl font-bold">border</h3>
+
+    <div class="w-[150px] h-[150px] m-3 bg-pink-700 text-white text-center leading-[150px] border-10 border-e-orange-500 border-double">border</div>
+    <!--
+    border
+    border-[5px]
+    border-t-[5px]
+    border-b-[5px]
+    border-l-[5px]
+    border-r-[5px]
+    border-s-[5px]
+    border-e-[5px]
+
+    border-dashed
+    border-solid
+    border-dotted
+
+    border-green-500
+    border-t-orange-500
+    border-g-orange-500
+    border-l-orange-500
+    border-s-orange-500
+    border-r-orange-500
+    border-e-orange-500
+    -->
+
+    <div class="bg-white flex flex-col divide-y-5 divide-emerald-500">
+      <p class="p-4">Item-1</p>
+      <p class="p-4">Item-2</p>
+      <p class="p-4">Item-3</p>
+    </div>
+
+    <div class="bg-white flex divide-x-5 divide-emerald-500 divide-dashed">
+      <p class="p-4">Item-1</p>
+      <p class="p-4">Item-2</p>
+      <p class="p-4">Item-3</p>
+    </div>
+
+    <div class="bg-white mt-3 p-3">
+      <div class="my-20 flex p-1 w-[300px] items-center gap-3">
+        <label for="email" class="font-semibold">Email</label>
+        <input class="flex-1 p-3 outline-none border border-slate-300 rounded focus:border-blue-500" type="email" id="email" placeholder="sample@gmail.com" />
+      </div>
+    </div>
+
+    <div class="bg-white mt-3 p-3">
+      <div class="my-20 flex p-1 w-[300px] items-center gap-3">
+        <label for="email" class="font-semibold">Email</label>
+        <input class="-outline-offset-4 flex-1 p-3 border outline-dashed outline-cyan-200" type="email" id="email" placeholder="sample@gmail.com" />
+      </div>
+    </div>
+  </body>
+</html>

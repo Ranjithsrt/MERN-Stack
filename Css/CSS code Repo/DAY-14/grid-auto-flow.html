@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .grid div {
+        background-color: rgba(197, 18, 18, 0.8);
+        color: #fff;
+        font-size: 40px;
+        text-align: center;
+        border-radius: 10px;
+      }
+      .grid div:nth-child(even) {
+        background-color: rgba(249, 109, 109, 0.8);
+      }
+      /*----------------------------------*/
+
+      .grid {
+        display: grid;
+        grid-template-columns: 300px 300px;
+        grid-template-rows: 300px 200px;
+        gap: 10px;
+        /* grid-auto-flow: row; 
+        grid-auto-rows: 100px;*/
+        grid-auto-flow: column;
+        grid-auto-columns: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+    </div>
+  </body>
+</html>
+
+<!--
+https://docs.emmet.io/cheat-sheet/
+-->

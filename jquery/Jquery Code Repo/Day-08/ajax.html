@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 15px;
+      }
+      button {
+        margin-bottom: 15px;
+      }
+      div {
+        border: 1px solid #ccc;
+        padding: 10px;
+        font-family: inter;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Load Data</button>
+    <div>This is sample div</div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+    <script>
+      $("button").click(function () {
+        $("div").load("sample.txt");
+      });
+    </script>
+  </body>
+</html>

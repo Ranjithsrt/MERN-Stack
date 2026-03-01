@@ -1,0 +1,109 @@
+Type Operator
+  toString
+  toInt
+  toLong
+  toDouble
+  toDecimal
+  toBool
+  toDate
+  toObjectId
+  convert
+  type
+  isNumber
+
+  
+db.students.insertMany([
+  {
+    name: "Arun",
+    age: 22,
+    yoe:"oo",
+    pincode:"636007",
+    score: "85.5",
+    active: "true",
+    joinDate: "2025-01-01",
+    idStr: "671a3b6f5f9a8a5a6f1e45c2"
+  }
+])
+
+db.students.aggregate([
+  {
+    $project:{
+      name:1,
+      age:1,
+      ageStr:{$toString:"$age"}
+    }
+  }
+])
+
+db.students.aggregate([
+  {
+    $project:{
+      name:1,
+      pincode:1,
+      pinInt:{$toInt:"$pincode"},
+      pinLong:{$toLong:"$pincode"},
+    }
+  }
+])
+
+db.students.aggregate([
+  {
+    $project:{
+      name:1,
+      score:1,
+      scoreDouble:{$toDouble:"$score"},
+      scoreDecimal:{$toDecimal:"$score"},
+    }
+  }
+])
+
+db.students.aggregate([
+  {
+    $project:{
+      name:1,
+      active:1,
+      activeBool:{$toBool:"$active"},
+      joinDate:1,
+      dateType:{$toDate:"$joinDate"},
+      idStr:1,
+      newId:{$toObjectId:"$idStr"}
+    }
+  }
+])
+
+db.students.aggregate([
+  {
+    $project:{
+      name:1,
+      yoe:1,
+      safeYoe:{
+        $convert:{
+          input:"$yoe",
+          to:"int",
+          onError:0,
+          onNull:-1
+        }
+      },
+       safePin:{
+        $convert:{
+          input:"$pincode",
+          to:"int",
+          onError:0,
+          onNull:-1
+        }
+      },
+    }
+  }
+])
+
+
+db.students.aggregate([
+  {
+    $project:{
+      fieldTypeScore:{$type:"$score"},
+      fieldTypeAge:{$type:"$age"},
+      isScoreNum:{$isNumber:"$score"},
+      isAgeNum:{$isNumber:"$age"},
+    }
+  }
+])

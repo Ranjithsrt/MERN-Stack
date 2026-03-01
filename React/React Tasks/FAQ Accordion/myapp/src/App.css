@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "cinzel", serif;
+  user-select: none;
+}
+
+body {
+  background-color: rgba(148, 149, 149, 0.415);
+}
+
+.faq-accordion {
+  max-width: 600px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.faq-accordion h1 {
+  margin: 50px 0 50px 0;
+  font-size: 20px;
+}
+
+.faq-item {
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.Faq-item-header {
+  background-color: #f7f7f7;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.Faq-item-header:hover {
+  background-color: #e0e0e0;
+}
+
+.Faq-item-body {
+  background-color: #f7f7f7;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.Faq-item-body-content {
+  margin-top: 10px;
+  padding: 10px;
+  /* display: none; */
+  background-color: white;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Faq-item.active .Faq-item-body {
+  max-height: 300px;
+}

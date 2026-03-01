@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Contact Details</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"   placeholder="Enter your name">
+
+            <label for="contact">Contact:</label>
+            <input type="number" id="contact" name="contact"  placeholder="Enter your contact number">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"  placeholder="Enter your email">
+
+            <button type="submit">Add</button>
+        </form>
+        <div id="result">
+            <h3>Submitted Details:</h3>
+            <ul>
+
+            </ul>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+-------------------------------
+
+
+/* style.css - Add your custom styles here */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  min-height: 100vh;
+
+  h1,
+  h2,
+  h3 {
+    color: #333;
+  }
+
+  .container {
+     margin: 40px auto;
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  main,
+  .container {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(40, 40, 80, 0.12);
+    max-width: 550px;
+    margin: 48px auto;
+    padding: 32px 28px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: stretch;
+    margin-bottom: 18px;
+    width: 100%;
+  }
+
+  form label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #2575fc;
+    letter-spacing: 0.5px;
+  }
+
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="tel"] {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 4px;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+  }
+
+  form input[type="tel"] {
+    border: 1.5px solid #6a11cb;
+    background: #eef6ff;
+    color: #222;
+  }
+
+  @media (max-width: 500px) {
+    main,
+    .container {
+      max-width: 98vw;
+      padding: 16px 6px;
+    }
+    form {
+      gap: 12px;
+    }
+    #result li {
+      flex-direction: column;
+      gap: 8px;
+      padding: 10px 8px;
+    }
+  }
+  input[type="text"],
+  input[type="email"],input[type="number"] {
+    padding: 10px 14px;
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f7faff;
+    transition: border 0.2s;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus {
+    border-color: #2575fc;
+    outline: none;
+  }
+
+  button {
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(40, 40, 80, 0.08);
+    transition: background 0.2s, transform 0.1s;
+  }
+  button:hover {
+    background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+    transform: translateY(-2px) scale(1.03);
+  }
+
+  #result ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  #result li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #f7faff;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 8px rgba(40, 40, 80, 0.06);
+  }
+  #result span {
+    flex: 1;
+    font-size: 1rem;
+    color: #333;
+  }
+}
+
+
+--------------------------
+
+
+// script.js
+// This file contains the main JavaScript logic for the web page.
+// Author: [Your Name]
+// Last updated: 2025-09-24
+// Description: Handles DOM interactions and page functionality.
+
+const contactForm = document.getElementById("contactForm");
+const resultList = document.querySelector("#result ul");
+
+let contacts = []; // store submitted contacts
+
+contactForm.addEventListener("submit", function (event) {
+  event.preventDefault(); // prevent form submission
+
+  const name = document.getElementById("name").value.trim();
+  const contact = document.getElementById("contact").value.trim();
+  const email = document.getElementById("email").value.trim();
+
+  // Fixed validation - check for empty strings after trimming
+  if (name === "" || contact === "" || email === "") {
+    alert("Please fill all the details");
+    return;
+  }
+
+  // Additional email format validation (optional)
+  // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // if (!emailPattern.test(email)) {
+  //   alert("Please enter a valid email address");
+  //   return;
+  // }
+
+  const newContact = { id: Date.now(), name, contact, email };
+  contacts.push(newContact);
+  renderContacts();
+  contactForm.reset(); // clear form fields
+});
+
+function renderContacts() {
+  resultList.innerHTML = ""; // clear previous results
+  contacts.forEach((contact) => {
+    const li = document.createElement("li");
+    li.style.display = "flex";
+    li.style.gap = "20px";
+    li.innerHTML = `
+      <span>${contact.name}</span>
+      <span>${contact.contact}</span>
+      <span>${contact.email}</span>
+      <button onclick="editContact(${contact.id})">Edit</button>
+      <button onclick="deleteContact(${contact.id})">Delete</button>
+    `;
+    resultList.appendChild(li);
+  });
+}
+
+function editContact(id) {
+  const contact = contacts.find((c) => c.id === id);
+  if (contact) {
+    document.getElementById("name").value = contact.name;
+    document.getElementById("contact").value = contact.contact;
+    document.getElementById("email").value = contact.email;
+    deleteContact(id); // remove the old entry
+  }
+}
+
+function deleteContact(id) {
+  contacts = contacts.filter((c) => c.id !== id);
+  renderContacts();
+}
+
+renderContacts(); // initial render

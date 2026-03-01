@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        background-color: aliceblue;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 100px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="add-item">Add Item</button>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+
+    <script>
+      const ul = document.querySelector("ul");
+      const addButton = document.querySelector("#add-item");
+
+      ul.addEventListener("click", function (e) {
+        if (e.target.matches("li")) {
+          console.log("List item clicked : ", event.target.textContent);
+          if (event.target.textContent == "Item 2") {
+            e.target.style.background = "aqua";
+          }
+        }
+      });
+
+      addButton.addEventListener("click", function () {
+        const li = document.createElement("li");
+        li.textContent = `Item ${ul.children.length + 1}`;
+        ul.appendChild(li);
+      });
+    </script>
+  </body>
+</html>

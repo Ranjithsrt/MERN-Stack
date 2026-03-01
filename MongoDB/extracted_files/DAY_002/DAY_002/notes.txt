@@ -1,0 +1,50 @@
+DAY-002 MongoDB
+-------------------------------------
+SQL                 MongoDB
+-------------------------------------
+Database            Database
+Tables              Collections
+Record              Documents
+-------------------------------------
+
+
+BSON Data Types
+    String        "Sample data"
+    Double        98.25
+    32bit Integer (-2147483648 to 2147483647) (4 bytes)
+    64bit Integer (-9223372036854775808 to 9223372036854775807) (8 bytes)
+    Boolean       True / False
+    Array         [85,96,85,99,78]
+    Object
+    Null
+    Regular Expression
+    TimeStamp
+    Date
+    ObjectId
+
+
+{
+   _id      : ObjectId(".............."),
+   name     : "Tivin Parker",
+   age      : 25,
+   married  : False,
+   dob      : ISODate("2002-10-12T08:00:00Z"),
+   weight   : 70.50,
+   kids     : null
+   hobbies  : ["Music","Sports],
+   address  : {
+            street:"Cherry Road",
+            city:"Salem",
+            pincode:636007
+        }
+}
+
+ISODate("2002-10-12T08:00:00Z")
+
+T  ->  Time
+Z  ->  UTC (Coordinated Universal Time)
+
+ISODate("2002-10-12T08:00:00+02:00") (Central European Time)
+ISODate("2002-10-12T08:00:00-05:00") (Eastern Standard Time)
+
+new Date() => Current Date & Time

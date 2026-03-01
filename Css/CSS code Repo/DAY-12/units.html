@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        font-size: 15px; /* 16px */
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        padding: 30px;
+      }
+      #box {
+        width: 200px;
+        height: 200px;
+        border: 2px solid #ccc;
+      }
+      #inner-box {
+        border: 2px solid #333;
+        width: 50%;
+        height: 50%;
+      }
+
+      .parent {
+        margin-top: 20px;
+        border: 1px solid #333;
+        padding: 10px;
+        font-size: 20px;
+      }
+      .child {
+        border: 1px solid rebeccapurple;
+        padding: 10px;
+        font-size: 1em; /* 1em = font-size of parent*/
+        margin: 1.2em;
+      }
+
+      p {
+        margin: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <div id="inner-box"></div>
+    </div>
+
+    <div class="parent">
+      Parent ipsum dolor sit amet consectetur adipisicing elit. Corrupti, laudantium.
+      <div class="child">Child ipsum dolor sit amet consectetur adipisicing elit. Corrupti, laudantium.</div>
+    </div>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi, non voluptatem earum, quae necessitatibus adipisci soluta natus magni asperiores maiores minus qui harum impedit ipsa eaque quo nihil. Laboriosam, vitae.</p>
+
+    <b>Bold Tag</b>
+  </body>
+</html>
+<!---
+Absolute Units
+  1. px 
+  2. cm  => 1cm = 37.8px
+  3. mm  => 1 mm = 0.1cm = 3.78px
+  4. in  => 1in = 2.54cm
+  5. pt  => 1pt = 1/72end of inch => 1.33px
+  6. pc  => 1pc = 12-pt = 16px
+
+Relative Units
+  1. %
+  2. em   = 16px 
+  3. rem  = root em
+  4. vw
+  5. vh
+  6. vmin
+  7. vmax
+  8. ch
+
+-->

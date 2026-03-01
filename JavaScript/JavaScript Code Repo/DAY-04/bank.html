@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>11. A cashier has currency notes of denominations 10, 50 and 100. If the amount to be withdrawn is input through the keyboard in hundreds, find the total number of currency notes of each denomination the cashier will have to give to the withdrawer.//Rs.1575 => 100*15,50*1,10*2,5</p>
+
+    <script>
+      let amount = 2348;
+      let hundredNotes = Math.floor(amount / 100); //15.75 => 15
+      amount = amount % 100; //75
+
+      let fiftyNotes = Math.floor(amount / 50); //1.25=>1
+      amount %= 50; //25
+
+      let tenNotes = Math.floor(amount / 10); //2.5=>2
+      amount %= 10; //5
+
+      console.log(`Number of 100 notes: ${hundredNotes}`);
+      console.log(`Number of 50 notes: ${fiftyNotes}`);
+      console.log(`Number of 10 notes: ${tenNotes}`);
+      console.log(`Balance : ${amount}`);
+    </script>
+  </body>
+</html>

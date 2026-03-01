@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+      * {
+        font-family: "Inter", sans-serif;
+      }
+      .wave-text {
+        user-select: none;
+        cursor: pointer;
+        background-color: aliceblue;
+        padding: 25px;
+        width: 300px;
+      }
+
+      .wave-text span {
+        font-size: 20px;
+        font-weight: 800;
+        color: crimson;
+        display: inline-block;
+        transition: 0.5s;
+      }
+      .wave-text span:hover {
+        transform: translateY(-10px) rotate(10deg);
+      }
+      /*---------------------------------*/
+      .btn {
+        padding: 15px 30px;
+        font-size: 18px;
+        background: linear-gradient(145deg, #00bcd4, #008cba);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: 0.5s;
+      }
+      .btn:hover {
+        transform: translateY(5px) scale(0.95);
+      }
+      /*---------------------------------*/
+      .box {
+        width: 250px;
+        height: 250px;
+        background-color: aliceblue;
+        position: relative;
+      }
+      .pendulum {
+        width: 10px;
+        height: 200px;
+        background-color: #333;
+        position: absolute;
+        top: 30px;
+        left: 45%;
+        transform-origin: top center;
+        animation: swing 2s infinite linear;
+      }
+
+      .weight {
+        width: 30px;
+        height: 30px;
+        background: #ff5722;
+        border-radius: 50%;
+        position: absolute;
+        bottom: -15px;
+        left: -10px;
+      }
+
+      @keyframes swing {
+        0%,
+        100% {
+          transform: rotate(30deg);
+        }
+        50% {
+          transform: rotate(-30deg);
+        }
+      }
+      /*---------------------------------*/
+      .page {
+        width: 250px;
+        height: 250px;
+        background-image: url("https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg");
+        background-size: cover;
+        animation: scroll 10s linear infinite;
+      }
+
+      @keyframes scroll {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: -800px 0px;
+        }
+      }
+      /*---------------------------------*/
+      .slider {
+        display: flex;
+        gap: 20px;
+      }
+
+      .slider img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        transition: 0.5s;
+        transform: rotate(-10deg);
+      }
+
+      .slider img:hover {
+        transform: rotate(0deg) scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    <h3>Wave Text Effect</h3>
+    <div class="wave-text">
+      <span>T</span>
+      <span>U</span>
+      <span>T</span>
+      <span>O</span>
+      <span>R</span>
+      <span>J</span>
+      <span>O</span>
+      <span>E</span>
+      <span>S</span>
+    </div>
+
+    <h3>Button Effect</h3>
+    <button class="btn">Click Me</button>
+
+    <h3>Pendulum Clock Animation</h3>
+    <div class="box">
+      <div class="pendulum">
+        <div class="weight"></div>
+      </div>
+    </div>
+
+    <h3>Infinite Scrolling Background</h3>
+    <div class="page"></div>-->
+
+    <h3>Image Slider</h3>
+    <div class="slider">
+      <img src="images/1.jpg" alt="Image" />
+      <img src="images/2.jpg" alt="Image" />
+      <img src="images/3.png" alt="Image" />
+    </div>
+
+    <h1 class="animate__animated animate__backInUp">Sample Title</h1>
+  </body>
+</html>

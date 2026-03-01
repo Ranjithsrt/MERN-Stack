@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typography in CSS</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+      div {
+        border: 1px solid #ccc;
+        padding: 10px;
+        color: green;
+      }
+      h1 {
+        font-family: "Dancing Script", cursive;
+
+        text-align: center;
+        text-align: right;
+        text-align: left;
+
+        text-decoration: line-through;
+        text-decoration: overline;
+        text-decoration: underline;
+
+        text-underline-offset: 10px;
+
+        text-transform: uppercase;
+        text-transform: lowercase;
+        text-transform: capitalize;
+        letter-spacing: 2px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      p {
+        font-size: 16px;
+        font-family: "Roboto", sans-serif;
+        font-weight: normal;
+        font-weight: bold;
+        font-weight: 400;
+
+        line-height: normal;
+        line-height: 1; /*1 = font-size(16px) */
+        line-height: 1.8; /* 1.8 = 28.8px */
+        line-height: 30px; /* 30px - 16px = 14px*/
+        line-height: 25px;
+
+        word-spacing: 15px;
+      }
+
+      h3 {
+        font-style: normal;
+        font-style: italic;
+        font-weight: normal;
+        color: red;
+      }
+
+      .box {
+        background-color: aquamarine;
+        padding: 20px;
+        width: 150px;
+        white-space: nowrap;
+        white-space: normal;
+      }
+
+      h2 {
+        font-variant: normal;
+        font-variant: small-caps;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Typography in CSS</h3>
+    <ul>
+      <li>color</li>
+      <li>font-size</li>
+      <li>font-family</li>
+      <li>font-weight</li>
+      <li>font-style</li>
+      <li>line-height</li>
+      <li>text-align</li>
+      <li>text-decoration</li>
+      <li>text-transform</li>
+      <li>letter-spacing</li>
+      <li>word-spacing</li>
+      <li>white-space</li>
+    </ul>
+
+    <div>
+      <h1>Sample Heading</h1>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum labore, aut ex enim dolorum perspiciatis architecto numquam accusantium laboriosam unde asperiores eveniet id quaerat cumque porro, odit debitis amet et.</p>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum labore, aut ex enim dolorum perspiciatis architecto numquam accusantium laboriosam unde asperiores eveniet id quaerat cumque porro, odit debitis amet et.</p>
+      <p style="text-align: justify">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus omnis fugiat deleniti dolorum, quisquam soluta, aliquid quos praesentium, veniam provident expedita doloremque eum voluptatem illum. Accusantium culpa facere eum hic, dicta ipsa tempora dolorem illum praesentium adipisci sunt
+        tenetur deserunt alias, eveniet cumque possimus odit at explicabo sint labore, doloribus ducimus tempore deleniti! Voluptatum blanditiis ut quis assumenda laudantium eaque, unde, delectus ab nihil deleniti incidunt vero facilis aliquid autem reiciendis eveniet quam magnam velit magni? Illo
+        vel at sed quae iusto architecto excepturi beatae laudantium repudiandae eos optio assumenda ab saepe ullam non ipsam, odio commodi nesciunt sequi perferendis!
+      </p>
+      <a href="#">Read More</a>
+    </div>
+
+    <h2>Tutor Joes</h2>
+    <div class="box">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor iusto molestias placeat atque corporis eum nesciunt corrupti rerum sit quia.</div>
+  </body>
+</html>
+
+<!--
+
+    color : red | #ff0000 | rgb(255,0,0) | inherit (parent)
+
+    font-size  : 16px | 18em | 20rem | 1.5vw
+     
+    font-family :  "Roboto", sans-serif | google fonts
+
+    font-weight : normal | bold | bolder | 500 | 700
+
+    font-style : normal | italic
+
+    line-height : normal | 1.6 | 1.8 | 1.9 | 2
+
+        line-height: 1; /*1 = font-size(16px) */ parent element px
+        line-height: 1.8; /* 1.8 = 28.8px */
+        line-height: 30px; /* 30px - 16px = 14px*/
+
+    text-align : left | center | right | justify
+
+    text-decoration : none | underline | overline | line-through | text-underline-offset : 2px :
+
+    text-transform : none | capitalize | uppercase | lowercase
+
+    letter-spacing : normal | 1px | 2px
+
+    word-spacing : normal | 1px | 2px
+
+    white-space : normal | nowrap | pre | pre-line | pre-wrap
+
+    font-variant : normal | small-caps
+
+
+font-size font-family
+
+font:16px Arial;
+     font-style font-size/line-height font-family
+
+font:italic 18px/1.6 Arial;
+      font-weight font-size font-family
+
+font:bold 24px "Arial Black";
+    font-style font-variant font-weight font-size/line-height font-family
+    
+font:italic small-caps 500 18px/1.4 "Times  New Roman";
+
+
+-->

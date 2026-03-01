@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .linear {
+        width: 800px;
+        height: 400px;
+        background-color: aqua;
+        background: linear-gradient(to right, red, blue);
+        background: linear-gradient(to right, red, blue, green);
+        background: linear-gradient(45deg, red, blue, green);
+        background: linear-gradient(45deg, red, blue 30%, green 50%);
+        background: repeating-linear-gradient(45deg, red, yellow 10%, green 20%);
+
+        /* background: -moz-repeating-linear-gradient(45deg, red, yellow 10%, green 20%);
+          background: -o-repeating-linear-gradient(45deg, red, yellow 10%, green 20%);
+          background: -webkit-repeating-linear-gradient(45deg, red, yellow 10%, green 20%); */
+      }
+      .radial {
+        width: 400px;
+        height: 200px;
+        background-color: aquamarine;
+        margin: 10px auto;
+        background: radial-gradient(circle, red, green, yellow);
+        background: radial-gradient(ellipse, red, green, yellow);
+
+        background-image: radial-gradient(circle closest-side, red, green, yellow);
+        background-image: radial-gradient(circle farthest-side, red, green, yellow);
+        background-image: radial-gradient(circle closest-corner, red, green, yellow);
+        background-image: radial-gradient(circle farthest-corner, red, green, yellow);
+
+        background-image: radial-gradient(circle, red 30%, green 40%, yellow 20%);
+
+        background-image: linear-gradient(to right, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+      }
+      .conic {
+        width: 300px;
+        height: 150px;
+        background-color: #ccc;
+        margin: 20px;
+        background: conic-gradient(from 40deg, red, green);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="linear"></div>
+    <div class="radial"></div>
+    <div class="conic"></div>
+  </body>
+</html>
+
+<!--
+Gradients in CSS
+  Linear Gradients
+    horizontally, vertically, or diagonally
+    background: linear-gradient([direction | angle], color-stop1, color-stop2, ...);
+    # Direction
+      to right (left to right)
+      to left (right to left)
+      to top (bottom to top)
+      to bottom (top to bottom)
+    # angle (0-360deg)
+      45deg for a diagonal gradient.
+
+  Radial Gradients
+    radial-gradient([shape size at position], color-stop1, color-stop2, ...);
+      Shape
+        circle
+        ellipse (default: ellipse).
+      Position
+        center
+        top
+        top left
+        top right
+        bottom
+        bottom left
+        bottom right
+        specific coordinates (e.g., 100px 200px).
+
+
+  Conic Gradients
+
+
+  -moz-
+  -o-
+  -webkit-
+
+-->

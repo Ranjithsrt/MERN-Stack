@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parent</title>
+    <style>
+      .box * {
+        padding: 10px;
+        border: 4px solid #ccc;
+        margin-bottom: 5px;
+        display: block;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      div
+      <div>
+        ul
+        <ul>
+          li
+          <li>
+            <span>Span</span>
+          </li>
+        </ul>
+      </div>
+      div
+      <div>
+        p
+        <p>
+          <span>Span</span>
+        </p>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+      // $("span").parent().css("border-color", "green");
+
+      const spans = document.querySelectorAll("span");
+      spans.forEach((span) => {
+        const parent = span.parentElement;
+        parent.style.borderColor = "red";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css" />
+    <style>
+      .container {
+        display: flex;
+        /* 
+        Main Axis
+        
+        flex-direction: row;     Main Axis (x)
+        flex-direction: column;  Main Axis (y)
+        
+
+        Cross Axis
+       flex-direction: row;      Cross Axis (Y)
+        flex-direction: column;  Cross Axis (X)
+      
+
+        */
+        /* height: 300px;
+        align-items: stretch;
+        align-items: flex-start;
+        align-items: center;
+        align-items: flex-end;
+        align-items: baseline; */
+        flex-direction: column;
+        height: 300px;
+        align-items: stretch;
+        align-items: flex-start;
+        align-items: center;
+        align-items: flex-end;
+      }
+      .box-3 {
+        font-size: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="flex-item box-1">Box-1</div>
+      <div class="flex-item box-2">Box-2</div>
+      <div class="flex-item box-3">Box-3</div>
+      <div class="flex-item box-4">Box-4</div>
+      <!-- <div class="flex-item box-5">Box-5</div>
+      <div class="flex-item box-6">Box-6</div>
+      <div class="flex-item box-7">Box-7</div>
+      <div class="flex-item box-8">Box-8</div>
+      <div class="flex-item box-9">Box-9</div> -->
+    </div>
+  </body>
+</html>
+
+<!--
+display: flex;
+
+flex-direction: row;
+flex-direction: row-reverse;
+flex-direction: column;
+flex-direction: column-reverse;
+
+flex-wrap: nowrap;
+flex-wrap: wrap;
+flex-wrap: wrap-reverse;
+
+flex-flow: <flex-direction> <flex-wrap>; 
+
+gap: <row-gap> <column-gap>;
+    column-gap: 10px;
+    row-gap: 10px;
+    gap: 15px 5px;
+    gap: 10px;
+
+justify-content (Main Axis)
+
+justify-content: flex-start;
+justify-content: flex-end;
+justify-content: center;
+justify-content: space-around;
+justify-content: space-evenly;
+justify-content: space-between;
+
+
+
+    /* flex-direction: row;
+        justify-content: flex-start;
+        justify-content: flex-end;
+        justify-content: center;
+        justify-content: space-around;
+        justify-content: space-evenly;
+        justify-content: space-between; */
+
+        /* height: 600px;
+        flex-direction: column;
+        justify-content: flex-start;
+        justify-content: flex-end;
+        justify-content: center;
+        justify-content: space-around;
+        justify-content: space-evenly;
+        justify-content: space-between; */
+
+
+        
+align-item  (Cross Axis)
+
+
+
+//Flex vs Grid
+https://www.youtube.com/watch?v=f46RJGQ5WCw
+
+//Selector
+https://youtu.be/f46RJGQ5WCw?si=63vIYJxeACyyJqaY
+
+-->

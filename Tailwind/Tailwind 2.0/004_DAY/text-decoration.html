@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Colors in tailwindcss</title>
+    <style>
+      body {
+        padding: 50px;
+      }
+      :root {
+        --my-color: brown;
+        --mydecoration: 10px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-center uppercase font-semibold tracking-wider">text-decoration</h1>
+
+    <h3 class="font-semibold text-green-700">text-decoration-line</h3>
+
+    <p class="underline">This is a sample text</p>
+    <p class="overline">This is a sample text</p>
+    <p class="line-through">This is a sample text</p>
+    <p class="no-underline">This is a sample text</p>
+    <p>This is a sample text <a class="hover:underline text-blue-600">click me</a></p>
+
+    <p>This is a sample text <a class="no-underline md:underline text-blue-600">click me</a></p>
+
+    <h3 class="font-semibold text-green-700">text-decoration-color</h3>
+    <p>
+      Lorem ipsum dolor sit amet <a href="#" class="underline decoration-blue-500">consectetur</a> adipisicing elit. Consequuntur nostrum distinctio, voluptatibus at molestias dignissimos, eligendi non adipisci consequatur ipsa iusto beatae dolores
+      deserunt corrupti vel harum <a href="#" class="underline decoration-orange-900/80">consectetur</a> impedit autem , <a href=".." class="underline decoration-[#50d71e]">Custom Value</a> dolor enim, iure obcaecati esse velit? Sapiente error dicta
+      illo facere quaerat sequi in cum at blanditiis totam? Sed modi consectetur deleniti dolores officiis adipisci quisquam similique, nisi dignissimos illo saepe aliquam ipsam eum
+      <a href=".." class="underline decoration-(--my-color)">Custom Value</a>, architecto, doloremque aut esse facilis iste facere incidunt quod et. Quisquam repellat eligendi eaque unde. Ipsa amet, dolore deleniti reiciendis et tenetur adipisci
+      molestiae eligendi nihil facere doloribus, repellendus in, tempora sapiente provident perferendis.
+    </p>
+
+    <p class="underline decoration-5">This is a sample text</p>
+    <p class="underline decoration-[0.10rem]">This is a sample text</p>
+    <p class="underline decoration-(length:--mydecoration)">This is a sample text</p>
+
+    <p class="underline decoration-solid">The quick brown fox... Solid</p>
+    <p class="underline decoration-double">The quick brown fox... double</p>
+    <p class="underline decoration-dottted">The quick brown fox...dottted</p>
+    <p class="underline decoration-dashed">The quick brown fox...dashed</p>
+    <p class="underline decoration-wavy">The quick brown fox...wavy</p>
+    <p class="underline md:decoration-dottted">Responsive design</p>
+
+    <p class="underline underline-offset-1">The quick brown fox...</p>
+    <p class="underline underline-offset-2">The quick brown fox...</p>
+    <p class="underline underline-offset-4">The quick brown fox...</p>
+    <p class="underline underline-offset-8">The quick brown fox...</p>
+    <p class="underline underline-offset-[10px]">The quick brown fox...</p>
+
+    <p class="underline md:underline-offset-10">Responsive design</p>
+  </body>
+</html>

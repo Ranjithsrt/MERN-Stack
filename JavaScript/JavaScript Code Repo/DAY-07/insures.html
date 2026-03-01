@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    5. A company insures its drivers in the following cases:
+    <br />a. If the driver is married. <br />b. If the driver is unmarried, male & above 30 years of age. <br />c. If the driver is unmarried, female & above 25 years of age.
+
+    <script>
+      /*
+      //Conditional Operator ?:   condition?true:false
+      a = 10;
+      b = 20;
+      c = a > b ? a : b;
+      console.log("The Largest number is ", c);*/
+
+      const maritalStatus = "married";
+      let isInsured = false;
+
+      if (maritalStatus === "married") {
+        isInsured = true;
+      } else {
+        const gender = "male";
+        let age = 25;
+        if (maritalStatus === "unmarried" && gender === "male" && age > 30) {
+          isInsured = true;
+        } else if (maritalStatus === "unmarried" && gender === "female" && age > 25) {
+          isInsured = true;
+        } else {
+          isInsured = false;
+        }
+      }
+
+      console.log(isInsured ? "Driver is eligible for insurance." : "Driver is not eligible for insurance.");
+    </script>
+  </body>
+</html>

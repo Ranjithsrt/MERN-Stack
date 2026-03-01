@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Attractive Image Gallery</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+
+      @theme {
+        /* Colors */
+        --color-primary: #ea2a33;
+        --color-background-light: #f8f6f6;
+        --color-text-subtle: #b89d9f;
+
+        /* Font Families */
+        --font-display: "Plus Jakarta Sans", sans-serif;
+        --font-body: "Noto Sans", sans-serif;
+
+        /* Border Radius */
+        --radius: 0.25rem; /* becomes the new DEFAULT */
+        --radius-lg: 0.5rem;
+        --radius-xl: 0.75rem;
+        --radius-full: 9999px;
+
+        /* Optional: if you want rounded-none, sm, md, 2xl, 3xl to stay the same as Tailwind defaults */
+        --radius-none: 0;
+        --radius-sm: 0.125rem;
+        --radius-md: 0.375rem;
+        --radius-2xl: 1rem;
+        --radius-3xl: 1.5rem;
+      }
+    </style>
+    <style>
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-background-light font-display text-gray-900 overflow-x-hidden min-h-screen flex flex-col justify-center">
+    <main class="flex-grow w-full max-w-[1600px] mx-auto py-8">
+      <div class="w-full px-4 sm:px-10 py-6">
+        <div class="flex gap-3 overflow-x-auto pb-4 scrollbar-hide justify-center flex-wrap">
+          <button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-white px-5 shadow-lg shadow-primary/25 transition-transform active:scale-95">
+            <span class="text-sm font-bold">Trending</span>
+          </button>
+          <button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white border border-gray-200 hover:border-gray-300 px-5 transition-colors active:scale-95">
+            <span class="text-gray-900 text-sm font-medium">Newest</span>
+          </button>
+          <button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white border border-gray-200 hover:border-gray-300 px-5 transition-colors active:scale-95">
+            <span class="text-gray-900 text-sm font-medium">Nature</span>
+          </button>
+          <button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white border border-gray-200 hover:border-gray-300 px-5 transition-colors active:scale-95">
+            <span class="text-gray-900 text-sm font-medium">Urban</span>
+          </button>
+          <button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white border border-gray-200 hover:border-gray-300 px-5 transition-colors active:scale-95">
+            <span class="text-gray-900 text-sm font-medium">Abstract</span>
+          </button>
+          <button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white border border-gray-200 hover:border-gray-300 px-5 transition-colors active:scale-95">
+            <span class="text-gray-900 text-sm font-medium">Portraits</span>
+          </button>
+          <button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white border border-gray-200 hover:border-gray-300 px-5 transition-colors active:scale-95">
+            <span class="text-gray-900 text-sm font-medium">Minimalism</span>
+          </button>
+        </div>
+      </div>
+      <div class="w-full px-4 sm:px-10 py-4">
+        <div class="flex flex-col sm:flex-row gap-4">
+          <div class="flex flex-col gap-4 flex-1">
+            <div class="relative group rounded-xl overflow-hidden cursor-zoom-in fade-in h-auto" style="animation-delay: 0.1s">
+              <img
+                alt="Snowy mountain peaks touching the clouds"
+                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBufTbF0Ga9cKOfIGRWXk1-HwGaW2jG7QMelr4NvML1HMXySqgFeGGGnWqgd_tb6cJzVMSdsN1f3vRae7ZYgO_QW1stUSna2wBeqmTrrPvOXKIQ3NkENBKDGJiWzNbLHCrpUz9bSwjSSJOy2q2WchbSoZzxW9mpP8GfF850sIwQqalDUy2_7pu5dJ7HT7L0TuBukJ6-nT3Ye8yvvKMp_G9A7-pD9R72XzWzpU0LSpec2ba2SNS6DnCrBPKybfvagqaDNYMZ4K1hpQk"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <h3 class="text-white font-bold text-lg">Alpine Silence</h3>
+                <div class="flex justify-between items-center mt-2">
+                  <span class="text-gray-300 text-sm flex items-center gap-1"> <span class="material-symbols-outlined text-[16px]">person</span> Alex M. </span>
+                  <button class="size-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-primary backdrop-blur-sm flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">favorite</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="relative group rounded-xl overflow-hidden cursor-zoom-in fade-in h-auto" style="animation-delay: 0.25s">
+              <img
+                alt="Sun rays piercing through a dense green forest"
+                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3trKTqTrDhP50ws03-EZ7gRNLzYj6AilQHoh5ATiuePt_8_QKBZamCHq8Ud6hafx3dnXKBsvXdR6jlBTy6q9xn4STl9bIREVTnETUiElQ5qfMdiTr_LXvigVtt9F0uK1M9G0yg4oRJUxpd9R6rkg_J5eFS0aD99ODQXQ13XTwGe_NHIpWz-T17o83lfRNXvjtFCxVuO3oTeH-NOmCfXFRgLThS2hM9XXC6TmNx_Wml9KaqoQ8ymgJ7Xf2j4eAWOESNZsnspNsQHk"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <h3 class="text-white font-bold text-lg">Morning Mist</h3>
+                <div class="flex justify-between items-center mt-2">
+                  <span class="text-gray-300 text-sm flex items-center gap-1"> <span class="material-symbols-outlined text-[16px]">person</span> Woods Walker </span>
+                  <button class="size-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-primary backdrop-blur-sm flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">favorite</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="relative group rounded-xl overflow-hidden cursor-zoom-in fade-in h-auto" style="animation-delay: 0.4s">
+              <img
+                alt="Busy Tokyo street at night with neon lights"
+                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX9uV_p24YcX46U8KbzT-RUHgfO8Om-nXzTudF7upWDENE2SAEqRDGEsy-E5VzuoYBF75iQN6cX9VLTjRgAVfYluUWyB0gSCsBW1YLuNOIpMqYCm1mIKTT8rWhqFCIaX-SoqAkF_pCzaVA9-GOAodZ3gZ_F9WXsrp1mc89-T5n1RSXnrUsLHujgn8TQqBgjCUVG1WWpKOH7NLPvG0F0bj0ZbZqs4nv_Rf2_M_KJhk82Re-Trs7XN-e7MGAbkDSE6Pf5kC78kyF4AI"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <h3 class="text-white font-bold text-lg">Tokyo Nights</h3>
+                <div class="flex justify-between items-center mt-2">
+                  <span class="text-gray-300 text-sm flex items-center gap-1"> <span class="material-symbols-outlined text-[16px]">person</span> Kenji T. </span>
+                  <button class="size-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-primary backdrop-blur-sm flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">favorite</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 flex-1">
+            <div class="relative group rounded-xl overflow-hidden cursor-zoom-in fade-in h-auto" style="animation-delay: 0.15s">
+              <img
+                alt="Aerial view of Chicago skyscrapers at dusk"
+                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgcqJqBydpAFv80LvKbyaQojUFoVaC_dzPdzyx8HitRF6SNmOqbf0YZ3bf1AcqF_hPjUPxqJ4J9CMZjB-yXcOYohfSr2SJE2Q13MfrO-0G5zJN1aiE841ql6NXXo2s_UaT1T4lgW6FO-KSKmqoIQpI7frfC2D38NzX4eeo6YkyqhZISVXmfQK3VhXNiEKIDzx1jEfOUwgFYXpwsKROZXW1JsuCRllYx8Tsiv_RDfl0MWJfRvAwlKUNQoLrgkpHsyR8FD8KgfKcep0"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <h3 class="text-white font-bold text-lg">Urban Canyon</h3>
+                <div class="flex justify-between items-center mt-2">
+                  <span class="text-gray-300 text-sm flex items-center gap-1"> <span class="material-symbols-outlined text-[16px]">person</span> Sarah J. </span>
+                  <button class="size-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-primary backdrop-blur-sm flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">favorite</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="relative group rounded-xl overflow-hidden cursor-zoom-in fade-in h-auto" style="animation-delay: 0.3s">
+              <img
+                alt="Woman walking in a vast red desert landscape"
+                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuylP6dqDgEX_7GY75LfikX6bDwkA115HrogbyUvDSJF2s_rK1zW-OF-ySqufIGT3eGtzdqdty6a6zw3B3NUU8DTUZTi00h0LVjiyPF4hFN9YZfisY1-oT6WwilLZab37AH4KXiNvRi9lfvQHrWyO4YOyMI_3xuVBRzcGTSoSMoJL-DgJ-g5ycEboKxPLE0to5qyTGj72kDLe-DdBdzw2WUHs_HHLv4qwCgAPnXCnKRsoOazAKJJKagsZFrAzDPkrQBapjGvW_E8o"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <h3 class="text-white font-bold text-lg">Dune Wanderer</h3>
+                <div class="flex justify-between items-center mt-2">
+                  <span class="text-gray-300 text-sm flex items-center gap-1"> <span class="material-symbols-outlined text-[16px]">person</span> Desert Fox </span>
+                  <button class="size-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-primary backdrop-blur-sm flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">favorite</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="relative group rounded-xl overflow-hidden cursor-zoom-in fade-in h-auto" style="animation-delay: 0.45s">
+              <img
+                alt="Dramatic portrait of a woman with freckles"
+                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuARHo__AO5wpsm-W9meL7wxOIB9SEwE_GVN1AcYvjU4GTo4uVNcUuixjCy3a4l_JSXdfuBrl19tvmGOg6QeQspr9vEr5l4tJSRbVCEyHaCakZ2L-04hVH2cE32QDuJtZ_op0tkV1_Z_ldx_G5cmAV32H9bsQiWlFnsnVBXTssWcKD_4iXxFONc6mAQMemjls93wWVIm2NAyznkFRmOyiMQTz68CbCcHlgYuZ1qPBzrdldIRXIBFQSAqTiIlAUqPqwkQWITp1LWAxVw"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <h3 class="text-white font-bold text-lg">Soulful Eyes</h3>
+                <div class="flex justify-between items-center mt-2">
+                  <span class="text-gray-300 text-sm flex items-center gap-1"> <span class="material-symbols-outlined text-[16px]">person</span> Portraiture </span>
+                  <button class="size-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-primary backdrop-blur-sm flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">favorite</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 flex-1">
+            <div class="relative group rounded-xl overflow-hidden cursor-zoom-in fade-in h-auto" style="animation-delay: 0.2s">
+              <img
+                alt="Abstract flowing blue and orange paint textures"
+                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRPZxf5UJReVr48qrPOfqBqFWrPEYcqLbzxwtPFlv4la5ZMXP_tzhgLmec6W8RzXofBHI3HNGnVplpi9JPmEG1YfoMKw1EQmQuM7pVHdC70qEX0IHujmpk37R6ljtCZIjwlGUvS7outFiYk1DJD90c92dJuQwr20fa4Z110Qkq7qr0iXTmfaQN9RaW7_FHUCqqFkjEjH2OzfaL7kzNc19ls6D-GFWpmmp7pzqYYMb5QxDFb8psHRsSUgj1K3b_VuD75Ml1xDM1iDU"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <h3 class="text-white font-bold text-lg">Fluid Dynamics</h3>
+                <div class="flex justify-between items-center mt-2">
+                  <span class="text-gray-300 text-sm flex items-center gap-1"> <span class="material-symbols-outlined text-[16px]">person</span> Abstracto </span>
+                  <button class="size-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-primary backdrop-blur-sm flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">favorite</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="relative group rounded-xl overflow-hidden cursor-zoom-in fade-in h-auto" style="animation-delay: 0.35s">
+              <img
+                alt="Deep blue ocean water texture from above"
+                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuByW8p4AH__c3mEhIcg4xw-rv-K0LfUdO2TAP6DlX3aeQdSIo8_L8VHmcspySooM4t3SCpfCHrSuxoG5j0c8AvMkLLWXoVy_7gzhRLaAj68ibIlrYOp6EUNLl244-TpfPCebi13hGIzV6uVxj2-F_l9lT-wAphFukyD66d-wfoKbDGIqDLHJLms9waGEv_sLX8sVXlIy729cdRG01t6aHlf_cH9s1pvxrANEZo1StlZJ6_LUnpo-fTa-WEDt9B1Ym8ee-ETYJeuHtI"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <h3 class="text-white font-bold text-lg">Deep Blue</h3>
+                <div class="flex justify-between items-center mt-2">
+                  <span class="text-gray-300 text-sm flex items-center gap-1"> <span class="material-symbols-outlined text-[16px]">person</span> Marine B. </span>
+                  <button class="size-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-primary backdrop-blur-sm flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">favorite</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="relative group rounded-xl overflow-hidden cursor-zoom-in fade-in h-auto" style="animation-delay: 0.5s">
+              <img
+                alt="Lone tree in a vast field under starry sky"
+                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQvgjEqt5J_IZnEiXmjjhF30Bfp6q8IHWQduQomlAcjhO_MYMYEH8vx4SS7v_-f8mNIlqhq_T2GUlXTw8RvqwRK0q70RRy-1Zi-JhyYLt-z5JkH4Z5Z2dXBkdC8RtXfoXhYHt2OuBa4AVFZGwKQmM3bFFWRYXFr6WNc2sKcMWw_7rzjWgLb1jDZPvklPupt2IZbNlJupnQOjQiXcmNzJTyo4R6ohKUDFeYegz0zgJhGY4xQYUZYAP4z0gJy8CXxAQ1PCiIsC_DgGE"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <h3 class="text-white font-bold text-lg">Solitude</h3>
+                <div class="flex justify-between items-center mt-2">
+                  <span class="text-gray-300 text-sm flex items-center gap-1"> <span class="material-symbols-outlined text-[16px]">person</span> Nature Lens </span>
+                  <button class="size-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-primary backdrop-blur-sm flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">favorite</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex px-4 py-10 justify-center">
+        <button
+          class="flex min-w-[160px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-12 px-5 bg-white border border-gray-200 hover:border-primary text-gray-900 hover:text-primary transition-all text-base font-bold leading-normal tracking-[0.015em] shadow-sm"
+        >
+          <span class="truncate">Load More</span>
+          <span class="material-symbols-outlined text-sm animate-bounce">expand_more</span>
+        </button>
+      </div>
+    </main>
+  </body>
+</html>

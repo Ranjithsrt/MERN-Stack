@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "Ranjith",
+      "next": "learning nextjs 13"
+    },
+    {
+      "id": 2,
+      "name": "John",
+      "next": "learning reactjs"
+    },
+    {
+      "id": 3,
+      "name": "Doe",
+      "next": "learning vuejs"
+    },
+    {
+      "id": 4,
+      "name": "Smith",
+      "next": "learning angular"
+    },
+    {
+      "id": 5,
+      "name": "Raj",
+      "next": "learning nodejs"
+    },
+    {
+      "id": 6,
+      "name": "Trump",
+      "next": "learning expressjs"
+    },
+    {
+      "id": 7,
+      "name": "Elon",
+      "next": "learning nextjs 13"
+    }
+  ]
+}

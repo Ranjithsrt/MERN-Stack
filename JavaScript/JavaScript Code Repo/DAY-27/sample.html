@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DOM Tutorial</title>
+  </head>
+  <body>
+    <h1 id="title">Hello, DOM!</h1>
+    <p class="para">This is a paragraph 1.</p>
+    <p class="para">This is a paragraph 2.</p>
+    <span class="para">This is span</span>
+    <button id="btn">Click me</button>
+
+    <script>
+      console.log(document.getElementById("title"));
+      console.log("getElementsByTagName :", document.getElementsByTagName("p"));
+      const para = document.getElementsByClassName("para");
+      console.log("getElementsByClassName : ", para);
+
+      console.log("0 : ", para[0]);
+      console.log("1 : ", para[1]);
+      console.log("2 : ", para[2]);
+
+      for (let i = 0; i < para.length; i++) {
+        console.log(para[i]);
+      }
+
+      const title = document.querySelector("#title");
+      console.log(title);
+
+      const paraElements = document.querySelectorAll(".para");
+      console.log(paraElements);
+
+      paraElements.forEach((p) => {
+        console.log(p);
+      });
+    </script>
+  </body>
+</html>

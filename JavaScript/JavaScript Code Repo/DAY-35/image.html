@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        font-family: "inter";
+        padding: 10px;
+        margin: 30px auto;
+        max-width: 400px;
+        width: 100%;
+        background-color: aliceblue;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      #preview {
+        max-width: 400px;
+        max-height: 300px;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+        display: none;
+      }
+      #error {
+        color: red;
+        margin-top: 5px;
+      }
+
+      button {
+        padding: 5px 0;
+        background-color: navy;
+        color: #fff;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="uploadForm">
+      <label for="imageInput">Select an Image</label>
+      <input type="file" name="image" id="imageInput" accept="image/*" required />
+
+      <img src="" id="preview" alt="preview image" />
+      <span id="error"></span>
+      <button>Upload</button>
+    </form>
+
+    <script>
+      const form = document.getElementById("uploadForm");
+      const imageInput = document.getElementById("imageInput");
+      const preview = document.getElementById("preview");
+      const errorSpan = document.getElementById("error");
+
+      imageInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        console.log(file);
+        errorSpan.innerHTML = "";
+        preview.style.display = "none";
+        if (!file) {
+          return;
+        }
+        if (!file.type.startsWith("image/")) {
+          errorSpan.innerHTML = "Please select a valid image file";
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          preview.src = e.target.result;
+          preview.style.display = "block";
+        };
+
+        reader.onerror = () => {
+          errorSpan.innerHTML = "Error in reading file";
+        };
+
+        reader.readAsDataURL(file);
+      });
+    </script>
+  </body>
+</html>

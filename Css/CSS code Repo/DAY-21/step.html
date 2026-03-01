@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /*-------------------------------------------*/
+
+      .wave {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .step {
+        width: 20px;
+        height: 20px;
+        background-color: #e91e63;
+        margin: 5px;
+        border-radius: 5px;
+        animation: wave 1.5s ease-in-out infinite;
+      }
+
+      @keyframes wave {
+        0% {
+          height: 20px;
+          transform: translateY(0px);
+          background-color: #e91e63;
+        }
+        25% {
+          height: 90px;
+          transform: translateY(-45px);
+          background-color: #3498db;
+        }
+        50% {
+          height: 20px;
+          transform: translateY(0px);
+          background-color: #e91e63;
+        }
+        100% {
+          height: 20px;
+          transform: translateY(0px);
+          background-color: #e91e63;
+        }
+      }
+      .step1 {
+        animation-delay: 0.2s;
+      }
+      .step2 {
+        animation-delay: 0.4s;
+      }
+      .step3 {
+        animation-delay: 0.6s;
+      }
+      .step4 {
+        animation-delay: 1s;
+      }
+      .step5 {
+        animation-delay: 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wave">
+      <div class="step step1"></div>
+      <div class="step step2"></div>
+      <div class="step step3"></div>
+      <div class="step step4"></div>
+      <div class="step step5"></div>
+    </div>
+  </body>
+</html>

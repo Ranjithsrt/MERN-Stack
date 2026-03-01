@@ -1,0 +1,55 @@
+<!-- base.html styles extends this file -->
+
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-5" >
+    <h1>Welcome to MySite!</h1>
+    <p>This is the all products page.</p>
+
+    <table border="1" cellpadding="10" cellspacing="10" width="70%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>code</th>
+                <th>Price</th>
+                <th>GST</th>
+                <th> Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 
+             loop  
+             
+             all_products is a variable defined in views.py
+              
+             -->
+        <tbody>
+            {% for product in all_products %}
+            <tr>
+                <td>{{ product.product_name }}</td>
+                <td>{{ product.product_code }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.gst }}</td>
+                
+                <!-- urls name : 
+                    productUpdate 
+                -->
+                <td>                
+                    <a href="{% url 'productUpdate' product.id %}"><button>Update</button></a>
+                </td>
+
+                  <!-- urls name : 
+                     Deleteproduct
+                -->
+                <td>
+                    <a href="{% url 'productDelete' product.id %}"><button>Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}
+

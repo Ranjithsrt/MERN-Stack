@@ -1,0 +1,17 @@
+Document Object Model (DOM)
+
+
+Accessing DOM Elements
+- getElementById(id)              # Single Element
+- getElementsByClassName(class)   # Multiple Elements
+- getElementsByTagName(tag)       # Multiple Elements
+
+- querySelector(selector)         # Single Element
+- querySelectorAll(selector)      # Multiple Elements
+
+Modifying Content and Attributes
+
+- Text Content  ->   textContent
+- HTML Content  ->   innerHTML 
+- Attributes    ->   getAttribute() / setAttribute()
+- Styles        ->   style property (e.g., element.style.color = 'red';).

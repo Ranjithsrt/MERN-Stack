@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ant Card</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        background-image: linear-gradient(lightgreen, yellow);
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100vh;
+      }
+
+      main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* card */
+
+      .ant-card {
+        background-color: #f0f0f0;
+        width: 730px;
+        height: 350px;
+        display: flex;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* ant img */
+
+      .ant-img {
+        width: 230px;
+        height: 400px;
+        overflow: hidden;
+        background-color: lightgreen;
+      }
+
+      .ant-img > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* card content */
+
+      .ant-card-content {
+        width: 450px;
+        padding: 40px;
+        margin-left: 30px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .ant-card-content > h1 {
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(19, 170, 19);
+        text-align: end;
+      }
+
+      .ant-card-text > h1 {
+        font-size: 25px;
+        font-weight: bolder;
+        color: #000000;
+      }
+
+      .ant-card-text > p {
+        font-size: 20px;
+        line-height: 25px;
+        color: gray;
+      }
+
+      /* user img */
+
+      .ant-card-img {
+        width: 100px;
+        height: 100px;
+        background-image: linear-gradient(
+          to right,
+          lightgreen,
+          rgb(79, 221, 79),
+          rgb(227, 255, 43)
+        );
+        border-radius: 50%;
+        border: 10px solid white;
+        position: absolute;
+        top: 25px;
+        left: 157px;
+      }
+
+      /* icons */
+
+      .ant-card-icons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <!-- ant card -->
+      <section class="ant-card">
+        <!-- ant img -->
+
+        <div class="ant-img">
+          <img src="./img/ant.jpg" alt="ant-card" />
+        </div>
+
+        <!-- user img -->
+
+        <div class="ant-card-img">
+          <img src="./img/user.png" alt="morgan sweeney" />
+        </div>
+
+        <!-- card content -->
+
+        <div class="ant-card-content">
+          <h1>Ant Collecter</h1>
+
+          <!-- card text -->
+
+          <div class="ant-card-text">
+            <h1>Morgan Sweeney</h1>
+            <p>
+              Morgan has collected ants since they were six years old and now
+              has many dozen ants but none in their pants.
+            </p>
+          </div>
+
+          <!-- icons -->
+
+          <div class="ant-card-icons">
+            <i
+              class="fas fa-heart"
+              style="font-size: 30px; color: rgb(10, 255, 59)"
+            ></i>
+            <i
+              class="fas fa-comment"
+              style="color: rgb(0, 255, 60); font-size: 30px"
+            ></i>
+            <i
+              class="fas fa-user-friends"
+              style="color: rgb(0, 255, 0); font-size: 30px"
+            ></i>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

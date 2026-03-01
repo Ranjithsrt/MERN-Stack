@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 1px solid #000;
+        width: 150px;
+        height: 100px;
+        margin: 10px;
+        padding: 10px;
+        display: inline-block;
+      }
+      .vertical-rl {
+        writing-mode: vertical-rl;
+      }
+
+      .vertical-lr {
+        writing-mode: vertical-lr;
+      }
+
+      .sideways-rl {
+        writing-mode: sideways-rl;
+      }
+      .sideways-lr {
+        writing-mode: sideways-lr;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="horizontal">Horizontal Text (Default)</div>
+    <div class="vertical-rl">Vertical RL Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, fugiat?</div>
+    <div class="vertical-lr">Vertical LR Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, fugiat?</div>
+    <div class="sideways-rl">sideways-rl</div>
+    <div class="sideways-lr">sideways-lr</div>
+  </body>
+</html>

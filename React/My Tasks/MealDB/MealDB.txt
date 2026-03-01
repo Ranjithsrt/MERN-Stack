@@ -1,0 +1,11 @@
+
+-- npm create vite@latest  
+-- npm install tailwindcss @tailwindcss/vite
+-- npm i axios  
+-- npm install react-router-dom
+
+
+MealDB :
+   -- https://www.themealdb.com/api.php
+  
+ url -  https://www.themealdb.com/api/json/v1

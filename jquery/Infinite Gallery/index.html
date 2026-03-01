@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infinite Gallery</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <!-- CSS style sheet link -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- main -->
+  <main>
+    <div class="container">
+      <!-- Header Section -->
+      <header class="text-center py-5 header-section">
+        <h1 class="display-4 fw-bold text-white mb-4 tracking-wide">
+          Infinite Gallery
+        </h1>
+        <div class="search-wrapper mx-auto">
+          <input type="search" name="search" id="search" placeholder="Search for images..."
+            class="form-control search-input w-75 mx-auto my-5" autocomplete="off" />
+        </div>
+      </header>
+
+      <!-- Gallery Section -->
+      <div class="container-fluid px-4 px-lg-5">
+        <div class="row g-4" id="box">
+          <!-- Images will be injected here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- back to top -->
+    <button id="backToTopBtn" title="Go to top"><i class="bi bi-arrow-up-short"></i> Back to top</button>
+  </main>
+
+  <!-- popper cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <!-- Jquery CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+  <!-- Jquery link -->
+  <script src="./jquery.js" type="module"></script>
+  <!-- javascript link -->
+  <script src="./script.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+5.letter-spacing
+6.line-clamp
+7.line-Height
+8.list-style-type
+9.list-style-image
+10.list-style-position
+

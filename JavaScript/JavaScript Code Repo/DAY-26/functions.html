@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>No return without arguments function</li>
+      <li>No return with arguments function</li>
+      <li>return without arguments function</li>
+      <li>return with arguments function</li>
+      <li>function expression</li>
+      <li>Arrow Function</li>
+      <li>Immediately Invoked Function Expression (IIFE)</li>
+      <li>Anonymous Function</li>
+      <li>Named function expression</li>
+      <li>Constructor Function</li>
+      <li>Higher-Order Function</li>
+    </ul>
+
+    <script>
+      function add() {
+        //No return without arguments function
+        let a = 10;
+        let b = 25;
+        let c = a + b;
+        console.log("Add : ", c);
+      }
+
+      function sub(a, b) {
+        //No return with arguments function
+        let c = a - b;
+        console.log("Sub : ", c);
+      }
+
+      function mul() {
+        //return without arguments function
+        let a = 10;
+        let b = 25;
+        let c = a * b;
+        return c;
+      }
+
+      function div(a, b) {
+        //return with arguments function
+        let c = a / b;
+        return c;
+      }
+
+      add();
+      sub(25, 5);
+      console.log("Mul : ", mul());
+      console.log("Div : ", div(123, 10));
+
+      //function expression
+      const display = function (name) {
+        console.log("Hello ", name);
+      };
+
+      display("Ram");
+
+      const display2 = function () {
+        const name = "Joes";
+        console.log("Hello ", name);
+      };
+      display2();
+
+      const display3 = function (name) {
+        return `Hello ${name}!`;
+      };
+
+      console.log(display3("Kumar"));
+
+      //Arrow Function
+      const addNumbers = () => 25 + 25;
+
+      console.log(addNumbers());
+
+      const doubleNumber = (a) => a * a;
+      console.log(doubleNumber(2));
+
+      const checkEligiblity = (data) => {
+        const eligible = data.filter((user) => user.age > 18);
+        return eligible;
+      };
+
+      const sample = [
+        { id: 1, name: "Ram", age: 22 },
+        { id: 2, name: "Sam", age: 12 },
+      ];
+      console.log(checkEligiblity(sample));
+
+      //Immediately Invoked Function Expression (IIFE)
+      (function () {
+        console.log("Welcome");
+      })();
+
+      //Anonymous Function
+
+      const timeout = setTimeout(function () {
+        console.log("Welcome5");
+      }, 5000);
+
+      clearTimeout(timeout);
+
+      let i = 1;
+      const timer = setInterval(function () {
+        console.log("Hi", i);
+        i++;
+      }, 1000);
+
+      clearInterval(timer);
+
+      //Named Function Expression
+
+      const x = function print() {
+        console.log("X Fun");
+      };
+
+      x();
+
+      //Constructor Function
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      const ram = new Person("Ram", 45);
+      console.log(ram);
+
+      //Higher-Order Function
+
+      function welcome(name) {
+        return `Hello, ${name}`;
+      }
+
+      function processInput(callback) {
+        let name = "Rakesh";
+        return callback(name);
+      }
+
+      console.log(processInput(welcome));
+      console.log(welcome("Joes"));
+
+      /*
+        a=2
+        double=a*2 => 2+2 =>4
+        triple=a*3 =>2+2+2 =>6
+*/
+
+      function multiplier(factor) {
+        return function (number) {
+          return number * factor;
+        };
+      }
+
+      const double = multiplier(2);
+      const triple = multiplier(3);
+      /*
+      function double(number){
+           return number*2;
+      }
+
+      function triple(number){
+           return number*3;
+      }
+      */
+
+      console.log(double);
+      console.log(triple);
+
+      console.log(double(5)); //10
+      console.log(triple(5)); //15
+
+      const numbers = [1, 2, 3, 4, 5];
+      const squares = numbers.map((num) => num * num);
+      console.log(squares);
+    </script>
+  </body>
+</html>

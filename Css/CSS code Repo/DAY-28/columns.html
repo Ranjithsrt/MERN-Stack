@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+      * {
+        font-family: "Inter", sans-serif;
+      }
+      p {
+        margin: 0;
+      }
+      .columns {
+        column-count: 4;
+        column-width: 250px;
+        columns: 4 250px;
+        columns: 4;
+        columns: 250px;
+        columns: 250px 4;
+
+        column-rule: 2px dashed green;
+        column-rule-width: 3px;
+        column-rule-color: brown;
+        column-rule-style: double;
+
+        column-gap: 32px;
+      }
+
+      blockquote {
+        column-span: none;
+        column-span: all;
+
+        font-size: 19px;
+        font-weight: 600;
+        color: green;
+        text-align: center;
+      }
+
+      .fill {
+        padding: 10px;
+        columns: 4;
+        background-color: aliceblue;
+        height: 300px;
+        column-fill: balance;
+        column-fill: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Columns and Multi-Column Layout</h2>
+      <!-- <div class="columns">
+        <article>
+          <h3>Heading</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sunt eveniet velit facilis eum quas dolorum tenetur, eaque quaerat distinctio cumque, perspiciatis debitis laudantium hic veniam dolor at non expedita.</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sunt eveniet velit facilis eum quas dolorum tenetur, eaque quaerat distinctio cumque, perspiciatis debitis laudantium hic veniam dolor at non expedita.</p>
+        </article>
+        <blockquote>This is sample quote place across the columns</blockquote>
+        <article>
+          <h3>Heading</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sunt eveniet velit facilis eum quas dolorum tenetur, eaque quaerat distinctio cumque, perspiciatis debitis laudantium hic veniam dolor at non expedita.</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sunt eveniet velit facilis eum quas dolorum tenetur, eaque quaerat distinctio cumque, perspiciatis debitis laudantium hic veniam dolor at non expedita.</p>
+        </article>
+
+        <article>
+          <h3>Heading</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sunt eveniet velit facilis eum quas dolorum tenetur, eaque quaerat distinctio cumque, perspiciatis debitis laudantium hic veniam dolor at non expedita.</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sunt eveniet velit facilis eum quas dolorum tenetur, eaque quaerat distinctio cumque, perspiciatis debitis laudantium hic veniam dolor at non expedita.</p>
+        </article>
+        <article>
+          <h3>Heading</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sunt eveniet velit facilis eum quas dolorum tenetur, eaque quaerat distinctio cumque, perspiciatis debitis laudantium hic veniam dolor at non expedita.</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sunt eveniet velit facilis eum quas dolorum tenetur, eaque quaerat distinctio cumque, perspiciatis debitis laudantium hic veniam dolor at non expedita.</p>
+        </article>
+        <article>
+          <h3>Heading</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sunt eveniet velit facilis eum quas dolorum tenetur, eaque quaerat distinctio cumque, perspiciatis debitis laudantium hic veniam dolor at non expedita.</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sunt eveniet velit facilis eum quas dolorum tenetur, eaque quaerat distinctio cumque, perspiciatis debitis laudantium hic veniam dolor at non expedita.</p>
+        </article>
+        <article>
+          <h3>Heading</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sunt eveniet velit facilis eum quas dolorum tenetur, eaque quaerat distinctio cumque, perspiciatis debitis laudantium hic veniam dolor at non expedita.</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sunt eveniet velit facilis eum quas dolorum tenetur, eaque quaerat distinctio cumque, perspiciatis debitis laudantium hic veniam dolor at non expedita.</p>
+        </article>
+      </div> -->
+
+      <div class="fill">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quos nostrum modi ab pariatur ipsam porro incidunt, temporibus voluptatem doloremque, sint architecto nam. Ab voluptate ullam minima consequatur accusamus velit?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quos nostrum modi ab pariatur ipsam porro incidunt, temporibus voluptatem doloremque, sint architecto nam. Ab voluptate ullam minima consequatur accusamus velit?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quos nostrum modi ab pariatur ipsam porro incidunt, temporibus voluptatem doloremque, sint architecto nam. Ab voluptate ullam minima consequatur accusamus velit?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quos nostrum modi ab pariatur ipsam porro incidunt, temporibus voluptatem doloremque, sint architecto nam. Ab voluptate ullam minima consequatur accusamus velit?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quos nostrum modi ab pariatur ipsam porro incidunt, temporibus voluptatem doloremque, sint architecto nam. Ab voluptate ullam minima consequatur accusamus velit?</p>
+      </div>
+    </div>
+  </body>
+</html>

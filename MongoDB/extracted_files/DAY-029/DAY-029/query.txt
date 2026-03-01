@@ -1,0 +1,121 @@
+$facet
+
+db.sales.insertMany([
+  { _id: 1, product: 'Mobile', price: 100, quantity: 10, region: 'North' },
+  { _id: 2, product: 'Laptop', price: 200, quantity: 5, region: 'South' },
+  { _id: 3, product: 'Mobile', price: 100, quantity: 15, region: 'North' },
+  { _id: 4, product: 'Tablet', price: 50, quantity: 20, region: 'East' },
+  { _id: 5, product: 'Desktop', price: 125, quantity: 10, region: 'South' },
+  { _id: 6, product: 'Laptop', price: 200, quantity: 10, region: 'West' }
+]);
+
+
+//-------------------------------------------------------------
+//without $facet
+db.sales.aggregate([
+    {
+        $group:{
+            _id:"$product",
+            totalSales:{$sum:{$multiply:["$price","$quantity"]}}
+        }
+    },  //group for total sales
+    {$sort:{totalSales:-1}},  //sort by desc total sales
+    {$limit:3}  // limit 3
+])
+
+db.sales.aggregate([
+    {
+        $group:{
+            _id:null,
+            totalRevenue:{$sum:{$multiply:["$price","$quantity"]}}
+        }
+    }
+])
+
+
+//-------------------------------------------------------------
+//with $facet
+
+db.sales.aggregate([
+   {
+        $facet:{
+            topProducts:[
+                {
+                    $group:{
+                        _id:"$product",
+                        totalSales:{$sum:{$multiply:["$price","$quantity"]}}
+                    }
+                },  //group for total sales
+                {$sort:{totalSales:-1}},  //sort by desc total sales
+                {$limit:3}  // limit 3
+            ],
+            totalRevenue:[
+                {
+                    $group:{
+                        _id:null,
+                        totalRevenue:{$sum:{$multiply:["$price","$quantity"]}}
+                    }
+                }
+            ],
+            salesByRegion:[
+                {
+                    $group:{
+                        _id:"$region",
+                        count:{$sum:1}
+                    }
+                },
+                {$sort:{count:-1}},
+            ]
+        }
+   }
+]);
+
+//-------------------------------------------------------------
+//$fill
+
+
+db.students.insertMany([
+  { _id: 1, name: "Karthik", score: 87, class: "A", attendance: 91, subject: "Math" },
+  { _id: 2, name: "Priya", score: 94, class: "A", attendance: 96, subject: "Science" },
+  { _id: 3, name: "Arun", score: null, class: "B", attendance: 86, subject: "Math" },
+  { _id: 4, name: "Divya", score: 97, class: "B", attendance: 89, subject: "Science" },
+  { _id: 5, name: "Suresh", class: "A", attendance: 93, subject: "Math" },
+  { _id: 6, name: "Lakshmi", score: 78, class: "C", attendance: 81, subject: "Science" }
+])
+
+
+// {value:0} -> we can set any values
+db.students.aggregate([
+    {
+        $fill:{
+            output:{
+                "score":{value:0}
+            }
+        }
+    }
+])
+
+//locf -> Last observed carry-forward
+
+db.students.aggregate([
+    {
+        $fill:{
+            output:{
+                "score":{method:"locf"}
+            }
+        }
+    }
+])
+
+//linear
+
+db.students.aggregate([
+    {
+        $fill:{
+            sortBy:{_id:1},
+            output:{
+                "score":{method:"linear"}
+            }
+        }
+    }
+])

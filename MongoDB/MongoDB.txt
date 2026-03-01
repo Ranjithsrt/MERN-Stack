@@ -1,0 +1,1672 @@
+Day - 1
+
+MongoDB
+
+What is MongoDB?
+MongoDB is a NoSQL (non-relational) database.
+It stores data in a JSON-like format called BSON (Binary JSON).
+
+
+What is a Database?
+A database is a collection of data stored in a format that can be easily accessed.
+
+Types of Databases
+    SQL Databases (e.g., MySQL, PostgreSQL, MSSQL Server)
+        Use structured tables and rows.
+        Data is stored in rows with strict schema.
+
+    NoSQL Databases (e.g., MongoDB)
+        Use flexible documents (key-value pairs).
+        Collections hold documents instead of rows.
+
+NO SQL FORMAT(MongoDB)
+[
+  {
+    "ID": 1,
+    "NAME": "Ram",
+    "AGE": 21,
+    "GENDER": "Male",
+    "HOBBIES"["Music","Sports","Cooking"]
+  },
+  {
+    "ID": 2,
+    "NAME": "Sam",
+    "AGE": 22,
+    "GENDER": "Male"
+  },
+  {
+    "ID": 3,
+    "NAME": "Ravi",
+    "AGE": 23,
+    "GENDER": "Male"
+  },
+  {
+    "ID": 4,
+    "NAME": "Shalini",
+    "AGE": 22,
+    "GENDER": "Female"
+  },
+  {
+    "ID": 5,
+    "NAME": "Sundar",
+    "HOBBIES":["Fishing"]
+  }
+]
+
+Difference between JSON & BSON
+
+JSON Data Types
+    String
+    Number
+    Boolean
+    Array
+    Object
+    Null
+
+BSON Data Types
+    String
+    Double
+    32bit Integer
+    64bit Integer
+    Boolean
+    Array
+    Object
+    Null
+    Regular Expression
+    TimeStamp
+    Date
+    ObjectId
+
+
+ Description    JSON                                    BSON
+ Format         Text Based Format                       Binary Format (Not human-readable)
+ Size           Larger due to text overhead             More compact
+ speed          Slower to parse and write               Faster to parse and write
+ usage          Web API and data exchange               MongoDB and database storage with rich set of data types.
+
+------------------------------------------------------
+
+Day - 2 - Create 
+
+#-------------------------------------------------------
+    1. CREATE / DROP DATABASE & COLLECTIONS
+#-------------------------------------------------------
+
+# show all database
+show dbs
+
+#create database or use existing databse
+use joes
+
+#create collections
+db.createCollection("users");
+db.createCollection("library");
+
+#Show all collections
+show collections;
+
+#rename collection
+db.library.renameCollection("books");
+
+#help
+db.help()
+
+#drop collection
+db.books.drop();
+
+#drop current database
+db.dropDatabase()
+
+#-------------------------------------------------------
+   2. INSERT DOCUMENT IN COLLECTIONS
+#-------------------------------------------------------
+
+1.insertOne
+2.insertMany
+
+Syntax : 
+
+db.collection_name.insertOne({
+    field1:"Value",
+    field2:"Value",
+})
+
+db.collection_name.insertMany(
+    [
+        {field1:"Value",field2:"Value",},
+        {field1:"Value",field2:"Value",},
+    ]
+)
+
+
+db.users.insertOne({
+  name: "Tiya",
+  age: 12,
+});
+
+#Select All
+db.users.find()
+
+db.users.insertMany([
+    {name:"Riya",age:5},
+    {name:"Sara",age:12},
+])
+
+
+db.users.insertOne({
+	name:"Tivin Parker",
+	age:12,
+	married:false,
+	dob:ISODate("2000-10-15T08:00:00Z"),
+	weight:78.50,
+	kids:null,
+	hobbies:["music","sports"],
+	address:{
+		street:"cherry road",
+		city:"Salem",
+		picode:"636007",
+	}
+})
+
+--------------------------------------------
+
+Day - 3  validation
+
+#--------------------------------------------------------------------
+#     0. bson types
+#--------------------------------------------------------------------
+
+string    -> "Ram"
+int       -> 25
+bool      -> True or False
+object    -> {name:"Riya",age:5}
+array     -> [10,20,30,40]
+date      -> ISODate, new Date()
+objectId  
+double    -> 98.50
+
+#--------------------------------------------------------------------
+#     1. jsonSchema Validation for collections
+#--------------------------------------------------------------------
+db.createCollection("students", {
+  validator: {
+    $jsonSchema: {
+      required: ["name", "age"],
+      title: "Student Record Validation",
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "Name must be a string and is required",
+        },
+        age: {
+          bsonType: "int",
+          minimum: 5,
+          maximum: 20,
+          description: "Age must be an integer between 5 and 20",
+        },
+      },
+    },
+  },
+});
+
+#--------------------------------------------------------------------
+#     2. Modify jsonSchema Validation for collections
+#--------------------------------------------------------------------
+
+
+db.runCommand({
+  collMod: "students",
+  validator: {
+    $jsonSchema: {
+      required: ["name", "age"],
+      title: "Student Record Validation",
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "Name must be a string and is required",
+        },
+        age: {
+          bsonType: "int",
+          minimum: 5,
+          maximum: 20,
+          description: "Age must be an integer between 5 and 20",
+        },
+        course: {
+          bsonType: "string",
+          enum: ["C", "C++", "Java", "Python"],
+          description: "Course must be on of the follwing values C, C++, Java, Python",
+        },
+      },
+    },
+  },
+});
+
+#--------------------------------------------------------------------
+#     3. Modify jsonSchema Validation for collections having nested object (eg. address)
+#--------------------------------------------------------------------
+
+
+db.runCommand({
+  collMod: "students",
+  validator: {
+    $jsonSchema: {
+      required: ["name", "age"],
+      title: "Student Record Validation",
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "Name must be a string and is required",
+        },
+        age: {
+          bsonType: "int",
+          minimum: 5,
+          maximum: 20,
+          description: "Age must be an integer between 5 and 20",
+        },
+        course: {
+          bsonType: "string",
+          enum: ["C", "C++", "Java", "Python"],
+          description: "Course must be on of the follwing values C, C++, Java, Python",
+        },
+        address: {
+          bsonType: "object",
+          required: ["city", "zip"],
+          properties: {
+            city: {
+              bsonType: "string",
+            },
+            zip: {
+              bsonType: "string",
+              pattern: "^[0-9]{6}$",
+            },
+          },
+        },
+      },
+    },
+  },
+});
+
+#--------------------------------------------------------------------
+#     4. jsonSchema Validation for collections having array values
+#--------------------------------------------------------------------
+
+
+db.runCommand({
+  collMod: "students",
+  validator: {
+    $jsonSchema: {
+      required: ["name", "age"],
+      title: "Student Record Validation",
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "Name must be a string and is required",
+        },
+        age: {
+          bsonType: "int",
+          minimum: 5,
+          maximum: 20,
+          description: "Age must be an integer between 5 and 20",
+        },
+        course: {
+          bsonType: "string",
+          enum: ["C", "C++", "Java", "Python"],
+          description: "Course must be on of the follwing values C, C++, Java, Python",
+        },
+        address: {
+          bsonType: "object",
+          required: ["city", "zip"],
+          properties: {
+            city: {
+              bsonType: "string",
+            },
+            zip: {
+              bsonType: "string",
+              pattern: "^[0-9]{6}$",
+            },
+          },
+        },
+        skills: {
+          bsonType: "array",
+          items: {
+            bsonType: "string",
+          },
+        },
+      },
+    },
+  },
+});
+
+---------------------------------------------------------
+
+Day - 4      Update  operators objects  array 
+
+use school
+
+db.createCollection("students")
+
+db.students.insertMany([
+  { name: "Ram", age: 18, class: "12A", marks: 75 },
+  { name: "Shyam", age: 17, class: "11B", marks: 85 },
+  { name: "Radha", age: 18, class: "12A", marks: 92 },
+  { name: "Mohan", age: 16, class: "10C", marks: 65 }
+])
+
+
+# ---- Update Mark of Ram from 75 to 80
+
+db.students.updateOne(
+  {name:"Ram"},
+  {$set:{marks:80}}
+)
+
+#---- Update Multiple Document
+db.students.updateMany(
+  {class:"12A"},
+  {$inc:{marks:5}}
+)
+
+#---- Replace Entire Document
+db.students.replaceOne(
+  {name:"Mohan"},
+  {name:"Mohan Kumar",age:18,class:"11B",marks:95}
+)
+
+#---- Add a new Entire
+db.students.updateOne({name:"Ram"},{$set:{passed:true}})
+
+#---- Remove a field
+db.students.updateOne(
+  {name:"Shyam"},
+  {$unset:{marks:""}}
+)
+
+#---- Update With Upsert (Insert if record not found)
+db.students.updateOne(
+  {name:"Sita"},
+  {$set:{age:18,class:"11A",marks:80}},
+  {upsert:true}
+)
+
+//-------------------------------------------------
+
+objects
+
+db.students.drop()
+db.createCollection("students")
+db.students.insertMany([
+  {
+    name: { first: "Ram", last: "Kumar" },
+    class: "12A",
+    age: 18,
+    address: {
+      city: "Chennai",
+      pincode: 600001
+    }
+  },
+  {
+    name: { first: "Sita", last: "Devi" },
+    class: "11B",
+    age: 17,
+    address: {
+      city: "Madurai",
+      pincode: 625001
+    }
+  }
+])
+
+
+
+#-- Update Nested Objects
+
+db.students.updateOne(
+  {"name.first":"Ram"},
+  {$set:{"name.first":"Ramu"}}
+)
+
+db.students.updateOne(
+  {"name.first":"Sita"},
+  {$set:{"address.city":"Salem"}}
+)
+
+db.students.updateOne(
+  {"name.first":"Ramu"},
+  {$unset:{"address.pincode":""}}
+)
+
+
+//-------------------------------------------------
+
+array
+
+db.students.drop()
+db.createCollection("students")
+db.students.insertMany([
+  {
+    name: "Ram",
+    age: 18,
+    marks: 75,
+    fees: 1000, 
+    subjects: ["Math", "English"]
+  },
+  {
+    name: "Sita",
+    age: 17,
+    marks: 88,
+    fees: 1500,
+    subjects: ["Science", "History"]
+  }
+])
+
+db.students.updateOne(
+  {name:"Sita"},
+  {$mul:{fees:1.1}}
+)
+
+-------------------------
+
+Day - 5 array functionality and operator  Projection Comparison Operators
+
+update functions :
+
+db.students.insertMany([
+  {
+    name: "Ram",
+    age: 18,
+    marks: 75,
+    fees: 1000,
+    subjects: ["Math", "English"]
+  },
+  {
+    name: "Sita",
+    age: 17,
+    marks: 88,
+    fees: 1500,
+    subjects: ["Science", "History"]
+  }
+])
+
+//$push a course to update
+db.students.updateOne({name:"Ram"},{$push:{subjects:"Computer"}})
+
+
+//$addToSet avoid duplicate
+db.students.updateOne({name:"Sita"},{$addToSet:{subjects:"Math"}})
+
+//$pop Remove First or Last Item from Array -1 -> First 1 -> Last Element
+db.students.updateOne({name:"Sita"},{$pop:{subjects:-1 }})
+db.students.updateOne({name:"Ram"},{$pop:{subjects:1 }})
+
+
+
+db.students.insertMany([
+  { name: "Arun", subjects: ["Math", "English", "Physics"] },
+  { name: "Divya", subjects: ["Biology", "Chemistry"] },
+  { name: "Rahul", subjects: ["Math", "Physics"] },
+  { name: "Kavya", subjects: ["English", "History"] },
+  { name: "Ravi", subjects: ["Computer", "Math"] }
+])
+
+array operators :
+
+
+db.students.find();
+
+// $all
+db.students.find({subjects:{$all:["Math", "Physics"]}})
+
+// $in
+db.students.find({subjects:{$in:["Computer","History"]}})
+
+// $size
+db.students.find({subjects:{$size:3}})
+
+
+db.students.insertMany([
+  { name: "Arun Kumar", age: 18, city: "Chennai", gender: "Male" },
+  { name: "Divya Lakshmi", age: 19, city: "Coimbatore", gender: "Female" },
+  { name: "Praveen Raj", age: 20, city: "Madurai", gender: "Male" },
+  { name: "Sneha Ramesh", age: 21, city: "Trichy", gender: "Female" },
+  { name: "Vignesh", age: 18, city: "Salem", gender: "Male" },
+  { name: "Meena Kumari", age: 19, city: "Tirunelveli", gender: "Female" },
+  { name: "Kiran Kumar", age: 20, city: "Bangalore", gender: "Male" },
+  { name: "Anjali Nair", age: 18, city: "Kochi", gender: "Female" },
+  { name: "Rahul Krishna", age: 21, city: "Thiruvananthapuram", gender: "Male" },
+  { name: "Lakshmi Priya", age: 19, city: "Kozhikode", gender: "Female" },
+  { name: "Santosh Babu", age: 18, city: "Hyderabad", gender: "Male" },
+  { name: "Harini", age: 20, city: "Warangal", gender: "Female" },
+  { name: "Ravi Teja", age: 21, city: "Vijayawada", gender: "Male" },
+  { name: "Sowmya", age: 18, city: "Visakhapatnam", gender: "Female" },
+  { name: "Ajith Kumar", age: 19, city: "Mysore", gender: "Male" },
+  { name: "Kavya", age: 20, city: "Hubli", gender: "Female" },
+  { name: "Manoj", age: 21, city: "Nellore", gender: "Male" },
+  { name: "Revathi", age: 18, city: "Erode", gender: "Female" },
+  { name: "Suresh", age: 20, city: "Tuticorin", gender: "Male" },
+  { name: "Keerthana", age: 19, city: "Kurnool", gender: "Female" }
+])
+
+
+// Projection
+
+//db.collection.find(query,projection)  1-show 0-hide
+db.students.find({},{name:1,age:1,_id:0})
+db.students.find({}).projection({name:1,age:1,_id:0})
+
+
+/*
+Comparison Operators
+
+| Operator | Meaning                   | Example Query                    | Description                            |
+| -------- | ------------------------- | -------------------------------- | -------------------------------------- |
+|  $eq     | Equals                    |  { age: { $eq: 20 } }            | Matches documents where age = 20       |
+|  $ne     | Not equal                 |  { age: { $ne: 20 } }            | Matches documents where age ≠ 20       |
+|  $gt     | Greater than              |  { age: { $gt: 20 } }            | Matches documents where age > 20       |
+|  $gte    | Greater than or equal to  |  { age: { $gte: 20 } }           | Matches documents where age ≥ 20       |
+|  $lt     | Less than                 |  { age: { $lt: 20 } }            | Matches documents where age < 20       |
+|  $lte    | Less than or equal to     |  { age: { $lte: 20 } }           | Matches documents where age ≤ 20       |
+|  $in     | Value is in array         |  { age: { $in: [20, 24, 28] } }  | Matches if age is any of 20, 24, or 28 |
+|  $nin    | Value is **not** in array |  { age: { $nin: [20, 24] } }     | Matches if age is **not** 20 or 24     |
+
+*/
+
+//Count no of Record using find
+db.students.find({},{name:1,age:1,_id:0}).count()
+db.students.find({age:{$eq:20}},{name:1,age:1,_id:0})
+db.students.find({age:{$ne:20}},{name:1,age:1,_id:0})
+db.students.find({age:{$gt:20}},{name:1,age:1,_id:0})
+db.students.find({age:{$gte:20}},{name:1,age:1,_id:0})
+db.students.find({age:{$lt:20}},{name:1,age:1,_id:0})
+db.students.find({age:{$lte:20}},{name:1,age:1,_id:0})
+db.students.find({city:{$in:["Chennai","Bangalore"]}},{name:1,city:1,_id:0})
+db.students.find({city:{$nin:["Chennai","Bangalore"]}},{name:1,city:1,_id:0})
+
+
+
+
+//Get all Record
+db.students.find({},{name:1,age:1,_id:0})
+
+//Show First 5 Records Only
+db.students.find({},{name:1,age:1,_id:0}).limit(5)
+
+//Show Second 5 Records Only
+db.students.find({},{name:1,age:1,_id:0}).limit(5).skip(5)
+
+//Show Third 5 Records Only
+db.students.find({},{name:1,age:1,_id:0}).limit(5).skip(10)
+
+
+
+db.students.find({},{name:1,age:1,_id:0}).sort({age:1})  //Age in 1 asc order
+db.students.find({},{name:1,age:1,_id:0}).sort({age:-1}) //Age in -1 desc order
+
+db.students.find({},{name:1,age:1,_id:0}).sort({name:1})
+
+
+-------------------------------------------
+
+Day - 6 logical operator - import export Example   ex.csv
+ 
+db.students.insertMany([
+  { name: "Arun", age: 21, gender: "Male", city: "Chennai", language: "Tamil" },
+  { name: "Sneha", age: 22, gender: "Female", city: "Bangalore", language: "Kannada" },
+  { name: "Rahul", age: 20, gender: "Male", city: "Hyderabad", language: "Telugu" },
+  { name: "Meera", age: 23, gender: "Female", city: "Kochi", language: "Malayalam" },
+  { name: "Karthik", age: 24, gender: "Male", city: "Chennai", language: "Tamil" },
+  { name: "Anjali", age: 21, gender: "Female", city: "Bangalore", language: "Kannada" },
+  { name: "Vikram", age: 22, gender: "Male", city: "Hyderabad", language: "Telugu" },
+  { name: "Divya", age: 20, gender: "Female", city: "Kochi", language: "Malayalam" }
+])
+
+
+// $and Operator
+db.students.find({
+  $and:[{city:"Chennai",language:"Tamil"}]
+})
+
+// $or Operator
+
+db.students.find({
+  $or:[
+    {city:"Kochi"},
+    {city:"Bangalore"}
+  ]
+})
+
+
+db.students.find({
+  $or:[
+    {city:"Kochi"},
+    {city:"Bangalore"}
+  ]
+},{name:1,age:1,_id:0})
+
+
+//$nor Operator
+db.students.find({
+  $nor:[
+    {city:"Chennai"},
+    {gender:"Male"}
+  ]
+}).projection({name:1})
+
+//$not Operator
+
+db.students.find({
+  age:{$not:{$eq:21}}
+},{name:1,age:1,_id:0})
+
+
+--------------------------------------------
+
+Day - 7  filtering operator (filed ,filed type ) - Evaluation  operator
+regex -regular expression 
+
+db.students.insertMany([
+  { name: "Arun", age: 21 },
+  { name: "Bala" },
+  { name: "Charan", age: null },
+  { name: "Divya", age: 23 }
+])
+
+
+//$exists  -> field existence
+db.students.find({
+  age:{$exists:true}
+})
+
+db.students.find({
+  age:{$exists:false}
+})
+
+//$type -> matchs field's of a document
+
+
+db.users.insertMany([
+  { name: "Vijay", score: 95 },
+  { name: "Mani", score: "99" },
+  { name: "Anitha", score: [88, 92] },
+  { name: "Suresh", score: null }
+])
+
+db.users.find({
+  score:{$type:"int"}
+})
+
+
+db.users.find({
+  score:{$type:16}
+})
+
+db.users.find({
+  score:{$type:"string"}
+})
+
+db.users.find({
+  score:{$type:"array"}
+})
+
+//  Evaluation  operator 
+
+//$expr  -> use Expression
+
+db.sales.insertMany([
+  { product: "A", price: 100, cost: 60 },
+  { product: "B", price: 50, cost: 50 },
+  { product: "C", price: 200, cost: 150 }
+])
+
+// Price is greater than cost
+db.sales.find({
+  $expr:{$gt:["$price","$cost"]}
+})
+// Price is equal to cost
+db.sales.find({
+  $expr:{$eq:["$price","$cost"]}
+})
+
+//Price Margin >= 40
+
+db.sales.find({
+  $expr:{
+    $gte:[
+            {$subtract:["$price","$cost"]},
+            40
+        ]}
+})
+
+//$mod   {field:{$mod:[divisor,remainder]}}
+
+db.numbers.insertMany([
+  { num: 10 },
+  { num: 15 },
+  { num: 20 },
+  { num: 25 },
+  { num: 30 }
+])
+
+//Find the number divisible by 3
+db.numbers.find({
+  num:{$mod:[3,0]}
+})
+
+// $regex   -> /^   $/
+
+db.people.insertMany([
+  { name: "Arun Kumar" },
+  { name: "Aruna Devi" },
+  { name: "Bala Chandran" },
+  { name: "Bhavana Priya" },
+  { name: "Charan Kumar" },
+  { name: "Chitra Devi" },
+  { name: "Dinesh Raju" },
+  { name: "Divya Bharathi" },
+  { name: "Eashwar Raj" },
+  { name: "Eswari Lakshmi" },
+  { name: "Fathima Banu" },
+  { name: "Francis Xavier" },
+  { name: "Ganesh Kumar" },
+  { name: "Gayathri Devi" },
+  { name: "Hari Prasad" },
+  { name: "Harini Suresh" },
+  { name: "Indra Kumar" },
+  { name: "Indhu Priya" },
+  { name: "Jagadeesh" },
+  { name: "Janani Priya" },
+  { name: "Karthik Kumar" },
+  { name: "Kavitha" },
+  { name: "Lakshman" },
+  { name: "Lavanya Devi" },
+  { name: "Manikandan" },
+  { name: "Meenakshi" },
+  { name: "Naveen Kumar" },
+  { name: "Nandhini" },
+  { name: "Om Prakash" },
+  { name: "Oviya" },
+  { name: "Prakash Raj" },
+  { name: "Priya Dharshini" },
+  { name: "Raghav" },
+  { name: "Rajesh Kumar" },
+  { name: "Sakthivel" },
+  { name: "Santhosh Kumar" },
+  { name: "Tamil Selvan" },
+  { name: "Tamilarasi" },
+  { name: "Udhayakumar" },
+  { name: "Uma Devi" },
+  { name: "Vasanth" },
+  { name: "Vijaya Lakshmi" },
+  { name: "Walter Joseph" },
+  { name: "William Raj" },
+  { name: "Xavier Raj" },
+  { name: "Yamini" },
+  { name: "Yogesh Kumar" },
+  { name: "Zahir Hussain" },
+  { name: "Zoya" }
+])
+
+
+//Find name starts with 'A'
+db.people.find({
+  name:{
+    $regex:/^A/
+  }
+})
+//Find name end with 'Kumar'
+db.people.find({
+  name:{
+    $regex:/Kumar$/
+  }
+})
+
+db.people.find({
+  name:{
+    $regex:"priya", $options:"i"
+  }
+})
+
+//Start with vowel (AEIOU)
+
+//End with 'a'
+
+//Name has exactly 2 words
+
+// Contains "Raj" anywhere
+
+//Starts with 'T' and ends with 'n'
+
+
+// Name contains space followed by 'Devi'
+
+//Names NOT containing space (single name only)
+
+
+
+db.sales.insertMany([
+  { product: "Apple", price: 120, cost: 80, quantity: 10, discount: 5 },
+  { product: "Banana", price: 60, cost: 30, quantity: 25, discount: 0 },
+  { product: "Carrot", price: 40, cost: 20, quantity: 50, discount: 2 },
+  { product: "Dates", price: 200, cost: 150, quantity: 15, discount: 10 },
+  { product: "Eggplant", price: 90, cost: 60, quantity: 20, discount: 5 },
+  { product: "Fig", price: 150, cost: 120, quantity: 12, discount: 8 },
+  { product: "Grapes", price: 70, cost: 40, quantity: 30, discount: 3 },
+  { product: "Honeydew", price: 250, cost: 200, quantity: 8, discount: 15 },
+  { product: "Ice Apple", price: 50, cost: 25, quantity: 40, discount: 2 },
+  { product: "Jackfruit", price: 300, cost: 250, quantity: 5, discount: 20 },
+  { product: "Kiwi", price: 180, cost: 120, quantity: 10, discount: 10 },
+  { product: "Lemon", price: 30, cost: 10, quantity: 60, discount: 1 },
+  { product: "Mango", price: 150, cost: 100, quantity: 18, discount: 5 },
+  { product: "Nectarine", price: 220, cost: 160, quantity: 7, discount: 12 },
+  { product: "Orange", price: 80, cost: 50, quantity: 25, discount: 4 },
+  { product: "Papaya", price: 100, cost: 70, quantity: 22, discount: 6 },
+  { product: "Quince", price: 210, cost: 160, quantity: 6, discount: 10 },
+  { product: "Raspberry", price: 300, cost: 250, quantity: 4, discount: 15 },
+  { product: "Strawberry", price: 250, cost: 200, quantity: 9, discount: 12 },
+  { product: "Tomato", price: 40, cost: 20, quantity: 45, discount: 2 },
+  { product: "Ugli Fruit", price: 190, cost: 140, quantity: 8, discount: 8 },
+  { product: "Vanilla Bean", price: 500, cost: 400, quantity: 3, discount: 20 },
+  { product: "Watermelon", price: 100, cost: 70, quantity: 15, discount: 5 },
+  { product: "Xigua", price: 150, cost: 110, quantity: 7, discount: 7 },
+  { product: "Yellow Pepper", price: 90, cost: 60, quantity: 14, discount: 4 },
+  { product: "Zucchini", price: 70, cost: 40, quantity: 25, discount: 3 },
+  { product: "Avocado", price: 250, cost: 180, quantity: 10, discount: 10 },
+  { product: "Blackberry", price: 220, cost: 170, quantity: 6, discount: 12 },
+  { product: "Cucumber", price: 40, cost: 20, quantity: 40, discount: 2 },
+  { product: "Dragonfruit", price: 350, cost: 300, quantity: 4, discount: 15 },
+  { product: "Elderberry", price: 270, cost: 220, quantity: 5, discount: 10 },
+  { product: "Guava", price: 90, cost: 60, quantity: 20, discount: 5 },
+  { product: "Hazelnut", price: 400, cost: 350, quantity: 3, discount: 20 },
+  { product: "Indian Fig", price: 150, cost: 110, quantity: 9, discount: 8 },
+  { product: "Jujube", price: 130, cost: 90, quantity: 12, discount: 6 },
+  { product: "Kale", price: 50, cost: 30, quantity: 35, discount: 2 },
+  { product: "Lychee", price: 200, cost: 150, quantity: 10, discount: 8 },
+  { product: "Mulberry", price: 180, cost: 140, quantity: 8, discount: 7 },
+  { product: "Nutmeg", price: 500, cost: 420, quantity: 2, discount: 25 },
+  { product: "Olive", price: 300, cost: 250, quantity: 5, discount: 15 },
+  { product: "Peach", price: 150, cost: 100, quantity: 14, discount: 5 },
+  { product: "Radish", price: 40, cost: 20, quantity: 50, discount: 2 },
+  { product: "Spinach", price: 60, cost: 30, quantity: 40, discount: 3 },
+  { product: "Turnip", price: 70, cost: 40, quantity: 30, discount: 3 },
+  { product: "Ube", price: 250, cost: 200, quantity: 6, discount: 10 },
+  { product: "Walnut", price: 350, cost: 300, quantity: 4, discount: 15 },
+  { product: "Xanthan Gum", price: 400, cost: 350, quantity: 3, discount: 20 },
+  { product: "Yam", price: 100, cost: 70, quantity: 20, discount: 5 },
+  { product: "Zebra Melon", price: 180, cost: 140, quantity: 7, discount: 8 }
+])
+
+
+//Price is greater than cost
+
+//Price equals cost
+
+//Profit (price - cost) is at least 50
+
+//Total revenue (price * quantity) is more than 2000
+
+// Discount is more than 10% of price
+
+//Quantity times cost is less than 1000
+
+//Price after discount is less than cost
+
+// Price is double the cost
+
+// Price + discount = 200
+
+
+----------------------------------------
+
+Day - 8
+
+QandAns
+
+--------------------
+
+Day - 9 10 11 12 
+
+Delete fun
+
+db.students.insertMany([
+  { name: "Priya Sharma", age: 19, gender: "Female", city: "Coimbatore", course: "B.Com" },
+  { name: "Ravi Raj", age: 22, gender: "Male", city: "Madurai", course: "B.Tech IT" },
+  { name: "Lakshmi Narayanan", age: 20, gender: "Male", city: "Trichy", course: "B.Sc Physics" },
+  { name: "Divya Bharathi", age: 18, gender: "Female", city: "Salem", course: "BA English" },
+  { name: "Manoj Kumar", age: 23, gender: "Male", city: "Chennai", course: "BCA" },
+  { name: "Anitha R", age: 21, gender: "Female", city: "Erode", course: "B.Sc Chemistry" },
+  { name: "Suresh Kumar", age: 24, gender: "Male", city: "Vellore", course: "MBA" },
+  { name: "Kavya M", age: 20, gender: "Female", city: "Thanjavur", course: "B.Sc Math" },
+  { name: "Vignesh P", age: 22, gender: "Male", city: "Tirunelveli", course: "B.E Mechanical" },
+  { name: "Meena S", age: 19, gender: "Female", city: "Chidambaram", course: "B.Sc Zoology" }
+])
+
+db.students.find({name: "Ravi Raj"})
+db.students.deleteOne({name: "Ravi Raj"})
+
+db.students.find({gender: "Female"})
+db.students.deleteMany({gender: "Female"})
+
+API - CRUD
+
+i node
+i npm
+
+npm init -y
+
+npm i mongosse express 
+
+npm i nodemon -D
+
+npm start
+
+Backend :
+
+1 create express server
+2 connect dB
+3 create schema and model
+4 create router's 
+5 postman (q)
+6 create middlewars
+
+frontend :
+
+1 from - POST
+2 js logic - fetch 
+
+
+
+-----------------------------
+
+Day 13 14  react CRUD  todo
+
+-------------------------------
+
+Day 15 react contact - MVC
+
+----------------------------
+
+Day - 16
+
+- FindOneAndUpdate 
+   - Syntax
+        db.collection.findOneAndUpdate(
+        <filter>, // Query to match a document
+        <update>, // Update operation
+        <options> // Optional settings
+        )
+
+
+db.students.insertMany([
+  { _id: 1, name: "Aarav Nair", age: 20, grade: "A", subjects: ["Math", "Physics"], gpa: 3.8, lastUpdated: ISODate("2025-01-01"), status: "active", address: { city: "Chennai", state: "Tamil Nadu" } },
+  { _id: 2, name: "Bhavana Reddy", age: 19, grade: "B", subjects: ["Chemistry", "Biology"], gpa: 3.2, lastUpdated: ISODate("2025-02-01"), status: "active", address: { city: "Hyderabad", state: "Telangana" } },
+  { _id: 3, name: "Chetan Kumar", age: 21, grade: "A", subjects: ["Math", "English"], gpa: 3.9, lastUpdated: ISODate("2025-03-01"), status: "inactive", address: { city: "Bengaluru", state: "Karnataka" } },
+  { _id: 4, name: "Deepika Menon", age: 22, grade: "C", subjects: ["History", "Art"], gpa: 2.8, lastUpdated: ISODate("2025-01-15"), status: "active", address: { city: "Kochi", state: "Kerala" } },
+  { _id: 5, name: "Eshwar Rao", age: 20, grade: "B", subjects: ["Physics", "Chemistry"], gpa: 3.4, lastUpdated: ISODate("2025-02-15"), status: "active", address: { city: "Visakhapatnam", state: "Andhra Pradesh" } },
+  { _id: 6, name: "Fathima Beevi", age: 23, grade: "A", subjects: ["Math", "Computer Science"], gpa: 3.7, lastUpdated: ISODate("2025-03-10"), status: "active", address: { city: "Thiruvananthapuram", state: "Kerala" } },
+  { _id: 7, name: "Gowri Shankar", age: 19, grade: "B", subjects: ["English", "History"], gpa: 3.3, lastUpdated: ISODate("2025-01-20"), status: "inactive", address: { city: "Coimbatore", state: "Tamil Nadu" } },
+  { _id: 8, name: "Harish Varghese", age: 21, grade: "C", subjects: ["Biology", "Art"], gpa: 2.9, lastUpdated: ISODate("2025-02-20"), status: "active", address: { city: "Mysuru", state: "Karnataka" } },
+  { _id: 9, name: "Indira Suresh", age: 20, grade: "A", subjects: ["Math", "Physics"], gpa: 3.85, lastUpdated: ISODate("2025-03-05"), status: "active", address: { city: "Chennai", state: "Tamil Nadu" } },
+  { _id: 10, name: "Jagan Mohan", age: 22, grade: "B", subjects: ["Chemistry", "English"], gpa: 3.1, lastUpdated: ISODate("2025-01-25"), status: "active", address: { city: "Vijayawada", state: "Andhra Pradesh" } },
+  { _id: 11, name: "Kavya Pillai", age: 19, grade: "A", subjects: ["Computer Science", "Math"], gpa: 3.95, lastUpdated: ISODate("2025-02-25"), status: "active", address: { city: "Bengaluru", state: "Karnataka" } },
+  { _id: 12, name: "Lakshmi Priya", age: 20, grade: "C", subjects: ["History", "Biology"], gpa: 2.7, lastUpdated: ISODate("2025-03-15"), status: "inactive", address: { city: "Hyderabad", state: "Telangana" } },
+  { _id: 13, name: "Manish Iyer", age: 21, grade: "B", subjects: ["English", "Art"], gpa: 3.4, lastUpdated: ISODate("2025-01-30"), status: "active", address: { city: "Madurai", state: "Tamil Nadu" } },
+  { _id: 14, name: "Naveen Thomas", age: 22, grade: "A", subjects: ["Physics", "Math"], gpa: 3.6, lastUpdated: ISODate("2025-02-10"), status: "active", address: { city: "Kochi", state: "Kerala" } },
+  { _id: 15, name: "Omana Joseph", age: 19, grade: "B", subjects: ["Chemistry", "History"], gpa: 3.2, lastUpdated: ISODate("2025-03-20"), status: "active", address: { city: "Bengaluru", state: "Karnataka" } },
+  { _id: 16, name: "Pranav Raj", age: 20, grade: "C", subjects: ["Art", "English"], gpa: 2.85, lastUpdated: ISODate("2025-01-10"), status: "inactive", address: { city: "Tirupati", state: "Andhra Pradesh" } },
+  { _id: 17, name: "Qadir Khan", age: 21, grade: "A", subjects: ["Computer Science", "Physics"], gpa: 3.9, lastUpdated: ISODate("2025-02-05"), status: "active", address: { city: "Hyderabad", state: "Telangana" } },
+  { _id: 18, name: "Radhika Nair", age: 22, grade: "B", subjects: ["Math", "Biology"], gpa: 3.3, lastUpdated: ISODate("2025-03-25"), status: "active", address: { city: "Chennai", state: "Tamil Nadu" } },
+  { _id: 19, name: "Siddharth Pillai", age: 20, grade: "A", subjects: ["English", "Physics"], gpa: 3.75, lastUpdated: ISODate("2025-01-05"), status: "active", address: { city: "Thiruvananthapuram", state: "Kerala" } },
+  { _id: 20, name: "Tejaswini Rao", age: 21, grade: "C", subjects: ["History", "Chemistry"], gpa: 2.9, lastUpdated: ISODate("2025-02-15"), status: "inactive", address: { city: "Visakhapatnam", state: "Andhra Pradesh" } }
+]);
+
+
+
+
+db.students.find({"_id":1})
+db.students.updateOne({_id:1},{$set:{grade:"A+"}})
+
+
+db.students.findOneAndUpdate(
+    {"_id":1},
+    {$set:{grade:"A"}},
+    {returnDocument:"after"}
+);
+
+- {returnDocument:"after"} -> Retuns the updated document with grade:A+
+
+#------ Increase student GPA by 0.2
+db.students.findOneAndUpdate(
+    {"_id":1},
+    {$inc:{gpa:0.2}},
+    {returnDocument:"after"}
+)
+
+#------  upsert 
+
+db.students.findOneAndUpdate(
+    {name:"Joes"},
+    {$set:{age:35,grade:"B"}},
+    {upsert:true,returnDocument:"after"}
+)
+
+#----- 
+- Tamil Nadu
+- Good
+- gpa highest
+
+db.students.findOneAndUpdate(
+    {"address.state":"Tamil Nadu"},
+    {$set:{status:"Good"}},
+    {sort:{gpa:-1},returnDocument:"after"}
+)
+
+
+db.students.findOneAndUpdate(
+    {"address.state":"Tamil Nadu"},
+    {$set:{status:"Good"}},
+    {sort:{gpa:1},returnDocument:"after",projection:{name:1,gpa:1}}
+)
+# -------------------------------------------------------------
+- FindOneAndReplace 
+- FindOneAndDelete 
+
+
+
+--------------------------
+
+Day - 17 
+
+
+- findOneAndUpdate
+
+
+db.students.insertMany([
+  { _id: 1, name: "Aarav Nair", age: 20, grade: "A", subjects: ["Math", "Physics"], gpa: 3.8, lastUpdated: ISODate("2025-01-01"), status: "active", address: { city: "Chennai", state: "Tamil Nadu" } },
+  { _id: 2, name: "Bhavana Reddy", age: 19, grade: "B", subjects: ["Chemistry", "Biology"], gpa: 3.2, lastUpdated: ISODate("2025-02-01"), status: "active", address: { city: "Hyderabad", state: "Telangana" } },
+  { _id: 3, name: "Chetan Kumar", age: 21, grade: "A", subjects: ["Math", "English"], gpa: 3.9, lastUpdated: ISODate("2025-03-01"), status: "inactive", address: { city: "Bengaluru", state: "Karnataka" } },
+  { _id: 4, name: "Deepika Menon", age: 22, grade: "C", subjects: ["History", "Art"], gpa: 2.8, lastUpdated: ISODate("2025-01-15"), status: "active", address: { city: "Kochi", state: "Kerala" } },
+  { _id: 5, name: "Eshwar Rao", age: 20, grade: "B", subjects: ["Physics", "Chemistry"], gpa: 3.4, lastUpdated: ISODate("2025-02-15"), status: "active", address: { city: "Visakhapatnam", state: "Andhra Pradesh" } },
+  { _id: 6, name: "Fathima Beevi", age: 23, grade: "A", subjects: ["Math", "Computer Science"], gpa: 3.7, lastUpdated: ISODate("2025-03-10"), status: "active", address: { city: "Thiruvananthapuram", state: "Kerala" } },
+  { _id: 7, name: "Gowri Shankar", age: 19, grade: "B", subjects: ["English", "History"], gpa: 3.3, lastUpdated: ISODate("2025-01-20"), status: "inactive", address: { city: "Coimbatore", state: "Tamil Nadu" } },
+  { _id: 8, name: "Harish Varghese", age: 21, grade: "C", subjects: ["Biology", "Art"], gpa: 2.9, lastUpdated: ISODate("2025-02-20"), status: "active", address: { city: "Mysuru", state: "Karnataka" } },
+  { _id: 9, name: "Indira Suresh", age: 20, grade: "A", subjects: ["Math", "Physics"], gpa: 3.85, lastUpdated: ISODate("2025-03-05"), status: "active", address: { city: "Chennai", state: "Tamil Nadu" } },
+  { _id: 10, name: "Jagan Mohan", age: 22, grade: "B", subjects: ["Chemistry", "English"], gpa: 3.1, lastUpdated: ISODate("2025-01-25"), status: "active", address: { city: "Vijayawada", state: "Andhra Pradesh" } },
+  { _id: 11, name: "Kavya Pillai", age: 19, grade: "A", subjects: ["Computer Science", "Math"], gpa: 3.95, lastUpdated: ISODate("2025-02-25"), status: "active", address: { city: "Bengaluru", state: "Karnataka" } },
+  { _id: 12, name: "Lakshmi Priya", age: 20, grade: "C", subjects: ["History", "Biology"], gpa: 2.7, lastUpdated: ISODate("2025-03-15"), status: "inactive", address: { city: "Hyderabad", state: "Telangana" } },
+  { _id: 13, name: "Manish Iyer", age: 21, grade: "B", subjects: ["English", "Art"], gpa: 3.4, lastUpdated: ISODate("2025-01-30"), status: "active", address: { city: "Madurai", state: "Tamil Nadu" } },
+  { _id: 14, name: "Naveen Thomas", age: 22, grade: "A", subjects: ["Physics", "Math"], gpa: 3.6, lastUpdated: ISODate("2025-02-10"), status: "active", address: { city: "Kochi", state: "Kerala" } },
+  { _id: 15, name: "Omana Joseph", age: 19, grade: "B", subjects: ["Chemistry", "History"], gpa: 3.2, lastUpdated: ISODate("2025-03-20"), status: "active", address: { city: "Bengaluru", state: "Karnataka" } },
+  { _id: 16, name: "Pranav Raj", age: 20, grade: "C", subjects: ["Art", "English"], gpa: 2.85, lastUpdated: ISODate("2025-01-10"), status: "inactive", address: { city: "Tirupati", state: "Andhra Pradesh" } },
+  { _id: 17, name: "Qadir Khan", age: 21, grade: "A", subjects: ["Computer Science", "Physics"], gpa: 3.9, lastUpdated: ISODate("2025-02-05"), status: "active", address: { city: "Hyderabad", state: "Telangana" } },
+  { _id: 18, name: "Radhika Nair", age: 22, grade: "B", subjects: ["Math", "Biology"], gpa: 3.3, lastUpdated: ISODate("2025-03-25"), status: "active", address: { city: "Chennai", state: "Tamil Nadu" } },
+  { _id: 19, name: "Siddharth Pillai", age: 20, grade: "A", subjects: ["English", "Physics"], gpa: 3.75, lastUpdated: ISODate("2025-01-05"), status: "active", address: { city: "Thiruvananthapuram", state: "Kerala" } },
+  { _id: 20, name: "Tejaswini Rao", age: 21, grade: "C", subjects: ["History", "Chemistry"], gpa: 2.9, lastUpdated: ISODate("2025-02-15"), status: "inactive", address: { city: "Visakhapatnam", state: "Andhra Pradesh" } }
+]);
+
+#---------------------------------
+1. Basic Update
+db.students.findOneAndUpdate(
+  {_id:1},
+  {$set:{grade:"A+"}},
+  {returnDocument:"after"}
+)
+
+db.students.findOneAndUpdate(
+  {_id:1},
+  {$set:{grade:"A"}},
+  {returnDocument:"before"}
+)
+
+#---------------------------------
+2.Increment GPA
+db.students.findOneAndUpdate(
+  {_id:1},
+  {$inc:{gpa:0.2}},
+  {returnDocument:"after"}
+)
+#---------------------------------
+3.Upsert: Insert Document if not found
+
+db.students.findOneAndUpdate(
+  {name:"Joes"},
+  {$set:{age:45,grade:"B",gpa:3.8}},
+  {returnDocument:"after",upsert:true}
+)
+#---------------------------------
+4.Multiple Update Operator
+
+/*
+{ _id: 3, name: "Chetan Kumar", age: 21, grade: "A", subjects: ["Math", "English"], gpa: 3.9, lastUpdated: ISODate("2025-03-01"), status: "inactive", address: { city: "Bengaluru", state: "Karnataka" } },
+*/
+
+db.students.findOneAndUpdate(
+  { name: "Chetan Kumar"},
+  {
+    $set:{ status: "active"},
+    $addToSet:{subjects:"Computer Science"},
+    $unset:{lastUpdated:""}
+  },
+  {returnDocument:"after"}
+)
+
+#---------------------------------
+5. Sorting
+db.students.findOneAndUpdate(
+  {"address.state":"Tamil Nadu"},
+  {$set:{status:"active"}},
+  {sort:{gpa:-1},returnDocument:"after"}
+)
+
+#---------------------------------
+6.Projection 
+
+db.students.findOneAndUpdate(
+  {"address.state":"Tamil Nadu"},
+  {$set:{status:"active"}},
+  {sort:{gpa:-1},returnDocument:"after",projection:{name:1,gpa:1,"address.state":1}}
+)
+#---------------------------------
+7.Array Filters for subjects Math ->  Advanced Math
+/*
+  { _id: 6, name: "Fathima Beevi", age: 23, grade: "A", subjects: ["Math", "Computer Science"], gpa: 3.7, lastUpdated: ISODate("2025-03-10"), status: "active", address: { city: "Thiruvananthapuram", state: "Kerala" } },
+*/
+
+db.students.findOneAndUpdate(
+  {name: "Fathima Beevi"},
+  {$set:{"subjects.$[elem]":"Advanced Math"}},
+  {arrayFilters:[{elem:"Math"}],returnDocument:"after"}
+)
+#---------------------------------
+7.Update currentDate
+
+db.students.findOneAndUpdate(
+  {_id:3},
+  {$currentDate:{lastUpdated:true}},
+  {returnDocument:"after"}
+)
+#---------------------------------
+8.add subject
+
+db.students.findOneAndUpdate(
+  {_id:3},
+  {$push:{subjects:"Statistics"}},
+  {returnDocument:"after"}
+)
+#---------------------------------
+9.remove subject
+
+db.students.findOneAndUpdate(
+  {_id:3},
+  {$pull:{subjects:"Math"}},
+  {returnDocument:"after"}
+)
+
+
+
+--------------------------------------
+
+Day - 18 
+
+- FindOneAndReplace 
+- FindOneAndDelete
+
+db.students.findOneAndReplace(
+  {_id:4},
+  {name:"Priya",age:22, grade: "B", subjects: ["Chemistry", "Biology"]},
+  {returnDocument:"after"}
+)
+
+db.students.find({_id:4});
+
+db.students.findOneAndDelete(
+  {_id:19}
+);
+
+Sample CRUD Exxx
+
+--------------------------------------
+
+Day - 19 
+
+Agregate pipline
+
+
+db.users.insertMany([
+  { "_id": 1, "name": "Arjun Reddy", "age": 15, "class": "10th" },
+  { "_id": 2, "name": "Sai Kumar", "age": 16, "class": "11th" },
+  { "_id": 3, "name": "Vishnu Nair", "age": 17, "class": "11th" },
+  { "_id": 4, "name": "Karthik Raj", "age": 18, "class": "12th" },
+  { "_id": 5, "name": "Anjali Menon", "age": 16, "class": "11th" },
+  { "_id": 6, "name": "Ravi Shankar", "age": 14, "class": "10th" },
+  { "_id": 7, "name": "Priya Varghese", "age": 15, "class": "10th" },
+  { "_id": 8, "name": "Siddharth Rao", "age": 17, "class": "11th" },
+  { "_id": 9, "name": "Lakshmi Suresh", "age": 16, "class": "11th" },
+  { "_id": 10, "name": "Vignesh Pillai", "age": 18, "class": "12th" },
+  { "_id": 11, "name": "Meena Iyer", "age": 15, "class": "10th" },
+  { "_id": 12, "name": "Naveen Kumar", "age": 16, "class": "11th" },
+  { "_id": 13, "name": "Shalini Nambiar", "age": 17, "class": "11th" },
+  { "_id": 14, "name": "Ramesh Goud", "age": 18, "class": "12th" },
+  { "_id": 15, "name": "Divya Krishna", "age": 14, "class": "10th" },
+  { "_id": 16, "name": "Srinivas Rao", "age": 16, "class": "11th" },
+  { "_id": 17, "name": "Aishwarya Nair", "age": 15, "class": "10th" },
+  { "_id": 18, "name": "Mohan Raju", "age": 17, "class": "11th" },
+  { "_id": 19, "name": "Kavya Shetty", "age": 16, "class": "11th" },
+  { "_id": 20, "name": "Aditya Menon", "age": 18, "class": "12th" }
+]);
+
+
+db.users.find({"class": "11th"})
+
+#----------------------------------------
+# $match
+db.users.aggregate([
+  {$match:{"class": "11th"}}
+])
+
+db.users.aggregate([
+  {$match:{"age": 16}}
+])
+
+db.users.aggregate([
+  {$match:{
+    $and:[
+      {age:{$gt:16}},
+      {"class": "11th"}
+    ]
+  }}
+])
+
+#----------------------------------------
+# $match with $count
+
+db.users.aggregate([
+  {$match:{age:{$gt:16}}},
+  {$count:"names"}
+])
+
+#----------------------------------------
+# $match with $sort
+db.users.aggregate([
+  {$match:{age:{$gt:15}}},
+  {$sort:{age:-1}}
+])
+
+
+db.users.aggregate([
+  {$match:{$and:[
+    {age:{$gt:15}},
+    {"class": "11th"}
+  ]}},
+  {$sort:{age:-1}}
+])
+
+#----------------------------------------
+# $project
+
+db.users.aggregate([
+  {$match:{$and:[
+    {age:{$gt:15}},
+    {"class": "11th"}
+  ]}},
+  {$sort:{age:-1}},
+  {$project:{name:1,class:1,age:1,_id:0}}
+])
+
+
+# Custom Field Projection
+
+db.users.aggregate([
+  {$match:{$and:[
+    {age:{$gt:15}},
+    {"class": "11th"}
+  ]}},
+  {$sort:{age:-1}},
+  {$project:{name:1,class:1,age:1,_id:0,isEligible:{$gt:["$age",17]}}}
+])
+
+
+#----------------------------------------
+# $sortByCount
+
+db.users.aggregate([
+  {$sortByCount:"$class"}
+])
+
+#----------------------------------------
+# $skip and $limit
+db.users.aggregate([
+  {$match: {age:{$gt:1}}},
+  {$skip:0},
+  {$limit:5}
+])
+
+
+#------------------------------------------
+# $sample
+
+db.users.aggregate([{$sample:{size:2}}])
+
+-------------------------
+
+Day - 20
+
+
+db.students.insertMany([
+  { "_id": 1, "name": "Arun Kumar", "age": 23, "class": "BCA" },
+  { "_id": 2, "name": "Karthik Selvam", "age": 24, "class": "Btech" },
+  { "_id": 3, "name": "Lakshmi Priya", "age": 20, "class": "BSc" },
+  { "_id": 4, "name": "Manoj Raj", "age": 19, "class": "BCA" },
+  { "_id": 5, "name": "Suresh Nair", "age": 24, "class": "Btech" },
+  { "_id": 6, "name": "Deepa Rani", "age": 21, "class": "BSc" },
+  { "_id": 7, "name": "Vijay Anand", "age": 22, "class": "BCA" },
+  { "_id": 8, "name": "Ramesh Kannan", "age": 20, "class": "Btech" }
+]);
+
+#----------------------------------------------
+$group
+    $sum
+    $count
+    $push
+    $addToSet
+    $min
+    $max
+    $avg
+    $median
+    $first
+    $last
+    $top
+    $topN
+    $bottom
+    $bottomN
+
+
+#-----------------------------------------
+#  Distinct Course Name
+
+db.students.aggregate([
+    {$group:{_id:"$class"}}
+])
+
+#-----------------------------------------
+# Course wise student strength
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            student_count:{$sum:1}
+        }
+    }
+])
+
+#-----------------------------------------
+# match with sum (age>20 with Course wise student strength)
+
+db.students.aggregate([
+    {
+        $match:{age:{$gt:20}}
+    },
+    {
+        $group:{
+            _id:"$class",
+            student_count:{$sum:1}
+        }
+    }
+])
+
+#-----------------------------------------
+# match with count (age>20 with Course wise student strength)
+
+db.students.aggregate([
+    {
+        $match:{age:{$gt:20}}
+    },
+    {
+        $group:{
+            _id:"$class",
+            student_count:{$count:{}}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            student_count:{$count:{}}
+        }
+    },
+    {
+        $sort:{student_count:-1}
+    }
+])
+
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            students:{$push:"$name"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            students:{$push:"$$ROOT"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            students:{$addToSet:"$name"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            max_age:{$max:"$age"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            min_age:{$min:"$age"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:null,
+            avg_age:{$avg:"$age"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:null,
+            median_age:{
+                $median:{
+                     input:"$age",
+                      method:"approximate" 
+                }
+            }
+        }
+    }
+])
+
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            students:{$push:"$$ROOT"}
+        }
+    }
+])
+
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            first_student:{$first:"$$ROOT"}
+        }
+    }
+])
+
+db.students.aggregate([
+    {
+        $group:{
+             _id:"$class",
+             last_student:{$last:"$$ROOT"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+             _id:"$class",
+             top_student:{$top:{
+                output:["$name","$class","$age"],
+                sortBy:{"age":-1}
+             }}
+        }
+    }
+])
+
+db.students.aggregate([
+    {
+        $group:{
+             _id:"$class",
+             bottom_student:{$bottom:{
+                output:["$name","$class","$age"],
+                sortBy:{"age":-1}
+             }}
+        }
+    }
+])
+
+
+
+db.students.aggregate([
+    {
+        $group:{
+             _id:"$class",
+             top_student:{$topN:{
+                output:["$name","$class","$age"],
+                sortBy:{"age":-1},
+                n:3
+             }}
+        }
+    }
+])
+
+db.students.aggregate([
+    {
+        $group:{
+             _id:"$class",
+             bottom_student:{$bottomN:{
+                output:["$name","$class","$age"],
+                sortBy:{"age":-1},
+                n:3
+             }}
+        }
+    }
+])
+
+-----------------------------------------------
+
+Day - 21
+
+lookup - jion query's 
+
+db.students.insertMany([
+  {_id:1,name:"Rakesh",class:"BCA"},
+  {_id:2,name:"Sundar",class:"BTech"},
+  {_id:3,name:"Sara",class:"Bsc"},
+  {_id:4,name:"Tiya",class:"BCA"},
+])
+
+db.library.insertMany([
+  {_id:1,book:"Let Us C",student_id:1},
+  {_id:2,book:"Java Programming",student_id:3},
+  {_id:3,book:"C++ Guide",student_id:4},
+  {_id:4,book:"Head First in C#",student_id:1},
+  {_id:5,book:"Python The Monster",student_id:3},
+  {_id:6,book:"JavaScript DSA",student_id:1},
+])
+
+
+
+db.students.aggregate([
+  {
+    $lookup:{
+      from:"library",
+      localField:"_id",
+      foreignField:"student_id",
+      as:"books"
+    }
+  }
+])
+
+
+db.students.aggregate([
+  {
+    $lookup:{
+      from:"library",
+      localField:"_id",
+      foreignField:"student_id",
+      as:"books"
+    }
+  },
+  {
+    $unwind:"$books",
+  }
+])
+
+db.students.aggregate([
+  {
+    $lookup:{
+      from:"library",
+      localField:"_id",
+      foreignField:"student_id",
+      as:"books"
+    }
+  },
+  {
+    $unwind:{
+      path:"$books",
+      preserveNullAndEmptyArrays: true
+    },
+  }
+])
+
+
+
+

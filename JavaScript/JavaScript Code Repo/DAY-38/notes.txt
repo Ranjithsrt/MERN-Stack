@@ -1,0 +1,6 @@
+XMLHttpRequest (XHR)
+promise
+fetch
+axios
+
+method – "GET", "POST", "PUT", "DELETE"

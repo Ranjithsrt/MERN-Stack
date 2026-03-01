@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Window Focus Example</h1>
+    <p>Status : <span>Waiting....</span></p>
+
+    <script>
+      const display = document.querySelector("span");
+      window.addEventListener("focus", function () {
+        display.textContent = "Window is focused";
+        document.title = "Window is focused";
+      });
+      window.addEventListener("blur", function () {
+        display.textContent = "Window lost focus";
+        document.title = "Window is lost focus";
+      });
+    </script>
+  </body>
+</html>

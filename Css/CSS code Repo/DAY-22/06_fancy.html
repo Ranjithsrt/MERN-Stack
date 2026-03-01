@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      ul {
+        counter-reset: index;
+        max-width: 500px;
+      }
+      li {
+        list-style: none;
+        counter-increment: index;
+        display: flex;
+        margin-bottom: 10px;
+        align-items: center;
+        gap: 10px;
+      }
+      li::before {
+        content: counters(index, ".", decimal-leading-zero);
+        font-size: 1.2rem;
+
+        display: block;
+        min-width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-weight: 700;
+        text-align: center;
+        align-self: flex-start;
+        background-image: linear-gradient(to bottom, #f86ca7, #f4d444);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-attachment: fixed;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>Lorem dolor amet sit</li>
+      <li>Lorem ipsum dolor sit amet consecutor adipiscingLorem ipsum dolor sit amet</li>
+      <li>Lorem ipsum dolor sit amet consecutor</li>
+      <li>Lorem dolor amet sit</li>
+      <li>Lorem ipsum dolor sit amet consecutor adipiscingLorem ipsum dolor sit amet</li>
+      <li>Lorem ipsum dolor sit amet consecutor</li>
+      <li>Lorem ipsum dolor sit amet consecutor adipiscingLorem ipsum dolor sit amet</li>
+      <li>Lorem ipsum dolor sit amet consecutor</li>
+      <li>Lorem dolor amet sit</li>
+      <li>Lorem ipsum dolor sit amet consecutor adipiscingLorem ipsum dolor sit amet</li>
+      <li>Lorem ipsum dolor sit amet consecutor</li>
+      <li>Lorem dolor amet sit</li>
+      <li>Lorem ipsum dolor sit amet consecutor adipiscingLorem ipsum dolor sit amet</li>
+      <li>Lorem ipsum dolor sit amet consecutor</li>
+      <li>Lorem dolor amet sit</li>
+    </ul>
+  </body>
+</html>

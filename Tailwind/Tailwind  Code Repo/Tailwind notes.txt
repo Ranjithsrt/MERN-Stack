@@ -1,0 +1,573 @@
+Tailwind css is a utility-first css framework
+
+ Empty file : tailwind.config.js
+ 
+Features	                Tailwind CSS	         Bootstrap
+---------------------	---------------------	---------------------
+Approach	              Utility-first	        Pre-designed components
+Customization	          Very Flexible	         Limited customization
+File Size	                Small	                  Large
+
+ 
+ 
+Features	               Tailwind CSS	              Bootstrap
+---------------------	---------------------	  ---------------------
+Learning Curve	           Takes time to learn	       Easy
+Speed of Development	Fast for experienced users	 Fast for beginners
+Responsiveness	          Built-in utilities	      Grid system
+
+✅ Pros of Tailwind CSS
+Fully Customizable
+You have full control to customize everything.
+
+Fast Development
+Eliminates the need to write custom CSS — helps in faster development.
+
+Responsive Built-in
+You can use responsive classes like sm:, md:, lg: to create mobile-friendly designs.
+
+Lightweight in Production
+The final CSS file size is small compared to Bootstrap.
+
+Consistent UI
+Reusable utility classes ensure a uniform and clean design.
+
+
+❌ Cons of Tailwind CSS
+
+Messy HTML
+Adding too many class names to HTML elements can make the code look messy.
+
+Learning Curve
+Takes more time to learn compared to Bootstrap.
+
+✨ Features in Tailwind CSS
+
+Responsive Classes
+Supports sm:, md:, lg: classes to create mobile-friendly websites easily.
+
+State Variants
+Adding state-based classes like hover:bg-blue-700 gives interactive effects like hover, focus, etc.
+
+Dark Mode
+Tailwind has built-in support for dark mode styling.
+
+Customization
+You can fully customize styles and themes to match your brand or project needs.
+
+Tailwind Core concepts :
+
+1. Classes - bg-blue-500 text-white
+2. Variants 
+
+Responsive Design :
+
+sm:text-green-500
+md:text-red-500
+lg:text-purple-500
+
+3. layers 
+
+
+@layers base {
+    @apply text-3xl font-bold;  - h1,p
+}
+
+@layers components{
+    .btn{
+      @apply bg-blue-500 text-white;
+    }
+}
+
+@learn utilities{
+    .skew-15{
+       transform : skewY(-15deg)
+    }
+}
+
+📱 Tailwind CSS Responsive Breakpoints :
+
+| **Prefix** | **Min Width** | **Common Usage**         |
+| ---------- | ------------- | ------------------------ |
+| `sm:`      | 640px         | Small devices (Tablets)  |
+| `md:`      | 768px         | Medium devices (Laptops) |
+| `lg:`      | 1024px        | Large devices (Desktops) |
+| `xl:`      | 1280px        | Extra-large screens      |
+| `2xl:`     | 1536px        | Ultra-wide screens       |
+
+
+Dark mood :
+
+dark:bg-black-900
+dark:text-white
+
+
+typography :
+
+Text size :
+
+xs sm base md lg xl 1xl to 9xl
+
+custom : text-[20px]
+
+
+font family :
+
+Default - font-sans font-serif font-mono
+
+custom :font-[poppins]
+
+custom :font-[open_sans] - space irundha
+
+
+font weight :
+
+font-thin
+font-light
+font-normal
+font-medium
+font-bold
+font-semibold
+font-extrabold
+
+custom :font-[600]
+
+
+Text Alignment :
+
+text-left | center | start
+
+
+line Height :
+
+leading-tight | normal | loose 
+
+
+letter spacing :
+
+tracking-tight | normal | wide
+
+
+Text Transform :
+
+uppercase | lowercase | capitalize
+
+
+Text Decoration :
+
+underline | line-through | no-underline
+
+
+Text-color : 50 to 950
+
+text-inherit
+text-current
+text-transparent
+text-black-500
+
+custom - text-[#ff00ff]
+
+
+Background color : 50 to 950
+
+bg-inherit
+bg-current
+bg-transparent
+bg-red-500
+bg-black
+bg-white
+
+
+custom - bg-[#ff00ff]
+
+
+gradient colors :
+
+
+bg-gradient-to-r
+bg-gradient-to-l
+bg-gradient-to-b
+bg-gradient-to-t
+
+from-blue-500
+via-red-500
+to-pink-500
+
+opacity:
+
+opacity-50 - 0 to 100
+
+
+Effects :
+
+grayscale
+sepia
+
+
+
+
+margin :
+
+m-1
+mt-4
+mb-4
+me
+ms
+ml
+mr
+mx
+my
+
+mx-auto
+
+m-[10px]
+
+neg margin :
+
+-mt-4
+
+padding :
+
+p-1
+pt-2
+pb-4
+pe
+ps
+pl
+pr
+px
+py
+
+p-[10px]
+
+
+
+spacing - p - m :
+
+spacing :
+
+spacing-1 to 96 
+
+
+gap :
+
+gap-5
+
+
+Border shadow Effects :
+
+border-2
+border-x 
+border-y
+border-[1px]
+
+border-solid
+dashed
+double
+dotted
+groove
+ridge
+inset
+
+
+
+color :
+
+border-blue-400
+
+radius:
+
+rounded
+rounded-full
+
+rounded-md
+rounded-lg
+rounded-2xl to 4xl
+
+rounded-[40px]
+
+rounded-none
+rounded-s-lg
+e
+t
+b
+
+shadow :
+
+shadow-2xs
+shadow-xs
+shadow-md
+shadow-lg
+shadow-xl
+shadow-2xl
+shadow-sm
+
+
+shadow-none
+
+shadow-[
+0_4px_1px_rgba(),
+0_4px_1px_rgba(),
+0_4px_1px_rgba(),
+]
+
+shadow shadow-black
+
+shadow shadow-white
+
+shadow shadow-blue-500
+
+text-shadow-lg
+text-shadow-red-700
+
+
+
+display utilities :
+
+inline-block
+block
+hidden
+inline-flex
+
+
+max-width min-width sizing :
+
+w=1/2 - 50% 50%
+w-[52px]
+w-auto
+w-full
+w-screen
+
+min=width:
+
+min-x-xl
+min-x-lg
+min-x-md
+min-x-sm
+
+max-width :
+
+max-x-xl
+max-x-lg
+max-x-md
+max-x-sm
+container
+
+
+h-1/2
+h-[56px]
+h-auto
+h-full
+h-screen
+
+min-Height
+
+min-h-screen
+min-h-[600px]
+
+
+max-Height
+
+max-h-screen
+max-h-[600px]
+
+
+flex :
+
+flex
+flex-col
+
+justify-center 
+justify-between
+justify-start
+justify-end
+justify-around
+justify-evenly
+
+items-start
+items-center
+items-end
+items-stretch
+
+
+gap-x-10
+gap-y-10
+
+
+order-1
+
+flex=wrap | nowrap
+
+flex-basis :
+
+basis-lg
+
+grow :
+
+grow
+
+
+shrink :
+
+shrink
+
+
+grid ;
+
+md:grid-cols-3
+
+span :
+
+col-span-2
+
+row-span-3
+
+position :
+
+static - not work tbrl
+
+relative:
+
+start-[100px] 
+left
+top
+bottom
+inset-[100px] - all
+inset-x-[100px] 
+inset-y-[100px] 
+
+
+
+absolute 
+
+
+fixed
+
+
+z
+
+
+Hover focus active :
+
+hover:cursor-pointer
+hover:bg-red-500
+hover:text-white
+hover:scale-110
+transition-all
+duration-300
+
+focus :
+focus:outline-none
+focus:ring-2
+focus:ring-offset-2
+focus:ring-red-500
+focus:ring-offset-red-500
+
+active:
+
+active:bg-red-500
+active:scale-98
+
+
+Transition l
+transition:all
+
+duration-300
+
+delay-300
+
+liner
+ease-liner
+ease-in
+ease-out
+
+
+animation :
+
+animation-spin
+animation-ping
+pules
+bounce
+animation-[bounce_1s_ease-in-out_infinite]
+
+transform :
+
+rotate-45
+-rotate-45
+
+scale-100 Default
+scale-110
+scale-5
+scale-x-110
+scale-y-150
+
+skew-3
+
+translate-50
+
+translate-x-50
+translate-y-50
+
+translate-full
+
+
+custom style sheet :
+
+<p class="bg--blue-new" lorem</p>
+
+@theme{
+    --color-blue-new:#ffff;
+}
+
+-------------
+
+
+
+@layers base {
+    p{
+     @apply text-3xl font-bold;  - h1,p
+    }
+}
+
+@layers components{
+    .para{
+      @apply bg-blue-500 text-white;
+    }  Tailwind css class name vechu work pannalam
+
+    .btn{
+        @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px
+    }
+
+}
+
+@learn utilities{
+    .m=2{
+        @apply m-2;
+    }
+    .p-2{
+        @apply p-2;
+    }
+    .skew-15{
+       transform : skewY(-15deg)
+    }
+}
+
+commen styles
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

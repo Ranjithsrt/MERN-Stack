@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Marks Manager</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">
+            Student Marks Manager
+        </h1>
+
+        <p class="text-center text-gray-600">Add - Edit - Delete - Search</p>
+    </div>
+
+    <!-- Add New Student -->
+    <div class="container mx-auto px-4 py-8 bg-white rounded-lg shadow-md max-w-4xl">
+        <!-- Header -->
+        <div class="flex items-center justify-center gap-2 mb-6">
+            <span class="text-2xl">🤖</span>
+            <h2 class="text-2xl font-semibold text-gray-800">Add New Student</h2>
+        </div>
+
+        <form id="student-form" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🙋</span>
+                    <input id="fullName" type="text" placeholder="Enter Full Name" required
+                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🆔</span>
+                    <input id="rollNumber" type="text" placeholder="Enter Roll Number" required
+                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">📝</span>
+                    <input id="mark1" type="number" placeholder="Mark 1" min="0" max="100" required
+                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">📝</span>
+                    <input id="mark2" type="number" placeholder="Mark 2" min="0" max="100" required
+                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">📝</span>
+                    <input id="mark3" type="number" placeholder="Mark 3" min="0" max="100" required
+                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">📝</span>
+                    <input id="mark4" type="number" placeholder="Mark 4" min="0" max="100" required
+                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">📝</span>
+                    <input id="mark5" type="number" placeholder="Mark 5" min="0" max="100" required
+                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+
+            <div class="mt-6 flex justify-center">
+                <button id="submitBtn" type="submit"
+                    class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors">
+                    Add Student
+                </button>
+                <button id="cancelBtn" type="button"
+                    class="ml-4 bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors hidden">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!--  -->
+
+    <!-- Statistics Cards -->
+    <div class="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Total Students</h3>
+            <p id="totalStudents" class="text-3xl font-bold text-blue-600">0</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Passed</h3>
+            <p id="passedCount" class="text-3xl font-bold text-green-600">0</p>
+            <p id="passedPercent" class="text-sm text-gray-500">(0%)</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Failed</h3>
+            <p id="failedCount" class="text-3xl font-bold text-red-600">0</p>
+            <p id="failedPercent" class="text-sm text-gray-500">(0%)</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Average Percentage</h3>
+            <p id="avgPercent" class="text-3xl font-bold text-purple-600">0%</p>
+        </div>
+    </div>
+
+    <!-- Search and Table Section -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- Search Bar -->
+        <div class="mb-6 text-center">
+            <input id="searchInput" type="search" placeholder="Search by Name or Roll Number"
+                class="w-full md:w-1/2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ">
+        </div>
+        <!-- Table -->
+        <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+            <table class="min-w-full">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Full
+                            Name</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Roll
+                            Number</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mark
+                            1</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mark
+                            2</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mark
+                            3</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mark
+                            4</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mark
+                            5</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total
+                        </th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Percentage</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Result</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsTbody" class="bg-white divide-y divide-gray-200">
+                    <!-- Rows are rendered by script.js -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+ <html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p.intro").hide();
+            });
+        });
+    </script>
+    <!-- JavaScript -->
+    <script>
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     let button = document.querySelector("button");
+        //     let paragraphs = document.querySelectorAll("p.intro");
+
+        //     button.addEventListener("click", function () {
+        //         paragraphs.forEach((para => para.style.display = "none"));
+        //     });
+        // });
+    </script>
+</head>
+
+<body>
+
+    <h2 class="intro">This is a heading</h2>
+
+    <p class="intro">This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+    <button>Click me</button>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="offset-md-2 col-md-8">
+          <h4 class="fw-normal py-3 border-bottom border-secondary-subtle text-success">Registration Form</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="fname" class="form-label fw-semibold text-secondary">First Name</label>
+                <input type="text" id="fname" class="form-control" placeholder="Enter First Name" required />
+                <div class="valid-feedback">Looks Good!</div>
+                <div class="invalid-feedback">First Name Required</div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lname" class="form-label fw-semibold text-secondary">Last Name</label>
+                <input type="text" id="lname" class="form-control" placeholder="Enter Last Name" required />
+                <div class="valid-feedback">Looks Good!</div>
+                <div class="invalid-feedback">Last Name Required</div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label for="password" class="form-label fw-semibold text-secondary">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter Password" required />
+                <div class="valid-feedback">Looks Good!</div>
+                <div class="invalid-feedback">Password Required</div>
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <label for="email" class="form-label fw-semibold text-secondary">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Enter Email" required />
+                <div class="valid-feedback">Looks Good!</div>
+                <div class="invalid-feedback">Email Required</div>
+              </div>
+
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary d-block w-100">Register Now</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>
+
+<!--
+valid-feedback
+invalid-feedback
+
+valid-tooltip
+invalid-tooltip
+
+-->

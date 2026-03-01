@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<!-- static files -- images -->
+
+ {% load static %} 
+
+<h>
+    <title>Profile Page</title>
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="{% static 'css/add.css' %}"> </link>
+
+    <style>
+        span {
+            text-align: center;
+            display: block;
+        }
+        img {
+            width: 300px;
+            height: 300px;;
+            border-radius: 50%;
+        }
+    </style>
+
+</head>
+
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0">
+    <!-- Navigation Bar -->
+    <div style="background-color: #333; color: white; padding: 15px">
+        <a href="#" style="color: white; margin-right: 20px; text-decoration: none">Home</a>
+        <a href="#" style="color: white; margin-right: 20px; text-decoration: none">Profile</a>
+        <a href="#" style="color: white; margin-right: 20px; text-decoration: none">Settings</a>
+        <a href="#" style="color: white; text-decoration: none">Logout</a>
+    </div>
+
+    <!-- Profile Section -->
+    <div style="padding: 40px; text-align: center">
+        <img src="https://img.theweek.in/content/dam/week/week/news/entertainment/images/2024/11/28/ajith-kumar-racing%20(1).jpg"
+            alt="Profile Picture" style="margin-bottom: 20px" />
+        <h2 style="margin: 10px 0">Your Name</h2>
+        <p style="color: #555">Frontend Developer | Python Enthusiast</p>
+
+        <div style="margin-top: 30px">
+            <p><strong>Email:</strong> yourname@example.com</p>
+            <p><strong>Location:</strong> Chennai, India</p>
+            <p><strong>Languages:</strong> English, Tamil</p>
+        </div>
+    </div>
+
+     <!-- tamplates  tag -->
+
+    <!-- 
+     <div style="padding: 40px; text-align: center">
+        <h2 style="margin: 10px 0">Your Name : {{ name }}</h2>
+        <p><strong>Email:</strong> {{ email }}</p>
+    </div> 
+    -->
+
+    <!-- http://127.0.0.1:8000/display/ -->
+
+    <!-- Html -->
+
+    <span style="color: red; font-weight: bolder ; font-size: 50px ;">{{display_date}}</span>
+
+    <span style="color: steelblue; margin-top: 30px; font-weight: bolder; font-size: 30px">{{ message }}</span>
+
+    <!-- static images -->
+
+    <img src="{% static 'images/STOZ.png' %}" alt="my image">
+
+    <!-- http://127.0.0.1:8000/display/ -->
+
+
+   
+
+
+</body>
+
+</html>

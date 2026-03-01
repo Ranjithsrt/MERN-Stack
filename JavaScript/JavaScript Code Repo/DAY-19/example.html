@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const messageLog = [
+        { user: "Ram", text: "Hi", logs: "10:15 AM" },
+        { user: "Sam", text: "Hello", logs: "10:18 AM" },
+        { user: "Ram", text: "How are you?", logs: "10:20 AM" },
+        { user: "Sam", text: "Good!", logs: "10:21 AM" },
+        { user: "Sam", text: "What are you doing", logs: "10:30 AM" },
+      ];
+
+      const lastIndexOfSam = messageLog.map((msg) => msg.user).lastIndexOf("Sam");
+
+      console.log(lastIndexOfSam);
+      if (lastIndexOfSam !== -1) {
+        console.log(`Lasted Message : ${messageLog[lastIndexOfSam].text}`);
+        console.log(`Last Seen : ${messageLog[lastIndexOfSam].logs}`);
+      }
+    </script>
+  </body>
+</html>

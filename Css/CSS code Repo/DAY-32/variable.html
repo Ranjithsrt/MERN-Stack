@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --primary-color: #6d66d5;
+        --margin: 25px;
+        /* --text-color: #b5105d; */
+      }
+      h1 {
+        color: var(--primary-color);
+      }
+
+      .container {
+        --text-color: #0fa111;
+      }
+      p {
+        color: var(--text-color, blue);
+        margin-bottom: var(--margin);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sample Headings</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nam culpa, magnam in adipisci est vero eos rerum, dignissimos, mollitia id quis expedita laboriosam libero quam tempore sit nostrum quo.</p>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum eaque similique ullam fuga temporibus saepe quis fugiat? Nemo nulla explicabo, ab cupiditate voluptatum sed, placeat esse ex odit, qui consequuntur.</p>
+
+    <script>
+      document.documentElement.style.setProperty("--primary-color", "red");
+    </script>
+  </body>
+</html>

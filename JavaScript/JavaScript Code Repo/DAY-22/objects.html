@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const user = ["Ram", 25, "Male", 98.25, [98, 97, 98]];
+      console.log(user);
+      console.log(user[0]);
+
+      //1. Creating Objects
+
+      //a. Object Literal Notation
+      const student = {
+        name: "Ram",
+        age: 25,
+        gender: "Male",
+        avg: 98.25,
+        marks: [98, 97, 98],
+        "full name": "Ram Kumar",
+        greet: function () {
+          console.log(`Hello, I'm ${this.name}`);
+        },
+      };
+      console.log(student);
+      console.log(student.name); //Dot Notation
+      console.log(student["name"]); //Square Notation
+      console.log(student["full name"]); //Square Notation
+      student.greet();
+
+      //b. Using the Object Constructor
+      const car = new Object();
+      car.make = "Maruthi";
+      car.model = "M800";
+      car.year = 2007;
+      console.log(car);
+      console.log(car.make);
+      console.log(car["model"]);
+
+      //c. Using Constructor Functions
+      function Book(title, author, year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.getDetails = function () {
+          console.log(`${this.title} by ${this.author}, published in ${this.year}`);
+        };
+      }
+
+      const book1 = new Book("Let us C", "Yeswant", 2022);
+      console.log(book1);
+
+      //d. Using Object.create()
+
+      const proto = {
+        eligiblity: function () {
+          if (this.age >= 18) {
+            console.log(`${this.name} is eligible for voting`);
+          } else {
+            console.log(`${this.name} is not eligible for voting`);
+          }
+        },
+      };
+      const people = Object.create(proto);
+      people.name = "Kumar";
+      people.age = 25;
+      console.log(people);
+      people.eligiblity();
+
+      //e. Using ES6 Classes
+
+      class Animal {
+        constructor(name, species) {
+          this.name = name;
+          this.species = species;
+        }
+        describe() {
+          console.log(`${this.name} is a ${this.species}`);
+        }
+      }
+
+      const dog = new Animal("Max", "Dog");
+      console.log(dog);
+      dog.describe();
+      const cat = new Animal("Billy", "Cat");
+      cat.describe();
+    </script>
+  </body>
+</html>

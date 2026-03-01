@@ -1,0 +1,559 @@
+
+Install - Node js
+npm install
+
+node --version
+npm --version
+
+1 . Create a Folder -> project
+
+2 . Open Terminal   -> ctrl + ` 
+
+3 . Navigate to project folder :
+    cd project
+
+4 . Create new React App :
+    1.
+    npm create vite@latest .
+
+    2.Select Framework:
+    React
+
+    3.Select Variant:
+    JavaScript
+
+    4.Install Package
+    npm install
+
+    5.Run project
+    npm run dev    -> Default counter app
+
+To Stop Project  : CTRL + C
+
+5. Add Extension
+ES7+ React/Redux/React-Native snippets
+
+6.Open App.jsx
+Type  rafce
+
+7. Link CSS Style
+import "./index.css"
+
+
+https://tailwindcss.com/docs/installation/using-vite
+
+8. Install tailwindcss css package
+  npm install tailwindcss @tailwindcss/vite
+
+9. Open vite.config.ts
+    import tailwindcss from '@tailwindcss/vite'
+    tailwindcss(),
+
+10. open index.css
+  @import "tailwindcss";
+
+11 Run Project
+    npm run dev
+
+----------------
+
+custom Font setup (google fonts) :
+
+@import url("https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+system fonts ( download ) :
+
+
+@font-face {
+  font-family: "Lobster";
+  src: url("../src/assets/Lobster-Regular.ttf");
+}
+
+
+@theme {
+  --font-doto:"Doto", sans-serif;
+  --font-lobster: "Lobster", sans-serif;
+}
+
+custom cSS style :
+
+<p id="title">..</p>
+
+app.css (file)
+
+#title {
+  font-size: 30px;
+  font-weight: 500;
+  color: brown;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+ Empty file : tailwind.config.js
+
+
+----------------
+
+Day-2
+
+
+alert
+
+user profile
+
+dark:
+
+dark:bg-gray-800 - background
+dark:text-blue-100 - text
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+------------------
+
+Day-3
+
+buttons
+forms
+
+-----------
+
+Day-4
+
+3 way to Learn tailwindcss
+1.CDN
+2.Install tailwindcss package
+3.Tailwind play
+
+
+Padding
+p-*
+pt-*
+pr-*
+pe-*
+pb-*
+pl-*
+ps-*
+px-*
+py-*
+p-[50px] - custom
+
+Margin
+m-*
+mt-*
+mr-*
+me-*
+mb-*
+ml-*
+ms-*
+mx-*
+my-*
+m-[50px] - custom
+
+
+0
+0.5
+1
+1.5
+2
+2.5
+3
+.
+.
+96
+
+font-family :
+
+<p>Tutor Joe's - Default</p>
+<p className="font-mono">Tutor Joe's - Mono</p>
+<p className="font-serif">Tutor Joe's - Serif</p>
+<p className="font-sans">Tutor Joe's - sans</p>
+<p className="font-doto">Tutor Joe's - Doto</p>
+<p className="font-lobster">Tutor Joe's - Lobster</p>
+
+app.css file :
+
+@import url("https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+
+system fonts ( download ) :
+
+download fonts or local fonts :
+
+drag font file  into  your assets folder .
+
+
+@font-face {
+  font-family: "Lobster";
+  src: url("../src/assets/Lobster-Regular.ttf");
+}
+
+
+@theme {
+  --font-doto:"Doto", sans-serif;
+  --font-lobster: "Lobster", sans-serif;
+}
+
+
+font-size :
+
+<p className="text-xs">text-xs</p> 12px
+<p className="text-sm">text-sm</p> 14px
+<p className="text-base">text-base</p> 16px
+<p className="text-lg">text-lg</p>18px
+<p className="text-xl">text-xl</p>20px
+<p className="text-2xl">text-2xl</p>
+<p className="text-3xl">text-3xl</p>
+<p className="text-4xl">text-4xl</p>
+<p className="text-5xl">text-5xl</p>
+<p className="text-6xl">text-6xl</p>
+<p className="text-7xl">text-7xl</p>
+<p className="text-8xl">text-8xl</p>
+<p className="text-9xl">text-9xl</p>
+<p className="text-[120px]">text-120px</p>
+
+
+Font Style / Weight :
+
+<p className="italic">Font Style Italic</p>
+
+Font Weight :
+
+<p className="font-thin">font-thin 100</p>
+<p className="font-extralight">font-extralight 200</p>
+<p className="font-light">font-light 300</p>
+<p className="font-normal">font-normal 400</p>
+<p className="font-medium">font-medium 500</p>
+<p className="font-semibold">font-semibold 600</p>
+<p className="font-bold">font-bold 700</p>
+<p className="font-extrabold">font-extrabold 800</p>
+<p className="font-black">font-black 900</p>
+
+
+
+line height or line spacing  :
+
+leading-none
+leading-tight
+leading-snug
+leading-normal
+leading-relaxed
+leading-loose
+
+leading-3
+leading-4
+leading-5
+leading-6
+leading-7
+leading-8
+leading-9
+leading-10
+
+text-alignment :
+
+text-left
+text-start
+text-right
+text-end
+text-center
+text-justify
+
+Text Transform :
+
+<p className="text-3xl normal-case">TuTOR JoeS</p>
+<p className="text-3xl uppercase">TuTOR JoeS</p>
+<p className="text-3xl lowercase">TuTOR JoeS</p>
+<p className="text-3xl capitalize">tutor joes</p>
+
+Text Decoration :
+
+<p className="underline">underline</p>
+<p className="line-through">line-through</p>
+<p className="overline">overline</p>
+<p className="no-underline">no-underline</p>
+
+Text-underline :
+
+underline-none
+underline-offset-auto
+underline-offset-0
+underline-offset-1
+underline-offset-2
+underline-offset-4
+underline-offset-8
+-underline-offset-0
+-underline-offset-1
+-underline-offset-2
+-underline-offset-4
+-underline-offset-8
+
+List :
+list-disc
+
+<ul className="list-decimal">
+  <li>List Item</li>
+  <li>List Item</li>
+  <li>List Item</li>
+  <li>List Item</li>
+</ul>
+
+
+bg-colors :
+
+<div className="flex my-5 gap-3 bg-yellow-50 p-5  border-2 text-amber-950 border-amber-800 rounded-full">
+       
+        <div className="h-10 w-10 bg-sky-50"></div>
+        <div className="h-10 w-10 bg-sky-100"></div>
+        <div className="h-10 w-10 bg-sky-200"></div>
+        <div className="h-10 w-10 bg-sky-300"></div>
+        <div className="h-10 w-10 bg-sky-400"></div>
+        <div className="h-10 w-10 bg-sky-500">500</div>
+        <div className="h-10 w-10 bg-sky-600"></div>
+        <div className="h-10 w-10 bg-sky-700"></div>
+        <div className="h-10 w-10 bg-sky-800"></div>
+        <div className="h-10 w-10 bg-sky-900"></div>
+        <div className="h-10 w-10 bg-sky-950"></div>
+
+ </div>
+
+bg-opacity :
+
+<div className="flex my-5 gap-3 bg-yellow-50 p-5">
+
+        <div className="h-10 w-10 bg-sky-500/10"></div>
+        <div className="h-10 w-10 bg-sky-500/20"></div>
+        <div className="h-10 w-10 bg-sky-500/30"></div>
+        <div className="h-10 w-10 bg-sky-500/40"></div>
+        <div className="h-10 w-10 bg-sky-500/50"></div>
+        <div className="h-10 w-10 bg-sky-500/60"></div>
+        <div className="h-10 w-10 bg-sky-500/70"></div>
+        <div className="h-10 w-10 bg-sky-500/80"></div>
+        <div className="h-10 w-10 bg-sky-500/90"></div>
+        <div className="h-10 w-10 bg-sky-500/100"></div>
+
+</div>
+
+rounded:
+
+rounded
+rounded-full
+rounded-t
+rounded-b
+rounded-l
+rounded-r
+
+----------------
+
+
+Day-5
+
+space :
+
+space-x-4
+space-y-4
+
+-space-y-50px
+
+
+borders:
+
+border - default text color
+
+rounded-none
+rounded
+rounded-sm|md|lg|xl|
+rounded-[25px]
+rounded-full
+
+separate edges:
+
+rounded-tr
+rounded-tl
+rounded-bl
+rounded-br
+
+border color :
+
+border-red-50 to 950
+           transparent
+           current
+           inherit
+
+opacity:
+
+border-red-500/5 to 100
+
+
+border size:
+
+border-0
+border-2
+       4
+       8
+border-[12px]
+
+
+border-t-2
+border-b-2
+border-r-2
+border-l-2
+
+
+border style :
+
+border-dashed
+border-solid
+border-dotted
+border-double
+
+
+dividers :
+
+divide-x-
+divide-y-4
+
+divide-green-500
+
+divide-green-500/50
+
+divide-dashed
+
+
+ring:
+
+ring-0| 1 to 8
+ring-green-100
+ring-green-500/50
+
+focus:ring-5
+
+ring-offset-4
+
+
+shadow :
+
+shadow
+shadow-sm
+shadow-md
+shadow-lg
+shadow-xl
+
+
+opacity :
+
+
+opacity-0
+opacity-25 to 100
+
+
+------------
+
+Day-6
+
+flex box :
+
+
+Display :
+
+flex
+inline-flex
+
+
+Direction :
+
+flex-row
+flex-row-reverse
+
+flex-col
+flex-col-reverse
+
+flex wrap :
+
+flex-nowrap
+flex-wrap
+flex-wrap-reverse
+
+child  :
+
+flex :
+
+flex-none
+flex-auto
+flex-initial
+flex-1
+
+grow :
+
+grow
+grow-0
+
+shrink:
+
+shrink
+shrink-0
+
+flex basis :
+
+align items :
+
+items-start | center | end | stretch | 
+
+align self :
+
+self-auto | start | center| end | stretch | baseline |
+
+align content :
+
+content-start |  center | end | stretch | space-between | space-around | space-evenly
+
+
+justify content :
+
+justify-start |center | end | stretch | space-between | space-around | space-evenly
+
+
+import image :
+
+import image1 from "../assets/images/1.png";
+
+<img src={image1} />
+
+react custom css :
+
+inline style :
+
+style={{
+  MarginTop:"5px";
+}}
+
+external style :
+
+.my-h1{
+  color: blue;
+}
+
+-------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       

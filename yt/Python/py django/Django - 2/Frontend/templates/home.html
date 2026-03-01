@@ -1,0 +1,55 @@
+<!-- 
+  
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>This is the home</h1>
+
+     Simple variable display  
+     <h2>{{ message }}</h2>
+
+    {% if role == "Admin" %}
+      <h3>Welcome Admin {{ name }}</h3>
+    {% endif %}  
+
+    Loop through numbers  
+    <h4>Numbers:</h4>
+    <ul>
+      {% for number in numbers %}
+        <li>{{ number }}</li>
+      {% endfor %}
+    </ul> 
+
+   Loop through subjects 
+    <h4>Subjects:</h4>
+    <ul>
+      {% for subject in subjects %}
+        <li>{{ subject }}</li>
+      {% endfor %}
+    </ul> 
+ </body>
+</html>
+
+-->
+
+<!-- boostrap -->
+
+
+
+ <!-- base.html styles extends this file -->
+
+ {% extends 'base.html' %}
+  
+{% block content %}
+    <div class="container mt-5">
+      <h1>Welcome to MySite!</h1>
+      <p>This is a simple Bootstrap navbar example.</p>
+    </div>
+
+{% endblock content %}
+ 

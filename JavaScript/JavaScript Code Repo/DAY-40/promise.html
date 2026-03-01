@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Promise</h3>
+    <p>A Promise in JavaScript is an object that represents the eventual completion or failure of an asynchronous operation.</p>
+    <p>It's a better way to handle asynchronous code compared to traditional callback functions.</p>
+
+    <h4>Why Use Promises?</h4>
+    <p>Promises help you:</p>
+    <ul>
+      <li>Avoid callback hell.</li>
+      <li>Make asynchronous code easier to read and manage.</li>
+      <li>Chain multiple async operations cleanly.</li>
+    </ul>
+
+    <h4>Promise States</h4>
+    <p>A Promise has 3 states:</p>
+    <ul>
+      <li>Pending - Initial state, neither fulfilled nor rejected.</li>
+      <li>Fulfilled - Operation completed successfully.</li>
+      <li>Rejected - Operation failed.</li>
+    </ul>
+    <script>
+      /*
+      let promise = new Promise((resolve, reject) => {
+        let success = false;
+        if (success) {
+          resolve("Operation Success !");
+        } else {
+          reject("Operation Failed !");
+        }
+      });
+
+      promise
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+        .finally(() => {
+          console.log("Progran End");
+        });
+
+      function loadUsers() {
+        const url = "https://jsonplaceholder.typicode.com/users";
+        fetch(url)
+          .then((response) => {
+            console.log(response);
+            const data = response.json();
+            return data;
+          })
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((err) => console.error(err))
+          .finally(() => {
+            console.log("Program End");
+          });
+      }
+
+      loadUsers();
+
+      */
+      /*
+        1. Promise.all([p1,p2...])
+        2. Promise.any([p1,p2...])
+        3. Promise.race([p1,p2...])
+        4. Promise.allSettled([p1,p2...])
+      */
+
+      const p1 = Promise.reject("A Bad");
+      const p2 = Promise.reject("B Bad");
+      const p3 = Promise.reject("C Bad");
+
+      console.log(p1);
+      console.log(p2);
+      console.log(p3);
+
+      /*
+      Promise.all([p1, p2, p3])
+        .then((values) => {
+          console.log(values);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+        */
+
+      Promise.any([p1, p2, p3])
+        .then((values) => {
+          console.log(values);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+
+      const pr1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Fast");
+        }, 1000);
+      });
+      const pr2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Slow");
+        }, 3000);
+      });
+
+      Promise.race([pr1, pr2])
+        .then((values) => {
+          console.log(values);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,613 @@
+ #5 Data Fetching and Caching in Next JS ("Use cache" - Canary Version) 
+          
+                 req (fetch)
+           ----------------------->
+ client ----------> Browser ------> server --------> DB
+                       <---------------------------------
+                               res
+
+                                  
+
+Mock REST API :
+  
+  npm i json server -g
+
+  json-server --watch --port 4000 ./data/db.json
+
+  project folder (my-appl) level - data - db.json
+
+mock Api :
+
+  {
+  "posts": [
+    {
+      "id": 1,
+      "name": "Ranjith",
+      "next": "learning nextjs 13"
+    },
+    {
+      "id": 2,
+      "name": "John",
+      "next": "learning reactjs"
+    },
+    {
+      "id": 3,
+      "name": "Doe",
+      "next": "learning vuejs"
+    },
+    {
+      "id": 4,
+      "name": "Smith",
+      "next": "learning angular"
+    },
+    {
+      "id": 5,
+      "name": "Raj",
+      "next": "learning nodejs"
+    }
+  ]
+}
+
+
+( ˶ˆ ᗜ ˆ˵ )
+
+Index:
+http://localhost:4000/
+
+Static files:
+Serving ./public directory if it exists
+
+Endpoints:
+http://localhost:4000/posts
+
+---------------------
+
+use cache setup :
+
+using canary version
+
+next.config.json 
+
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+  experimental : { dynamicID: true }
+};
+
+export default nextConfig;
+
+
+run - npx create-next-app@canary fetch-cache
+
+------------------------------------
+
+
+
+fetch data - main root page.js
+
+"use cache"
+
+export default async function Home() {
+  let data = await fetch("http://localhost:4000/posts");
+  let posts = await data.json();
+  console.log("Hi from derver component");
+  
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center py-2 bg-white text-black">
+      <h1 className="text-4xl font-bold mb-8">Posts</h1>
+      <ul className="w-full max-w-2xl">
+        {posts.map((post: any) => (
+          <li key={post.id} className="mb-6 p-4 border rounded shadow">
+            <h2 className="text-2xl font-semibold mb-2">{post.name}</h2>
+            <p className="text-gray-700">{post.next}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+---------------------
+
+#6 How to connect to MongoDB in Next JS 
+
+1 install mongoose
+
+npm i mongoose
+
+--------------
+
+2 db connection 
+
+dpapi (p name) - db - dbconnect.js 
+
+import mongoose from 'mongoose'
+
+const dbconnect = () => {
+  try {
+    mongoose.connect(process.env.MONGO_URI, {
+      dbName: "fetch-cache",
+    });
+    console.log('MongoDB connected')
+  } catch (error) {
+    console.log('MongoDB connection error:', error)
+  }
+}
+
+export default dbconnect
+
+-----------------
+
+3 environ ment file :
+
+dbapi - file  .env  - 
+
+MONGO_URI = "mongodb://localhost:27017/nextjsdb"
+
+----------------
+
+check connection
+
+4 dpapi - main page.jsx -
+
+
+import dbconnect from "@/db/dbconnect";
+
+export default function Home() {
+  dbconnect();
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 text-black">
+      <h1 className="text-4xl font-bold">MongoDB API </h1>
+    </div>
+  );
+}
+
+
+------------------------------------
+
+#7 API Route (GET Method) in Next JS in Tamil
+
+dbapi - app - api - book - route.ts
+
+
+import { NextResponse } from 'next/server';
+
+export function GET() {
+    return NextResponse.json({ message: "Hi from GET method" });
+}
+
+http://localhost:3000/api/book/
+
+--------------------------------------------------------
+
+#8 Fetch data from MongoDB using GET() + AXIOS in Next JS in Tamil
+
+
+dbapi - model -   BookModel.js  
+
+create schema  and models
+
+
+import mongoose from 'mongoose';
+
+const BookSchema = new mongoose.Schema({
+    bookname: { type: String, required: true },
+    categoryname: { type: String, required: true },
+
+});
+
+// db name 'Book'
+// final model name 'Book' and mongoose will create collection name 'books' in db
+
+const BookModels =  mongoose.models.Book || mongoose.model('Book', BookSchema);
+
+export default BookModels
+
+ 
+
+-----------------
+
+dbapi - app - book - route.js 
+
+GET to  db :
+
+
+import { NextResponse, NextRequest } from "next/server";
+import dbconnect from "@/db/dbconnect";
+import BookModels from "@/model/BookModel";
+
+
+export async function GET() {
+
+  dbconnect();
+  const BookRoute = await BookModels.find({});
+  return NextResponse.json({ BookRoute });
+
+}
+
+-----------------------------
+
+app - model - BookModel.js
+
+ import mongoose from 'mongoose';
+
+const BookSchema = new mongoose.Schema({
+    bookname: { type: String, required: true },
+    categoryname: { type: String, required: true },
+
+});
+
+// db name 'Book'
+// final model name 'Book' and mongoose will create collection name 'books' in db
+
+const BookModels =  mongoose.models.Book || mongoose.model('Book', BookSchema);
+
+export default BookModels
+
+// export default mongoose.models.Book || mongoose.model("Book", BookSchema);
+
+-------------
+
+after look mongoose compose : book folder created
+
+{"BookRoute":[]}
+
+insert data in compose app :
+
+output:
+
+{
+  "BookRoute": [
+    {
+      "_id": "692ac5b94b2775d77948523c",
+      "booknme": "C",
+      "categoryname": "programming"
+    },
+    {
+      "_id": "692ac5e94b2775d77948523e",
+      "booknme": "Python",
+      "categoryname": "programming"
+    }
+  ]
+}
+http://localhost:3000/api/book
+
+
+------------------------
+
+render data - root page
+
+ npm i axios
+
+ "use client";
+
+import dbconnect from "@/db/dbconnect";
+import axios from "axios";
+
+export default async function Home() {
+  // dbconnect();
+  const fetchItem = async () => {
+    const response = await axios.get("http://localhost:3000/api/book");
+    console.log(response.data);
+  };
+  fetchItem();
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 text-black">
+      <h1 className="text-4xl font-bold">MongoDB API </h1>
+    </div>
+  );
+}
+
+ http://localhost:3000/api/book
+
+
+ .env  - connect DB - - write  model and schema - Route  GET funtionality - insert Data compass - render data
+
+
+-------------------------------------------------
+
+#9 Fetch a single item from MongoDB using GET() + AXIOS in Next JS in Tamil
+
+
+api - book - [id] - route.js
+
+logics 
+
+
+import { NextResponse } from "next/server";
+import dbconnect from "@/db/dbconnect";
+import BookModels from "@/model/BookModel";
+
+// GET method to fetch book by ID
+
+export async function GET(req,{params}) {
+  const {id} = await params;
+  dbconnect();
+  // fetch data from mongoose model
+  const BookRoute = await BookModels.findById({ _id:id});
+  return NextResponse.json({ BookRoute });
+}
+
+// Example request:
+// http://localhost:3000/api/book/692aed1b38c6aeea7eab2d0b
+
+output :
+
+{"BookRoute":{"_id":"692ad1d54b2775d779485241","bookname":"Python","categoryname":"programming"}}
+
+-------------------------------------------------------
+
+
+render single Data :
+
+api - book - [id] - page.js -
+
+
+ "use client";
+
+import axios from "axios";
+
+export default function Page({ params }) {
+  const fetchSinglebook = async () => {
+    const { id } = await params;
+    const res = await axios.get(`http://localhost:3000/api/book/${id}`);
+    console.log(res.data);
+  };
+  fetchSinglebook();
+
+  return (
+    <div>
+      {/* render single data */}
+
+      <h1>Single Book Data</h1>
+    </div>
+  );
+}
+
+http://localhost:3000/book/692aed1b38c6aeea7eab2d0b
+
+----------------------------------------
+
+#10 POST a document into MongoDB + AXIOS using FormData in Next JS in Tamil
+
+
+api - book - route.js
+
+POST :
+
+export async function POST(req){
+  // connect to database
+  dbconnect();
+  const { bookname, categoryname } = await req.json();
+  const bookpost = new BookModels({
+    bookname,
+    categoryname,
+  });
+  // save to database
+  await bookpost.save();
+  return NextResponse.json({bookpost }, { status: 201 });
+}
+
+
+-------------------------
+
+Thunder
+
+POST - http://localhost:3000/api/book
+
+Body
+
+JSON
+
+http://localhost:3000/api/book - no space
+
+-----------------------------------------
+
+form :
+
+collect form All data store DB  with help of Endpoint
+
+from - root - page.jsx
+
+"use client";
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+export default function Home() {
+   
+
+  const [books, setBooks] = useState([]);
+
+  const handleSubmit = async (event) => {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const bookname = formData.get("bookname");
+    const categoryname = formData.get("categoryname");
+
+    console.log(bookname, categoryname);
+
+    const response = await axios.post("http://localhost:3000/api/book", {
+      bookname,
+      categoryname,
+    });
+
+    console.log("New Book Added", response.data.bookpost);
+
+    // Update the books state to include the newly added book
+    setBooks([...books, response.data.bookpost]);
+
+    // Reset the form
+    event.target.reset();
+  };
+  return (
+    <>
+      <div className="flex flex-col bg-gray-100 text-black min-h-screen items-center justify-center ">
+        <h1 className="text-4xl font-bold">MongoDB API</h1>
+        <form className="mt-4" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Book Name"
+            name="bookname"
+            className="border rounded-md p-2 my-5"
+          />
+          <br />
+          <input
+            type="text"
+            placeholder="Category Name"
+            name="categoryname"
+            className="border rounded-md p-2 my-5"
+          />
+          <br />
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 "
+          >
+            Submit
+          </button>
+        </form>
+        {/* render data */}
+        <div className="mt-8">
+          {books.map((book, index) => (
+            <div key={index} className="border p-4 my-2 w-96">
+              <h2 className="text-xl font-semibold">{book.bookname}</h2>
+              <p className="text-gray-600">{book.categoryname}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+
+
+----------------------------
+
+ #11 Server Action and Mutation to POST Data in Next JS in Tamil ("use server")
+
+form :
+
+collect form All data store DB  with help of action attribute.
+
+
+app - action.js -
+
+"use server";
+
+import dbconnect from "@/db/dbconnect";
+import BookModels from "@/model/BookModel";
+
+export async function addBook(formData) {
+  const bookname = formData.get("bookname");
+  const categoryname = formData.get("categoryname");
+
+  // console.log(bookname,categoryname);
+  dbconnect();
+  // Create a new book document
+  const bookpost = new BookModels({
+    bookname,
+    categoryname,
+  });
+  // Save the document to the database
+  const result = await bookpost.save();
+
+// Return the saved document as a plain JavaScript object
+  const plainResult = {
+    _id: result._id.toString(),
+    bookname: result.bookname,
+    categoryname: result.categoryname,
+  };
+  return plainResult;
+}
+
+
+app - root page.tsx
+
+from :
+
+"use client";
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { addBook } from "./action";
+
+
+export default function Home() {
+   
+
+  const [books, setBooks] = useState([]);
+
+  const handleSubmit = async (event) => {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const bookname = formData.get("bookname");
+    const categoryname = formData.get("categoryname");
+
+    console.log(bookname, categoryname);
+
+    const response = await axios.post("http://localhost:3000/api/book", {
+      bookname,
+      categoryname,
+    });
+
+    console.log("New Book Added", response.data.bookpost);
+
+    // Update the books state to include the newly added book
+    setBooks([...books, response.data.bookpost]);
+
+    // Reset the form
+    event.target.reset();
+  };
+  return (
+    <>
+      <div className="flex flex-col bg-gray-100 text-black min-h-screen items-center justify-center ">
+        <h1 className="text-4xl font-bold">MongoDB API</h1>
+        <form 
+        action={addBook}
+        className="mt-4"
+        
+       >
+          <input
+            type="text"
+            placeholder="Book Name"
+            name="bookname"
+            className="border rounded-md p-2 my-5"
+          />
+          <br />
+          <input
+            type="text"
+            placeholder="Category Name"
+            name="categoryname"
+            className="border rounded-md p-2 my-5"
+          />
+          <br />
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 "
+          >
+            Submit
+          </button>
+        </form>
+        {/* render data */}
+        <div className="mt-8">
+          {books.map((book, index) => (
+            <div key={index} className="border p-4 my-2 w-96">
+              <h2 className="text-xl font-semibold">{book.bookname}</h2>
+              <p className="text-gray-600">{book.categoryname}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+
+-----------------------------------------------
+
+
+

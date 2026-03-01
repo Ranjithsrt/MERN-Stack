@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <h1>Sample Heading</h1>
+      <div>
+        <h2>Sub Title</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate esse voluptate veritatis voluptatibus reiciendis quasi quis provident architecto nesciunt ipsam. At minus itaque nulla, dignissimos accusamus eveniet aspernatur sequi consequuntur.</p>
+      </div>
+    </section>
+
+    <section id="s2">
+      <h1>Heading-1 First Child</h1>
+      <p>Para Second Child</p>
+      <div>
+        Div Last Child
+        <h2>Sub Heading</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate esse voluptate veritatis voluptatibus reiciendis quasi quis provident architecto nesciunt ipsam. At minus itaque nulla, dignissimos accusamus eveniet aspernatur sequi consequuntur.</p>
+      </div>
+    </section>
+
+    <script>
+      const body = document.querySelector("body");
+      console.log(body);
+      console.log(body.firstChild);
+      console.log(body.firstElementChild);
+      body.firstElementChild.style.color = "green";
+
+      console.log(body.lastChild);
+      console.log(body.lastElementChild);
+
+      const section2 = document.querySelector("#s2");
+
+      console.log(section2.firstChild);
+      console.log(section2.firstElementChild);
+      console.log(section2.lastChild);
+      console.log(section2.lastElementChild);
+
+      console.log(section2.children);
+      console.log(section2.children[0]);
+      console.log(section2.children[1]);
+      console.log(section2.children[2]);
+    </script>
+  </body>
+</html>

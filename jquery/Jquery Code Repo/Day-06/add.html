@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Add Elements</h3>
+    <ul>
+      <li>append</li>
+      <li>prepend</li>
+      <li>after</li>
+      <li>before</li>
+    </ul>
+    <input type="text" id="txt" />
+    <br />
+    <br />
+    <button id="btnAppend">Append</button>
+    <button id="btnPrepend">prepend</button>
+
+    <hr />
+    <button id="btnAfter">After</button>
+    <button id="btnBefore">Before</button>
+
+    <h3>Heading</h3>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script>
+      $("#btnAppend").click(function () {
+        $("ul").append(`<li>${$("#txt").val()}</li>`);
+        $("#txt").val("");
+      });
+
+      $("#btnPrepend").click(function () {
+        $("ul").prepend(`<li>${$("#txt").val()}</li>`);
+        $("#txt").val("");
+      });
+
+      $("#btnAfter").click(function () {
+        $("h3").after(`<i>${$("#txt").val()}</i>`);
+      });
+
+      $("#btnBefore").click(function () {
+        $("h3").before(`<i>${$("#txt").val()}</i>`);
+      });
+    </script>
+
+    <script>
+      document.querySelector("#btnAppend").addEventListener("click", function () {
+        const ul = document.querySelector("ul");
+        // const li = `<li>${document.querySelector("#txt").value}</li>`;
+        // ul.innerHTML += li;
+        const li = document.createElement("li");
+        li.textContent = document.querySelector("#txt").value;
+        ul.appendChild(li);
+      });
+    </script>
+  </body>
+</html>

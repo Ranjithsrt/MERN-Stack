@@ -1,0 +1,244 @@
+------------------------------------------------
+
+jQuery
+
+-------------------------------------------------
+
+
+Day - 1
+
+The jQuery library contains the following features:
+
+HTML/DOM manipulation
+CSS manipulation
+HTML event methods
+Effects and animations
+AJAX
+Utilities
+cross-Browser compatiblity
+chaining
+
+-----------------------------------------
+
+Downloading jQuery :
+
+<head>
+<script src="jquery-3.7.1.min.js"></script>
+</head>
+
+jQuery CDN
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+syntax 
+ 
+ Basic syntax is: $(selector).action()
+
+A $ sign to define/access jQuery
+A (selector) to "query (or find)" HTML elements
+A jQuery action() to be performed on the element(s)
+Examples:
+
+$(this).hide() - hides the current element.
+
+$("p").hide() - hides all <p> elements.
+
+$(".test").hide() - hides all elements with class="test".
+
+$("#test").hide() - hides the element with id="test".
+
+-----------
+
+The Document Ready Event :
+
+$(document).ready(function(){
+
+  // jQuery methods go here...
+
+});
+
+-----------------
+
+selector  :
+
+$(this).hide() - hides the current element.
+
+$("p").hide() - hides all <p> elements.
+
+$(".test").hide() - hides all elements with class="test".
+
+$("#test").hide() - hides the element with id="test".
+
+-----------------
+
+css styles:
+
+$("p").css("background-color");
+
+Set Multiple CSS Properties
+
+
+$("p").css({"background-color": "yellow", "font-size": "200%"});
+
+--------------------------
+
+Day - 2
+
+jQuery Event Methods
+
+Mouse Events
+
+click
+
+dblclick
+
+mouseenter
+
+mouseleave
+
+-------------------
+
+Keyboard Events
+
+keypress
+
+keydown
+
+keyup
+
+-------------------
+
+Form Events
+
+submit
+
+change
+
+focus
+
+blur
+
+-------------------------------
+
+Day - 3 
+
+jQuery Todo project
+
+------------------------------------
+
+
+Day - 4
+
+jQuery Todo project
+
+------------------------------------
+
+Day - 5
+
+Animate
+
+Effects:
+
+   - hide show toggle
+   - fade in fade out fade toggle fade to
+   - slide up slide down slide toggle
+   - stop
+   - callback
+   - chaining
+
+Html :
+     
+   - get - text ,html , val, attr
+   - set - text ,html , val , attr
+
+
+------------------------------------
+
+Day - 6
+
+Add Elements :
+
+   append
+   perpend
+   after
+   before 
+-------------------
+
+css:
+
+ addClass
+ removeClass
+ toggleClass
+ css
+
+-------------------------------
+
+Dimension in jQuery
+
+width
+height
+innerwidth
+innerheight
+outerwidth
+outerheight
+
+-----------------
+
+remove
+empty
+
+
+------------------------------------
+
+Day - 7
+
+jQuery Traversing
+
+parent()
+parents()
+parentsUntil()
+children()
+find()
+siblings()
+next() prev()
+nextAll() prevAll()
+nextUntil() previousUntil()
+first() last() eq()
+filter() not() 
+
+
+---------------------------------
+
+Day - 8
+
+load - res , status - xhr
+
+ajax :
+   url
+   type
+   contentType 
+   data
+   success
+   error
+    -  get
+    - post
+
+beforeSend:function(){
+   loading....
+}
+
+-------------------------------
+
+Document/Window Events
+
+load
+
+resize
+
+scroll
+
+unload
+
+--------------------------------

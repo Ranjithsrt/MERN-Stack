@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      16. A library charges a fine for every book returned late. For first 5 days the fine is 50 paise, for 6-10 days fine is one rupee and above 10 days fine is 5 rupees. If you return the book after 30 days your membership will be cancelled. Write a program to accept the number of days the member
+      is late to return the book and display the fine or the appropriate message.
+    </p>
+    <script>
+      const daysLate = 45;
+      if (daysLate > 0 && daysLate <= 5) {
+        console.log(`Fine: ${daysLate * 0.5} rupees`);
+      } else if (daysLate <= 10) {
+        console.log(`Fine: ${daysLate * 1} rupees`);
+      } else if (daysLate <= 30) {
+        console.log(`Fine: ${daysLate * 5} rupees`);
+      } else {
+        console.log("Your membership has been cancelled due to returning the book after 30 days.");
+      }
+    </script>
+  </body>
+</html>

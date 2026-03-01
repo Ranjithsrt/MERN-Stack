@@ -1,0 +1,61 @@
+
+main {
+    height: 50vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.cart-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ccc;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+tr,
+td,
+th {
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+
+th {
+    background-color: #f2f2f2;
+    /* color: #1d1590; */
+}
+
+td {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff0022;
+    color: rgb(243, 243, 243);
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff0a0ad2;
+}
+
+.total-amount {
+    text-align: right;
+    width: 25%;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
+
+}
+ 

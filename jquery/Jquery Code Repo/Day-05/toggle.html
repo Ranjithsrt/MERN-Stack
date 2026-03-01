@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 300px;
+        height: 200px;
+        padding: 10px;
+        margin-top: 20px;
+        color: #fff;
+        background-color: rebeccapurple;
+        box-sizing: border-box;
+        transition: height 0.5s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btnToggle">Toggle Slide</button>
+    <div id="box">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque fugiat quod deserunt praesentium impedit temporibus!</div>
+
+    <script>
+      const btn = document.getElementById("btnToggle");
+      const box = document.getElementById("box");
+      btn.addEventListener("click", function () {
+        if (box.style.height === "0px" || box.style.height === "") {
+          box.style.height = "200px";
+          box.style.padding = "10px";
+        } else {
+          box.style.height = "0px";
+          box.style.padding = "0px";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+What is express? 
+Express is a lightweight web framework for Node.js that makes it easy to build web servers, APIs, and backend applications.
+
+
+Why Express is used ?
+    - Create a server in few lines
+    - Handle GET, POST, PUT, DELETE requests easily
+    - Build REST APIs
+    - Manage routes
+    - Use middleware (auth, logging, validation)
+    - Send JSON responses
+    - Handle errors cleanly
+
+npm init -y
+npm i express
+
+npm i nodemon -D
+npi i archiver

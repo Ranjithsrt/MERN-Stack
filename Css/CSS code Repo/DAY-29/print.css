@@ -1,0 +1,13 @@
+h1 {
+  color: red;
+}
+
+h2.sample {
+  /* break-before: avoid;
+  break-before: page; */
+  break-after: page;
+}
+
+table {
+  break-before: page;
+}

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drop down menu</title>
+
+    <style>
+      /* reset */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* variables */
+
+      :root {
+        --primary-color: #333;
+        --secondary-color: #fff;
+        --bg: white;
+      }
+
+      /* Global style */
+
+      body {
+        background-color: var(--bg);
+        font-family: Arial, sans-serif;
+      }
+
+      /* Navbar */
+
+      nav {
+        width: 100%;
+        height: 60px;
+        background-color: var(--primary-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Logo */
+
+      .logo {
+        margin-left: 50px;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--secondary-color);
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 0 20px;
+        margin-right: 50px;
+      }
+
+      nav li {
+        position: relative;
+      }
+
+      nav li a {
+        padding: 20px;
+        display: block;
+      }
+
+      nav li:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Dropdown content */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 53px;
+        left: 0;
+        background-color: var(--primary-color);
+        min-width: 200px;
+        flex-direction: column;
+        z-index: 1;
+      }
+
+      .dropdown-content li a {
+        padding: 10px 20px;
+        white-space: nowrap;
+      }
+
+      nav li:hover .dropdown-content {
+        display: flex;
+      }
+
+      main {
+        padding: 30px;
+      }
+
+      section {
+        margin: 40px;
+        line-height: 25px;
+      }
+
+      section p {
+        text-align: justify;
+        margin: 15px 0;
+      }
+
+      section h1 {
+        color: rgb(0, 0, 255);
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1 class="logo">
+          <a href="#">TUTOR JOE'S</a>
+        </h1>
+        <ul>
+          <li><a href="#">Graphics Design</a></li>
+          <li>
+            <a href="#">Java</a>
+            <ul class="dropdown-content">
+              <li><a href="#">C</a></li>
+              <li><a href="#">C++</a></li>
+              <li><a href="#">Python</a></li>
+              <li><a href="#">Java</a></li>
+              <li><a href="#">JS</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Download</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h1>Sample Heading 1</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. In similique
+          nihil amet delectus tenetur nostrum possimus? Placeat iste eius facere
+          quisquam vero recusandae nemo ex aliquid pariatur obcaecati odit quo
+          quidem ipsam blanditiis nihil est quasi vitae dicta, nostrum quia
+          delectus. Dolorum ut, necessitatibus nesciunt odit ratione vel saepe
+          ducimus labore esse debitis provident? Aut perspiciatis ullam
+          excepturi molestias debitis. Hic eius obcaecati iusto impedit, ipsam
+          unde optio labore minima voluptas amet excepturi aspernatur beatae
+          alias repellendus corrupti exercitationem, perferendis expedita
+          dignissimos non aut sunt? Laboriosam quas ad nulla nam dolores.
+          Doloremque nisi, quaerat recusandae, reiciendis, dolor fugiat
+          perspiciatis itaque assumenda unde debitis asperiores vero aut!
+          Tenetur omnis quis modi, sint autem qui vitae aspernatur architecto
+          iure quos, expedita magni incidunt mollitia a porro esse praesentium
+          dolore quisquam non delectus hic ab eius ex rerum. Nisi dolorem
+          perspiciatis hic dicta iure minus facilis unde repudiandae dignissimos
+          tempore, veritatis, ullam consequuntur asperiores perferendis
+          expedita, voluptatum natus? Molestias minus quas nostrum modi est
+          accusantium delectus omnis aperiam sint sed doloremque ducimus ipsam
+          illum iusto iure sit dicta fugiat aliquam, quia laudantium corporis
+          beatae dolorum aut soluta? Vero nisi mollitia commodi dicta dolorem
+          aliquam quasi veniam, nemo id repellendus? Similique ipsum sequi
+          dolor.
+        </p>
+      </section>
+
+      <section>
+        <h1>Sample Heading 2</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. In similique
+          nihil amet delectus tenetur nostrum possimus? Placeat iste eius facere
+          quisquam vero recusandae nemo ex aliquid pariatur obcaecati odit quo
+          quidem ipsam blanditiis nihil est quasi vitae dicta, nostrum quia
+          delectus. Dolorum ut, necessitatibus nesciunt odit ratione vel saepe
+          ducimus labore esse debitis provident? Aut perspiciatis ullam
+          excepturi molestias debitis. Hic eius obcaecati iusto impedit, ipsam
+          unde optio labore minima voluptas amet excepturi aspernatur beatae
+          alias repellendus corrupti exercitationem, perferendis expedita
+          dignissimos non aut sunt? Laboriosam quas ad nulla nam dolores.
+          Doloremque nisi, quaerat recusandae, reiciendis, dolor fugiat
+          perspiciatis itaque assumenda unde debitis asperiores vero aut!
+          Tenetur omnis quis modi, sint autem qui vitae aspernatur architecto
+          iure quos, expedita magni incidunt mollitia a porro esse praesentium
+          dolore quisquam non delectus hic ab eius ex rerum. Nisi dolorem
+          perspiciatis hic dicta iure minus facilis unde repudiandae dignissimos
+          tempore, veritatis, ullam consequuntur asperiores perferendis
+          expedita, voluptatum natus? Molestias minus quas nostrum modi est
+          accusantium delectus omnis aperiam sint sed doloremque ducimus ipsam
+          illum iusto iure sit dicta fugiat aliquam, quia laudantium corporis
+          beatae dolorum aut soluta? Vero nisi mollitia commodi dicta dolorem
+          aliquam quasi veniam, nemo id repellendus? Similique ipsum sequi
+          dolor.
+        </p>
+      </section>
+
+      <section>
+        <h1>Sample Heading 3</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. In similique
+          nihil amet delectus tenetur nostrum possimus? Placeat iste eius facere
+          quisquam vero recusandae nemo ex aliquid pariatur obcaecati odit quo
+          quidem ipsam blanditiis nihil est quasi vitae dicta, nostrum quia
+          delectus. Dolorum ut, necessitatibus nesciunt odit ratione vel saepe
+          ducimus labore esse debitis provident? Aut perspiciatis ullam
+          excepturi molestias debitis. Hic eius obcaecati iusto impedit, ipsam
+          unde optio labore minima voluptas amet excepturi aspernatur beatae
+          alias repellendus corrupti exercitationem, perferendis expedita
+          dignissimos non aut sunt? Laboriosam quas ad nulla nam dolores.
+          Doloremque nisi, quaerat recusandae, reiciendis, dolor fugiat
+          perspiciatis itaque assumenda unde debitis asperiores vero aut!
+          Tenetur omnis quis modi, sint autem qui vitae aspernatur architecto
+          iure quos, expedita magni incidunt mollitia a porro esse praesentium
+          dolore quisquam non delectus hic ab eius ex rerum. Nisi dolorem
+          perspiciatis hic dicta iure minus facilis unde repudiandae dignissimos
+          tempore, veritatis, ullam consequuntur asperiores perferendis
+          expedita, voluptatum natus? Molestias minus quas nostrum modi est
+          accusantium delectus omnis aperiam sint sed doloremque ducimus ipsam
+          illum iusto iure sit dicta fugiat aliquam, quia laudantium corporis
+          beatae dolorum aut soluta? Vero nisi mollitia commodi dicta dolorem
+          aliquam quasi veniam, nemo id repellendus? Similique ipsum sequi
+          dolor.
+        </p>
+      </section>
+
+      <!-- Repeat sections as needed -->
+    </main>
+  </body>
+</html>

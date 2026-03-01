@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #ddd;
+  background-image: url("images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+nav {
+  width: 100%;
+  height: 60px;
+  background-color: #222;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+}
+
+nav a:hover {
+  color: teal;
+}
+
+.logo {
+  margin-right: auto;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+section {
+  display: none;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+section p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+svg {
+  fill: #fff;
+}
+.open-btn,
+.close-btn,
+#sidebar-check {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  .open-btn,
+  .close-btn {
+    display: block;
+    padding: 20px;
+  }
+
+  .container {
+    flex-direction: column;
+    background-color: #333;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: 0.2s ease-out;
+  }
+
+  nav a {
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+  }
+
+  #sidebar-check:checked ~ .container {
+    right: 0;
+  }
+
+  #sidebar-check:checked ~ #backdrop {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+}

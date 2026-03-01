@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Network Status</h1>
+    <p>Status : <span>Checking...</span></p>
+
+    <script>
+      const status = document.querySelector("span");
+      window.addEventListener("online", function () {
+        status.textContent = "Online";
+        status.style.color = "green";
+      });
+      window.addEventListener("offline", function () {
+        status.textContent = "Offline";
+        status.style.color = "red";
+      });
+
+      status.textContent = navigator.onLine ? "Online" : "Offline";
+      status.style.color = navigator.onLine ? "green" : "red";
+    </script>
+  </body>
+</html>

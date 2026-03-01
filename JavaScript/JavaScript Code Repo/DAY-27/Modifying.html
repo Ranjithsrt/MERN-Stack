@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .color {
+        color: green;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to DOM</h1>
+    <p>This is a sample para</p>
+
+    <input type="text" placeholder="Enter Name" id="name" class="form-control" value="Tutor Joes" disabled />
+
+    <script>
+      /*
+      const h1 = document.querySelector("h1");
+      console.log(h1);
+      h1.textContent = "Welcome to JavaScript DOM";
+      */
+
+      const h1 = document.getElementsByTagName("h1");
+      console.log(h1);
+      //h1[0].textContent = "Welcome to JavaScript DOM";
+      h1[0].innerText = "Welcome to JavaScript DOM";
+
+      const p = document.querySelector("p");
+      //p.textContent = "This is a <b>sample para</b>";
+      p.innerHTML = "This is a <b>sample para</b>";
+
+      const input = document.querySelector("input");
+      console.log(input);
+      console.log(input.getAttribute("type"));
+      console.log(input.getAttribute("id"));
+      console.log(input.getAttribute("placeholder"));
+
+      input.setAttribute("class", "color");
+
+      input.removeAttribute("disabled");
+
+      console.log(input.hasAttribute("id"));
+      console.log(input.hasAttribute("name"));
+
+      console.log(input.attributes);
+
+      for (let attr of input.attributes) {
+        console.log(attr);
+      }
+    </script>
+  </body>
+</html>

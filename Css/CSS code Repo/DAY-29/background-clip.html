@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        margin: 10px auto;
+        width: 500px;
+        height: 300px;
+        padding: 30px;
+        color: black;
+        border: 20px dashed black;
+        background-color: aqua;
+
+        background-clip: padding-box;
+        background-clip: border-box;
+        background-clip: content-box;
+      }
+      h1 {
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-size: 500px;
+        background-image: linear-gradient(to right, #12c2e9, #c471ed, red);
+        background-image: url("girl.jpg");
+        color: transparent;
+        background-clip: text;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Background clip</h1>
+    <ul>
+      <li>padding-box</li>
+      <li>border-box</li>
+      <li>content-box</li>
+      <li>text</li>
+    </ul>
+
+    <div id="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aut ad aliquam hic molestias ut nulla eligendi, voluptates recusandae veniam minus alias quaerat! Aut non optio natus fuga magni quod?</div>
+  </body>
+</html>

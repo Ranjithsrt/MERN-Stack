@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border: 1px solid #ccc;
+        margin-top: 15px;
+        border-collapse: collapse;
+      }
+      td,
+      th {
+        border: 1px solid #ccc;
+        padding: 2px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>2. The distance between two cities (in km.) is input through the keyboard. Write a program to convert and print this distance in meters, feet, inches and centimeters.</p>
+
+      <div class="flex w-full gap-2">
+        <input id="txtKm" type="text" placeholder="Enter KiloMeter" />
+
+        <button onclick="calculate()">Calculate</button>
+      </div>
+      <div class="text-sm mt-3" id="output">Please fill all the details</div>
+    </div>
+    <script>
+      function calculate() {
+        k = Number(document.getElementById("txtKm").value);
+        m = k * 1000;
+        feet = k * 3280.84;
+        inches = k * 39370;
+        cm = k * 100000;
+
+        document.getElementById("output").innerHTML = `
+        <table >
+            <tr>
+                    <th>KM</th>
+                    <td>${k}</td>
+            </tr>
+              <tr>
+                    <th>M</th>
+                    <td>${m}</td>
+            </tr>
+              <tr>
+                    <th>FEET</th>
+                    <td>${feet}</td>
+            </tr>
+               <tr>
+                    <th>INCHES</th>
+                    <td>${inches}</td>
+            </tr>
+              <tr>
+                    <th>CM</th>
+                    <td>${cm}</td>
+            </tr>
+        </table>       
+        `;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>10. In a town, the percentage of men is 52. The percentage of total literacy is 48. If total percentage of literate men is 35 of the total population, write a program to find the total number of illiterate men and women if the population of the town is 80,000.</p>
+    <script>
+      const population = 80000;
+      const menPercentage = 52;
+      const totalLiteracyPercentage = 48;
+      const literateMenPercentage = 35;
+
+      const men = (menPercentage / 100) * population;
+      const women = population - men;
+
+      const totalLiterate = (totalLiteracyPercentage / 100) * population;
+
+      const literateMen = (literateMenPercentage / 100) * population;
+
+      const literateWomen = totalLiterate - literateMen;
+
+      const illiterateMen = men - literateMen;
+      const illiterateWomen = women - literateWomen;
+
+      console.log(`Total illiterate men: ${illiterateMen}`);
+      console.log(`Total illiterate women: ${illiterateWomen}`);
+    </script>
+  </body>
+</html>

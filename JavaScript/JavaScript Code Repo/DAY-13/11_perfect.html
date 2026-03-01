@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Write a program to find the given number is perfect number</p>
+    <script>
+      const number = 6;
+      let result = 0;
+      for (let i = 1; i < number; i++) {
+        //1 2 3
+        if (number % i == 0) {
+          result += i; //1+2+3
+        }
+      }
+      if (number == result) {
+        console.log(`${number} is a perfect number..`);
+      } else {
+        console.log(`${number} is not a perfect number..`);
+      }
+    </script>
+  </body>
+</html>

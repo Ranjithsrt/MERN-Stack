@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>1. while purchasing certain items, a discount of 10% is offered if the quantity purchased is more than 1000. If quantity and price per item are input through the keyboard, write a program to calculate the total expenses</p>
+    <script>
+      const quantity = 900;
+      const price = 10;
+      let discount = 0;
+      const amount = quantity * price;
+      if (quantity > 1000) {
+        discount = amount * 0.1;
+      }
+      const expenses = amount - discount;
+      console.log(`Quantity   : ${quantity}`);
+      console.log(`Price      : ${price}`);
+      console.log(`Amount     : ${amount}`);
+      console.log(`Discount   : ${discount}`);
+      console.log(`Expenses   : ${expenses}`);
+    </script>
+  </body>
+</html>

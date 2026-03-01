@@ -1,0 +1,448 @@
+---
+
+React Intro
+
+---
+
+Day-1
+
+React.js (commonly called React) is a JavaScript library used to build fast, interactive, and component-based user interfaces, especially for single-page applications (SPAs).
+
+It was developed by Facebook (Meta) on 2011 and first released in 2013 (Open Source).
+
+
+Why React?
+    - Build reusable UI components
+    - Make fast applications using a virtual DOM
+    - Manage data and views easily
+    - Create single-page applications (SPA)
+    - Work with other tools and libraries (Router, Redux, Axios, etc.)
+
+Advantages of React
+    - Fast performance
+    - Component-based structure
+    - Reusable code
+    - Easy to build mobile apps using React Native
+    - Strong community support
+
+Where React is Used?
+    - Facebook
+    - Instagram
+    - Netflix
+    - WhatsApp Web
+    - Airbnb
+    - Uber
+
+Prerequisite Knowledge to Learn ReactJS
+    - HTML
+    - CSS
+    - JavaScript (Advance Knowledge) ES6
+        - let, const, arrow functions
+        - Template literals
+        - Destructuring
+        - Spread / Rest operators
+        - Modules (import/export)
+        - Promises, async/await
+        - Ajax / Fetch
+
+---
+
+React Installation  :
+
+Install Node js :
+
+winget install OpenJS.NodeJS.LTS
+
+npm init -y
+
+node -v
+npm -v
+
+npm install
+
+npm run server  - start server
+
+local : http://localhost:5173/
+
+ctrl + c - stop server
+
+---------------------
+
+Next.js (App Route) :
+
+npx create-next-app@latest
+
+---------------------------------
+
+Vite Toolkit :
+
+
+npm create vite@latest myApp
+
+npm create vite@latest . current folder
+
+select a framework :
+
+React
+
+select  a varient :
+
+Javascript
+
+use rolldown-vite (Experimental)?:
+
+No
+
+install with npm nd start now?
+
+yes
+
+-------------------------
+
+Vs code Extensions:
+
+Es7+ React/Redex/React:Native Snippets
+
+prettier
+
+---
+
+📁 React (Vite) Project :
+
+📁 node_modules
+
+All installed libraries and dependencies.
+(You never edit this folder.)
+
+📁 public
+
+Static files that don’t change (images, icons, etc.).
+index.html usually lives here (in Vite it’s in root).
+
+📁 src
+
+Your actual React code:
+
+Components
+
+CSS
+
+App.jsx
+
+main.jsx
+
+This is the folder you work in.
+
+.gitignore
+
+Tells Git which files/folders to ignore (like node_modules).
+
+eslint.config.js
+
+Rules for checking code quality (optional).
+
+index.html
+
+Main HTML template Vite uses to inject React.
+
+package.json
+
+Project information + list of dependencies + scripts.
+Most important file after src.
+
+package-lock.json
+
+Exact versions of installed libraries.
+Helps reproducible installs.
+
+README.md
+
+Notes/instructions for the project.
+
+vite.config.js
+
+Vite configuration (plugins, server settings).
+
+
+-------------------------------------------------------------
+
+Day-2
+
+
+Intro JSX :
+
+   Javascript with XML
+  
+  in React you write jsx code.
+  Default Bable package compie and convert JSX code to JavaScript code.
+
+JSX syntax Rules :
+
+// React.createElement("h1",null,"First React App");
+/*
+
+1. A component must return a single root element
+2. All tags must be closed (including Standalone tags <br/> <hr/> <img /> ) 
+3. use className intstead of class attribute
+4. use htmlFor intstead of for attribute
+5. JavaScript expression in {}
+6. Style takes an object*/
+// 7. Comment must be inside of {/* --- */}
+
+/*
+  component Name Must be start the capital letter - Header,Footer etc...
+  1. Component Creation  inside and seperate file
+  2. props, props destructure
+  3. Contional Operator
+  4. List & keys with map  
+  
+*/
+
+
+-----------------------------------
+
+
+Day-3 
+
+Hooks :
+
+
+useState Hook
+
+  - Navigation Bar
+  - Counter App
+  - Shopping Cart
+  - Password ( Hide and show )
+  - Color Palette 
+
+
+----------------------------------------
+
+
+Day-4
+
+useEffect or side Effects 
+
+useEffects(()=>{
+  
+},[]) function.array
+
+clear
+
+---------------------------
+
+
+1. call on Page load
+2. Run on every render (no dependency array)
+  useEffect(() => {
+    console.log("Run on mount and every update");
+  });
+3.Run only on mount (empty dependency array)
+  useEffect(() => {
+      console.log("Run only on mount (empty dependency array)");
+  }, []);
+
+4.Run on mount + when dependencies change
+  useEffect(() => {
+    console.log("Run only on mount (empty dependency array)");
+  }, [count]);
+
+-----------------------------------------
+
+props :
+
+main.jsx -
+
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import A from "./components/A.jsx";
+import B from "./components/B.jsx";
+
+const users = [
+  { id: 1, name: "Ram", age: 22, gender: "Male" },
+  { id: 2, name: "Sam", age: 12, gender: "Male" },
+  { id: 3, name: "Raja", age: 8, gender: "Male" },
+  { id: 4, name: "Sara", age: 16, gender: "Female" },
+  { id: 5, name: "Tiya", age: 16, gender: "Female" },
+];
+
+createRoot(document.getElementById("root")).render(
+  <>
+    <A items={users} />
+    <B items={users} />
+  </>
+);
+
+----------------------------
+
+src - components  -
+
+A.jsx - List Data
+
+import React from "react";
+
+const A = ({ items }) => {
+  return (
+    <div>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default A;
+
+-----------------------------------
+
+B.jsx - calculation 
+
+import React from "react";
+
+const B = ({ items }) => {
+  const male = items.filter((item) => item.gender === "Male").length;
+  console.log(male);
+  return (
+    <div>
+      <p>Total Male : {male}</p>
+      <p>Total Female : {items.length - male}</p>
+    </div>
+  );
+};
+
+export default B;
+
+ 
+----------------------------------------
+
+
+Day-5
+
+todo app
+
+1 tailwind - npm install tailwindcss @tailwindcss/vite
+
+2 vite.config.ts :
+
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+
+3 CSS :
+
+@import "tailwindcss";
+
+4 npm run dev
+
+5 HTML :
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/src/style.css" rel="stylesheet">
+</head>
+<body>
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+</body>
+</html>
+
+------------------------------
+
+src - components - AddTodoForm.jsx
+
+src - hooks- UseCuatom.js
+
+---------------------------
+
+icons :
+
+npm install lucide-react;
+
+import {Trash2} from  "lucide-react"
+
+<Trash2 />
+
+----------------------------------------------
+
+Day-6
+
+person Finance Tracker app
+
+---------------------------------------
+
+Day-7
+
+meal db app 
+
+Day-8
+
+meal db app 
+
+Day-9
+
+meal db app 
+
+
+---------------------------------------
+
+Day-10
+
+useMemo
+useCallback
+
+--------------------------------------
+
+Day-11
+
+useReducer
+
+--------------------------------------
+
+
+
+Day-12
+
+React Project  useReducer  useContext Bank Process
+
+--------------------------------------
+
+
+Day-13
+
+
+recap props - context -  Sample Example auth
+
+--------------------------------------------
+
+Day-14  | Day -15
+
+use Reducer - shopping cast
+
+
+-----------------------------------------------
+
+
+-------------------------------------------------
+
+small projects :
+
+React Project  useReducer  useContext Bank Process
+
+
+Blog APP With Firebase
+
+----------------------------------------------------
+

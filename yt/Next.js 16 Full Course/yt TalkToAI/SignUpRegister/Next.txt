@@ -1,0 +1,1760 @@
+ #12 Learn SignUp/Register form using Server Action in Next JS in Tamil
+
+
+npm i axios   
+npm i mongoose 
+npm i bcryptjs
+
+
+connect db
+
+
+project level my-app - .env
+
+MONGO_URI=mongodb://127.0.0.1:27017/nextsignUp
+
+------------------------------------------------------
+
+
+app - db - dbconnect.JS
+
+import mongoose from "mongoose";
+ 
+// const MONGO_URI = process.env.MONGO_URI;
+
+export default function dbconnect() {
+   try{
+      mongoose.connect(process.env.MONGO_URI);
+      console.log("Database connected");
+   }catch(error){
+      console.log("Database not connected",error);
+   }
+}
+
+-----------------------------------
+
+app - model - UserModel.JS
+
+import mongoose from "mongoose";
+
+
+const userSchema = new mongoose.Schema({
+   
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
+})
+
+const UserModels = mongoose.models.UserForm || mongoose.model("UserForm", userSchema);
+
+export default UserModels;
+
+----------------------------------------
+
+app - root  - call db page.tsx
+
+
+import Link from "next/link";
+import dbconnect from "./db/dbconnect";
+export default function Home() {
+  // connect to database
+  dbconnect();
+  return (
+    <>
+      <div className="flex min-h-screen flex-col items-center justify-between p-24 bg-white text-black">
+        <div>
+          <h1 className="text-4xl font-bold uppercase ">Nextjs-16 </h1>
+          <p className="text-2xl font-bold mt-10 uppercase">Authentication</p>
+          <Link href="/signup">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-10">
+              Signup
+            </button>
+          </Link>
+        </div>
+      </div>
+    </>
+  );
+}
+
+
+-----------------------
+
+app - signup - page.js
+
+from -UI
+
+"use client";
+
+import { UserRegister } from "../action";
+import { useState } from "react";
+
+export default function UserForm() {
+  const [message, setMessage] = useState();
+
+  const handleSubmit = async (FormData) => {
+    const result = await UserRegister(FormData);
+    setMessage(result.message);
+    setTimeout(() => {
+      setMessage(null);
+    }, 3000);
+  };
+  return (
+    <>
+      <form action={handleSubmit} className="m-20">
+        <h1 className="m-10 uppercase text-2xl font-bold">Register Form</h1>
+
+        <input
+          type="text"
+          placeholder="Enter your email"
+          className="m-10 border p-3"
+          name="email"
+        />
+        <input
+          type="password"
+          placeholder="Enter your password"
+          className="m-10 border p-3"
+          name="password"
+        />
+        <button
+          type="submit"
+          className="m-10 bg-blue-700 text-white border p-3 rounded"
+        >
+          Register
+        </button>
+      </form>
+      {message && <p className="text-red-500">{message}</p>}
+    </>
+  );
+}
+
+
+--------------------------------------------------
+
+app - action.js -
+
+Form validation :
+
+"use server"
+
+import dbconnect from "./db/dbconnect";
+import UserModels from "./model/UserModel";
+import bcrypt from "bcryptjs";
+
+
+ export async function UserRegister(FormData) {
+    const email = FormData.get("email");
+    const password = FormData.get("password");
+    console.log(email,password);
+    
+    try {
+      await dbconnect();
+       
+      const existingUser = await UserModels.findOne({ email });
+
+      if (existingUser) {
+          return {
+            success : false,
+            message : "User already exists with this email"
+          }
+      }
+      // Hash the password
+
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      // Create a new user
+      const UserRegister = new UserModels({ email, password: hashedPassword });
+      await UserRegister.save();
+      return {
+        success : true,
+        message : "User registered successfully"
+      }
+    } catch (error) {
+      console.error("Error registering user:", error);
+      return {
+        success : false,
+        message : "An error occurred while registering the user "
+      }
+    }
+ }
+
+ -------------------------------------------------
+
+ #13 Login form using Server Action in Next JS in Tamil (jose-jwt,cookies)
+
+npm i dotenv jose bcrypt 
+
+login form submit panna browser laa cookies generate aaganym.
+
+root page.js -
+
+import Link from "next/link";
+import dbconnect from "./db/dbconnect";
+export default function Home() {
+  // connect to database
+  dbconnect();
+  return (
+    <>
+      <div className="flex min-h-screen flex-col items-center justify-between p-24 bg-white text-black">
+        <div>
+          <h1 className="text-4xl font-bold uppercase ">Nextjs-16 </h1>
+          <p className="text-2xl font-bold mt-10 uppercase">Authentication</p>
+          <Link href="/signup">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-10">
+              Signup
+            </button>
+          </Link>
+          <Link href="/login">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-10">
+              Login
+            </button>
+          </Link>
+
+        </div>
+      </div>
+    </>
+  );
+}
+
+redirect login page
+
+---------------------
+
+app - login - page.js
+
+
+"use client";
+
+import { UserLogin } from "../action";
+import { useRouter } from "next/navigation";
+
+export default function LoginForm() {
+  const router = useRouter();
+  const handleSubmit = async (formData) => {
+    const result = await UserLogin(formData);
+    if (result.success) {
+      localStorage.setItem("token", result.token);
+      router.push("/dashboard");
+    }
+  };
+
+  return (
+    <>
+      <form action={handleSubmit} className="m-20">
+        <h1 className="m-10 uppercase text-2xl font-bold">Login Form</h1>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          className="m-10 border p-3"
+          name="email"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Enter your password"
+          className="m-10 border p-3"
+          name="password"
+          required
+        />
+        <button
+          type="submit"
+          className="m-10 bg-blue-700 text-white border p-3 rounded"
+        >
+          Login
+        </button>
+      </form>
+    </>
+  );
+}
+
+--------------------------------
+
+app - action.js
+
+
+"use server";
+
+import dbconnect from "./db/dbconnect";
+import UserModels from "./model/UserModel";
+import bcrypt from "bcryptjs";
+import { SignJWT } from "jose";
+import dotenv from "dotenv";
+import { cookies } from "next/headers";
+
+// env file
+dotenv.config();
+
+// user register
+export async function UserRegister(FormData) {
+  const email = FormData.get("email");
+  const password = FormData.get("password");
+  console.log(email, password);
+
+  try {
+    await dbconnect();
+
+    const existingUser = await UserModels.findOne({ email });
+
+    if (existingUser) {
+      return {
+        success: false,
+        message: "User already exists with this email",
+      };
+    }
+    // Hash the password
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create a new user
+    const UserRegister = new UserModels({ email, password: hashedPassword });
+    await UserRegister.save();
+    return {
+      success: true,
+      message: "User registered successfully",
+    };
+  } catch (error) {
+    console.error("Error registering user:", error);
+    return {
+      success: false,
+      message: "An error occurred while registering the user ",
+    };
+  }
+}
+
+// user login
+export async function UserLogin(FormData) {
+  // env secret key
+  const SECRET_KEY = process.env.JWT_SECREY_KEY;
+  const encodedSecretKey = new TextEncoder().encode(SECRET_KEY);
+
+  const email = FormData.get("email");
+  const password = FormData.get("password");
+  console.log(email, password);
+
+  //  connect db
+  await dbconnect();
+
+  // Find the user by email
+  const user = await UserModels.findOne({ email });
+
+  if (!user) {
+    return {
+      success: false,
+      message: "User not found",
+    };
+  }
+
+  // Compare the password
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+
+  if (!isPasswordValid) {
+    return {
+      success: false,
+      message: "Invalid password",
+    };
+  }
+
+  // create JWT token secert from .env file
+
+  const token = await new SignJWT({ user }) // Add user information to the JWT payload
+    .setIssuedAt() // Set the issued at time
+    .setExpirationTime("1h") // Set the expiration time
+    .setProtectedHeader({ alg: "HS256", typ: "JWT" }) // Set the protected header
+    .sign(encodedSecretKey); // Sign the token with the secret key
+
+   const cookieStore = await cookies();
+   cookieStore.set("token", token, {
+     httpOnly: true,
+     path: "/",
+     maxAge: 60 * 60,
+   });
+
+  const plainUser = user.toString();
+  // return token and user data
+  return {
+    success: true,
+    message: "User logged in successfully",
+    token,
+    user: plainUser,
+  };
+}
+
+----------------------------------
+
+.env 
+
+
+MONGO_URI=mongodb://127.0.0.1:27017/NextAuthentication
+JWT_SECREY_KEY = G9MwmiGKz9688VIxcbeiPvG0GOnbIzi3
+
+------------------------
+
+app - dashboard - page.js
+
+import React from 'react'
+
+const page = () => {
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-between p-24 bg-white text-black">
+      <h1 className="text-4xl font-bold uppercase ">Dashboard</h1>
+    </div>
+  )
+}
+
+export default page
+
+
+--------------------------------
+
+#14 Middleware in Next JS in Tamil (Jose-JWT, Cookies)
+
+
+project level - middleware.js
+
+import { NextResponse } from "next/server";
+import { verifyJWT } from "./lib/jwt";
+
+export async function middleware(request) {
+  // Get the token
+  const token = request.cookies.get("token")?.value;
+
+  console.log("TOKEN IN MIDDLEWARE:", token);
+
+  if (!token) {
+    return NextResponse.redirect(new URL("/home", request.url));
+  }
+
+  try {
+    console.log("Token found", token);
+
+    const user = await verifyJWT(token);
+
+    if (!user) {
+      return NextResponse.redirect(new URL("/home", request.url));
+    }
+  } catch (error) {
+    console.log("Error verifying token", error);
+    return NextResponse.redirect(new URL("/home", request.url));
+  }
+
+  return NextResponse.next();
+}
+
+// Apply middleware to specific routes
+
+export const config = {
+  matcher: ["/dashboard/:path*", "/profile/:path*"],
+};
+
+------------------------------------
+
+app - lib - jwt.js
+
+
+import { jwtVerify } from "jose";
+
+const SECRET_KEY = process.env.JWT_SECREY_KEY;
+const encodedSecretKey = new TextEncoder().encode(SECRET_KEY);
+
+// jwt verify
+export async function verifyJWT(token) {
+  try {
+    console.log("JWT Secret Key :", SECRET_KEY);
+    console.log(encodedSecretKey);
+    console.log("JWT Token :", token);
+
+    const { payload } = await jwtVerify(token, encodedSecretKey);
+    console.log("Decoded JWT", payload);
+    return payload;
+  } catch (error) {
+    console.error("Error verifying JWT:", error.message);
+    return null;
+  }
+}
+
+---------------------------------------
+
+#15 Logout using server action and Protect the routes for logged-in user in Tamil
+
+root - page.js -
+
+ import Link from "next/link";
+import dbconnect from "./db/dbconnect";
+export default function Home() {
+  // connect to database
+  dbconnect();
+  return (
+    <>
+      <div className="flex min-h-screen flex-col items-center justify-between p-24 bg-white text-black">
+        <div>
+          <h1 className="text-4xl font-bold uppercase ">Nextjs-16 </h1>
+          <p className="text-2xl font-bold mt-10 uppercase">Authentication</p>
+          <Link href="/signup">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-10">
+              Signup
+            </button>
+          </Link>
+          <Link href="/login">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-10">
+              Login
+            </button>
+          </Link>
+
+        </div>
+      </div>
+    </>
+  );
+}
+
+
+
+------------------------------------
+
+app - action.js -
+
+"use server";
+
+import dbconnect from "./db/dbconnect";
+import UserModels from "./model/UserModel";
+import bcrypt from "bcryptjs";
+import { SignJWT } from "jose";
+import dotenv from "dotenv";
+import { cookies } from "next/headers";
+
+// env file
+dotenv.config();
+
+// user register
+export async function UserRegister(FormData) {
+  const email = FormData.get("email");
+  const password = FormData.get("password");
+  console.log(email, password);
+
+  try {
+    await dbconnect();
+
+    const existingUser = await UserModels.findOne({ email });
+
+    if (existingUser) {
+      return {
+        success: false,
+        message: "User already exists with this email",
+      };
+    }
+    // Hash the password
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create a new user
+    const UserRegister = new UserModels({ email, password: hashedPassword });
+    await UserRegister.save();
+    return {
+      success: true,
+      message: "User registered successfully",
+    };
+  } catch (error) {
+    console.error("Error registering user:", error);
+    return {
+      success: false,
+      message: "An error occurred while registering the user ",
+    };
+  }
+}
+
+// user login
+export async function UserLogin(FormData) {
+  // env secret key
+  const SECRET_KEY = process.env.JWT_SECREY_KEY;
+  const encodedSecretKey = new TextEncoder().encode(SECRET_KEY);
+
+  const email = FormData.get("email");
+  const password = FormData.get("password");
+  console.log(email, password);
+
+  //  connect db
+  await dbconnect();
+
+  // Find the user by email
+  const user = await UserModels.findOne({ email });
+
+  if (!user) {
+    return {
+      success: false,
+      message: "User not found",
+    };
+  }
+
+  // Compare the password
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+
+  if (!isPasswordValid) {
+    return {
+      success: false,
+      message: "Invalid password",
+    };
+  }
+
+  // create JWT token secert from .env file
+
+  const token = await new SignJWT({ user }) // Add user information to the JWT payload
+    .setIssuedAt() // Set the issued at time
+    .setExpirationTime("1h") // Set the expiration time
+    .setProtectedHeader({ alg: "HS256", typ: "JWT" }) // Set the protected header
+    .sign(encodedSecretKey); // Sign the token with the secret key
+
+   const cookieStore = await cookies();
+   cookieStore.set("token", token, {
+     httpOnly: true,
+     path: "/",
+     maxAge: 60 * 60,
+   });
+
+  const plainUser = user.toString();
+  // return token and user data
+  return {
+    success: true,
+    message: "User logged in successfully",
+    token,
+    user: plainUser,
+  };
+}
+
+// user logout
+export async function UserLogout() {
+  // delete cookie
+  const cookieStore = await cookies();
+  cookieStore.delete("token");
+  // return a success message
+  return {
+    success: true,
+    message: "User logged out successfully",
+  };
+}
+
+
+ 
+
+-----------------------------------------
+
+middleware.js 
+
+
+
+
+// import { NextResponse } from "next/server";
+// import { verifyJWT } from "./lib/jwt";
+// import { cookies } from "next/headers";
+
+// export async function middleware(request) {
+//   const { pathname } = request.nextUrl;
+//   const publicRoutes = ["/login", "/signup"];
+//   // Get the token
+
+//   const token = request.cookies.get("token")?.value || "";
+
+//   console.log("TOKEN IN MIDDLEWARE:", token);
+
+//   if (!token && publicRoutes.includes(pathname)) {
+//     return NextResponse.redirect(new URL("/login", request.url));
+//   }
+
+//   if (token && publicRoutes.includes(pathname)) {
+//     return NextResponse.redirect(new URL("/dashboard", request.url));
+//   }
+
+//   /*
+
+//   if (!token ) {
+//     return NextResponse.redirect(new URL("/home", request.url));
+//   }
+
+//   try {
+//     console.log("Token found", token);
+
+//     const user = await verifyJWT(token);
+
+//     if (!user) {
+//       return NextResponse.redirect(new URL("/home", request.url));
+//     }
+//   } catch (error) {
+//     console.log("Error verifying token", error);
+//     return NextResponse.redirect(new URL("/home", request.url));
+//   }
+
+//   return NextResponse.next();
+// }
+//   */
+
+//   if (token) {
+//     try {
+//       const user = await verifyJWT(token);
+//       console.log("Token found", token);
+//       if (!user) {
+//         return NextResponse.redirect(new URL("/login", request.url));
+//       }
+//       return NextResponse.next();
+//     } catch (error) {
+//       console.log("Error verifying token", error);
+//       return NextResponse.redirect(new URL("/home", request.url));
+//     }
+//   }
+
+//   return NextResponse.next();
+// }
+
+// // Apply middleware to specific routes
+
+// export const config = {
+//   matcher: ["/dashboard/:path*", "/profile/:path*", "/login", "/signup"],
+// };
+
+
+// ------------------------------
+
+
+import { NextResponse } from "next/server";
+import { verifyJWT } from "./lib/jwt";
+
+const publicRoutes = ["/login", "/signup"];
+
+export async function middleware(request) {
+  const { pathname } = request.nextUrl;
+  const token = request.cookies.get("token")?.value || "";
+
+  // 1️⃣ If user is logged in and visits login/signup → send to dashboard
+  if (token && publicRoutes.includes(pathname)) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+  }
+
+  // 2️⃣ If token missing & user tries to access protected route → send to login
+  const isProtectedRoute =
+    pathname.startsWith("/dashboard") || pathname.startsWith("/profile");
+
+  if (!token && isProtectedRoute) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+
+  // 3️⃣ If token exists → verify it
+  if (token) {
+    try {
+      const user = await verifyJWT(token);
+
+      if (!user) {
+        return NextResponse.redirect(new URL("/login", request.url));
+      }
+    } catch (error) {
+      console.log("JWT ERROR:", error);
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+  }
+
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: ["/dashboard/:path*", "/profile/:path*", "/login", "/signup"],
+};
+
+--------------------------
+ #16 Fetch all items from MongoDB using server action in Next JS in Tamil
+
+connect DB -  create product model - product folder  call action fun - action.js ( server action logic) - ProductList (render data)
+
+app - products - page.js 
+
+import { fetchProducts } from "../action";
+import { ProductList } from "./ProductList";
+
+export default async function Productspage() {
+  const products = await fetchProducts();
+  return (
+    <div>
+      <h1 className="text-4xl font-bold uppercase text-center my-10 ">Products</h1>
+      <ProductList products={products} />
+    </div>
+  );
+}
+
+
+-----------------------------
+app - action -
+
+export async function fetchProducts() {
+  try {
+    await dbconnect();
+    const products = await Product.find().lean();
+    // Convert _id to string to avoid toJSON issues with client components
+    return products.map((product) => ({
+      ...product,
+      _id: product._id.toString(),
+    }));
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    throw new Error("Failed to fetch products");
+  }
+}
+
+----------------------------------
+app - products - ProtectList
+
+"use client"
+
+import Image from 'next/image'
+import Link from 'next/link'
+
+ 
+export function ProductList({products}) {
+  const productArray = products.map((product) => (
+    <div
+      key={product._id}
+      className="flex border border-gray-300 rounded-xl p-4 mb-4 shadow-md gap-4"
+    >
+      <Image
+        src={product.image}
+        alt={product.name}
+        width={150}
+        height={150}
+        className="rounded-lg"
+      />
+
+      <div className="flex flex-col justify-between">
+        <div>
+          <h2 className="font-bold text-lg">{product.name}</h2>
+          <p className="text-gray-500">{product.category}</p>
+          <p className="font-semibold text-green-700">₹ {product.price}</p>
+        </div>
+
+        <Link href={`/product/${product._id}`}>
+          <button className="bg-green-500 text-white px-4 py-2 rounded-lg">
+            View Details
+          </button>
+        </Link>
+      </div>
+    </div>
+  ));
+
+  return <>
+  <div className='flex flex-row gap-5 m-5'>{productArray}</div>
+  </>;
+}
+
+
+-------------------------------------
+
+public - kid_dresses -  imges.jpg
+
+
+http://localhost:3000/products/
+
+----------------------------------------------
+
+#17 Fetch a single item using server action in Next JS in Tamil
+
+app - product- [id] - [age.js] -
+
+import Image from "next/image";
+import fetchProduct from "../../action";
+import Link from "next/link";
+
+
+export default async function ProductPage({ params }) {
+    const {id} = await params;
+
+    try{
+        const product = await fetchProduct(id);
+       if(!product){
+        return <div>Product not found</div>
+       }
+        return (
+            <div className="flex border border-gray-300 rounded-xl p-4 mb-4 shadow-md gap-4">
+                <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={150}
+                    height={150}
+                    className="rounded-lg"
+                />
+
+                <div className="flex flex-col justify-between">
+                    <div>
+                        <h2 className="font-bold text-lg">{product.name}</h2>
+                        <p className="text-gray-500">{product.category}</p>
+                        <p className="font-semibold text-green-700">₹ {product.price}</p>
+                    </div>
+
+                    <Link href={`/product/${product._id}`}>
+                        <button className="bg-green-500 text-white px-4 py-2 rounded-lg">
+                            View Details
+                        </button>
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+---------------------------------------
+
+
+action.js -
+
+
+// fetch single product from db
+
+export default async function fetchProduct(id) {
+  try {
+    await dbconnect();
+    const product = await Product.findById(id).lean();
+    // Convert _id to string to avoid toJSON issues with client components
+    return product;
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    throw new Error("Failed to fetch product");
+  }
+}
+
+-----------------------------------------
+
+
+#18 Part - I Add to Cart in Next JS in Tamil
+
+product - page.js
+
+
+import fetchProduct from "../../action";
+import ProductCtAddCart from "./ProductClAddCart";
+
+
+export default async function ProductPage({ params }) {
+  const { id } = await params;
+
+  try {
+    const product = await fetchProduct(id);
+    if (!product) {
+      return <div>Product not found</div>;
+    }
+
+    return <ProductCtAddCart product={product} />;
+  } catch (error) {
+    console.log(error);
+    return <div>Product not found : {error.message}</div>;
+  }
+}
+
+
+-------------------
+
+
+product - ProductAddCart
+
+
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+
+export default function ProductClient({ product }) {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = () => {
+    const updated = [...cart, product];
+    setCart(updated);
+    console.log("Cart:", updated);
+  };
+
+  return (
+    <div className="flex  flex-col justify-between  border border-gray-300 rounded-xl p-4 mb-4 shadow-md gap-4">
+      <Image
+        src={product.image}
+        alt={product.name}
+        width={150}
+        height={150}
+        className="rounded-lg"
+      />
+
+      <div className="flex flex-col justify-between">
+        <div>
+          <h2 className="font-bold text-lg">{product.name}</h2>
+          <p className="text-gray-500">{product.category}</p>
+          <p className="font-semibold text-green-700">₹ {product.price}</p>
+        </div>
+
+        <button
+          onClick={addToCart}
+          className="bg-green-500 text-white px-4 py-2 rounded-lg"
+        >
+          Add to Cart
+        </button>
+      </div>
+
+      <div className="cart mt-6">
+        <h2 className="font-bold text-lg">Cart:{cart.length}</h2>
+
+        <ul>
+          {cart.map((item, index) => (
+            <li key={index}>
+              <img
+                src={item.image}
+                alt={item.name}
+                width={50}
+                height={50}
+                layout="intrinsic"
+              />
+
+              <div>
+                <p>{item.name}</p>
+                <p>{item.price}</p>
+                <p>{item.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <h3>Total items in cart: {cart.length}</h3>
+      <p>Total Price : {cart.reduce((total, item) => total + item.price, 0)}</p>
+    </div>
+  );
+}
+
+------------------------------
+
+Next JS Tutorial #18 Part-II Add to Cart using Context() API in Next JS in Tamil
+
+project level - context - CartContext.js              create Context 
+
+ "use client"
+
+import { createContext , useState } from "react";
+
+export const CartContext = createContext(null);
+
+export const CartProvider = ({ children }) => {
+    const [cart, setCart] = useState([]);
+
+    const addToCart = (product) => {
+        setCart([...cart, product]);
+    };
+
+    return (
+        
+        <CartContext.Provider value={{ cart, setCart }}>
+            {children}
+        </CartContext.Provider>
+    );
+};
+
+-------------------------
+
+root - layout.js
+
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import { CartProvider } from "../context/CartContext";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Create Next App",
+  description: "Generated by create next app",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <CartProvider>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
+      </body>
+    </html>
+    </CartProvider>
+  );
+}
+
+
+--------------------------
+
+
+product - id - ProductAddCart
+
+
+"use client";
+
+import Image from "next/image";
+import { useContext} from "react";
+import { CartContext } from "../../../context/CartContext";
+
+export default function ProductAddCart({ product }) {
+  const { cart, setCart } = useContext(CartContext);
+ 
+
+  // const addToCart = () => {
+  //   const updated = [...cart, product];
+  //   setCart(updated);
+  //   console.log("Cart:", updated);
+  // };
+
+  const addToCart = (product) => {
+    setCart((prev) => [...prev, product]);
+  };
+
+
+ 
+
+  return (
+    <div className="flex  flex-col justify-between  border border-gray-300 rounded-xl p-4 mb-4 shadow-md gap-4">
+      <Image
+        src={product.image}
+        alt={product.name}
+        width={150}
+        height={150}
+        className="rounded-lg"
+      />
+
+      <div className="flex flex-col justify-between">
+        <div>
+          <h2 className="font-bold text-lg">{product.name}</h2>
+          <p className="text-gray-500">{product.category}</p>
+          <p className="font-semibold text-green-700">₹ {product.price}</p>
+        </div>
+
+        <button
+          onClick={() => addToCart(product)}
+          className="bg-green-500 text-white px-4 py-2 rounded-lg"
+        >
+          Add to Cart
+        </button>
+      </div>
+
+      <div className="cart mt-6">
+        <h2 className="font-bold text-lg">Cart:{cart.length}</h2>
+
+        <ul>
+          {cart.map((item, index) => (
+            <li key={index}>
+              <img
+                src={item.image}
+                alt={item.name}
+                width={50}
+                height={50}
+                layout="intrinsic"
+              />
+
+              <div>
+                <p>{item.name}</p>
+                <p>{item.price}</p>
+                <p>{item.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <h3>Total items in cart: {cart.length}</h3>
+      <p>Total Price : {cart.reduce((total, item) => total + item.price, 0)}</p>
+    </div>
+  );
+}
+
+------------------------------------
+
+Next JS Tutorial #18 Part-III Store the Cart Value in Local Storage in Tamil
+
+
+context - CartProvider -
+
+"use client"
+
+import { createContext , useState, useEffect } from "react";
+
+export const CartContext = createContext(null);
+
+export const CartProvider = ({ children }) => {
+    // const [cart, setCart] = useState(() => {
+    //     if (typeof window !== "undefined") {
+    //         const savedCart = localStorage.getItem("cart");
+    //         return savedCart ? JSON.parse(savedCart) : [];
+    //     }
+    //     return [];
+    // });
+
+    // const addToCart = (product) => {
+    //     const updatedCart = [...cart, product];
+    //     setCart(updatedCart);
+    //     if (typeof window !== "undefined") {
+    //         localStorage.setItem("cart", JSON.stringify(updatedCart));
+    //     }
+    // };
+
+    const [cart, setCart] = useState([]);
+
+    // 🔹 Load from localStorage
+    useEffect(() => {
+      const savedCart = localStorage.getItem("cart");
+      if (savedCart) {
+        setCart(JSON.parse(savedCart));
+      }
+    }, []);
+
+    // 🔹 Save to localStorage
+    useEffect(() => {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
+
+    const addToCart = (product) => {
+      setCart((prev) => [...prev, product]);
+    };
+
+    return (
+        
+        <CartContext.Provider value={{ cart, addToCart }}>
+            {children}
+        </CartContext.Provider>
+    );
+};
+
+
+-------------------------------
+
+Next JS Tutorial #19 Remove Item from Cart in Next JS in Tamil
+
+product - id -ProductAddCart -
+
+"use client";
+
+import Image from "next/image";
+import { useContext} from "react";
+import { CartContext } from "../../../context/CartContext";
+
+export default function ProductAddCart({ product }) {
+    const { cart, addToCart, removeFromCart } = useContext(CartContext);
+
+
+  // const addToCart = () => {
+  //   const updated = [...cart, product];
+  //   setCart(updated);
+  //   console.log("Cart:", updated);
+  // };
+
+
+
+  const handleRemoveFromCart = (productId) => {
+    removeFromCart(productId);
+  };
+
+ 
+  return (
+    <div className="flex  flex-col justify-between  border border-gray-300 rounded-xl p-4 mb-4 shadow-md gap-4">
+      <Image
+        src={product.image}
+        alt={product.name}
+        width={150}
+        height={150}
+        className="rounded-lg"
+      />
+
+      <div className="flex flex-col justify-between">
+        <div>
+          <h2 className="font-bold text-lg">{product.name}</h2>
+          <p className="text-gray-500">{product.category}</p>
+          <p className="font-semibold text-green-700">₹ {product.price}</p>
+        </div>
+
+        <button
+          onClick={() => addToCart(product)}
+          className="bg-green-500 text-white px-4 py-2 rounded-lg"
+        >
+          Add to Cart
+        </button>
+      </div>
+
+      <div className="cart mt-6">
+        <h2 className="font-bold text-lg">Cart:{cart.length}</h2>
+
+        <ul>
+          {cart.map((item, index) => (
+            <li key={index}>
+              <img
+                src={item.image}
+                alt={item.name}
+                width={50}
+                height={50}
+                layout="intrinsic"
+              />
+
+              <div>
+                {/* <p>{item._id}</p> */}
+                <p>{item.name}</p>
+                <p>{item.price}</p>
+                <p>{item.description}</p>
+              </div>
+
+             {/* <RemoveItem item={item} /> */}
+
+              <button
+                onClick={() =>handleRemoveFromCart(item._id)}
+                className="bg-red-500 text-white px-4 py-2 rounded-lg my-5"
+              >
+                Remove
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <h3>Total items in cart: {cart.length}</h3>
+      <p>Total Price : {cart.reduce((total, item) => total + item.price, 0)}</p>
+    </div>
+  );
+}
+
+---------------------------------------
+
+context - CartContext -
+
+"use client"
+
+import { createContext , useState, useEffect } from "react";
+// import ProductAddCart from "../app/product/[id]/ProductAddCart"
+
+export const CartContext = createContext(null);
+
+
+export const CartProvider = ({ children }) => {
+    // const [cart, setCart] = useState(() => {
+    //     if (typeof window !== "undefined") {
+    //         const savedCart = localStorage.getItem("cart");
+    //         return savedCart ? JSON.parse(savedCart) : [];
+    //     }
+    //     return [];
+    // });
+
+    // const addToCart = (product) => {
+    //     const updatedCart = [...cart, product];
+    //     setCart(updatedCart);
+    //     if (typeof window !== "undefined") {
+    //         localStorage.setItem("cart", JSON.stringify(updatedCart));
+    //     }
+    // };
+
+    const [cart, setCart] = useState([]);
+
+    // 🔹 Load from localStorage
+    useEffect(() => {
+      if(typeof window !== 'undefined'){
+         const savedCart = localStorage.getItem("cart");
+         if (savedCart) {
+           setCart(JSON.parse(savedCart));
+         }
+      }
+     
+    }, []);
+
+    // 🔹 Save to localStorage
+    useEffect(() => {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
+
+    const addToCart = (product) => {
+      setCart((prev) => [...prev, product]);
+    };
+
+    const removeFromCart = (productId) => {
+     const updatedCart = cart.filter((item) => item._id !== productId);
+     setCart(updatedCart);
+    };
+
+    return (
+        
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+            {children}
+        </CartContext.Provider>
+    );
+};
+
+
+-----------------------
+
+Next JS Tutorial #20 How to disable the add to cart button if the product is in cart in Tamil
+
+
+product - id -ProductAddCart -
+
+"use client";
+
+import Image from "next/image";
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
+
+export default function ProductAddCart({ product }) {
+  const { cart, addToCart, removeFromCart } = useContext(CartContext);
+
+  // const addToCart = () => {
+  //   const updated = [...cart, product];
+  //   setCart(updated);
+  //   console.log("Cart:", updated);
+  // };
+
+  const isProductInCart = () => {
+    const filteredItems = cart.filter((item) => item._id === product._id);
+    return filteredItems.length > 0;
+  };
+
+  const handleRemoveFromCart = (productId) => {
+    removeFromCart(productId);
+  };
+
+  return (
+    <div className="flex  flex-col justify-between  border border-gray-300 rounded-xl p-4 mb-4 shadow-md gap-4">
+      <Image
+        src={product.image}
+        alt={product.name}
+        width={150}
+        height={150}
+        className="rounded-lg"
+      />
+
+      <div className="flex flex-col justify-between">
+        <div>
+          <h2 className="font-bold text-lg">{product.name}</h2>
+          <p className="text-gray-500">{product.category}</p>
+          <p className="font-semibold text-green-700">₹ {product.price}</p>
+        </div>
+
+        <button
+          onClick={() => addToCart(product)}
+          className="bg-green-500 text-white px-4 py-2 rounded-lg"
+          disabled={isProductInCart()}
+        >
+          {isProductInCart() ? "Already in Cart" : "Add to Cart"}
+         </button>
+      </div>
+
+      <div className="cart mt-6">
+        <h2 className="font-bold text-lg">Cart:{cart.length}</h2>
+
+        <ul>
+          {cart.map((item, index) => (
+            <li key={index}>
+              <img
+                src={item.image}
+                alt={item.name}
+                width={50}
+                height={50}
+                layout="intrinsic"
+              />
+
+              <div>
+                {/* <p>{item._id}</p> */}
+                <p>{item.name}</p>
+                <p>{item.price}</p>
+                <p>{item.description}</p>
+              </div>
+
+              {/* <RemoveItem item={item} /> */}
+
+              <button
+                onClick={() => handleRemoveFromCart(item._id)}
+                className="bg-red-500 text-white px-4 py-2 rounded-lg my-5"
+              >
+                Remove
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <h3>Total items in cart: {cart.length}</h3>
+      <p>Total Price : {cart.reduce((total, item) => total + item.price, 0)}</p>
+    </div>
+  );
+}
+
+---------------------------------
+
+
+Next JS Tutorial #21 How to increase and decrease the quantity of the Item in Cart in Tamil
+
+product - id -ProductAddCart -
+
+"use client";
+
+import Image from "next/image";
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
+
+export default function ProductAddCart({ product }) {
+  const { cart, addToCart, removeFromCart, increaseQuanity, decreaseQuanity } = useContext(CartContext);
+
+  // const addToCart = () => {
+  //   const updated = [...cart, product];
+  //   setCart(updated);
+  //   console.log("Cart:", updated);
+  // };
+
+  const isProductInCart = () => {
+    const filteredItems = cart.filter((item) => item._id === product._id);
+    return filteredItems.length > 0;
+  };
+
+  const handleRemoveFromCart = (productId) => {
+    removeFromCart(productId);
+  };
+
+  const handleIncreaseQuality = (productId, productstock) => {
+    increaseQuanity(productId, productstock);
+  };
+
+  const handleDecreaseQuality = (productId) => {
+    decreaseQuanity(productId);
+  };
+
+  return (
+    <div className="flex  flex-col justify-between  border border-gray-300 rounded-xl p-4 mb-4 shadow-md gap-4">
+      <Image
+        src={product.image}
+        alt={product.name}
+        width={150}
+        height={150}
+        className="rounded-lg"
+      />
+
+      <div className="flex flex-col justify-between">
+        <div>
+          <h2 className="font-bold text-lg">{product.name}</h2>
+          <p className="text-gray-500">{product.category}</p>
+          <p className="font-semibold text-green-700">₹ {product.price}</p>
+        </div>
+
+        <button
+          onClick={() => addToCart(product)}
+          className="bg-green-500 text-white px-4 py-2 rounded-lg"
+          disabled={isProductInCart()}
+        >
+          {isProductInCart() ? "Already in Cart" : "Add to Cart"}
+        </button>
+      </div>
+
+      <div className="cart mt-6">
+        <h2 className="font-bold text-lg">Cart:{cart.length}</h2>
+
+        <ul>
+          {cart.map((item, index) => (
+            <li key={index}>
+              <img
+                src={item.image}
+                alt={item.name}
+                width={50}
+                height={50}
+                layout="intrinsic"
+              />
+
+              <div>
+                {/* <p>{item._id}</p> */}
+                <p>{item.name}</p>
+                <p>{item.price}</p>
+                <p>{item.description}</p>
+                <p>{item.quantity}</p>
+              </div>
+
+              {/* incress and decress */}
+
+              <div className="flex gap-2 my-5">
+                <button
+                  onClick={() => handleIncreaseQuality(item._id, item.stock)}
+                  className="
+                w-10 h-10 text-lg border border-gray-300 rounded-md 
+                "
+                >
+                  +
+                </button>
+                <button
+                  onClick={() => handleDecreaseQuality(item._id)}
+                  className="
+                w-10 h-10 text-lg border border-gray-300 rounded-md 
+                "
+                >
+                  -
+                </button>
+              </div>
+
+              {/* <RemoveItem item={item} /> */}
+
+              <button
+                onClick={() => handleRemoveFromCart(item._id)}
+                className="bg-red-500 text-white px-4 py-2 rounded-lg my-5"
+              >
+                Remove
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <h3>Total items in cart: {cart.length}</h3>
+      <p>Total Price : {cart.reduce((total, item) => total + item.price, 0)}</p>
+    </div>
+  );
+}
+
+-----------------------------
+
+context - CartContext
+
+
+"use client"
+
+import { createContext , useState, useEffect } from "react";
+// import ProductAddCart from "../app/product/[id]/ProductAddCart"
+
+export const CartContext = createContext(null);
+
+
+export const CartProvider = ({ children }) => {
+  // const [cart, setCart] = useState(() => {
+  //     if (typeof window !== "undefined") {
+  //         const savedCart = localStorage.getItem("cart");
+  //         return savedCart ? JSON.parse(savedCart) : [];
+  //     }
+  //     return [];
+  // });
+
+  // const addToCart = (product) => {
+  //     const updatedCart = [...cart, product];
+  //     setCart(updatedCart);
+  //     if (typeof window !== "undefined") {
+  //         localStorage.setItem("cart", JSON.stringify(updatedCart));
+  //     }
+  // };
+
+  const [cart, setCart] = useState([]);
+
+  // 🔹 Load from localStorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedCart = localStorage.getItem("cart");
+      if (savedCart) {
+        setCart(JSON.parse(savedCart));
+      }
+    }
+  }, []);
+
+  // 🔹 Save to localStorage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const addToCart = (product) => {
+    const productWithQuantity = {
+      ...product,
+      quantity: 1,
+    };
+    setCart((prev) => [...prev, productWithQuantity]);
+  };
+
+
+  const removeFromCart = (productId) => {
+    const updatedCart = cart.filter((item) => item._id !== productId);
+    setCart(updatedCart);
+  };
+
+  // 🔹 Increase quantity
+  const increaseQuanity = (productId, stock = Infinity) => {
+    setCart((prev) =>
+      prev.map((item) =>
+        item._id === productId && item.quantity < stock
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  };
+
+  // 🔹 Decrease quantity
+  const decreaseQuanity = (productId) => {
+    setCart((prev) =>
+      prev.map((item) =>
+        item._id === productId && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
+  };
+
+  return (
+    <CartContext.Provider
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        increaseQuanity,
+        decreaseQuanity,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+
+-------------------------------------
+
+Next JS Tutorial #22 Search Filter using Server Action in Next JS in Tamil
+
+
+app - components - Header.js
+
+
+products - page.js
+
+
+app - action - SearchAction.js
+
+
+------------------------
+
+
+Next JS Tutorial #23 Handling Login/Logout Button in Next JS in Tamil
+
+components - header -
+
+login - page -
+
+-------------------------
+
+Next JS Tutorial #24 Contact Form using Server Action (Nodemailer ) in Tamil in Next JS.
+
+npm install nodemailer
+
+sign in - mailrap
+
+
+contact - panna
+
+
+action - contactAction.js
+
+
+--------------------------
+
+Next JS Tutorial #25 Calculate the total price in our cart and cart count in Header in Tamil
+
+
+

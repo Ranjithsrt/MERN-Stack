@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Basics</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+
+<body class="bg-white dark:bg-black">
+    <!-- 1. Typography -->
+    <!-- Line Height -->
+    <!-- <p class="leading-tight">This Paragraph has no extra spacing between lines</p>
+    <p class="leading-normal">This Paragraph has any heights</p>
+    <p class="leading-loose">This Paragraph has relaxed line height</p>
+    <p class="leading-[10]">This Paragraph has any height</p>
+    <p class="leading-[10]">This Paragraph has any height</p> -->
+
+    <!-- Tracking -->
+    <!-- <h1 class="text-3xl tracking-widest font-bold">Welcome to Our Site</h1>
+     <h1 class="text-2xl tracking-[.55em] font-bold">Text looks wide</h1> -->
+
+    <!-- Text Aligment -->
+    <!-- <p class="text-left">this paragraph is in left</p>
+      <p class="text-right">this paragraph is in right</p>
+      <p class="text-center">this paragraph is in center</p>
+      <p class="text-justify">Aligning text with Readability.</p> -->
+
+    <!-- Truncate -->
+    <!-- <div class="w-64 truncate">
+        This is a very long sentence that will be truncated with an ellipsis
+    </div> -->
+    <!-- Line Clamp -->
+    <!-- <div class="line-clamp-1">
+        This is a long paragraph that will be limited to two lines before cutting off
+    </div> -->
+    <!-- Whitespace Nowrap -->
+    <!-- <div class="whitespace-nowrap">
+        This text will stay in a single line and never wrap
+    </div> -->
+
+    <!-- 2. Colors -->
+    <!-- Opacity -->
+    <!-- <div class="bg-red-500/50">
+        This is a div with a red background
+        with 50% opacity
+    </div> -->
+    <!-- Text Opacity -->
+    <!-- <div class="text-blue-500/70">
+        This text is blue but slightly transparent
+    </div> -->
+
+    <!-- 3. Spacing -->
+    <!-- Padding -->
+    <!-- <div class="bg-gray-200 px-6 py-6">
+        This div has horizontal padding (`px-6`) and vertical padding (`py-4`).
+    </div> -->
+    <!-- Responsive padding -->
+    <!-- <div class="bg-blue-500 p-4 md:p-8 lg:p-12">
+        This div has different sizes for mobile (p-4), medium (p-8) and large (p-12)
+    </div> -->
+    <!-- Negative margins -->
+    <!-- <div class="-mt-2 bg-red-500">
+        This div moves up
+     </div> -->
+    <!-- Space classes -->
+    <!-- <div class="flex flex-col space-y-5">
+        <div class="bg-green-500">Item 1</div>
+        <div class="bg-green-500">Item 2</div>
+        <div class="bg-green-500">Item 3</div>
+    </div> -->
+    <!-- 4. Borders & Rounded corners -->
+    <!-- <button class="border-2 border-red-500 p-4 rounded-full">Button with border</button>
+    <div class="border-t-2 border-b-2 border-blue-600 p-4">This div has top border and bottom border</div>
+    <div class="border-[10px]">
+        This div has custom width
+    </div>
+    <img src="https://picsum.photos/200" class="rounded-full" alt=""> -->
+    <!-- Shadow -->
+    <!-- <div class="shadow-sm p-4 bg-white">This div has small shadow, for small depth</div>
+    <div class="shadow-lg p-4 bg-white">This div has large shadow, for larger depth</div>
+    <div class="shadow-inner p-4 bg-gray-200">This div has inner shadow</div> -->
+    <!-- Focus States -->
+    <!-- <input type="text" class="border focus:outline-none" placeholder="Enter text">
+     <input type="text" class="border focus:ring-4 focus:ring-blue-500" placeholder="Enter text2"> -->
+
+    <!-- 5. Responsive Layout -->
+    <!-- <div class="flex flex-col">
+        <div class="bg-green-300 p-2">Item 1</div>
+        <div class="bg-green-300 p-2">Item 2</div>
+        <div class="bg-green-300 p-2">Item 3</div>
+    </div>
+    <div class="flex flex-row">
+        <div class="bg-green-300 p-2">Item 1</div>
+        <div class="bg-green-300 p-2">Item 2</div>
+        <div class="bg-green-300 p-2">Item 3</div>
+    </div>
+    <div class="flex flex-col md:flex-row">
+        <div class="bg-blue-300 p-2">Item 1</div>
+        <div class="bg-blue-300 p-2">Item 2</div>
+        <div class="bg-blue-300 p-2">Item 3</div>
+    </div> -->
+
+    <!-- 6. Layout  -->
+    <!-- Flex -->
+    <!-- <div class="flex">
+        <div class="flex-grow bg-green-500 p-4">Grows to fill space</div>
+        <div class="flex-none bg-red-500 p-4">Fixed size</div>
+     </div>
+     <div class="flex">
+        <div class="flex-shrink-0 bg-yellow-500 p-4">Does not shrinks</div>
+        <div class="flex-shrink-2 bg-blue-500 p-4">Shrinks when needed</div>
+     </div>
+     <div class="flex">
+        <div class="basis-1/3 bg-pink-500 p-4">Take 1/3 of space</div>
+        <div class="basis-2/3 bg-violet-500 p-4">Take 2/3 of space</div>
+     </div> -->
+
+    <!-- Grid -->
+    <!-- Place items -->
+    <!-- <div class="grid h-48  grid-cols-3 gap-2 place-items-end bg-green-200">
+        <div class="bg-red-300 p-2">01</div>
+        <div class="bg-red-300 p-2">02</div>
+        <div class="bg-red-300 p-2">03</div>
+        <div class="bg-red-300 p-2">04</div>
+        <div class="bg-red-300 p-2">05</div>
+        <div class="bg-red-300 p-2">06</div>
+    </div> -->
+    <!-- Place content -->
+    <!-- <div class="mt-5 h-48 grid  grid-cols-2 gap-2 place-content-around bg-red-200">
+        <div class="bg-blue-300 p-2">01</div>
+        <div class="bg-blue-300 p-2">02</div>
+        <div class="bg-blue-300 p-2">03</div>
+        <div class="bg-blue-300 p-2">04</div>
+        <div class="bg-blue-300 p-2">05</div>
+        <div class="bg-blue-300 p-2">06</div>
+    </div> -->
+
+    <!-- <div class="mt-5 h-48 grid  grid-cols-2 gap-2 place-content-center place-items-center bg-red-200">
+        <div class="bg-blue-300 p-2">01</div>
+        <div class="bg-blue-300 p-2">02</div>
+        <div class="bg-blue-300 p-2">03</div>
+        <div class="bg-blue-300 p-2">04</div>
+        <div class="bg-blue-300 p-2">05</div>
+        <div class="bg-blue-300 p-2">06</div>
+    </div> -->
+
+    <!-- Complex Layout -->
+     <div class="grid grid-cols-3 gap-2">
+        <div class="col-span-2 bg-blue-300 p-2">01</div>
+        <div class="bg-blue-300 p-2">02</div>
+        <div class="row-span-2 bg-blue-300 p-2">03</div>
+        <div class="bg-blue-300 p-2">04</div>
+        <div class="bg-blue-300 p-2">05</div>
+        <div class="row-space-2 bg-blue-300 p-2">06</div>
+     </div>
+
+
+</body>
+
+</html>

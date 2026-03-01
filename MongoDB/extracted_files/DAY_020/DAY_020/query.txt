@@ -1,0 +1,250 @@
+db.students.insertMany([
+  { "_id": 1, "name": "Arun Kumar", "age": 23, "class": "BCA" },
+  { "_id": 2, "name": "Karthik Selvam", "age": 24, "class": "Btech" },
+  { "_id": 3, "name": "Lakshmi Priya", "age": 20, "class": "BSc" },
+  { "_id": 4, "name": "Manoj Raj", "age": 19, "class": "BCA" },
+  { "_id": 5, "name": "Suresh Nair", "age": 24, "class": "Btech" },
+  { "_id": 6, "name": "Deepa Rani", "age": 21, "class": "BSc" },
+  { "_id": 7, "name": "Vijay Anand", "age": 22, "class": "BCA" },
+  { "_id": 8, "name": "Ramesh Kannan", "age": 20, "class": "Btech" }
+]);
+
+#----------------------------------------------
+$group
+    $sum
+    $count
+    $push
+    $addToSet
+    $min
+    $max
+    $avg
+    $median
+    $first
+    $last
+    $top
+    $topN
+    $bottom
+    $bottomN
+
+
+#-----------------------------------------
+#  Distinct Course Name
+
+db.students.aggregate([
+    {$group:{_id:"$class"}}
+])
+
+#-----------------------------------------
+# Course wise student strength
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            student_count:{$sum:1}
+        }
+    }
+])
+
+#-----------------------------------------
+# match with sum (age>20 with Course wise student strength)
+
+db.students.aggregate([
+    {
+        $match:{age:{$gt:20}}
+    },
+    {
+        $group:{
+            _id:"$class",
+            student_count:{$sum:1}
+        }
+    }
+])
+
+#-----------------------------------------
+# match with count (age>20 with Course wise student strength)
+
+db.students.aggregate([
+    {
+        $match:{age:{$gt:20}}
+    },
+    {
+        $group:{
+            _id:"$class",
+            student_count:{$count:{}}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            student_count:{$count:{}}
+        }
+    },
+    {
+        $sort:{student_count:-1}
+    }
+])
+
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            students:{$push:"$name"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            students:{$push:"$$ROOT"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            students:{$addToSet:"$name"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            max_age:{$max:"$age"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            min_age:{$min:"$age"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:null,
+            avg_age:{$avg:"$age"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:null,
+            median_age:{
+                $median:{
+                     input:"$age",
+                      method:"approximate" 
+                }
+            }
+        }
+    }
+])
+
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            students:{$push:"$$ROOT"}
+        }
+    }
+])
+
+
+
+db.students.aggregate([
+    {
+        $group:{
+            _id:"$class",
+            first_student:{$first:"$$ROOT"}
+        }
+    }
+])
+
+db.students.aggregate([
+    {
+        $group:{
+             _id:"$class",
+             last_student:{$last:"$$ROOT"}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $group:{
+             _id:"$class",
+             top_student:{$top:{
+                output:["$name","$class","$age"],
+                sortBy:{"age":-1}
+             }}
+        }
+    }
+])
+
+db.students.aggregate([
+    {
+        $group:{
+             _id:"$class",
+             bottom_student:{$bottom:{
+                output:["$name","$class","$age"],
+                sortBy:{"age":-1}
+             }}
+        }
+    }
+])
+
+
+
+db.students.aggregate([
+    {
+        $group:{
+             _id:"$class",
+             top_student:{$topN:{
+                output:["$name","$class","$age"],
+                sortBy:{"age":-1},
+                n:3
+             }}
+        }
+    }
+])
+
+db.students.aggregate([
+    {
+        $group:{
+             _id:"$class",
+             bottom_student:{$bottomN:{
+                output:["$name","$class","$age"],
+                sortBy:{"age":-1},
+                n:3
+             }}
+        }
+    }
+])

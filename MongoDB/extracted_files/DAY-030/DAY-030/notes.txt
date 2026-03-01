@@ -1,0 +1,170 @@
+Arithmetic Operators
+    $add
+    $subtract
+    $multiply
+    $divide
+    $mod
+    $pow
+    $abs
+    $sqrt
+    $floor
+    $ceil
+    $round
+    $trunc
+Conditional Operators
+String Operators
+Date Operators
+Array Operators
+Type Operators
+Capped Collection
+Indexes
+Import & Export
+
+
+//-----------------Arithmetic Operators------------------------------------
+
+db.products.insertMany(
+ [
+     { "_id": 1, "name": "Laptop", "price": 1000, "discount": 100, "quantity": 5 },
+  { "_id": 2, "name": "Phone", "price": 500, "discount": 50, "quantity": 10 },
+  { "_id": 3, "name": "Tablet", "price": 300, "discount": 30, "quantity": 8 }
+ ]
+)
+
+//-------------------------------------------------------------------------
+1. $add - Add numbers
+Calculate the total cost after adding a fixed tax of 50 to the price.
+
+db.products.aggregate([
+    {
+        $project:{
+            name:1,
+            price:1,
+            totalCost:{$add:["$price",50]}
+        }
+    }
+])
+
+//-------------------------------------------------------------------------
+2. $subtract - Subtract numbers
+Calculate the discounted price by subtracting the discount from the original price.
+
+db.products.aggregate([
+    {
+        $project:{
+            name:1,
+            price:1,
+            discount:1,
+            driscounedPrice:{$subtract:["$price","$discount"]}
+        }
+    }
+])
+
+//-------------------------------------------------------------------------
+3. $multiply - Multiply numbers
+Calculate the total value of inventory by multiplying price and quantity.
+
+db.products.aggregate([
+    {
+        $project:{
+            name:1,
+            price:1,
+            quantity:1,
+            inventoryValue:{$multiply:["$price","$quantity"]}
+        }
+    }
+])
+
+//-------------------------------------------------------------------------
+4. $divide - Divide numbers
+Calculate the price per unit after applying the discount.
+
+db.products.aggregate([
+    {
+        $project:{
+            name:1,
+            pricePerItem:{$divide:[{$subtract:["$price","$discount"]},"$quantity"]}
+        }
+    }
+])
+
+//-------------------------------------------------------------------------
+5. $mod - Modulus (remainder)
+Check if the quantity is even or odd by using modulus.
+
+db.products.aggregate([
+    {
+        $project:{
+            name:1,
+            quantity:1,
+            isEven:{$eq:[{$mod:["$quantity",2]},0]}
+        }
+    }
+])
+
+//-------------------------------------------------------------------------
+6. $abs - Absolute value
+Calculate the absolute difference between price and discount.
+
+db.products.aggregate([
+    {
+        $project:{
+            name:1,
+            priceDiscount:{$abs:{$subtract:["$price","$discount"]}}
+        }
+    }
+])
+
+
+//-------------------------------------------------------------------------
+
+db.students.insertMany([
+  { "_id": 1, "name": "Ram", "score": 85.7 },
+  { "_id": 2, "name": "Tivin", "score": 92.3 },
+  { "_id": 3, "name": "Sara", "score": 78.9 }
+])
+
+
+1. $floor - Round Down to Nearest Integer
+
+
+db.students.aggregate([
+    {
+        $project:{
+            name:1,
+            floorScore:{$floor:"$score"}
+        }
+    }
+])
+
+2. $ceil
+
+db.students.aggregate([
+    {
+        $project:{
+            name:1,
+            ceilScore:{$ceil:"$score"}
+        }
+    }
+])
+
+
+3.round
+db.students.aggregate([
+    {
+        $project:{
+            name:1,
+            roundScore:{$round:["$score",0]}
+        }
+    }
+])
+
+
+db.students.aggregate([
+    {
+        $project:{
+            name:1,
+            truncScore:{$trunc:"$score"}
+        }
+    }
+])

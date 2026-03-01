@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    13. If a five-digit number is input through the keyboard, write a program to print a new number by adding one to each of its digits. For example, if the number that is input is 12391 then the output should be displayed as 23402.
+
+    <script>
+      let num = 12391;
+
+      const d5 = ((num % 10) + 1) % 10; //5
+      num = Math.floor(num / 10);
+
+      const d4 = ((num % 10) + 1) % 10; //4
+      num = Math.floor(num / 10);
+
+      const d3 = ((num % 10) + 1) % 10; //3
+      num = Math.floor(num / 10);
+
+      const d2 = ((num % 10) + 1) % 10; //2
+      num = Math.floor(num / 10);
+
+      const d1 = ((num % 10) + 1) % 10; //1
+
+      const result = d1 * 10000 + d2 * 1000 + d3 * 100 + d4 * 10 + d5;
+
+      console.log( result);
+    </script>
+  </body>
+</html>

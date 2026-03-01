@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon Mx Player</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Css style -->
+    <link rel="stylesheet" href="./style.css" />
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+
+  <body class="bg-dark">
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-md navbar-dark sticky-top"
+      style="background-color: #1a2224"
+    >
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+          <img
+            data-testid="appnavbar_brandlogo"
+            width="230"
+            alt="mx logo"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjUxIiBoZWlnaHQ9IjIzNCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTYzMSAuNDFoNC4yMXYyMzIuODhINjMxVi40MVoiLz48cGF0aCBmaWxsPSIjM0M4Q0YwIiBkPSJNODE4LjM5IDIyOS45MmM2Mi40NDEgMCAxMTMuMDYtNTAuNjE5IDExMy4wNi0xMTMuMDZTODgwLjgzMSAzLjggODE4LjM5IDMuOCA3MDUuMzMgNTQuNDE5IDcwNS4zMyAxMTYuODZzNTAuNjE5IDExMy4wNiAxMTMuMDYgMTEzLjA2WiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Im03OTEuMTUgNjQuMTggODcuNTQgNTEuNDRjMS4xNy42OSAxLjE2IDIuMzcgMCAzLjA1bC04Ny41NCA1MC44NmMtMS4xOC42OC0yLjY2LS4xNy0yLjY2LTEuNTNWNjUuN2MwLTEuMzcgMS40OS0yLjIyIDIuNjYtMS41MlpNOTkyLjk3IDcyLjgxbDM5LjE1IDQyLjQxIDM5LjAyLTQyLjQxYzIuODUtMy4xMyA0LjIxLTQuMDggNS44NS00LjA4IDIuMTggMCAzLjI2IDEuNzcgMy4yNiA1LjE3djg3LjgyYzAgMi4zMS0uOTUgMy41My0zLjUzIDMuNTNoLTE2LjQ1Yy0yLjQ1IDAtMy42Ny0xLjIyLTMuNjctMy41M3YtNDEuMDVsLTE5LjQ0IDIyLjE2Yy0yLjU4IDIuNzItMy42NyAzLjY3LTUuMTcgMy42N3MtMi43Mi0uOTUtNS4wMy0zLjY3bC0xOS40NC0yMi4xNnY0MS4wNWMwIDIuNTgtMS4wOSAzLjUzLTMuNjcgMy41M0g5ODcuNGMtMi4zMSAwLTMuNTMtMS4yMi0zLjUzLTMuNTNWNzMuOWMwLTMuMjYgMS4wOS01LjE3IDMuMjYtNS4xNyAxLjYzIDAgMy4yNiAxLjIyIDUuODUgNC4wOGgtLjAxWm05OC43LS44MWMwLTEuMjIgMS4yMi0xLjkgMi45OS0xLjloMjAuNTNjMy40IDAgNC40OS42OCA2LjUzIDMuOTRsMTUuOTEgMjUuNDIgMTYuNTktMjUuOTZjMS43Ny0yLjg1IDIuOTktMy40IDYuMTItMy40aDE5Ljg1YzEuOSAwIDIuODUuNTQgMi44NSAxLjc3IDAgLjQxLS4yNyAxLjIyLS44MiAyLjE4bC0yOS4wOSA0My4wOSAyOS43NyA0NC4xOGMuNTQuODIuODIgMS41LjgyIDIuMDQgMCAxLjIyLTEuMjIgMS45LTIuODUgMS45aC0yMC41M2MtMy40IDAtNC40OS0uNjgtNi41My0zLjk0bC0xNi44Ni0yNi4xLTE3LjEzIDI2LjY1Yy0xLjc3IDIuODUtMi44NSAzLjQtNS45OCAzLjRoLTE5Ljg1Yy0yLjA0IDAtMi45OS0uNjgtMi45OS0xLjkgMC0uNTQuMjctMS4yMi44Mi0yLjA0bDI5Ljc3LTQzLjkxLTI5LjA5LTQzLjM3Yy0uNTQtLjgyLS44Mi0xLjUtLjgyLTIuMDRsLS4wMS0uMDFabTEzNi44OS0xLjkxYzI1LjAxIDAgMzcuMTEgMTAuNiAzNy4xMSAyOS43N3MtMTMuNTkgMzEuMTMtMzguNDcgMzEuMTNoLTE0LjY4Yy0uOTUgMC0xLjM2LjQxLTEuMzYgMS4zNnYzMC4xOGMwIDIuMTgtLjY4IDIuNzItMi43MiAyLjcyaC0zLjRjLTIuMDQgMC0yLjcyLS41NC0yLjcyLTIuNzJWNzIuODFjMC0yLjE4LjY4LTIuNzIgMi43Mi0yLjcyaDIzLjUyWm0tLjY4IDguN2gtMTUuMzZjLS45NSAwLTEuMzYuNDEtMS4zNiAxLjM2djQwLjc4YzAgLjk1LjQxIDEuMzYgMS4zNiAxLjM2aDE1LjM2YzE3LjU0IDAgMjguNDEtNy4yIDI4LjQxLTIyLjAycy0xMC4wNi0yMS40OC0yOC40MS0yMS40OFptNTYuNjktOC43YzIuMDQgMCAyLjcyLjU0IDIuNzIgMi43MnY4Mi4zOGMwIC45NS40MSAxLjM2IDEuMzYgMS4zNmg0Mi42OWMyLjA0IDAgMi43Mi41NCAyLjcyIDIuNzJ2My4yNmMwIDIuMTgtLjY4IDIuNzItMi43MiAyLjcyaC01MC4xNmMtMi4wNCAwLTIuNzItLjU0LTIuNzItMi43MlY3Mi44MWMwLTIuMTguNjgtMi43MiAyLjcyLTIuNzJoMy40LS4wMVptMTEwLjI1IDUuMDMgNDAuMSA4Ni4xOWMuNDEgMS4wOS42OCAxLjc3LjY4IDIuMTggMCAxLjIyLS45NSAxLjc3LTIuNzIgMS43N2gtMi44NWMtMi43MiAwLTMuNTMtLjY4LTUuMDMtMy45NGwtMTIuOTEtMjguMjhjLS41NC0xLjIyLS45NS0xLjYzLTIuNDUtMS42M2gtMzkuMTVjLTEuNSAwLTEuOS40MS0yLjQ1IDEuNjNsLTEyLjkxIDI4LjI4Yy0xLjUgMy4yNi0yLjMxIDMuOTQtNS4wMyAzLjk0aC0yLjQ1Yy0xLjc3IDAtMi43Mi0uNTQtMi43Mi0xLjc3IDAtLjQxLjI3LTEuMDkuNjgtMi4xOGwzOS44My04Ni4xOWMyLjQ1LTUuMyAzLjI2LTYuNjYgNC43Ni02LjY2IDEuMjIgMCAyLjE4IDEuMzYgNC42MiA2LjY2Wm0xMS44MyA0NS45NS0xNi41OS0zNi4xNi0xNi41OCAzNi4xNmMtLjI3LjU0LS40MS45NS0uNDEgMS4yMiAwIC41NC40MS42OCAxLjM2LjY4aDMxLjI3Yy45NSAwIDEuMzYtLjE0IDEuMzYtLjY4IDAtLjI3LS4xNC0uNjgtLjQxLTEuMjJabTE0LjY4LTQ5LjYyYzAtLjk1LjgyLTEuMzYgMi40NS0xLjM2aDMuNTNjMi43MiAwIDMuNC40MSA1LjAzIDMuMTNsMjcuODcgNDcuNTggMjgtNDcuNThjMS42My0yLjcyIDIuMzEtMy4xMyA1LjAzLTMuMTNoMy4yNmMxLjUgMCAyLjMxLjQxIDIuMzEgMS4zNiAwIC41NC0uMTQgMS4wOS0uNTQgMS43N2wtMzMuNzEgNTUuNzR2MzMuNThjMCAyLjE4LS42OCAyLjcyLTIuNzIgMi43MmgtMy40Yy0yLjA0IDAtMi43Mi0uNTQtMi43Mi0yLjcydi0zMi45bC0zMy43MS01Ni40MmMtLjQxLS42OC0uNjgtMS4zNi0uNjgtMS43N1ptMTQxLjY2LTEuMzZjMi4wNCAwIDIuNzIuNTQgMi43MiAyLjcydjMuMjZjMCAyLjE4LS42OCAyLjcyLTIuNzIgMi43MmgtNDEuMTljLS45NSAwLTEuMzYuNDEtMS4zNiAxLjM2djMxLjU0YzAgLjk1LjQxIDEuMzYgMS4zNiAxLjM2aDM2LjU3YzIuMDQgMCAyLjcyLjU0IDIuNzIgMi43MnYzLjEzYzAgMi4xOC0uNjggMi43Mi0yLjcyIDIuNzJoLTM2LjU3Yy0uOTUgMC0xLjM2LjQxLTEuMzYgMS4zNnYzMi4yMmMwIC45NS40MSAxLjM2IDEuMzYgMS4zNmg0MS4zM2MyLjA0IDAgMi43Mi41NCAyLjcyIDIuNzJ2My4yNmMwIDIuMTgtLjY4IDIuNzItMi43MiAyLjcyaC00OC44Yy0yLjA0IDAtMi43Mi0uNTQtMi43Mi0yLjcyVjcyLjgyYzAtMi4xOC42OC0yLjcyIDIuNzItMi43MkgxNTYzbC0uMDEtLjAxWm00NC40NSAwYzI1LjAxIDAgMzcuMTEgOS45MiAzNy4xMSAyOC4yOCAwIDEzLjczLTcuMiAyMi4xNi0xOS43MSAyNS44M2wyNC43NCAzNy4xMWMuNjggMS4yMiAxLjA5IDIuMDQgMS4wOSAyLjU4IDAgLjk1LS45NSAxLjM2LTIuODUgMS4zNmgtMy40Yy0yLjcyIDAtMy40LS41NC01LjQ0LTMuNGwtMjEuODktMzMuMzFjLS45NS0xLjQ5LTEuNzctMS43Ny0zLjUzLTEuNzdoLTIyLjE2Yy0uOTUgMC0xLjM2LjQxLTEuMzYgMS4zNnYzNC4zOWMwIDIuMTgtLjY4IDIuNzItMi43MiAyLjcyaC0zLjRjLTIuMDQgMC0yLjcyLS41NC0yLjcyLTIuNzJWNzIuOGMwLTIuMTguNjgtMi43MiAyLjcyLTIuNzJoMjMuNTJ2LjAxWm0tLjY4IDguN2gtMTUuMzZjLS45NSAwLTEuMzYuNDEtMS4zNiAxLjM2djM2Ljg0YzAgLjk1LjQxIDEuMzYgMS4zNiAxLjM2aDE2LjcyYzE3LjgxIDAgMjcuMDUtNi4xMiAyNy4wNS0xOS44NXMtMTAuMDYtMTkuNzEtMjguNDEtMTkuNzFaIi8+PGcgZmlsbD0iI2ZmZiIgY2xpcC1wYXRoPSJ1cmwoI2EpIj48cGF0aCBkPSJNMzQ4LjE3MyAxOTMuMzYzYy0zMi41ODIgMjQuMDE2LTc5LjgwNyAzNi44MjktMTIwLjQ2OCAzNi44MjktNTcuMDEyIDAtMTA4LjMzOC0yMS4wODctMTQ3LjE2OC01Ni4xNTgtMy4wNS0yLjc1OC0uMzE3LTYuNTE3IDMuMzQzLTQuMzY5IDQxLjkwNiAyNC4zODIgOTMuNzIgMzkuMDUgMTQ3LjI0MiAzOS4wNSAzNi4wOTYgMCA3NS44MDUtNy40NjkgMTEyLjMxNi0yMi45NjYgNS41MTYtMi4zNDMgMTAuMTI5IDMuNjEyIDQuNzM1IDcuNjE0WiIvPjxwYXRoIGQ9Ik0zNjEuNzE5IDE3Ny44NjVjLTQuMTQ5LTUuMzItMjcuNTMtMi41MTMtMzguMDI1LTEuMjY5LTMuMTk3LjM5MS0zLjY4NS0yLjM5MS0uODA1LTQuMzkzIDE4LjYyMS0xMy4xMDYgNDkuMTc4LTkuMzIzIDUyLjc0MS00LjkzIDMuNTYzIDQuNDE4LS45MjcgMzUuMDQ3LTE4LjQyNiA0OS42NjYtMi42ODUgMi4yNDYtNS4yNDggMS4wNS00LjA1Mi0xLjkyOCAzLjkzLTkuODExIDEyLjc0LTMxLjgwMSA4LjU2Ny0zNy4xNDZaTTMyNC40MjYgNzkuNjhWNjYuOTRjMC0xLjkyOCAxLjQ2NS0zLjIyMSAzLjIyMi0zLjIyMWg1Ny4wMzdjMS44MyAwIDMuMjk1IDEuMzE4IDMuMjk1IDMuMjIxdjEwLjkxYy0uMDI1IDEuODMtMS41NjIgNC4yMjItNC4yOTYgOC4wMDVsLTI5LjU1NiA0Mi4xOThjMTAuOTgzLS4yNjggMjIuNTc2IDEuMzY3IDMyLjUzNCA2Ljk4IDIuMjQ1IDEuMjY5IDIuODU1IDMuMTI0IDMuMDI2IDQuOTU1djEzLjU5NGMwIDEuODU1LTIuMDUgNC4wMjctNC4xOTggMi45MDQtMTcuNTQ4LTkuMjAxLTQwLjg1Ni0xMC4yMDItNjAuMjU4LjA5OC0xLjk3NyAxLjA3My00LjA1Mi0xLjA3NC00LjA1Mi0yLjkyOXYtMTIuOTExYzAtMi4wNzQuMDI1LTUuNjEzIDIuMDk5LTguNzYybDM0LjI0Mi00OS4xMDVoLTI5LjhjLTEuODMgMC0zLjI5NS0xLjI5My0zLjI5NS0zLjE5N1pNMTE2LjM2NSAxNTkuMTdIOTkuMDEyYy0xLjY2LS4xMjItMi45NzctMS4zNjctMy4xLTIuOTUzVjY3LjE1OWMwLTEuNzgxIDEuNDktMy4xOTcgMy4zNDQtMy4xOTdoMTYuMTgyYzEuNjg0LjA3MyAzLjAyNiAxLjM2NyAzLjE0OCAyLjk3OHYxMS42NDJoLjMxN2M0LjIyMi0xMS4yNTIgMTIuMTU0LTE2LjQ5OSAyMi44NDQtMTYuNDk5IDEwLjg2MSAwIDE3LjY0NiA1LjI0NyAyMi41MjcgMTYuNDk5IDQuMTk4LTExLjI1MiAxMy43NDEtMTYuNDk5IDIzLjk2Ny0xNi40OTkgNy4yNzMgMCAxNS4yMjkgMy4wMDIgMjAuMDg2IDkuNzM4IDUuNDkxIDcuNDkzIDQuMzY5IDE4LjM3OCA0LjM2OSAyNy45MmwtLjAyNSA1Ni4yMDhjMCAxLjc4MS0xLjQ4OSAzLjIyMS0zLjM0MyAzLjIyMWgtMTcuMzI5Yy0xLjczMy0uMTIyLTMuMTI0LTEuNTEzLTMuMTI0LTMuMjIxdi00Ny4yMDJjMC0zLjc1OC4zNDItMTMuMTMtLjQ4OC0xNi42OTMtMS4yOTMtNS45OC01LjE3NC03LjY2NC0xMC4yMDItNy42NjQtNC4xOTcgMC04LjU5IDIuODA3LTEwLjM3MiA3LjI5Ny0xLjc4MiA0LjQ5MS0xLjYxMSAxMi4wMDgtMS42MTEgMTcuMDZ2NDcuMjAyYzAgMS43ODEtMS40ODkgMy4yMjEtMy4zNDQgMy4yMjFIMTQ1LjUzYy0xLjc1Ny0uMTIyLTMuMTI0LTEuNTEzLTMuMTI0LTMuMjIxbC0uMDI0LTQ3LjIwMmMwLTkuOTMzIDEuNjM1LTI0LjU1Mi0xMC42OS0yNC41NTItMTIuNDcxIDAtMTEuOTgzIDE0LjI1My0xMS45ODMgMjQuNTUydjQ3LjIwMmMwIDEuNzgxLTEuNDg5IDMuMjIxLTMuMzQ0IDMuMjIxWk00MzcuMDg0IDYyLjA4M2MyNS43NDkgMCAzOS42ODUgMjIuMTEyIDM5LjY4NSA1MC4yMjggMCAyNy4xNjMtMTUuNDAxIDQ4LjcxNC0zOS42ODUgNDguNzE0LTI1LjI4NCAwLTM5LjA0OS0yMi4xMTItMzkuMDQ5LTQ5LjY2NiAwLTI3LjcyNSAxMy45MzYtNDkuMjc2IDM5LjA0OS00OS4yNzZabS4xNDcgMTguMTgzYy0xMi43ODkgMC0xMy41OTQgMTcuNDI1LTEzLjU5NCAyOC4yODYgMCAxMC44ODUtLjE3MSAzNC4xMiAxMy40NDcgMzQuMTIgMTMuNDQ4IDAgMTQuMDgzLTE4Ljc0NCAxNC4wODMtMzAuMTY2IDAtNy41MTctLjMxOC0xNi40OTktMi41ODctMjMuNjI1LTEuOTUzLTYuMi01LjgzMy04LjYxNS0xMS4zNDktOC42MTVaTTUxMC4xNTYgMTU5LjE3aC0xNy4yNzljLTEuNzMzLS4xMjItMy4xMjQtMS41MTMtMy4xMjQtMy4yMjFsLS4wMjUtODkuMDgyYy4xNDctMS42MzYgMS41ODctMi45MDUgMy4zNDQtMi45MDVoMTYuMDgzYzEuNTEzLjA3MyAyLjc1OCAxLjA5OSAzLjEgMi40OVY4MC4wN2guMzE3YzQuODU3LTEyLjE3OCAxMS42NjYtMTcuOTg3IDIzLjY1LTE3Ljk4NyA3Ljc4NSAwIDE1LjM3NSAyLjgwNyAyMC4yNTcgMTAuNDk1IDQuNTM5IDcuMTI2IDQuNTM5IDE5LjExIDQuNTM5IDI3LjcyNXY1Ni4wNmMtLjE5NSAxLjU2Mi0xLjYzNSAyLjgwNy0zLjM0NCAyLjgwN2gtMTcuNDAxYy0xLjU4Ni0uMTIyLTIuOTA0LTEuMjkzLTMuMDc1LTIuODA3di00OC4zNzJjMC05LjczOCAxLjEyMy0yMy45OTEtMTAuODYxLTIzLjk5MS00LjIyMiAwLTguMTAzIDIuODMtMTAuMDMxIDcuMTI2LTIuNDQgNS40NDMtMi43NTggMTAuODYxLTIuNzU4IDE2Ljg2NXY0Ny45NThjLS4wMjQgMS43ODEtMS41MzcgMy4yMjEtMy4zOTIgMy4yMjFaTTI3OC45NTggMTE2LjYzMXYtMy43NThjLTEyLjU0NSAwLTI1Ljc5NyAyLjY4NC0yNS43OTcgMTcuNDc0IDAgNy40OTMgMy44OCAxMi41NjkgMTAuNTQzIDEyLjU2OSA0Ljg4MSAwIDkuMjUtMy4wMDIgMTIuMDA4LTcuODgzIDMuNDE3LTYuMDA0IDMuMjQ2LTExLjY0MSAzLjI0Ni0xOC40MDJabTE3LjQ5OSA0Mi4yOTZjLTEuMTQ3IDEuMDI1LTIuODA3IDEuMDk4LTQuMS40MTUtNS43Ni00Ljc4NC02Ljc4NS03LjAwNS05Ljk1OC0xMS41NjktOS41MTggOS43MTQtMTYuMjU0IDEyLjYxOC0yOC42MDQgMTIuNjE4LTE0LjU5NSAwLTI1Ljk2OC05LjAwNi0yNS45NjgtMjcuMDQyIDAtMTQuMDgyIDcuNjM5LTIzLjY3NCAxOC41LTI4LjM2IDkuNDIxLTQuMTQ5IDIyLjU3Ni00Ljg4MSAzMi42MzEtNi4wMjh2LTIuMjQ1YzAtNC4xMjUuMzE3LTkuMDA2LTIuMDk5LTEyLjU3LTIuMTIzLTMuMTk3LTYuMTc1LTQuNTE0LTkuNzM4LTQuNTE0LTYuNjE0IDAtMTIuNTIgMy4zOTItMTMuOTYgMTAuNDIxLS4yOTMgMS41NjItMS40NCAzLjEtMy4wMDIgMy4xNzNsLTE2Ljg0LTEuODA2Yy0xLjQxNi0uMzE3LTIuOTc4LTEuNDY1LTIuNTg3LTMuNjM3IDMuODgtMjAuNDAzIDIyLjMwNy0yNi41NTMgMzguODA1LTI2LjU1MyA4LjQ0NSAwIDE5LjQ3NiAyLjI0NSAyNi4xMzkgOC42NCA4LjQ0NCA3Ljg4MiA3LjYzOSAxOC40MDEgNy42MzkgMjkuODQ4djI3LjA0MmMwIDguMTI3IDMuMzY4IDExLjY5IDYuNTQxIDE2LjA4MyAxLjEyMyAxLjU2MiAxLjM2NyAzLjQ0MS0uMDQ5IDQuNjEzLTMuNTM5IDIuOTUzLTkuODM2IDguNDQ0LTEzLjMwMSAxMS41MmwtLjA0OS0uMDQ5Wk01MS40NyAxMTYuNjMxdi0zLjc1OGMtMTIuNTQ1IDAtMjUuNzk4IDIuNjg0LTI1Ljc5OCAxNy40NzQgMCA3LjQ5MyAzLjg4IDEyLjU2OSAxMC41NDQgMTIuNTY5IDQuODggMCA5LjI1LTMuMDAyIDEyLjAwOC03Ljg4MyAzLjQxNi02LjAwNCAzLjI0NS0xMS42NDEgMy4yNDUtMTguNDAyWm0xNy40OTkgNDIuMjk2Yy0xLjE0NyAxLjAyNS0yLjgwNyAxLjA5OC00LjEuNDE1LTUuNzYtNC43ODQtNi43ODUtNy4wMDUtOS45NTgtMTEuNTY5LTkuNTE5IDkuNzE0LTE2LjI1NSAxMi42MTgtMjguNjA0IDEyLjYxOC0xNC41OTUgMC0yNS45NjgtOS4wMDYtMjUuOTY4LTI3LjA0MiAwLTE0LjA4MiA3LjYzOS0yMy42NzQgMTguNS0yOC4zNiA5LjQyLTQuMTQ5IDIyLjU3NS00Ljg4MSAzMi42My02LjAyOHYtMi4yNDVjMC00LjEyNS4zMTgtOS4wMDYtMi4wOTktMTIuNTctMi4xMjMtMy4xOTctNi4xNzQtNC41MTQtOS43MzctNC41MTQtNi42MTQgMC0xMi41MiAzLjM5Mi0xMy45NiAxMC40MjEtLjI5NCAxLjU2Mi0xLjQ0IDMuMS0zLjAwMyAzLjE3M0w1LjgzIDkxLjQyYy0xLjQxNS0uMzE3LTIuOTc3LTEuNDY1LTIuNTg3LTMuNjM3QzcuMTIzIDY3LjM4IDI1LjU1IDYxLjIzIDQyLjA1IDYxLjIzYzguNDQ0IDAgMTkuNDc2IDIuMjQ1IDI2LjEzOSA4LjY0IDguNDQ0IDcuODgyIDcuNjM5IDE4LjQwMSA3LjYzOSAyOS44NDh2MjcuMDQyYzAgOC4xMjcgMy4zNjggMTEuNjkgNi41NCAxNi4wODMgMS4xMjMgMS41NjIgMS4zNjcgMy40NDEtLjA0OCA0LjYxMy0zLjU0IDIuOTUzLTkuODM2IDguNDQ0LTEzLjMwMiAxMS41MmwtLjA0OC0uMDQ5WiIvPjwvZz48ZGVmcz48Y2xpcFBhdGggaWQ9ImEiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0wIDYxaDU2MS4zNXYxNjkuNDI5SDB6Ii8+PC9jbGlwUGF0aD48L2RlZnM+PC9zdmc+"
+          />
+          Navbar</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav m-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">New & Hot</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">web Series</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">TV Shows</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Romance</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Movies
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                >Tamil</a
+              >
+              <ul class="dropdown-menu dropdown-">
+                <li><a class="dropdown-item" href="#">Superstar Movies</a></li>
+                <li><a class="dropdown-item" href="#">Thala Movies</a></li>
+                <li><a class="dropdown-item" href="#">Thalapathi Movies</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div>
+            <i class="bi bi-search" style="color: white"></i>
+            <i class="bi bi-gear ms-3" style="color: white"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Header carousel  -->
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <!-- indicators -->
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="4"
+          aria-label="Slide 5"
+        ></button>
+      </div>
+      <!-- inner content -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./img/4.jpeg" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="./img/5.jpeg" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="./img/1.jpeg" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./img/2.jpeg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="./img/3.jpeg" class="d-block w-100" alt="..." />
+          </div>
+        </div>
+      </div>
+
+      <!-- controls -->
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- movie cards slider -->
+    <div class="container-fluid">
+      <!--  Trending Movies  -->
+      <div class="movie-cards">
+        <h5 class="text-white my-4 lead">Trending Top 50 Movies</h5>
+        <div class="movie-card d-flex gap-2 overflow-x-auto my-3">
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+          <img src="https://placehold.co/130x180" alt="" />
+        </div>
+      </div>
+      <!-- Trending Web Series -->
+      <div class="movie-cards">
+        <h5 class="text-white my-4 lead">Popular Web Series</h5>
+        <div class="movie-card d-flex gap-2 overflow-x-auto my-3">
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+        </div>
+      </div>
+      <!-- New inDubbed Series -->
+      <div class="movie-cards">
+        <h5 class="text-white my-4 lead">New in Dubbed Series</h5>
+        <div class="movie-card d-flex gap-2 overflow-x-auto my-3">
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+        </div>
+      </div>
+      <!-- Romance Movies -->
+      <div class="movie-cards">
+        <h5 class="text-white my-4 lead">Romance show & Movies</h5>
+        <div class="movie-card d-flex gap-2 overflow-x-auto my-3">
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+        </div>
+      </div>
+      <!-- Horror.Thiller & Mystery -->
+      <div class="movie-cards">
+        <h5 class="text-white my-4 lead">Horror.Thiller & Mystery</h5>
+        <div class="movie-card d-flex gap-2 overflow-x-auto my-3">
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+        </div>
+      </div>
+      <!-- TVF original shows -->
+      <div class="movie-cards">
+        <h5 class="text-white my-4 lead">TVF original shows</h5>
+        <div class="movie-card d-flex gap-2 overflow-x-auto my-3">
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+        </div>
+      </div>
+      <!-- Mpst loved videos -->
+      <div class="movie-cards">
+        <h5 class="text-white my-4 lead">Mpst loved videos</h5>
+        <div class="movie-card d-flex gap-2 overflow-x-auto my-3">
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+          <img src="https://placehold.co/250x150" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 pt-4 pb-3 fixed-bottom">
+      <div class="container text-center">
+        <p class="mb-1">&copy; 2025 MovieFlix. All rights reserved.</p>
+      </div>
+    </footer>
+    <!-- Bootstrap js CDN -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

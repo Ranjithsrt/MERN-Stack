@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <p>If you click on me, I will disappear.</p>
+    <p>Click me away!</p>
+    <p>Click me too!</p>
+
+    <p id="p1">Enter this paragraph.</p>
+
+    Name: <input type="text" name="fullname" /><br />
+    Email: <input type="text" name="email" />
+  </body>
+  <script>
+    // jQuery
+
+    // click
+    $(document).ready(function () {
+      $("p").click(function () {
+        $(this).hide();
+      });
+    });
+    // dblclick
+    $(document).ready(function () {
+      $("p").dblclick(function () {
+        $(this).hide();
+      });
+    });
+
+    // mouseenter
+    $("#p1").mouseenter(function () {
+      alert("You entered p1!");
+    });
+
+    // mouseleave
+    $("#p1").mouseleave(function () {
+      alert("Bye! You now leave p1!");
+    });
+
+    //  mousedown
+
+    $("#p1").mousedown(function () {
+      alert("Mouse down over p1!");
+    });
+
+    // mouseup
+    $("#p1").mouseup(function () {
+      alert("Mouse up over p1!");
+    });
+
+    // hover
+
+    $("#p1").hover(
+      function () {
+        alert("You entered p1!");
+      },
+      function () {
+        alert("Bye! You now leave p1!");
+      }
+    );
+
+    // focus
+
+    $(document).ready(function () {
+      $("input").focus(function () {
+        $(this).css("background-color", "yellow");
+      });
+      $("input").blur(function () {
+        $(this).css("background-color", "green");
+      });
+    });
+
+    // blur
+
+    $("input").blur(function () {
+      $(this).css("background-color", "#fff");
+    });
+
+    // on
+
+    $("p").on("click", function () {
+      $(this).hide();
+    });
+
+    $("p").on({
+      mouseenter: function () {
+        $(this).css("background-color", "lightgray");
+      },
+      mouseleave: function () {
+        $(this).css("background-color", "lightblue");
+      },
+      click: function () {
+        $(this).css("background-color", "yellow");
+      },
+    });
+
+    // change
+
+    $(document).ready(function () {
+      $("input").change(function () {
+        alert("The text has been changed.");
+      });
+    });
+
+    // keydown
+    $(document).ready(function () {
+      $("input").keydown(function () {
+        $("input").css("background-color", "yellow");
+      });
+
+      // keyup
+      $("input").keyup(function () {
+        $("input").css("background-color", "pink");
+      });
+    });
+
+    // keypress
+    $(document).ready(function () {
+      $("input").keypress(function () {
+        $("input").css("background-color", "yellow");
+      });
+    });
+
+    // resize
+
+    $(document).ready(function () {
+      $(window).resize(function () {
+        $("span").text((x += 1));
+      });
+    });
+
+    // scroll
+
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        $("span").text((x += 1));
+      });
+    });
+
+    // load
+
+    $(document).ready(function () {
+      $("p").load("welcome.txt");
+    });
+
+    // unload
+
+    $(document).ready(function () {
+      $(window).unload(function () {
+        alert("The page is about to unload!");
+      });
+    });
+
+    // submit
+
+    $(document).ready(function () {
+      $("form").submit(function () {
+        alert("The form is about to be submitted.");
+      });
+    });
+  </script>
+
+  <script>
+    /*
+    // JavaScript
+
+    // click
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("p");
+      paragraphs.forEach((para) => {
+        para.addEventListener("click", function () {
+          para.style.display = "none";
+        });
+      });
+    });
+
+    // dblclick
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("p");
+      paragraphs.forEach((para) => {
+        para.addEventListener("dblclick", function () {
+          para.style.display = "none";
+        });
+      });
+    });
+
+    // mouseenter
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("p");
+      paragraphs.forEach((para) => {
+        para.addEventListener("mouseenter", function () {
+          alert("You entered p1!");
+        });
+      });
+    });
+
+    // mouseleave
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("p");
+      paragraphs.forEach((para) => {
+        para.addEventListener("mouseleave", function () {
+          alert("Bye! You now leave p1!");
+        });
+      });
+    });
+
+    // mousedown
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("p");
+      paragraphs.forEach((para) => {
+        para.addEventListener("mousedown", function () {
+          alert("Mouse down over p1!");
+        });
+      });
+    });
+
+    // mouseup
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("p");
+      paragraphs.forEach((para) => {
+        para.addEventListener("mouseup", function () {
+          alert("Mouse up over p1!");
+        });
+      });
+    });
+
+    // hover
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("p");
+      paragraphs.forEach((para) => {
+        para.addEventListener("mouseenter", function () {
+          alert("You entered p1!");
+        });
+        para.addEventListener("mouseleave", function () {
+          alert("Bye! You now leave p1!");
+        });
+      });
+    });
+    
+
+    // focus
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("input");
+      paragraphs.forEach((para) => {
+        para.addEventListener("focus", function () {
+          para.style.backgroundColor = "yellow";
+        });
+        para.addEventListener("blur", function () {
+          para.style.backgroundColor = "green";
+        });
+      });
+    });
+
+    // blur
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("input");
+      paragraphs.forEach((para) => {
+        para.addEventListener("blur", function () {
+          para.style.backgroundColor = "#fff";
+        });
+      });
+    });
+
+    // on
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("p");
+      paragraphs.forEach((para) => {
+        para.addEventListener("click", function () {
+          para.style.display = "none";
+        });
+        para.addEventListener("mouseenter", function () {
+          para.style.backgroundColor = "lightgray";
+        });
+        para.addEventListener("mouseleave", function () {
+          para.style.backgroundColor = "lightblue";
+        });
+        para.addEventListener("click", function () {
+          para.style.backgroundColor = "yellow";
+        });
+      });
+    });
+
+    // change
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("input");
+      paragraphs.forEach((para) => {
+        para.addEventListener("change", function () {
+          alert("The text has been changed.");
+        });
+      });
+    });
+
+    // keydown
+
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("input");
+      paragraphs.forEach((para) => {
+        para.addEventListener("keydown", function () {
+          para.style.backgroundColor = "yellow";
+        });
+      });
+    });
+
+    // keyup
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("input");
+      paragraphs.forEach((para) => {
+        para.addEventListener("keyup", function () {
+          para.style.backgroundColor = "pink";
+        });
+      });
+    });
+
+    // keypress
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("input");
+      paragraphs.forEach((para) => {
+        para.addEventListener("keypress", function () {
+          para.style.backgroundColor = "yellow";
+        });
+      });
+    });
+
+    // resize
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("input");
+      paragraphs.forEach((para) => {
+        para.addEventListener("resize", function () {
+          para.style.backgroundColor = "yellow";
+        });
+      });
+    });
+
+    // scroll
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("input");
+      paragraphs.forEach((para) => {
+        para.addEventListener("scroll", function () {
+          para.style.backgroundColor = "yellow";
+        });
+      });
+    });
+
+    // load
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("input");
+      paragraphs.forEach((para) => {
+        para.addEventListener("load", function () {
+          para.style.backgroundColor = "yellow";
+        });
+      });
+    });
+
+    // unload
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("input");
+      paragraphs.forEach((para) => {
+        para.addEventListener("unload", function () {
+          para.style.backgroundColor = "yellow";
+        });
+      });
+    });
+
+    // submit
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("input");
+      paragraphs.forEach((para) => {
+        para.addEventListener("submit", function () {
+          para.style.backgroundColor = "yellow";
+        });
+      });
+    });
+
+    // reset
+    document.addEventListener("DOMContentLoaded", function () {
+      let paragraphs = document.querySelectorAll("input");
+      paragraphs.forEach((para) => {
+        para.addEventListener("reset", function () {
+          para.style.backgroundColor = "yellow";
+        });
+      });
+    });
+    */
+  </script>
+</html>

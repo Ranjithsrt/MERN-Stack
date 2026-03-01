@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#left, #right{
+    width: 300px;
+    min-height:400px;
+    margin:20px;
+    border:2px dashed #fff;
+}
+    
+.list{
+    background-color: #e91e63;
+    height: 60px;
+    color: #fff;
+    padding: 10px;
+    margin: 30px;
+    cursor: pointer;
+    display: flex;
+   align-items: center;
+}
+
+.list img{
+    width: 25px;
+    height:50px;
+    object-fit: contain;
+    margin-left: 10px;
+    margin-right: 10px;
+}

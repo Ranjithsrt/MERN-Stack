@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <pre>
+Task : 1 Inventory Management System
+</pre
+    >
+    <pre>
+
+        This project simulates a small inventory or store catalog. You'll use an array where each item is an object.
+        
+        // Array of Objects
+        let inventory = [
+        { id: 101, name: "Laptop", price: 1200, stock: 5 },
+        { id: 102, name: "Mouse", price: 25, stock: 50 },
+        { id: 103, name: "Monitor", price: 300, stock: 12 }
+        ];
+        
+        Required Functions:
+        
+        - addItem(id, name, price, stock) : Adds a new item object to the inventory array.
+        - removeItem(id) : Finds an item by its id and removes it from the array (using filter() or splice()).
+        - updateStock(id, quantity) : Finds an item by id and updates its stock property.
+        - findPrice(id) : Finds an item by id and returns its price.
+        - listAllItems() : Iterates over the array and logs all item details to the console (using forEach() or map()).
+    </pre>
+
+    <!-- <div id="inventory-list" class="pre"></div> -->
+
+    <script>
+      let inventory = [
+        { id: 101, name: "Laptop", price: 1200, stock: 5 },
+        { id: 102, name: "Mouse", price: 25, stock: 50 },
+        { id: 103, name: "Monitor", price: 300, stock: 12 },
+      ];
+
+      function addItem(id, name, price, stock) {
+        let newItem = {
+          id: id,
+          name: name,
+          price: price,
+          stock: stock,
+        };
+        inventory.push(newItem);
+        console.log(
+          `Item added: ${id}. Name: ${name} price: ${price} stock: ${stock}`
+        );
+      }
+
+      function removeItem(id) {
+        inventory = inventory.filter((item) => item.id !== id);
+        console.log(`id : ${id} removed.`);
+        listAllItems();
+      }
+
+      function updateStock(id, quantity) {
+        const item = inventory.find((item) => item.id === id);
+        if (item) {
+          item.stock = quantity;
+          console.log(`Stock updated  ${id} ${quantity}.`);
+          listAllItems();
+        } else {
+          console.log(`ID ${id} not found.`);
+        }
+      }
+
+      function findPrice(id) {
+        const item = inventory.find((item) => item.id === id);
+        return item ? item.price : "Item not found";
+      }
+
+      function listAllItems() {
+        const container = document.getElementById("inventory-list");
+        container.innerHTML = "";
+
+        let pre = document.createElement("pre");
+
+        inventory.forEach((item) => {
+          console.log(
+            `ID: ${item.id}, Name: ${item.name}, Price: $${item.price}, Stock: ${item.stock}`
+          );
+
+          pre.innerHTML += `
+              ID: ${item.id}, Name: ${item.name}, Price: $${item.price}, Stock: ${item.stock} <button onclick="removeItem(${item.id})">Remove</button>
+              `;
+        });
+
+        container.appendChild(pre);
+      }
+
+      function RemoveItem(id) {
+        inventory = inventory.filter((item) => item.id !== id);
+        console.log(`id : ${id} removed.`);
+        listAllItems();
+      }
+
+      addItem(104, "Keyboard", 45, 30);
+      addItem(105, "Headset", 85, 20);
+      addItem(106, "Webcam", 150, 15);
+      removeItem(101);
+      updateStock(103, 10);
+      findPrice(102);
+      console.log("Price of Monitor:", findPrice(103));
+      listAllItems();
+    </script>
+  </body>
+</html>

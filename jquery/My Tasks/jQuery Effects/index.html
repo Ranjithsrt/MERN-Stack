@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </script>
+    <style>
+        #panel,
+        #flip {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+
+        #panel {
+            padding: 50px;
+            display: none;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <p>If you click on the "Hide" button, I will disappear.</p>
+
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+
+    <button>Click to fade in boxes</button><br><br>
+
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+    <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+    <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+
+    <div id="flip">Click to slide down panel</div>
+    <div id="panel">Hello world!</div>
+
+    <div style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+
+
+</body>
+<!-- jQuery -->
+<script>
+    // hide
+    $(document).ready(function () {
+        $("#hide").click(function () {
+            $("p").hide();
+        });
+
+    });
+    // show
+
+    $(document).ready(function () {
+
+        $("#show").click(function () {
+            $("p").show();
+        });
+    });
+
+    // toggle
+
+    $(document).ready(function () {
+
+        $("#toggle").click(function () {
+            $("p").toggle();
+        });
+    });
+
+    // fadeIn
+
+    $(document).ready(function () {
+        $("button").click(function () {
+            $("#div1").fadeIn();
+            $("#div2").fadeIn("slow");
+            $("#div3").fadeIn(3000);
+        });
+    });
+
+    // fadeOut
+
+    $("button").click(function () {
+        $("#div1").fadeOut();
+        $("#div2").fadeOut("slow");
+        $("#div3").fadeOut(3000);
+    });
+
+    // fadeToggle
+
+    $("button").click(function () {
+        $("#div1").fadeToggle();
+        $("#div2").fadeToggle("slow");
+        $("#div3").fadeToggle(3000);
+    });
+
+    // fadeTo
+
+    $("button").click(function () {
+        $("#div1").fadeTo("slow", 0.15);
+        $("#div2").fadeTo("slow", 0.4);
+        $("#div3").fadeTo("slow", 0.7);
+    });
+
+    // slideDown
+    $(document).ready(function () {
+        $("#flip").click(function () {
+            $("#panel").slideDown("slow");
+        });
+    });
+
+    // slideUp
+    $(document).ready(function () {
+        $("#flip").click(function () {
+            $("#panel").slideUp("slow");
+        });
+    });
+    // slideToggle
+    $(document).ready(function () {
+        $("#flip").click(function () {
+            $("#panel").slideToggle("slow");
+        });
+    });
+
+    // animate
+
+    $(document).ready(function () {
+        $("button").click(function () {
+            $("div").animate({ left: '250px' });
+        });
+    });
+
+    // stop
+    $(document).ready(function () {
+        $("button").click(function () {
+            $("div").stop();
+        });
+    });
+
+    // callback
+    $(document).ready(function () {
+        $("button").click(function () {
+            $("div").animate({ left: '250px' }, "slow", function () {
+                $("div").animate({ left: '0px' }, "slow");
+            });
+        });
+    });
+
+    // chaining
+    $(document).ready(function () {
+        $("button").click(function () {
+            $("div").animate({ left: '250px' }, "slow").animate({ left: '0px' }, "slow");
+        });
+    });
+
+</script>
+
+<!-- JavaScript -->
+<!-- <script>
+    // Hide
+    document.getElementById('hide').addEventListener('click', function () {
+        document.querySelector('p').style.display = 'none';
+    });
+
+    // Show
+    document.getElementById('show').addEventListener('click', function () {
+        document.querySelector('p').style.display = 'block';
+    });
+
+    // Toggle (assuming a button with id="toggle" exists, but it's not in HTML; added for completeness)
+    // document.getElementById('toggle').addEventListener('click', function() {
+    //     var p = document.querySelector('p');
+    //     p.style.display = p.style.display === 'none' ? 'block' : 'none';
+    // });
+
+    // FadeIn (simplified using opacity and setTimeout for animation)
+    document.querySelector('button').addEventListener('click', function () {
+        fadeIn(document.getElementById('div1'), 1000);
+        fadeIn(document.getElementById('div2'), 2000);
+        fadeIn(document.getElementById('div3'), 3000);
+    });
+
+    function fadeIn(element, duration) {
+        element.style.display = 'block';
+        element.style.opacity = 0;
+        var start = null;
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            var progress = timestamp - start;
+            element.style.opacity = Math.min(progress / duration, 1);
+            if (progress < duration) {
+                requestAnimationFrame(step);
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    // FadeOut (similar to fadeIn but reverse)
+    // Note: Original has fadeOut on same button, but for demo, assuming separate or modify
+    // document.querySelector('button').addEventListener('click', function() {
+    //     fadeOut(document.getElementById('div1'), 1000);
+    //     fadeOut(document.getElementById('div2'), 2000);
+    //     fadeOut(document.getElementById('div3'), 3000);
+    // });
+
+    function fadeOut(element, duration) {
+        var start = null;
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            var progress = timestamp - start;
+            element.style.opacity = Math.max(1 - progress / duration, 0);
+            if (progress < duration) {
+                requestAnimationFrame(step);
+            } else {
+                element.style.display = 'none';
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    // FadeToggle
+    // document.querySelector('button').addEventListener('click', function() {
+    //     fadeToggle(document.getElementById('div1'), 1000);
+    //     fadeToggle(document.getElementById('div2'), 2000);
+    //     fadeToggle(document.getElementById('div3'), 3000);
+    // });
+
+    function fadeToggle(element, duration) {
+        if (element.style.display === 'none' || element.style.opacity == 0) {
+            fadeIn(element, duration);
+        } else {
+            fadeOut(element, duration);
+        }
+    }
+
+    // FadeTo
+    // document.querySelector('button').addEventListener('click', function() {
+    //     fadeTo(document.getElementById('div1'), 0.15, 1000);
+    //     fadeTo(document.getElementById('div2'), 0.4, 1000);
+    //     fadeTo(document.getElementById('div3'), 0.7, 1000);
+    // });
+
+    function fadeTo(element, opacity, duration) {
+        var startOpacity = parseFloat(getComputedStyle(element).opacity) || 1;
+        var start = null;
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            var progress = timestamp - start;
+            var currentOpacity = startOpacity + (opacity - startOpacity) * (progress / duration);
+            element.style.opacity = Math.min(Math.max(currentOpacity, 0), 1);
+            if (progress < duration) {
+                requestAnimationFrame(step);
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    // SlideDown
+    document.getElementById('flip').addEventListener('click', function () {
+        slideDown(document.getElementById('panel'), 1000);
+    });
+
+    function slideDown(element, duration) {
+        element.style.display = 'block';
+        var height = element.scrollHeight;
+        element.style.height = '0px';
+        var start = null;
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            var progress = timestamp - start;
+            element.style.height = Math.min(progress / duration * height, height) + 'px';
+            if (progress < duration) {
+                requestAnimationFrame(step);
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    // SlideUp
+    // document.getElementById('flip').addEventListener('click', function() {
+    //     slideUp(document.getElementById('panel'), 1000);
+    // });
+
+    function slideUp(element, duration) {
+        var height = element.scrollHeight;
+        var start = null;
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            var progress = timestamp - start;
+            element.style.height = Math.max(height - progress / duration * height, 0) + 'px';
+            if (progress < duration) {
+                requestAnimationFrame(step);
+            } else {
+                element.style.display = 'none';
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    // SlideToggle
+    // document.getElementById('flip').addEventListener('click', function() {
+    //     slideToggle(document.getElementById('panel'), 1000);
+    // });
+
+    function slideToggle(element, duration) {
+        if (element.style.display === 'none') {
+            slideDown(element, duration);
+        } else {
+            slideUp(element, duration);
+        }
+    }
+
+    // Animate (move left)
+    document.querySelector('button').addEventListener('click', function () {
+        var div = document.querySelector('div[style*="position:absolute"]');
+        animate(div, { left: '250px' }, 1000);
+    });
+
+    function animate(element, properties, duration) {
+        var start = {};
+        for (var prop in properties) {
+            start[prop] = parseFloat(getComputedStyle(element)[prop]) || 0;
+        }
+        var startTime = null;
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = timestamp - startTime;
+            for (var prop in properties) {
+                var value = start[prop] + (parseFloat(properties[prop]) - start[prop]) * (progress / duration);
+                element.style[prop] = value + 'px';
+            }
+            if (progress < duration) {
+                requestAnimationFrame(step);
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    // Stop (not directly equivalent, but can cancel animation)
+    // For simplicity, not implemented as vanilla JS doesn't have built-in stop like jQuery
+
+    // Callback
+    document.querySelector('button').addEventListener('click', function () {
+        var div = document.querySelector('div[style*="position:absolute"]');
+        animate(div, { left: '250px' }, 1000, function () {
+            animate(div, { left: '0px' }, 1000);
+        });
+    });
+
+    function animate(element, properties, duration, callback) {
+        var start = {};
+        for (var prop in properties) {
+            start[prop] = parseFloat(getComputedStyle(element)[prop]) || 0;
+        }
+        var startTime = null;
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = timestamp - startTime;
+            for (var prop in properties) {
+                var value = start[prop] + (parseFloat(properties[prop]) - start[prop]) * (progress / duration);
+                element.style[prop] = value + 'px';
+            }
+            if (progress < duration) {
+                requestAnimationFrame(step);
+            } else if (callback) {
+                callback();
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    // Chaining (similar to callback)
+    document.querySelector('button').addEventListener('click', function () {
+        var div = document.querySelector('div[style*="position:absolute"]');
+        animate(div, { left: '250px' }, 1000, function () {
+            animate(div, { left: '0px' }, 1000);
+        });
+    });
+</script> -->
+
+</html>

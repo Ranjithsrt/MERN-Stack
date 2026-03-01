@@ -1,0 +1,95 @@
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global style */
+
+body {
+  background-color: rgba(243, 74, 13, 0.825);
+}
+
+/* card container */
+
+.card {
+  width: 400px;
+  height: 450px;
+  margin: 100px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+/* img */
+
+img {
+  width: 100%;
+  height: 200px;
+  display: block;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+/* img:hover {
+        transform: scale(1.1);
+        transition: 0.8s;
+    } */
+
+/* card-img hover */
+
+.card-img img:hover {
+  /* transform: scale(1.1); */
+  transform: scaleX(1.2);
+  /* transform: scaleY(1.1); */
+  /* overflow: hidden; */
+  transition: 0.8s;
+}
+
+/* card content styles */
+
+.card-content {
+  padding: 25px;
+}
+
+.card-content > h2 {
+  margin-bottom: 20px;
+  color: orangered;
+  font-weight: bolder;
+}
+
+.card-content > p {
+  margin-bottom: 20px;
+  color: rgba(118, 107, 107, 0.919);
+  line-height: 20px;
+}
+
+button {
+  background: none;
+  border: 1px solid orangered;
+  padding: 8px 20px;
+  border-radius: 5px;
+  color: orangered;
+}
+
+a {
+  text-decoration: none;
+  color: orangered;
+}
+
+a:hover {
+  color: white;
+  /* transition: 0.8s; */
+}
+
+button:hover {
+  background-color: orangered;
+  /* transition: 0.8s; */
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      4. The marks obtained by a student in 5 different subjects are input through the keyboard. The student gets a division as per the following rules: Write a program to calculate the division obtained by the student.
+      <br />a. Percentage above or equal to 60 - First division <br />b. Percentage between 50 and 59 - Second division <br />c. Percentage between 40 and 49 - Third division <br />d. Percentage less than 40 – Fail
+    </p>
+    <script>
+      const english = 55;
+      const maths = 75;
+      const science = 45;
+      const social = 55;
+      const tamil = 45;
+      const totalMarks = english + maths + science + social + tamil;
+      let percentage = (totalMarks / 500) * 100;
+      let division = "";
+      if (percentage >= 60) {
+        division = "First Division";
+      } else if (percentage >= 50 && percentage <= 59) {
+        division = "Second Division";
+      } else if (percentage >= 40 && percentage <= 49) {
+        division = "Third Division";
+      } else {
+        division = "Fail";
+      }
+
+      console.log(`Percentage: ${percentage.toFixed(2)}%`);
+      console.log(`Division: ${division}`);
+    </script>
+  </body>
+</html>

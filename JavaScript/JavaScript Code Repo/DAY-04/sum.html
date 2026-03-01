@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>7. If a five-digit number is input through the keyboard, write a program to calculate the sum of its digits. (Hint: Use the modulus operator ‘%’)</p>
+    <input type="text" id="numberTxt" />
+    <button id="btnCalc">Calculate</button>
+
+    <script>
+      function sum() {
+        let num = Number(document.getElementById("numberTxt").value); //12345
+        // console.log(num, typeof num);
+        const d5 = num % 10; //5
+        num = Math.floor(num / 10);
+        //console.log(d5, num);
+
+        const d4 = num % 10; //4
+        num = Math.floor(num / 10);
+        //console.log(d4, num);
+
+        const d3 = num % 10; //3
+        num = Math.floor(num / 10);
+        //console.log(d3, num);
+
+        const d2 = num % 10; //2
+        num = Math.floor(num / 10);
+        //console.log(d2, num);
+
+        const d1 = num % 10; //1
+        // console.log(d1);
+
+        const sum = d1 + d2 + d3 + d4 + d5;
+        console.log(sum);
+      }
+      const btn = document.getElementById("btnCalc");
+      btn.addEventListener("click", sum);
+    </script>
+  </body>
+</html>

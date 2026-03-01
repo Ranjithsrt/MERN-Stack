@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hash Change Example</h1>
+    <a href="#section1">Go to Section 1</a>
+    <a href="#section2">Go to Section 2</a>
+    <p>current hash : <span>None</span></p>
+
+    <script>
+      const display = document.querySelector("span");
+      window.addEventListener("hashchange", function () {
+        display.textContent = window.location.hash || "None";
+      });
+      display.textContent = window.location.hash || "None";
+    </script>
+  </body>
+</html>

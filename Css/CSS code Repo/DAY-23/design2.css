@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+}
+:root {
+  --primary: #be2edd;
+  --white: #fff;
+}
+div {
+  width: 300px;
+  margin: 100px auto;
+}
+
+p {
+  border-top: 2px dashed var(--primary);
+  padding: 50px;
+  /* counter-increment: section; */
+  position: relative;
+}
+
+p:nth-child(even)::before,
+p:nth-child(odd)::before {
+  /* content: counter(section); */
+  content: attr(year);
+  position: absolute;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  /* text-align: center;
+  font-size: 110%; */
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p:nth-child(even)::before {
+  right: 100%;
+  margin-right: -30px;
+}
+
+p:nth-child(odd)::before {
+  left: 100%;
+  margin-left: -30px;
+}
+
+p:nth-child(even) {
+  border-left: 2px dashed var(--primary);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin-right: 30px;
+  padding-right: 0;
+}
+
+p:nth-child(odd) {
+  border-right: 2px dashed var(--primary);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-left: 30px;
+  padding-left: 0;
+}
+
+p:first-child {
+  border-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+p:last-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}

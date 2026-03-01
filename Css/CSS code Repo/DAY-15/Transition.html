@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      code {
+        background-color: aquamarine;
+        display: block;
+      }
+
+      #box {
+        background-color: #3498db;
+        padding: 10px 20px;
+        color: #fff;
+        cursor: pointer;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        /* transition: background-color 0.3s ease; 
+        transition: background-color 0.3s ease, width 0.5s ease-in-out, height 0.5s ease-in-out;
+        */
+        transition: all 0.5s ease-in-out;
+      }
+
+      #box:hover {
+        background-color: #2ecc71;
+        width: 150px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <pre>
+      <code>
+        selector{
+          transition: property duration timing-function delay;
+        }
+      </code>
+    </pre>
+
+    <div id="box">Hover <menu></menu></div>
+  </body>
+</html>

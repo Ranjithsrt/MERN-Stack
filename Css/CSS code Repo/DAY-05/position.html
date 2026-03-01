@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        border: 1px solid #ccc;
+        height: 350px;
+      }
+      .box {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #ccc;
+
+        text-align: center;
+        color: #fff;
+        line-height: 50px;
+      }
+      .box:nth-child(1) {
+        background-color: teal;
+      }
+      .box:nth-child(2) {
+        background-color: purple;
+      }
+      .box:nth-child(3) {
+        background-color: orangered;
+      }
+      .box:nth-child(4) {
+        background-color: maroon;
+      }
+    </style>
+
+    <style>
+      .box:nth-child(1) {
+        position: static;
+      }
+      .box:nth-child(2) {
+        /* T R B L*/
+        position: relative;
+        left: 50px;
+        bottom: 10px;
+      }
+      .container {
+        position: relative;
+      }
+      .box:nth-child(3) {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+      }
+      .chat-box {
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: paleturquoise;
+        height: 150px;
+        width: 150px;
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+    </div>
+
+    <div class="chat-box"></div>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed eveniet, suscipit inventore eligendi excepturi fugit ducimus saepe, similique quisquam deserunt qui est, eius nobis! Officia quo incidunt neque saepe suscipit?</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis recusandae corporis tempore magnam fuga esse repellendus ipsa vel eligendi, illum officia amet, facere magni aliquid ipsam, sit iste error quis reprehenderit voluptas optio consequuntur perspiciatis deserunt modi! Repudiandae
+      aliquid minima eos. Dolorum natus perferendis alias saepe, eum repellendus incidunt molestiae quis impedit necessitatibus reiciendis itaque consequuntur provident voluptatibus sequi rem quaerat numquam consectetur magnam! Voluptatum adipisci suscipit tempore at doloremque! Eius optio cum
+      blanditiis nam. Incidunt corporis odit architecto repellendus quis molestiae laudantium possimus quibusdam. Vero eos necessitatibus animi consectetur, excepturi rerum, distinctio voluptatum assumenda libero quam nostrum nisi voluptatem!
+    </p>
+  </body>
+</html>
+<!--
+Static
+Relative
+Absolute
+Fixed
+Sticky
+-->

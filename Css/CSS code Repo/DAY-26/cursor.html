@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .cursor-examples div {
+        margin: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        display: inline-block;
+        width: 150px;
+        height: 30px;
+        text-align: center;
+      }
+
+      #cursor-default {
+        cursor: default;
+      }
+      #cursor-pointer {
+        cursor: pointer;
+      }
+      #cursor-wait {
+        cursor: wait;
+      }
+      #cursor-text {
+        cursor: text;
+      }
+      #cursor-move {
+        cursor: move;
+      }
+      #cursor-not-allowed {
+        cursor: not-allowed;
+      }
+      #cursor-custom {
+        cursor: url("cursor.png"), auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-examples">
+      <div id="cursor-default"></div>
+      <div id="cursor-pointer"></div>
+      <div id="cursor-wait"></div>
+      <div id="cursor-text"></div>
+      <div id="cursor-move"></div>
+      <div id="cursor-not-allowed"></div>
+      <div id="cursor-custom"></div>
+    </div>
+  </body>
+</html>

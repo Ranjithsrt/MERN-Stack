@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 150px;
+        height: 100px;
+        margin: 10px;
+        border: 1px solid #ccc;
+        color: white;
+        padding: 10px;
+      }
+      .left {
+        background-color: steelblue;
+        float: left;
+      }
+      .right {
+        background-color: tomato;
+        float: right;
+      }
+      .clear {
+        clear: both;
+      }
+      .content {
+        background-color: lightgray;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box left">Left Float</div>
+    <div class="box right">Right Float</div>
+
+    <div class="clear"></div>
+
+    <div class="content">This content appears below the floated boxes because of `clear: both`.</div>
+  </body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section class="container mx-auto my-5">
+      <div class="flex">
+        <!-- Left Arrow -->
+        <div class="w-2/12 flex items-center">
+          <div class="w-full text-right">
+            <button
+              class="p-3 rounded-full bg-white border border-gray-100 shadow-lg mr-5"
+              onclick="prev()"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 text-red-600"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slider -->
+        <div id="sliderContainer" class="w-10/12 overflow-hidden">
+          <ul
+            id="slider"
+            class="flex transition-all duration-500 ease-in-out"
+            style="margin-left: 0px"
+          >
+            <!-- One slide repeated -->
+            <!-- Tip: Loop these using JS or templating later -->
+            <li class="p-5">
+              <div class="bg-white rounded-lg shadow-md p-5 h-full">
+                <img
+                  src="https://picsum.photos/id/1015/400/250"
+                  class="w-full h-60 object-cover rounded-md"
+                />
+                <h2 class="text-2xl my-2">Image 1</h2>
+                <p class="text-gray-600 line-clamp-3">
+                  Some description about the image.
+                </p>
+                <button class="text-red-600 mt-2 bg-red-100 py-2 px-4">
+                  Read More
+                </button>
+              </div>
+            </li>
+            <li class="p-5">
+              <div class="bg-white rounded-lg shadow-md p-5 h-full">
+                <img
+                  src="https://picsum.photos/id/1015/400/250"
+                  class="w-full h-60 object-cover rounded-md"
+                />
+                <h2 class="text-2xl my-2">Image 1</h2>
+                <p class="text-gray-600 line-clamp-3">
+                  Some description about the image.
+                </p>
+                <button class="text-red-600 mt-2 bg-red-100 py-2 px-4">
+                  Read More
+                </button>
+              </div>
+            </li>
+            <li class="p-5">
+              <div class="bg-white rounded-lg shadow-md p-5 h-full">
+                <img
+                  src="https://picsum.photos/id/1015/400/250"
+                  class="w-full h-60 object-cover rounded-md"
+                />
+                <h2 class="text-2xl my-2">Image 1</h2>
+                <p class="text-gray-600 line-clamp-3">
+                  Some description about the image.
+                </p>
+                <button class="text-red-600 mt-2 bg-red-100 py-2 px-4">
+                  Read More
+                </button>
+              </div>
+            </li>
+            <li class="p-5">
+              <div class="bg-white rounded-lg shadow-md p-5 h-full">
+                <img
+                  src="https://picsum.photos/id/1015/400/250"
+                  class="w-full h-60 object-cover rounded-md"
+                />
+                <h2 class="text-2xl my-2">Image 1</h2>
+                <p class="text-gray-600 line-clamp-3">
+                  Some description about the image.
+                </p>
+                <button class="text-red-600 mt-2 bg-red-100 py-2 px-4">
+                  Read More
+                </button>
+              </div>
+            </li>
+            <li class="p-5">
+              <div class="bg-white rounded-lg shadow-md p-5 h-full">
+                <img
+                  src="https://picsum.photos/id/1015/400/250"
+                  class="w-full h-60 object-cover rounded-md"
+                />
+                <h2 class="text-2xl my-2">Image 1</h2>
+                <p class="text-gray-600 line-clamp-3">
+                  Some description about the image.
+                </p>
+                <button class="text-red-600 mt-2 bg-red-100 py-2 px-4">
+                  Read More
+                </button>
+              </div>
+            </li>
+            <!-- Repeat the above li as needed -->
+          </ul>
+        </div>
+
+        <!-- Right Arrow -->
+        <div class="w-2/12 flex items-center">
+          <button
+            class="p-3 rounded-full bg-white border border-gray-100 shadow-lg ml-5"
+            onclick="next()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 text-red-600"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+      const sliderContainer = document.getElementById("sliderContainer");
+      const slider = document.getElementById("slider");
+      const cards = slider.getElementsByTagName("li");
+      const elementsToShow = 3;
+
+      const containerWidth = sliderContainer.clientWidth;
+      const cardWidth = containerWidth / elementsToShow;
+
+      slider.style.width = `${cards.length * cardWidth}px`;
+      for (let i = 0; i < cards.length; i++) {
+        cards[i].style.width = `${cardWidth}px`;
+      }
+
+      let currentMargin = 0;
+
+      function next() {
+        const maxMargin = -(cardWidth * (cards.length - elementsToShow));
+        if (currentMargin > maxMargin) {
+          currentMargin -= cardWidth;
+          slider.style.marginLeft = `${currentMargin}px`;
+        }
+      }
+
+      function prev() {
+        if (currentMargin < 0) {
+          currentMargin += cardWidth;
+          slider.style.marginLeft = `${currentMargin}px`;
+        }
+      }
+    </script>
+  </body>
+</html>

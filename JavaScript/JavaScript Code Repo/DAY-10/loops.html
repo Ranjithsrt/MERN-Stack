@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Looping Statement</h3>
+    <ul>
+      <li>for</li>
+      <li>while</li>
+      <li>do while</li>
+      <li>for in</li>
+      <li>for of</li>
+    </ul>
+    <code>
+      <pre>
+      for (initialization; condition; increment/decrement) {
+           // code block
+      }
+
+      while (condition) {
+           // code block
+      }
+
+      do {
+          // code block
+      } while (condition);
+      </pre>
+    </code>
+    <script>
+      //i=i+1   i=1+1=>2+1=>3
+      for (let i = 1; i <= 5; i++) {
+        console.log(i);
+      }
+
+      let j = 1;
+      while (j <= 5) {
+        console.log(`While : `, j);
+        j++;
+      }
+
+      let k = 1;
+      do {
+        console.log(`Do While : `, k);
+        k++;
+      } while (k <= 5);
+
+      for (let x = 1; x <= 50; x++) {
+        if (x > 8) {
+          break; //Loop Break
+        }
+        if (x == 5) {
+          continue;
+        }
+        console.log("x : ", x);
+      }
+    </script>
+  </body>
+</html>

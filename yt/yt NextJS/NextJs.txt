@@ -1,0 +1,259 @@
+
+NEXT JS
+
+install Node js and npm :
+
+  node -v -> above 18.17 or  v23.1.0 version
+  npm -v  -> 11.1.0
+
+ -----------------------------------------------------------------
+
+ creating project :
+
+ PS C:\Users\ranji\Desktop\yt NextJS>npx create-next-app@latest  
+
+(node:12152) ExperimentalWarning: CommonJS module C:\Users\ranji\AppData\Roaming\npm\node_modules\npm\node_modules\debug\src\node.js is loading ES Module C:\Users\ranji\AppData\Roaming\npm\node_modules\npm\node_modules\supports-color\index.js using require().
+Support for loading ES Module in require() is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+√ What is your project named? ... my-app
+√ Would you like to use the recommended Next.js defaults? » No, customize settings
+√ Would you like to use TypeScript? ... No / Yes
+√ Which linter would you like to use? » ESLint
+√ Would you like to use React Compiler? ... No / Yes
+√ Would you like to use Tailwind CSS? ... No / Yes
+√ Would you like your code inside a `src/` directory? ... No / Yes
+√ Would you like to use App Router? (recommended) ... No / Yes
+√ Would you like to customize the import alias (`@/*` by default)? ... No / Yes  
+√ What import alias would you like configured? ... @/*
+Creating a new Next.js app in C:\Users\ranji\Desktop\yt NextJS\my-app.
+
+Using npm.
+
+Initializing project with template: app-tw
+
+
+Installing dependencies:
+- next
+- react
+- react-dom
+
+Installing devDependencies:
+- @tailwindcss/postcss
+- @types/node
+- @types/react
+- eslint-config-next
+- tailwindcss
+- typescript
+
+(node:17856) ExperimentalWarning: CommonJS module C:\Users\ranji\AppData\Roaming\npm\node_modules\npm\node_modules\debug\src\node.js is loading ES Module C:\Users\ranji\AppData\Roaming\npm\node_modules\npm\node_modules\supports-color\index.js using require().
+Support for loading ES Module in require() is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+added 358 packages, and audited 359 packages in 2m
+
+141 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+(node:13316) ExperimentalWarning: CommonJS module C:\Users\ranji\AppData\Roaming\npm\node_modules\npm\node_modules\debug\src\node.js is loading ES Module C:\Users\ranji\AppData\Roaming\npm\node_modules\npm\node_modules\supports-color\index.js using require().
+Support for loading ES Module in require() is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Generating route types...
+✓ Types generated successfully
+
+Success! Created my-app at C:\Users\ranji\Desktop\yt NextJS\my-app
+
+--------------------------
+
+PS C:\Users\ranji\Desktop\yt NextJS\my-app> npm run dev
+
+> my-app@0.1.0 dev
+> next dev
+
+   ▲ Next.js 16.0.4 (Turbopack)
+   - Local:         http://localhost:3000
+   - Network:       http://192.168.56.1:3000
+
+ ✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 992ms
+-------------------------------------------------
+
+project structure
+
+.next - next js performance file
+
+app - router file and main appfile
+
+node_modules
+
+public - icons
+
+.eslint - js error mointor
+
+next-env.d.ts - next js and type TypeScript
+
+next.config.js 
+
+packages-lock.json
+
+package.json
+
+postcss.config
+
+Tailwind.config
+
+tsconfig.js
+
+.gitignore 
+
+README.module
+
+------------------------------
+
+routing :
+
+src - app - page.tsx - Home Pg ( http://localhost:3000/  )
+
+     about -  page.tsx - ( http://localhost:3000/about)
+
+route segments :
+
+src - app - dashboard - setting - page.tsx - (http://localhost:3000/dashboard/setting)
+
+layout :
+
+
+src - app - dashboar - page.tsx ( http://localhost:3000/dashboard )
+
+src - app - dashboar - layout folder - layout.js 
+
+ 
+export default function DashboardLayout({ children }) {
+  return (
+    <section className="m-5">
+      <nav></nav>
+      <h1 className="text-2xl font-bold text-black dark:text-white">
+        Dashboard Layout Header
+      </h1>
+      {children}
+      <h1 className="text-2xl font-bold text-black dark:text-white">
+        Dashboard Layout Footer
+      </h1>
+    </section>
+  );
+}
+
+layer :
+
+Header
+     dashboard 
+     setting
+Footer
+
+
+src - page.tsx - main file
+src - layout - common layout all - Ex Navbars Footers
+
+---------------------------------------
+
+Linking and Navigating :
+
+app - page.js
+
+
+import Link from "next/link";
+
+export default function Home() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+        <h1 className="text-4xl font-bold text-black dark:text-white">
+          Hello World.!
+        </h1>
+        {/* Nav Bar */}
+        <nav>
+          <Link href="/dashboard" className="text-red-500 text-4xl ">
+            Dashboard
+          </Link>
+          <br />
+          <Link href="/dashboard/setting" className="text-red-500 text-4xl ">
+            
+            Setting
+          </Link>
+        </nav>
+      </main>
+    </div>
+  );
+}
+
+-------------------------------------
+
+useRouter Hook
+
+navigate - componets
+
+page navigate : dashboard to setting
+
+"use client";
+import { useRouter } from "next/navigation";
+export default function Dashboard() {
+   const router = useRouter();
+
+   const handleBack = () => {
+     router.push("/dashboard/setting");
+   };
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+        <button className="bg-red-500 " onClick={handleBack}>Back</button>
+        <h1 className="text-4xl font-bold text-black dark:text-white"> Dashboard</h1> 
+      </main>
+    </div>
+  );
+}
+
+-----------------------------------
+
+
+client componets vs server componets
+
+
+default - server componets :
+
+/dashboard          /dashboard/setting          /
+page.js                    pg.js              pg.js
+
+
+client componets : "use client"
+
+/dashboard          /dashboard/setting          /
+page.js                pg.js                    page.js
+"use client"
+
+-------------------------------
+
+Dynamic Routes :
+
+
+app - blog - [slug] Folder - pg.js
+
+
+export default function BlogPost({ params }) {
+   return (
+    <div>
+      <h1>Blog Post: {params.slug}</h1>
+    </div>
+  );
+}
+
+
+-----------------------------------------
+
+multiple Dynamic segment :
+

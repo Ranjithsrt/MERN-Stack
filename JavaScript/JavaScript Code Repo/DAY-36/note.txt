@@ -1,0 +1,7 @@
+load
+resize
+scroll
+beforeunload
+online/offline
+Focus/Blur
+hashchange

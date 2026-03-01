@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="frm">
+      <input type="text" name="name" id="name" placeholder="name" />
+      <input type="text" name="age" id="age" placeholder="age" />
+      <input type="text" name="city" id="city" placeholder="city" />
+      <button type="submit">Add User</button>
+    </form>
+    <div id="response"></div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script>
+      $("document").ready(function () {
+        const url = "http://localhost:5000/api/people";
+        $("#frm").submit(function (e) {
+          e.preventDefault();
+          const name = $("#name").val();
+          const age = $("#age").val();
+          const city = $("#city").val();
+          const formdata = JSON.stringify({ name, age, city });
+
+          $.ajax({
+            url: url,
+            type: "POST",
+            contentType: "application/json",
+            data: formdata,
+            success: function (result) {
+              console.log(result);
+            },
+            error: function (err) {
+              console.log(err);
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 5px;
+      }
+      .parent *,
+      .parent {
+        padding: 5px;
+        border: 2px solid #ccc;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      parent
+      <h3>H3 Tag-1 - child</h3>
+      <p>Para Tag - child</p>
+      <p>Para Tag - child</p>
+      <h2>H2 Tag - child</h2>
+      <div id="innerDiv">
+        div - child
+        <p>para inside div - Grand child</p>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+      // $("h2").next().css("border-color", "green");
+      // $("h2").prev().css("border-color", "green");
+
+      const h2 = document.querySelector("h2");
+      const nextElement = h2.nextElementSibling;
+      const prevElement = h2.previousElementSibling;
+      if (nextElement) {
+        nextElement.style.borderColor = "red";
+      }
+      if (prevElement) {
+        prevElement.style.borderColor = "red";
+      }
+    </script>
+  </body>
+</html>

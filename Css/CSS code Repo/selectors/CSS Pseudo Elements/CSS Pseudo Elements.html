@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>::first-line Pseudo-element</title>
+    <!-- ::first-line -->
+    <style>
+      p::first-line {
+        color: chocolate;
+      }
+    </style>
+    <!-- ::first-letter -->
+
+    <style>
+      h2 {
+        color: green;
+      }
+
+      h2::first-letter {
+        color: darkblue;
+      }
+
+      p::first-letter {
+        color: darkblue;
+        font-weight: bold;
+      }
+    </style>
+    <!-- first-line -->
+    <style>
+      p::first-line {
+        color: brown;
+        font-size: 20px;
+      }
+
+      p::first-letter {
+        color: blue;
+        font-size: 25px;
+      }
+    </style>
+    <!-- Multiple Pseudo-elements -->
+    <style>
+      p::first-line {
+        color: brown;
+        font-size: 20px;
+      }
+
+      p::first-letter {
+        color: blue;
+        font-size: 25px;
+      }
+    </style>
+    <!-- before and after -->
+    <style>
+      p::before {
+        content: url("images/face.png");
+      }
+      p::after {
+        content: url("images/dog.png");
+      }
+      span::before {
+        content: "$";
+      }
+    </style>
+    <!-- ::marker Pseudo-elements -->
+
+    <style>
+      body {
+        padding: 30px;
+      }
+      ul li::marker {
+        color: red;
+        font-size: 23px;
+      }
+
+      .ordered-list li::marker {
+        color: red;
+        font-weight: bold;
+      }
+      .symbol li::marker {
+        content: " ";
+      }
+      h3.list {
+        display: list-item;
+        counter-increment: myList;
+      }
+      h3.list::marker {
+        display: list-item;
+        content: "#" counter(myList) " ";
+        color: lightsalmon;
+        font-weight: bold;
+      }
+    </style>
+    <!-- ::selection -->
+    <style>
+      p::selection {
+        color: yellowgreen;
+        background: #111;
+      }
+    </style>
+
+    <!-- ::placeholder  -->
+
+    <style>
+      ::placeholder {
+        color: rgb(141, 141, 231);
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>::first-line Pseudo-element</h1>
+
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis
+      aliquid sint nihil eaque dolor dolorum libero, dolorem in repellendus
+      temporibus vero recusandae explicabo tempore mollitia laborum eum
+      assumenda possimus consequatur.
+    </p>
+
+    <h2>Sample Heading</h2>
+    <p>
+      Lorem ipsum dolor, <span>sit amet consectetur adipisicing elit</span>.
+      Veritatis aliquid sint nihil eaque dolor dolorum libero, dolorem in
+      repellendus temporibus vero recusandae explicabo tempore mollitia laborum
+      eum assumenda possimus consequatur.
+    </p>
+
+    <h1>::first-letter Pseudo-element</h1>
+
+    <h2>Sample Heading</h2>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis
+      aliquid sint nihil eaque dolor dolorum libero, dolorem in repellendus
+      temporibus vero recusandae explicabo tempore mollitia laborum eum
+      assumenda possimus consequatur.
+    </p>
+
+    <h2>Sample Heading</h2>
+    <p>
+      Lorem ipsum dolor, Veritatis aliquid sint nihil eaque dolor dolorum
+      libero, dolorem in repellendus temporibus vero recusandae explicabo
+      tempore mollitia laborum eum assumenda possimus consequatur.
+    </p>
+
+    <h1>Multiple Pseudo-elements</h1>
+
+    <h2>Sample Heading</h2>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis
+      aliquid sint nihil eaque dolor dolorum libero, dolorem in repellendus
+      temporibus vero recusandae explicabo tempore mollitia laborum eum
+      assumenda possimus consequatur.
+    </p>
+
+    <h2>Sample Heading</h2>
+    <p>
+      Lorem ipsum dolor, Veritatis aliquid sint nihil eaque dolor dolorum
+      libero, dolorem in repellendus temporibus vero recusandae explicabo
+      tempore mollitia laborum eum assumenda possimus consequatur.
+    </p>
+
+    <h1>Before & after Pseudo-elements</h1>
+
+    <p>I Love Dogs</p>
+
+    <h5>Total Amount <span>500</span></h5>
+
+    <h3>::marker</h3>
+
+    <ul>
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Pineapple</li>
+      <li>Papaya</li>
+      <li>Mango</li>
+    </ul>
+    <ol class="ordered-list">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Pineapple</li>
+      <li>Papaya</li>
+      <li>Mango</li>
+    </ol>
+
+    <ol class="symbol">
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Corporis aliquam excepturi neque deleniti.</li>
+      <li>Incidunt eos repellendus vitae deserunt!</li>
+    </ol>
+
+    <hr />
+    <h3 class="list">HTML</h3>
+    <p>HyperText Markup Language</p>
+    <h3 class="list">CSS</h3>
+    <p>Cascading Style Sheet</p>
+    <h3 class="list">SASS</h3>
+    <p>Syntactically Awesome Style Sheets</p>
+    <h3 class="list">TJ</h3>
+    <p>Tutor Joes</p>
+
+    <h3>::selection Pseudo-elements</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati qui
+      optio alias eos aspernatur, soluta earum et, in aperiam laudantium
+      voluptatum perspiciatis numquam fugit quas eum accusantium molestias
+      voluptate dolorem!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati qui
+      optio alias eos aspernatur, soluta earum et, in aperiam laudantium
+      voluptatum perspiciatis numquam fugit quas eum accusantium molestias
+      voluptate dolorem!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati qui
+      optio alias eos aspernatur, soluta earum et, in aperiam laudantium
+      voluptatum perspiciatis numquam fugit quas eum accusantium molestias
+      voluptate dolorem!
+    </p>
+
+    <h3>::placeholder Selector</h3>
+    <label for="name">Name</label>
+    <input type="text" placeholder="Enter Full Name" />
+  </body>
+</html>

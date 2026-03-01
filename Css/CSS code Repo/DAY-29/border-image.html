@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 350px;
+        height: 350px;
+        border: 50px solid black;
+        text-align: justify;
+        padding: 20px;
+        border-image-source: url("heart.png");
+
+        border-image-slice: 260 200;
+        border-image-slice: 260;
+        border-image-repeat: stretch;
+        border-image-repeat: repeat;
+        border-image-repeat: round;
+        border-image-repeat: space;
+        border-image-repeat: space stretch;
+        border-image-repeat: round;
+
+        background-color: bisque;
+        margin: auto;
+        border-image-outset: 10px;
+        border-image-width: 25px;
+
+        border-image: url("border1.png") 25 / 25px / 5px round;
+      }
+      /*
+      w-259
+      h-222
+
+       
+      border-image:source | slice | width | outset | repeat
+      */
+    </style>
+  </head>
+  <body>
+    <h1>border-image</h1>
+    <ul>
+      <li>border-image-source</li>
+      <li>border-image-slice</li>
+      <li>border-image-width</li>
+      <li>border-image-repeat</li>
+      <li>border-image-outset</li>
+      <li>border-image</li>
+    </ul>
+
+    <div id="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, quos! Eos distinctio, debitis nemo sit voluptate ipsum nobis cumque aut sunt, ducimus maiores reprehenderit quo amet nisi explicabo, facilis praesentium.</div>
+  </body>
+</html>

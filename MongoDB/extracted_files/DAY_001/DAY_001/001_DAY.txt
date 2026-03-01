@@ -1,0 +1,83 @@
+MongoDB
+
+What is MongoDB?
+MongoDB is a NoSQL (non-relational) database.
+It stores data in a JSON-like format called BSON (Binary JSON).
+
+
+What is a Database?
+A database is a collection of data stored in a format that can be easily accessed.
+
+Types of Databases
+    SQL Databases (e.g., MySQL, PostgreSQL, MSSQL Server)
+        Use structured tables and rows.
+        Data is stored in rows with strict schema.
+
+    NoSQL Databases (e.g., MongoDB)
+        Use flexible documents (key-value pairs).
+        Collections hold documents instead of rows.
+
+NO SQL FORMAT(MongoDB)	
+[
+  {
+    "ID": 1,
+    "NAME": "Ram",
+    "AGE": 21,
+    "GENDER": "Male",
+    "HOBBIES"["Music","Sports","Cooking"]
+  },
+  {
+    "ID": 2,
+    "NAME": "Sam",
+    "AGE": 22,
+    "GENDER": "Male"
+  },
+  {
+    "ID": 3,
+    "NAME": "Ravi",
+    "AGE": 23,
+    "GENDER": "Male"
+  },
+  {
+    "ID": 4,
+    "NAME": "Shalini",
+    "AGE": 22,
+    "GENDER": "Female"
+  },
+  {
+    "ID": 5,
+    "NAME": "Sundar",
+    "HOBBIES":["Fishing"]
+  }
+]	
+
+Difference between JSON & BSON
+
+JSON Data Types
+    String
+    Number
+    Boolean
+    Array
+    Object
+    Null
+
+BSON Data Types
+    String
+    Double
+    32bit Integer
+    64bit Integer
+    Boolean
+    Array
+    Object
+    Null
+    Regular Expression
+    TimeStamp
+    Date
+    ObjectId
+
+
+ Description    JSON                                    BSON
+ Format         Text Based Format                       Binary Format (Not human-readable)
+ Size           Larger due to text overhead             More compact
+ speed          Slower to parse and write               Faster to parse and write
+ usage          Web API and data exchange               MongoDB and database storage with rich set of data types.

@@ -1,0 +1,62 @@
+What is CSS?
+  Cascading Style Sheets
+
+Different Ways to Add CSS Styles
+  1.Inline CSS
+    CSS is written directly inside an HTML element using the style attribute.
+    We cant use in larger project.
+
+  2.Internal CSS
+    CSS is written inside a <style> tag within the <head> section of an HTML file.
+    Good for single-page styling but not reusable across multiple pages.
+
+  3.External CSS
+  CSS is written in a separate .css file and linked to the HTML file using a <link> tag in the <head>.
+  Best for larger projects as it keeps styles separate, reusable, and easier to manage.
+
+What is a Selector?
+
+h1{
+  color: red;
+  property : value;
+  property : value;
+  property : value;
+  property : value;
+}
+
+
+Element Selector
+ID Selector      #
+Class Selector   .
+
+# ---------------------------------------------------
+List of CSS Properties
+  1.Box Model
+  2.Background and Colors
+  3.Typography
+  4.Display and Position
+  5.Flexbox
+  6.Grid
+  7.Transforms and Transitions
+  8.Animations
+  9.Miscellaneous
+  10.Advanced Layout and Spacing
+  11.Columns and Multi-Column Layout
+  12.Advanced Background and Borders
+  14.Text and Font Details
+  15.Color and Visual Effects
+  16.Shapes and Clipping
+  17.Print and Media
+  18.Custom Properties (CSS Variables)
+  19.Lists and Counters
+  20.Tables
+  21.Perspective and 3D Transforms
+  22.Masking and Compositing
+  23.Motion Path
+  27.Writing Modes and Text Orientation
+  28.Logical Properties
+  29.Region and Fragmentation
+  30.Media Queries
+
+
+  

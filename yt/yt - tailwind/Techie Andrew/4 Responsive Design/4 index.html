@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="container p-5 m-5">
+    
+    <!-- Responsive Design All Sides -->
+    <div class="bg-blue-500 text-white p-5 m-5 sm:bg-red-500 md:bg-green-500 lg:bg-yellow-500 xl:bg-purple-500">
+        Resize the browser window to see the background color change based on screen size.
+    </div>
+
+    <!-- Responsive Design All Sides -->
+
+    <pre class="p-5 m-5">
+        ----------------------------------------
+        prefix | Min Width | Common Devices
+        -------|-----------|----------------
+        sm     | 640px     | Mobile Phones
+        md     | 768px     | Tablets
+        lg     | 1024px    | Laptops
+        xl     | 1280px    | Desktops
+        2xl    | 1536px    | Large Screens
+        ----------------------------------------
+
+    </pre>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5 m-5">
+        <div class="bg-gray-200 p-5 text-center">Item 1</div>
+        <div class="bg-gray-300 p-5 text-center">Item 2</div>
+        <div class="bg-gray-400 p-5 text-center">Item 3</div>
+        <div class="bg-gray-500 p-5 text-center">Item 4</div>
+        <div class="bg-gray-600 p-5 text-center">Item 5</div>
+        <div class="bg-gray-700 p-5 text-center">Item 6</div>
+        <div class="bg-gray-800 p-5 text-center">Item 7</div>
+        <div class="bg-gray-900 p-5 text-center text-white">Item 8</div>
+    </div>
+
+    <!-- Flex -->
+    <div class="flex flex-col sm:flex-row p-5 m-5 bg-gray-100">
+        <div class="bg-red-300 p-5 m-2 flex-1 text-center">Flex Item 1</div>
+        <div class="bg-green-300 p-5 m-2 flex-1 text-center">Flex Item 2</div>
+        <div class="bg-blue-300 p-5 m-2 flex-1 text-center">Flex Item 3</div>
+    </div>
+
+
+    <!-- hidden -->
+    <div class="p-5 m-5 bg-gray-200">
+        <div class="hidden sm:block md:hidden lg:block p-5 bg-green-300 text-center">
+            This text is hidden on default and md screens, but visible on sm and lg screens.
+        </div>
+    </div>
+</body>
+</html>

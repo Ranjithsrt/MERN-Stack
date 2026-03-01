@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+{%extends 'crudApp/base.html'%}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {%block content%}
+    <h1>Student List</h1>
+    <table>
+        <thead>
+            <th>sno</th>
+            <th>sname</th>
+            <th>sclass</th>
+            <th>saddress</th>
+        </thead>
+        <tbody>
+            {%for st in students%}
+            <tr>
+                <td>{{st.sno}}</td>
+                <td>{{st.sname}}</td>
+                <td>{{st.sclass}}</td>
+                <td>{{st.saddress}}</td>
+                <td>
+                    <a href="/delete/{{st.id}}">Delete</a>
+                    <a href="/update/{{st.id}}">Update</a>
+                </td>
+            </tr>
+            {%endfor%}
+        </tbody>
+
+    </table>
+
+    <a href="/create"><button type="button">Add New student</button></a>
+
+
+    {%endblock%}
+
+</body>
+
+</html>

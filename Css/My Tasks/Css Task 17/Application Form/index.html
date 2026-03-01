@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application Form</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <section>
+    <div class="container">
+      <h1>Application Form</h1>
+      <p>Please complete the following application Form details.</p>
+      <form action="" autocomplete="off">
+        <div class="form-group">
+          <div>
+            <label for="fname">First Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter First Name" required />
+          </div>
+          <div>
+            <label for="lname">Last Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter Last Name" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter Email" required />
+          </div>
+          <div class="gen">
+            <label for="gender"> Gender</label>
+            <select name="gender" id="">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+
+          </div>
+        </div>
+        <div class="form-ph">
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="pincode" name="pincode" id="pincode" placeholder="Enter Pincode">
+          </div>
+          <div>
+            <input type="tel" name="phone" id="phone" placeholder="Enter Phone Number" required />
+          </div>
+
+        </div>
+        <div>
+          <label for="Apply">Applying for Position</label>
+          <input type="text" name="" id="Apply">
+        </div>
+        <div>
+          <label for="date">When can you start?</label>
+          <input type="date" name="" id="Adate">
+        </div>
+        <div>
+          <label for="Address">Address</label>
+          <input type="address">
+          <br>
+          <input type="address">
+        </div>
+        <div>
+          <label for="cover-letter">Cover letter</label>
+          <textarea name="cover-letter" id="cover-letter"  ></textarea>
+        </div>
+        <div class="resume">
+           <label for="resume">Upload Resume</label>
+           <input type="file"></label>
+        </div>
+        <div>
+          <input type="submit" value="Apply Now">
+        </div>
+
+    </div>
+    </form>
+    </div>
+  </section>
+</body>
+
+</html>

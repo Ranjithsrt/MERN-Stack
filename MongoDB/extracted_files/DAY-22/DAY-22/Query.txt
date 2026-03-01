@@ -1,0 +1,162 @@
+db.users.insertMany([
+  { _id: 1, name: "Karthik", email: "karthik@example.com", state: "Tamil Nadu" },
+  { _id: 2, name: "Lakshmi", email: "lakshmi@example.com", state: "Kerala" },
+  { _id: 3, name: "Vignesh", email: "vignesh@example.com", state: "Tamil Nadu" },
+  { _id: 4, name: "Sowmya", email: "sowmya@example.com", state: "Karnataka" }
+]);
+
+
+db.products.insertMany([
+  { _id: 1, name: "Laptop", price: 15000 },
+  { _id: 2, name: "Harddrive", price: 1200 },
+  { _id: 3, name: "Pendrive", price: 800 },
+  { _id: 4, name: "Printer", price: 5000 },
+  { _id: 5, name: "Pen", price: 150 }
+]);
+
+db.cart.insertMany([
+  {
+    _id: 1,
+    userId: 1, // Karthik
+    items: [
+      { productId: 1, quantity: 1 }, // Laptop
+      { productId: 2, quantity: 2 }  // Harddrive
+    ]
+  },
+  {
+    _id: 2,
+    userId: 2, // Lakshmi
+    items: [
+      { productId: 4, quantity: 1 }, // Printer
+      { productId: 5, quantity: 3 }  // Pen
+    ]
+  },
+  {
+    _id: 3,
+    userId: 3, // Vignesh
+    items: [
+      { productId: 3, quantity: 1 } // Pendrive
+    ]
+  },
+ ]);
+//-----------------------------------------------------
+ db.cart.aggregate([
+  {
+    $lookup:{
+      from:"users",
+      localField: "userId",
+      foreignField: "_id",
+      as: "userDetails"
+    }
+  },
+  {
+    $unwind:"$userDetails"
+  }
+ ])
+
+//-----------------------------------------------------
+  db.cart.aggregate([
+    {
+      $lookup:{
+        from:"users",
+        localField: "userId",
+        foreignField: "_id",
+        as: "userDetails"
+      }
+   },
+  {
+      $unwind:"$userDetails"
+  },
+  {
+    $unwind:"$items"
+  },
+  {
+    $lookup:{
+      from:"products",
+      localField:"items.productId", 
+      foreignField: "_id",
+      as: "items.productDetails"
+    }
+  },
+  {
+    $unwind: "$items.productDetails"
+  }
+
+ ])
+
+ //-----------------------------------------------------
+
+
+  db.cart.aggregate([
+    {
+      $lookup:{
+        from:"users",
+        localField: "userId",
+        foreignField: "_id",
+        as: "userDetails"
+      }
+   },
+  {
+      $unwind:"$userDetails"
+  },
+  {
+    $unwind:"$items"
+  },
+  {
+    $lookup:{
+      from:"products",
+      localField:"items.productId", 
+      foreignField: "_id",
+      as: "items.productDetails"
+    }
+  },
+  {
+    $unwind: "$items.productDetails"
+  },
+  
+  {
+    $group:{
+      _id:"$_id",
+      userId:{$first:"$userId"},
+      userDetails:{$first:"$userDetails"},
+      items:{
+        $push:{
+          productId: "$items.productId",
+          quantity: "$items.quantity",
+          productDetails: "$items.productDetails"
+        }
+      }
+
+    }
+  },
+  {
+    $project:{
+      _id:1,
+      userName: "$userDetails.name",
+      userEmail: "$userDetails.email",
+      userState: "$userDetails.state",
+      items:{
+        $map:{
+          input:"$items",
+          as:"item",
+          in:{
+               productName: "$$item.productDetails.name",
+               price: "$$item.productDetails.price",
+               quantity: "$$item.quantity",
+              totalPrice: { $multiply: ["$$item.quantity", "$$item.productDetails.price"] }
+          }
+        }
+      },
+      totalCartValue:{
+        $sum:{
+          $map: {
+            input: "$items",
+            as: "item",
+            in: { $multiply: ["$$item.quantity", "$$item.productDetails.price"] }
+          }
+        }
+      }
+    }
+  }
+
+ ])

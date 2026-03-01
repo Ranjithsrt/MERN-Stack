@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 300px;
+        height: 120px;
+        border: 1px solid #888;
+        overflow: auto;
+        padding: 8px;
+        margin: 8px 0;
+      }
+
+      #log {
+        height: 140px;
+        overflow: auto;
+        border: 1px solid #ccc;
+        padding: 6px;
+        font-family: monospace;
+        white-space: pre-wrap;
+      }
+
+      .row {
+        margin: 6px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>jQuery Event Methods</h3>
+    <ul>
+      <li>Mouse Events</li>
+      <ul>
+        <li>click</li>
+        <li>dblclick</li>
+        <li>mouseenter</li>
+        <li>mouseleave</li>
+      </ul>
+      <li>Keyboard Events</li>
+      <ul>
+        <li>keypress</li>
+        <li>keydown</li>
+        <li>keyup</li>
+      </ul>
+      <li>Form Events</li>
+      <ul>
+        <li>submit</li>
+        <li>change</li>
+        <li>focus</li>
+        <li>blur</li>
+      </ul>
+      <li>Document/Window Events</li>
+      <ul>
+        <li>load</li>
+        <li>resize</li>
+        <li>scroll</li>
+        <li>unload</li>
+      </ul>
+    </ul>
+
+    <div class="row">
+      <button id="btn">Click / dblClick</button>
+    </div>
+
+    <div class="row">
+      <div id="box"></div>
+    </div>
+
+    <div id="row">
+      <form id="frm" autocomplete="off">
+        <input
+          type="text"
+          name="text"
+          id="text"
+          placeholder="Type Something.."
+        />
+        <select id="sel" name="select">
+          <option value="">Select</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+        </select>
+        <button type="submit" id="btnSubmit">Submit</button>
+      </form>
+    </div>
+
+    <div class="row">
+      <input
+        type="text"
+        id="focusMe"
+        placeholder="Focus Me"
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="row">
+      <div id="log"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      function append(msg) {
+        const log = document.getElementById("log");
+        const time = new Date().toLocaleTimeString();
+        log.textContent = time + " - " + msg + "\n" + log.textContent;
+      }
+
+      /*
+    $("#btn").click(function (e) {
+      append("jQuery button click " + e.target.id);
+    });
+    $("#btn").dblclick(function (e) {
+      append("jQuery button dblclick " + e.target.id);
+    });
+
+    $("#btn").on("click", function (e) {
+      append("jQuery button click " + e.target.id);
+    });
+    $("#btn").on("dblclick", function (e) {
+      append("jQuery button dblclick " + e.target.id);
+    });
+
+
+    $("#box").on("mouseenter", function () {
+      append("jQuery Mouse Enter");
+    });
+    $("#box").on("mouseleave", function () {
+      append("jQuery Mouse Leave");
+    });
+$("#text").on("keypress", function (e) {
+      append("jQuery Keypress : " + e.key);
+    });
+    $("#text").on("keydown", function (e) {
+      append("jQuery keydown : " + e.key);
+    });
+
+    $("#text").on("keyup", function (e) {
+      append("jQuery keyup : " + e.key);
+    });
+  
+
+    // $("#frm").on("submit", function (e) {
+    //   e.preventDefault();
+    //   append("Form Submitted");
+    // });
+
+    // $("#sel").on("change", function () {
+    //   append($(this).val() + " Selected");
+    // });
+
+    // $("#focusMe").on("focus", function () {
+    //   append("Input Focus");
+    // });
+    // $("#focusMe").on("blur", function () {
+    //   append("Input Blur " + $(this).val());
+    // });
+
+    // $(document).on("load", function () {
+    //   console.log("Document Loaded");
+    // });
+
+    // $(window).on("resize", function () {
+    //    console.log("Window Resized");
+    // });
+    // $(window).on("scroll", function () {
+    //   console.log("Window Scrolled");});
+
+    // $(window).on("unload", function () {
+    //   console.log("Window Unloaded");});
+
+    */
+
+      /*
+        const btn = document.getElementById("btn");
+    btn.onclick = function () {
+      append("JavaScript button click ");
+    };
+
+    btn.addEventListener("click", function () {
+      append("JavaScript button click ");
+    });
+
+       const box = document.getElementById("box");
+    box.addEventListener("mouseenter", function () {
+      append("javascript Mouse Enter");
+    });
+    box.addEventListener("mouseleave", function () {
+      append("javascript Mouse Leave");
+    });
+   
+    const text = document.getElementById("text");
+    text.addEventListener("keypress", function (e) {
+      append("JavaScript Keypress : " + e.key);
+    });
+
+    text.addEventListener("keydown", function (e) {
+      append("JavaScript keydown : " + e.key);
+    });
+
+    text.addEventListener("keyup", function (e) {
+      append("JavaScript keyup : " + e.key);
+    });
+
+     */
+
+      document.getElementById("frm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        append("JavaScript Form Submitted");
+      });
+
+      document.getElementById("sel").addEventListener("change", function (e) {
+        append("JavaScript Select Changed : " + e.target.value);
+      });
+
+      document.getElementById("focusMe").addEventListener("focus", function () {
+        append("JS Input Focus");
+      });
+      document.getElementById("focusMe").addEventListener("blur", function (e) {
+        append("JS Input Blur " + e.target.value);
+      });
+
+      document
+        .getElementById("focusMe")
+        .addEventListener("keydown", function (e) {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            append("JS Enter Pressed");
+          }
+        });
+
+      document
+        .getElementById("focusMe")
+        .addEventListener("keyup", function (e) {
+          console.log("JS Key Up : " + e.key);
+        });
+
+      document
+        .getElementById("focusMe")
+        .addEventListener("keypress", function (e) {
+          console.log("JS Key Press : " + e.key);
+        });
+
+      document
+        .getElementById("focusMe")
+        .addEventListener("input", function (e) {
+          console.log(this.value);
+        });
+
+      document
+        .getElementById("focusMe")
+        .addEventListener("change", function (e) {
+          console.log(this.value);
+        });
+
+        
+
+      let frm = document.getElementById("frm");  
+       frm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        console.log("Form Submitted");
+        frm.addEventListener("reset", function (e) {
+          console.log("Form Reset");
+       })
+      });
+
+      // load
+      window.addEventListener("load", function () {
+        console.log("window loaded");
+        
+      });
+      // resize
+      window.addEventListener("resize", function () {
+        console.log("window resized");
+      });
+      // scroll
+      window.addEventListener("scroll", function () {
+        console.log("window scrolled");
+      });
+      // unload
+      window.addEventListener("unload", function () {
+        console.log("window unloaded");
+      });
+      
+    </script>
+  </body>
+</html>

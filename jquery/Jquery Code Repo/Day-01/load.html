@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+  </head>
+  <body>
+    <h3>jQuery Class</h3>
+
+    <h4 id="title">Sample Heading</h4>
+    <p class="para">This is a sample para</p>
+    <p class="para">This is a sample para</p>
+
+    <button>Click Me</button>
+
+    <script>
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   console.log("Page Loaded");
+      // });
+
+      // $(document).ready(function () {
+      //   console.log("Page Loaded");
+      // });
+
+      // $(function () {
+      //   $("button").click(function () {
+      //     $(this).css("color", "brown");
+      //     $("#title").css("color", "green");
+      //     $(".para").css("color", "blue");
+      //   });
+      // });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const btn = document.getElementsByTagName("button")[0];
+        btn.addEventListener("click", function () {
+          btn.style.color = "brown";
+          document.getElementById("title").style.color = "green";
+          const para = document.querySelectorAll(".para");
+          para.forEach((p) => {
+            p.style.color = "blue";
+          });
+
+          $("*").css("font-family", "inter");
+        });
+      });
+    </script>
+  </body>
+</html>

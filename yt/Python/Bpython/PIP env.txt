@@ -1,0 +1,23 @@
+
+pip install requests
+
+python-3 -m pip install requests - windows global
+
+pip install -u requests - update
+
+pip list - list pip
+
+python-3 -m pip uninstall requests - uninstall
+
+
+# v env
+
+python-3 -m pip install requests==2.28.0 - particular package
+
+python-3 -m venv.venv -  ENV name
+
+source .venv activate
+
+source .venv/bin/activate
+
+deactivate  - exit

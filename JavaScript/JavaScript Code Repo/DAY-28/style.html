@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .para {
+        color: rgb(8, 55, 44);
+        font-size: 14px;
+        line-height: 1.2;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .test {
+        font-style: italic;
+      }
+
+      .color {
+        color: blue;
+      }
+      div {
+        border: 2px solid #333;
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+      }
+
+      .red {
+        background-color: red;
+      }
+      .blue {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript DOM Tutorial</h1>
+    <p class="test">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti mollitia sunt tempora, nostrum error facere ex, accusantium ullam totam iusto quos necessitatibus consectetur dolore facilis impedit, at tenetur ipsum consequuntur.</p>
+    <a href="#">Read</a>
+
+    <ul class="test">
+      <li>Item</li>
+      <li>Item</li>
+      <li>Item</li>
+    </ul>
+
+    <div></div>
+
+    <button onclick="add()">Add</button>
+    <button onclick="remove()">Remove</button>
+    <button onclick="toggle()">Toggle</button>
+    <button onclick="contain()">Contain</button>
+
+    <script>
+      //1. Using the style Property
+      const h1 = document.querySelector("h1");
+      h1.style.color = "Orange";
+      h1.style.fontSize = "18px";
+      h1.style.backgroundColor = "#333";
+      h1.style.padding = "15px";
+
+      //2.Using className or classList for CSS Classes
+      const para = document.querySelector("p");
+      para.className = "para";
+      const ul = document.querySelector("ul");
+      ul.classList.add("color"); //remove,toggle,contains
+
+      const div = document.querySelector("div");
+      function add() {
+        div.classList.add("red");
+      }
+
+      function remove() {
+        div.classList.remove("red");
+      }
+
+      function toggle() {
+        div.classList.toggle("red");
+      }
+
+      function contain() {
+        console.log(div.classList.contains("red"));
+      }
+      //3.Using getComputedStyle for Reading Styles
+
+      const styles = window.getComputedStyle(para);
+      console.log(styles.color);
+      console.log(styles.font);
+      console.log(styles.getPropertyValue("font-size"));
+    </script>
+  </body>
+</html>

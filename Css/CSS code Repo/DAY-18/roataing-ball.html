@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .ball-spinner {
+        width: 80px;
+        height: 80px;
+        position: relative;
+        animation: rotate-ball 2s linear infinite;
+      }
+      .ball {
+        width: 15px;
+        height: 15px;
+        background-color: #3498db;
+        border-radius: 50%;
+        position: absolute;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+      }
+
+      .ball:nth-child(1) {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .ball:nth-child(2) {
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .ball:nth-child(3) {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .ball:nth-child(4) {
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      @keyframes rotate-ball {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ball-spinner">
+      <div class="ball">1</div>
+      <div class="ball">2</div>
+      <div class="ball">3</div>
+      <div class="ball">4</div>
+    </div>
+  </body>
+</html>

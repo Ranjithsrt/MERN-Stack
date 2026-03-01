@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Resize Property Examples</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f0f0f0;
+      }
+
+      h2 {
+        margin-top: 40px;
+      }
+
+      textarea,
+      .resizable-box {
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        margin-top: 10px;
+        display: block;
+        background: #fff;
+      }
+
+      .resizable-box {
+        overflow: auto;
+        resize: both;
+        width: 300px;
+        height: 150px;
+      }
+
+      .example {
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS <code>resize</code> Property Examples</h1>
+
+    <div class="example">
+      <h2>1. Resizable Textarea (both)</h2>
+      <textarea style="resize: both; width: 300px; height: 100px">
+Resizable in both directions
+    </textarea
+      >
+    </div>
+
+    <div class="example">
+      <h2>2. Vertical Resize Only</h2>
+      <textarea style="resize: vertical; width: 300px; height: 100px">
+Only vertical resizing
+    </textarea
+      >
+    </div>
+
+    <div class="example">
+      <h2>3. Horizontal Resize Only</h2>
+      <textarea style="resize: horizontal; width: 300px; height: 100px">
+Only horizontal resizing
+    </textarea
+      >
+    </div>
+
+    <div class="example">
+      <h2>4. Resize Disabled</h2>
+      <textarea style="resize: none; width: 300px; height: 100px">
+Resize is disabled
+    </textarea
+      >
+    </div>
+
+    <div class="example">
+      <h2>5. Resizable Div</h2>
+      <div class="resizable-box">This div is resizable both horizontally and vertically. You can add content and scroll inside if it overflows.</div>
+    </div>
+  </body>
+</html>

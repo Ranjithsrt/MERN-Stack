@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 30px;
+        background-image: url("bg.jpg");
+        background-size: cover;
+      }
+      div {
+        width: 200px;
+        aspect-ratio: 1;
+        margin-right: 15px;
+        border: 1px solid #ccc;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        font-weight: bolder;
+      }
+      .background {
+        color: #2c3e50;
+        background-color: transparent;
+      }
+      .filter {
+        background: #2980b9;
+        color: #fff;
+        filter: blur(5px);
+      }
+      .backdrop-filter {
+        color: #2c3e50;
+
+        backdrop-filter: brightness(60%);
+        backdrop-filter: contrast(40%);
+        backdrop-filter: drop-shadow(4px 4px 10px blue);
+        backdrop-filter: grayscale(30%);
+        backdrop-filter: hue-rotate(120deg);
+        backdrop-filter: invert(70%);
+        backdrop-filter: opacity(20%);
+        backdrop-filter: sepia(90%);
+        backdrop-filter: saturate(80%);
+        backdrop-filter: blur(5px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">Tutor Joes</div>
+    <div class="filter">Tutor Joes</div>
+    <div class="backdrop-filter">Tutor Joes</div>
+  </body>
+</html>

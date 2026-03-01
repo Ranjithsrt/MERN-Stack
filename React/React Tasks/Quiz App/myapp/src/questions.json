@@ -1,0 +1,57 @@
+[
+    {
+        "id" : 1,
+        "question" : "What is React?",
+        "options" : [
+            "A library for managing user interfaces",
+            "A framework for building user interfaces",
+            "A library for building user interfaces",
+            "A framework for managing user interfaces"
+        ],
+        "correctOption" : "A library for building user interfaces"
+    },
+    {
+        "id" : 2,
+        "question" : "Where do you make Ajax requests in React?",
+        "options" : [
+            "The componentDidMount lifecycle event",
+            "The componentDidUpdate lifecycle event",
+            "The componentWillUnmount lifecycle event",
+            "The componentWillMount lifecycle event"
+        ],
+        "correctOption" : "The componentDidMount lifecycle event"
+    },
+    {
+        "id" : 3,
+        "question" : "How do you pass data from a parent component to a child component in React?",
+        "options" : [
+            "By using props",
+            "By using state",
+            "By using context",
+            "By using refs"
+        ],
+        "correctOption" : "By using props"
+    },
+    {
+        "id" : 4,
+        "question" : "What is a component in React?",
+        "options" : [
+            "A function that returns JSX",
+            "A function that returns HTML",
+            "A function that returns a React element",
+            "A function that returns a React component"
+        ],
+        "correctOption" : "A function that returns a React component"
+    },
+    {
+        "id" : 5,
+        "question" : "What is a state in React?",
+        "options" : [
+            "A function that returns JSX",
+            "A function that returns HTML",
+            "A function that returns a React element",
+            "A function that returns a React component"
+        ],
+        "correctOption" : "A function that returns a React component"
+    }
+]

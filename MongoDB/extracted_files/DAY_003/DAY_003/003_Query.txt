@@ -1,0 +1,165 @@
+#--------------------------------------------------------------------
+#     0. bson types
+#--------------------------------------------------------------------
+
+string    -> "Ram"
+int       -> 25
+bool      -> True or False
+object    -> {name:"Riya",age:5}
+array     -> [10,20,30,40]
+date      -> ISODate, new Date()
+objectId  
+double    -> 98.50
+
+#--------------------------------------------------------------------
+#     1. jsonSchema Validation for collections
+#--------------------------------------------------------------------
+db.createCollection("students", {
+  validator: {
+    $jsonSchema: {
+      required: ["name", "age"],
+      title: "Student Record Validation",
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "Name must be a string and is required",
+        },
+        age: {
+          bsonType: "int",
+          minimum: 5,
+          maximum: 20,
+          description: "Age must be an integer between 5 and 20",
+        },
+      },
+    },
+  },
+});
+
+#--------------------------------------------------------------------
+#     2. Modify jsonSchema Validation for collections
+#--------------------------------------------------------------------
+
+
+db.runCommand({
+  collMod: "students",
+  validator: {
+    $jsonSchema: {
+      required: ["name", "age"],
+      title: "Student Record Validation",
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "Name must be a string and is required",
+        },
+        age: {
+          bsonType: "int",
+          minimum: 5,
+          maximum: 20,
+          description: "Age must be an integer between 5 and 20",
+        },
+        course: {
+          bsonType: "string",
+          enum: ["C", "C++", "Java", "Python"],
+          description: "Course must be on of the follwing values C, C++, Java, Python",
+        },
+      },
+    },
+  },
+});
+
+#--------------------------------------------------------------------
+#     3. Modify jsonSchema Validation for collections having nested object (eg. address)
+#--------------------------------------------------------------------
+
+
+db.runCommand({
+  collMod: "students",
+  validator: {
+    $jsonSchema: {
+      required: ["name", "age"],
+      title: "Student Record Validation",
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "Name must be a string and is required",
+        },
+        age: {
+          bsonType: "int",
+          minimum: 5,
+          maximum: 20,
+          description: "Age must be an integer between 5 and 20",
+        },
+        course: {
+          bsonType: "string",
+          enum: ["C", "C++", "Java", "Python"],
+          description: "Course must be on of the follwing values C, C++, Java, Python",
+        },
+        address: {
+          bsonType: "object",
+          required: ["city", "zip"],
+          properties: {
+            city: {
+              bsonType: "string",
+            },
+            zip: {
+              bsonType: "string",
+              pattern: "^[0-9]{6}$",
+            },
+          },
+        },
+      },
+    },
+  },
+});
+
+#--------------------------------------------------------------------
+#     4. jsonSchema Validation for collections having array values
+#--------------------------------------------------------------------
+
+
+db.runCommand({
+  collMod: "students",
+  validator: {
+    $jsonSchema: {
+      required: ["name", "age"],
+      title: "Student Record Validation",
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "Name must be a string and is required",
+        },
+        age: {
+          bsonType: "int",
+          minimum: 5,
+          maximum: 20,
+          description: "Age must be an integer between 5 and 20",
+        },
+        course: {
+          bsonType: "string",
+          enum: ["C", "C++", "Java", "Python"],
+          description: "Course must be on of the follwing values C, C++, Java, Python",
+        },
+        address: {
+          bsonType: "object",
+          required: ["city", "zip"],
+          properties: {
+            city: {
+              bsonType: "string",
+            },
+            zip: {
+              bsonType: "string",
+              pattern: "^[0-9]{6}$",
+            },
+          },
+        },
+        skills: {
+          bsonType: "array",
+          items: {
+            bsonType: "string",
+          },
+        },
+      },
+    },
+  },
+});
+

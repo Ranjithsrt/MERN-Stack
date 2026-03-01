@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>14. Any year is entered through the keyboard, write a program to determine whether the year is leap or not. Use the logical operators && and ||.</p>
+
+    <script>
+      const year = 2025;
+      if ((year % 4 === 0 && year % 100 != 0) || year % 400 === 0) {
+        console.log(`${year} is a leap year`);
+      } else {
+        console.log(`${year} is not a leap year`);
+      }
+    </script>
+  </body>
+</html>

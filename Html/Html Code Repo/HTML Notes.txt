@@ -1,0 +1,591 @@
+Day 1
+--------------------------------------------
+
+HTML stands for Hypertext Markup Language.
+
+It is the foundational language for creating web pages and web applications.
+
+It is not a programming language but a markup language used to structure content.
+
+HTML is used to define the structure and layout of a webpage.
+
+It organizes content such as text, images, videos, links, forms, etc., in a way that browsers can render it.
+
+--------------------------
+Tim Berners lee
+---------------------------
+
+HTTP : HYPER TEXT TRANSFER PROTOCOL
+
+clients | server | Api | Hyper Text | MarkUp langguage |  Web Page |  Web app | Domain name | WEB Hosting
+
+
+VS code
+Prettier
+live server
+material icon theme
+
+
+-------------------------------
+
+Day 2
+
+Heading Tags :
+
+    <h1>Heading 1 Tag</h1>
+    <h2>Heading 2 Tag</h2>
+    <h3>Heading 3 Tag</h3>
+    <h4>Heading 4 Tag</h4>
+    <h5>Heading 5 Tag</h5>
+    <h6>Heading 6 Tag</h6>
+
+paragraph :
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, porro? Fuga facere temporibus commodi asperiores odio quibusdam deleniti, eum error quae laboriosam praesentium sapiente mollitia expedita, similique accusamus, molestiae corporis!</p>
+
+
+Comments
+
+<!--   --!>
+
+/*    */
+
+<open tag> Sample content </close tag>
+
+    <p> This is para </p>
+
+Type of Tags :
+
+Paired  (Container Tags)
+        html, head, title, body, p etc...
+
+Unpaired Tags (Self-Closing Tags)
+         meta, hr, img etc...
+
+Utility-Based Tags :
+
+        Formatting Tags (Text Style)
+            b, i, u, s etc...
+
+        Structure Tags
+            header, nav, section
+
+        Control Tags
+            input, select
+
+p         - paragraph tag
+b         - bold tag
+i         - italic tag
+mark      - Highlighted Text
+s         - Strike tag
+sup       - Superscript
+sub       - Subscript
+br        - break or line break
+pre       - Preformated Tag
+small     - Small tag (reduce font size)
+strong    - Strong
+del       - Delete Tag
+
+
+-----------------------------
+
+Day 2
+
+img width| height |
+
+Realative link :
+
+ <img src="images/cat.jpg" width="200px" height="200px" alt="Cat Image" />
+
+abs link :
+
+<img src="https://cdn.pixabay.com/photo/2025/03/03/13/49/little-girl-9444205_1280.jpg" width="200px" alt="Baby Image" />
+
+
+<font size="5" face="JetBrains Mono" color="red">
+
+      <h1>Sample Title</h1>
+      <p>Lorem ipsum dolor sit </p>
+
+</font>
+
+font = size="5" face="JetBrains Mono" color="red" bgcolor="black" text=white 
+
+p - align= right | center | left 
+
+
+table :
+
+
+border = "1"
+cellspacing = "0px"
+cellpadding= "5px"
+align= right | center | left 
+width = "250px"
+
+caption
+thead
+tr
+th
+tbody
+td
+rowspan = 3
+colspan = 3
+ftoor
+
+
+pexels
+pixabay
+unsplash
+
+--------------------------------------------
+
+Day 3
+
+1. Unordered List  (ul)
+
+  <ul>
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Manago</li>
+      <li>Banana</li>
+    </ul>
+
+type  = disc | square  | circle 
+
+2. Ordered List   (ol)
+
+  <ol>
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Manago</li>
+      <li>Banana</li>
+    </ol>
+
+type = 1 | A | a | i | I | none
+
+Value = 101
+
+reversesd
+
+3. Description List (dl)
+
+dl
+dt
+dd
+
+  <h4>Description List (dl)</h4>
+    <dl>
+      <dt>HTML</dt>
+      <dd>HyperText Markup Language</dd>
+      <dt>Python</dt>
+      <dd>Python is a open source programming lang.</dd>
+    </dl>
+
+
+    <h4>Nest List</h4>
+    <ul>
+      <li>Programming</li>
+      <ul>
+        <li>C</li>
+        <li>C++</li>
+        <li>Java</li>
+        <li>Python</li>
+      </ul>
+      <li>Web Design</li>
+      <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ol>
+      <li>Mobile App Development</li>
+      <ul type="none">
+        <li>Android</li>
+        <li>Flutter</li>
+        <li>React Native</li>
+      </ul>
+    </ul>
+
+
+Colors: 
+
+  1. color name : 140
+     https://www.w3schools.com/colors/colors_names.asp
+
+  2. HEX Code
+     #33333   (1,2,3,4,5,6,7,8,9 A B C D E)
+     #A25
+  3. RGB
+     rgb(0-255,0-255,0-255)
+  4. RGBA
+     red green blue alpha
+     rgba(25,35,58,0.8)
+  5.HSL
+  6.HSLA
+
+
+links :
+
+Blue   - Not Visted Link
+Red    - Active Link
+Purple - Visited Link
+
+ <h4>Anchor Tag or Link Tag</h4>
+
+    <a href="https://www.google.com" target="_blank">Google</a>
+
+    <a href="https://www.youtube.com" target="_self">Youtube</a>
+
+    <a href="https://www.tutorjoes.in">Tutor Joes</a>
+
+pg navigation :
+
+    <a href="../DAY-02/basic.html">Basic HTML</a>
+
+target : _blank , _self
+
+iframe :
+
+  <iframe name="box" width="560" height="315" title = "iframe" src="https://tutorjoes.in" frameborder="1"></iframe>
+
+
+adobe colors 
+
+----------------------------------------------
+
+Day 5
+
+  Block Level Element
+  InLine Element
+
+form :
+
+disabled
+type -  text | password | email | submit | gender | checkbox | number | date  | time | month| datetime | week | search | color  | range | file | button
+
+placeholder
+readonly
+name
+required
+value 
+autocomplete=on | off
+checked
+maxlength
+min = "5"
+max = "100"
+id
+class
+placeholder
+multiple 
+checked
+
+select 
+
+option 
+
+optiongroup
+
+multiple
+
+filedset
+legend 
+
+
+<form autocomplete="off">
+      <input type="hidden" />
+      <label for="name">Enter Your Name</label>
+      <input type="text" placeholder="Name" name="name" id="name" required />
+      <input type="password" placeholder="Password" name="password" required />
+      <input type="email" placeholder="Email" name="email" required />
+      <input type="number" name="age" min="5" max="10" />
+      <input type="date" />
+      <input type="time" />
+      <input type="datetime-local" name="datetime" />
+      <input type="month" name="month" />
+      <input type="week" name="week" />
+
+      <input type="search" name="search" placeholder="Search" />
+
+      <input type="range" name="price" min="0" max="10" />
+      <input type="color" name="color" />
+
+      <label><input type="radio" name="gender" />Male</label>
+      <input type="radio" name="gender" id="female" />
+      <label for="female">Female</label>
+
+      <hr />
+
+      <label><input type="checkbox" /> C </label>
+      <label><input type="checkbox" /> C++ </label>
+      <label><input type="checkbox" /> Java </label>
+
+      <input type="file" />
+      <input type="file" multiple />
+
+      <textarea rows="10" cols="50"></textarea>
+
+      <button type="submit">Register Now</button>
+      <input type="submit" value="Save" />
+      <input type="reset" value="Clear All" />
+      <input type="button" value="Save All" />
+
+      <select name="" id="">
+        <option value="">Select Course</option>
+        <option value="C">C</option>
+        <option value="C++">C++</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+      </select>
+
+      <select name="" id="" multiple>
+        <option value="">Select Course</option>
+        <option value="C">C</option>
+        <option value="C++">C++</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+      </select>
+
+      <select name="" id="">
+        <optgroup label="Web Design">
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
+        </optgroup>
+        <optgroup label="Programming">
+          <option value="C">C</option>
+          <option value="C++">C++</option>
+          <option value="Java">Java</option>
+          <option value="Python">Python</option>
+        </optgroup>
+      </select>
+
+      <fieldset>
+        <legend>User Login</legend>
+        <input type="text" placeholder="Name" value="joes" readonly name="name" id="name" required />
+        <input type="password" maxlength="5" placeholder="Password" name="password" required />
+
+        <label><input type="checkbox" checked /> C </label>
+        <label><input type="checkbox" /> C++ </label>
+        <label><input type="checkbox" /> Java </label>
+        <button type="submit">Login Now</button>
+      </fieldset>
+    </form>
+
+-------------------------------------------------------
+
+Day 6
+
+
+Semantic Tags
+
+Semantic Tags
+    Structural Semantic Tags
+        header
+        nav
+        main
+        article
+        section
+        aside
+        footer
+
+    Text-Level Semantic Tags
+       h1 to h6 
+       p
+       blockquote
+       cite
+       q
+       time
+       address
+       pre
+       code
+       kbd
+       samp
+       var
+       abbr
+       strong
+       em
+       mark
+       del
+       ins
+    Grouping and Media Semantic Tags
+        figure
+        figcaption
+        picture
+        audio
+        video
+        source
+        track
+    List Semantic Tags
+        ul
+        ol
+        li
+        dl
+        dt
+        dd
+    Table Semantic Tags
+        table
+        thead
+        tbody
+        tfoot
+        tr
+        td
+        th
+        caption
+    Form Semantic Tags
+        form
+        label
+        input
+        button
+        select
+        option
+        textarea
+        fieldset
+        legend
+        datalist
+        output
+        progress
+        meter
+    Other Semantic Tags
+        details
+        summary
+        dialog
+
+Accessblity 
+
+setting - Experiments - enable full accessblity tree view -
+ 
+3 doticon - accessblity - Enable ful page
+
+SEO
+
+Day -7
+ 
+
+Grouping and Media Semantic Tags :
+
+ figure and figcaption :
+
+          <figure>
+            <img src="photo.jpg" alt="Technology" width="300" />
+           <figcaption>A sample image with a caption.</figcaption>
+          </figure>
+
+picture :
+
+ <picture>
+     <source srcset="image-small.jpg" media="(max-width: 600px)" />
+     <source srcset="image-large.jpg" media="(min-width: 601px)" />
+     <img src="fallback.jpg" alt="Responsive Image" />
+ </picture>
+
+audio :
+
+<h4>Audio Player</h4>
+    <audio controls>
+      <source src="song.mp3" type="audio/mpeg" />
+      <source src="song.ogg" type="audio/ogg" />
+      Your browser does not support the audio element.
+    </audio>
+
+video
+
+<video controls width="400">
+      <source src="video.mp4" />
+      <track kind="subtitles" src="subtitles.vtt" srclang="en" label="english" />
+</video>
+
+        source
+        track
+        meter
+
+datalist :
+
+id = list must
+
+ <h3>datalist</h3>
+    <label for="city">Choose a city in Tamil Nadu:</label>
+    <input type="text" name="city" id="city" placeholder="Enter City" list="cities" />
+
+    <datalist id="cities">
+      <option value="Chennai"></option>
+      <option value="Coimbatore"></option>
+      <option value="Madurai"></option>
+      <option value="Tiruchirappalli"></option>
+      <option value="Salem"></option>
+      <option value="Erode"></option>
+      <option value="Tirunelveli"></option>
+      <option value="Vellore"></option>
+      <option value="Thoothukudi"></option>
+      <option value="Dindigul"></option>
+    </datalist>
+
+
+ PROGRESS BAR :
+
+    <progress value="40" max="100"></progress>
+
+ Meter:
+
+    <label for="battery">Battery Level:</label>
+
+    <meter value="0.2" min="0" max="1" low="0.3" high="0.8" optimum="1"></meter>
+
+    <meter value="0.6" min="0" max="1" low="0.3" high="0.8" optimum="1"></meter>
+
+    <meter value="0.9" min="0" max="1" low="0.3" high="0.8" optimum="1"></meter>
+
+vimeo - video compressor 
+
+
+Day -8
+
+other srmantic
+
+  <button onclick="document.getElementById('modal').show()">Show Dialog</button>
+
+
+    <details>
+      <summary>What is HTML</summary>
+      <p>HTML is for Hypertext Markup Language</p>
+    </details>
+
+    <details>
+      <summary>What is JavaScript</summary>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsa aut eaque consectetur praesentium sapiente!</p>
+    </details>
+
+ <dialog id="modal">
+      <h3>Sample Heading</h3>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, nihil recusandae. Asperiores, esse optio. Pariatur atque illo expedita, ducimus quos nam, at aut nulla fuga saepe, officia provident sint amet?</p>
+
+      <button onclick="document.getElementById('modal').close()">Close</button>
+ </dialog>
+
+marquee
+
+<marquee bgcolor="green">Welcome to HTML</marquee>
+
+<marquee bgcolor="green" direction="right">Welcome to HTML</marquee>
+
+<marquee bgcolor="green" direction="up" height="100px">Welcome to HTML</marquee>
+
+<marquee bgcolor="green" direction="down" height="100px">Welcome to HTML</marquee>
+   
+<marquee bgcolor="green" behavior="scroll">Welcome to HTML</marquee>
+
+<marquee bgcolor="green" behavior="slide">Welcome to HTML</marquee>
+    
+<marquee bgcolor="green" behavior="alternate">Welcome to HTML</marquee>
+
+<marquee bgcolor="green" scrollamount="3">Welcome to HTML</marquee>
+    
+<marquee bgcolor="green" scrollamount="5" behavior="slide" loop="2">Welcome to HTML</marquee>
+
+symbols
+
+
+------------------------------------------------------------------
+
+
+
+

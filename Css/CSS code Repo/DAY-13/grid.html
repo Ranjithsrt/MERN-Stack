@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="grid-item box-1">Box-1</div>
+      <div class="grid-item box-2">Box-2</div>
+      <div class="grid-item box-3">Box-3</div>
+      <div class="grid-item box-4">Box-4</div>
+      <div class="grid-item box-5">Box-5</div>
+      <div class="grid-item box-6">Box-6</div>
+      <div class="grid-item box-7">Box-7</div>
+      <div class="grid-item box-8">Box-8</div>
+      <div class="grid-item box-9">Box-9</div>
+    </div>
+  </body>
+</html>
+
+<!-- 
+
+col:
+
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-columns: 100px 300px 200px;
+  grid-template-columns: 1fr;
+  grid-template-columns: (3fr, 1fr 2fr);
+  grid-template-columns:repeat(4,1fr) ;
+  grid-template-columns:repeat(4,1fr)100px ;
+  grid-template-columns:repeat(3.minmax(200px,1fr)) ;
+
+row:
+
+   display: grid;     
+   grid-template-columns: repeat(3,1fr);
+   grid-template-rows: 100px 150px 200px;
+   grid-template-rows: 1fr;
+   grid-template-rows: 3fr 1fr 2fr;
+
+   grid-template-rows:repeat(4,1fr) ;
+   grid-template-rows:repeat(4,1fr)100px ;
+   grid-template-rows:repeat(3.minmax(200px,1fr)) ;
+
+shorthand:
+                     /* row          col */
+  grid-template: repeat(4,1fr)/ repeat(3,1fr) ;
+
+  gap :
+
+  column-gap: 10px;
+  row-gap: 10px;
+
+   /*     row col */
+  gap: 20px 30px;
+
+  gap:100px;
+
+  /* justify items*/
+
+    display: grid;
+
+  /* x axis */
+
+  justify-items: stretch;
+  justify-items: flex-start;
+  justify-items: center;
+  justify-items: flex-end;
+  
+  /*  y axis */
+
+  align-items: stretch;
+  align-items: flex-start;
+  align-items: center;
+  align-items: flex-end;
+  align-items: baseline;
+
+  /* shorthand */
+
+               /* align justify */
+  place-items: start center;
+  place-items: center center;
+  place-items: center;
+
+  /* justify content */
+
+  /* x axis */
+
+  justify-content: flex-start;
+  justify-content: center;
+  justify-content: end;
+  justify-content: space-around;
+  justify-content: space-between;
+  justify-content: space-evenly;
+  justify-content: stretch;
+
+  /* align content */
+
+  /* y axis */
+
+  align-content: flex-start;
+  align-content: flex-end;
+  align-content: center;
+  align-content: space-around;
+  align-content: space-between;
+  align-content: space-evenly;
+  align-content: stretch;
+
+-->

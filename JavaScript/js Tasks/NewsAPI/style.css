@@ -1,0 +1,195 @@
+ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --text-color: #1f2937;
+  --bg-color: #f3f4f6;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --transition: all 0.3s ease;
+  --font-family-Primary: "Cinzel", sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  font-family: var(--font-family-Primary);
+ 
+}
+
+h1 {
+  color: var(--primary-color);
+  margin: 2rem 0;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-family-Primary);
+ }
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: 1rem;
+  min-height: 100vh;
+}
+
+.search-container {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 1500px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: 0.75rem;
+}
+
+.category-container {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 1500px;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: 0.75rem;
+}
+
+#newsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  /* padding: 1rem; */
+}
+
+.newsCard {
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.newsCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  color: var(--text-color);
+  margin: 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  flex-grow: 0;
+  padding: 0 1.5rem;
+   display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+p {
+  color: #4b5563;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 1.5rem;
+  flex-grow: 1;
+}
+
+input[type="search"] {
+  padding: 0.75rem 1.25rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  font-size: 1rem;
+  transition: var(--transition);
+  outline: none;
+  font-family: inherit;
+}
+
+input[type="search"]:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  transition: var(--transition);
+}
+
+a:hover {
+   color: var(--primary-color);
+}
+
+button {
+  padding: 10px 30px;
+  background-color: rgba(228, 228, 253, 0.692);
+  color: #575757;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: rgba(194, 194, 255, 0.692);
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      header {
+        background-color: #42a5f5;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+      }
+      h1 {
+        font-family: "silkscreen", serif;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      div {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        background-color: #fff;
+        left: 0;
+        bottom: 0;
+        border-radius: 50%;
+        animation-name: ripple;
+        animation-duration: 8s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: infinite;
+      }
+
+      .ripple-1 {
+        animation-delay: 0s;
+      }
+      .ripple-2 {
+        animation-delay: 1s;
+      }
+      .ripple-3 {
+        animation-delay: 2s;
+      }
+      .ripple-4 {
+        animation-delay: 3s;
+      }
+      .ripple-5 {
+        animation-delay: 4s;
+      }
+      @keyframes ripple {
+        0% {
+          transform: scale(0);
+          opacity: 0.33;
+        }
+        100% {
+          transform: scale(2000);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Tutor Joes Software Solutions</h1>
+      <div class="ripple-1"></div>
+      <div class="ripple-2"></div>
+      <div class="ripple-3"></div>
+      <div class="ripple-4"></div>
+      <div class="ripple-5"></div>
+    </header>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <pre>Task : 2 Simple Student Gradebook </pre>
+
+    <pre>
+        This project models a set of students and their scores, requiring more complex lookups and calculations.
+        
+        // Object where keys are student IDs and values are objects
+        let gradebook = {
+        "S001": {
+        name: "Rajesh",
+        courses: [
+        { name: "Math", score: 92 },
+        { name: "Science", score: 85 }
+        ]
+        },
+        "S002": {
+        name: "Sam Kumar",
+        courses: [
+        { name: "Math", score: 78 },
+        { name: "Science", score: 95 }
+        ]
+        }
+        };
+        
+        Required Functions
+        
+        - addCourseScore(studentId, courseName, score): Adds a new course object to a student's courses array.
+        - getStudentAverage(studentId): Calculates and returns the average score for a single student (requires iterating over
+        the student's courses array).
+        - getCourseAverage(courseName): Calculates and returns the average score for all students in a specific course (requires
+        iterating over the keys of the gradebook object).
+        - listTopStudent(): Determines which student has the highest overall average.
+    </pre>
+
+    <!-- <div id="inventory-list" class="pre"></div> -->
+
+    <script>
+      let gradebook = {
+        S001: {
+          name: "Rajesh",
+          courses: [
+            { name: "Math", score: 92 },
+            { name: "Science", score: 85 },
+          ],
+        },
+        S002: {
+          name: "Sam Kumar",
+          courses: [
+            { name: "Math", score: 78 },
+            { name: "Science", score: 95 },
+          ],
+        },
+      };
+
+      function addCourseScore(studentId, courseName, score) {
+        if (gradebook[studentId]) {
+          gradebook[studentId].courses.push({ name: courseName, score: score });
+          console.log(
+            `Added course ${courseName} with score ${score} to student ${studentId}`
+          );
+        } else {
+          console.log("Student not found");
+        }
+      }
+
+      function getStudentAverage(studentId) {
+        if (gradebook[studentId]) {
+          // console.log(gradebook[studentId]);
+          let total = 0;
+          let courses = gradebook[studentId].courses;
+          for (let course of courses) {
+            total += course.score;
+            // console.log(course.score);
+          }
+          let average = total / courses.length;
+          // console.log(courses.length, total);
+
+          return average.toFixed(2);
+        } else {
+          console.log("Student not found");
+          return null;
+        }
+      }
+
+      function getCourseAverage(courseName) {
+        let total = 0;
+        let count = 0;
+        for (let studentId in gradebook) {
+          let courses = gradebook[studentId].courses;
+          for (let course of courses) {
+            if (course.name === courseName) {
+              total += course.score;
+              count++;
+            }
+          }
+        }
+        if (count === 0) {
+          console.log("No scores found for this course");
+          return null;
+        }
+        let average = total / count;
+        return average.toFixed(2);
+      }
+
+      function listTopStudent() {
+        let topStudent = null;
+        let highestAverage = 0;
+        for (let studentId in gradebook) {
+          let average = getStudentAverage(studentId);
+          if (average > highestAverage) {
+            highestAverage = average;
+            topStudent = gradebook[studentId].name;
+          }
+        }
+        return topStudent;
+      }
+
+      addCourseScore("S001", "English", 88);
+      getStudentAverage("S002");
+      console.log("Average score for S001:", getStudentAverage("S002"));
+      console.log("Average score for Math:", getCourseAverage("Math"));
+      console.log("Top student:", listTopStudent());
+    </script>
+  </body>
+</html>

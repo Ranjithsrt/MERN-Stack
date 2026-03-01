@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootstrap Navbar & Footer</title>
+  {% load static %}
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Your Custom CSS (optional) -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  <!-- Bootstrap  download -->
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+</head>
+
+<body>
+  <!-- ✅ NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">MyDjangoSite</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h1 class="text-center mt-5">Bootstrap</h1>
+
+  <!-- ✅ MAIN CONTENT -->
+  <!-- 
+    <div class="container mt-5">
+      <img src="{% static 'images/1.png' %}" alt="img" />
+      <img src="{% static 'images/1.png' %}" alt="img" />
+      <img src="{% static 'images/1.png' %}" alt="img" />
+    </div> 
+    -->
+
+  <div class="container-fluid d-flex align-items-center mt-5">
+    <div class="col-md-offset-1 col-md-3 mx-5" >
+      <form action="/addData/" method="POST" autocomplete="off">
+        {% csrf_token %}
+
+        <h3 class="page-header text-center text-primary">REGISTRATION</h3>
+        <div class="form-group">
+          <label for="name"> Name</label>
+          <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" />
+        </div>
+        
+        <div class="from-group">
+          <label for="Age"> Age</label>
+          <input type="text" class="form-control" name="Age" id="Age" placeholder="Enter your Age" />
+        </div>
+        <div class="from-group">
+          <label for="Address"> Address</label>
+          <input type="text" class="form-control" name="Address" id="Address" placeholder="Enter your Address" />
+        </div>
+        <div class="from-group">
+          <label for="Contact"> Contact</label>
+          <input type="text" class="form-control" name="Contact" id="Contact" placeholder="Enter your Contact" />
+        </div>
+        <div class="from-group">
+          <label for="Email">Email</label>
+          <input type="text" class="form-control" name="Email" id="Email" placeholder="Enter your Email" />
+        </div>
+        <div class="from-group pull-right mt-5">
+          <input type="submit" class="btn btn-primary" value="Register" />
+          <input type="reset" class="btn btn-danger" value="clear" />
+      </form>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <!-- if datas is not empty -->
+    {%if data %}
+    <div class="col-md-offset-3 col-md-5">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <td>{{forloop.counter}}</td> 
+            <td>{{i.Name}}</td>
+            <td>{{i.Age}}</td>
+            <td>{{i.Address}}</td>
+            <td>{{i.Contact}}</td>
+            <td>{{i.Email}}</td>
+            <td><a href="{% url 'updateData' i.id %}" class="btn btn-primary">Update</a></td>
+            <td><a href="{% url 'deleteData' i.id %}" class="btn btn-danger">Delete</a></td>
+            <!-- <td><a href="updateData/{{i.id}}/" class="btn btn-primary">Update</a></td> -->
+            <!-- <td><a href="deleteData/{{i.id}}/" class="btn btn-danger">Delete</a></td> -->
+          </tr>
+          {% endfor %}
+
+        </tbody>
+
+      </table>
+      {%endif%}
+    </div>
+  </div>
+
+  <!-- ✅ FOOTER -->
+  <footer class="bg-dark text-white text-center py-3 mt-5 fixed-bottom">
+    <div class="container">
+      <p>&copy; 2025 MyDjangoSite. All rights reserved.</p>
+      <p>
+        <a href="#" class="text-white me-2">Privacy Policy</a> |
+        <a href="#" class="text-white ms-2">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS (needed for navbar toggler) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

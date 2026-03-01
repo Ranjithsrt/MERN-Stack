@@ -1,0 +1,53 @@
+1 . Create a Folder -> project
+
+2 . Open Terminal   -> ctrl + ` 
+
+3 . Navigate to project folder :
+    cd project
+
+4 . Create new React App :
+    1.
+    npm create vite@latest .
+
+    2.Select Framework:
+    React
+
+    3.Select Variant:
+    JavaScript
+
+    4.Install Package
+    npm install
+
+    5.Run project
+    npm run dev    -> Default counter app
+
+To Stop Project  : CTRL + C
+
+5. Add Extension
+ES7+ React/Redux/React-Native snippets
+
+6.Open App.jsx
+Type  rafce
+
+7. Link CSS Style
+import "./index.css"
+
+
+https://tailwindcss.com/docs/installation/using-vite
+
+8. Install tailwindcss css package
+  npm install tailwindcss @tailwindcss/vite
+
+9. Open vite.config.ts
+    import tailwindcss from '@tailwindcss/vite'
+    tailwindcss(),
+
+10. open index.css
+  @import "tailwindcss";
+
+11 Run Project
+    npm run dev
+
+
+
+

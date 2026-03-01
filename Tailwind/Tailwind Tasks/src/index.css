@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Tilt+Prism&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-Cinzel: "Cinzel".serif;  
+  --font-TiltPrism: "Tilt Prism".monospace;
+} 
+
+ 
+ 
+

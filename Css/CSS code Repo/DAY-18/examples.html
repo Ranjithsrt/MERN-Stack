@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+      * {
+        font-family: "Inter", serif;
+      }
+      body {
+        padding: 50px;
+      }
+
+      /*-----------------------------*/
+      .navbar {
+        width: 800px;
+        background-color: #3498db;
+        display: flex;
+        gap: 15px;
+        padding-left: 25px;
+        transform: skewX(-15deg);
+      }
+      .navbar a {
+        text-decoration: none;
+        text-align: center;
+        font-size: 18px;
+        color: #fff;
+        padding: 15px 0;
+        border-radius: 25px;
+        width: 100px;
+        transition: 0.5s;
+        transform: skewX(15deg);
+      }
+      .navbar a:hover {
+        background-color: #56b9fb;
+      }
+      /*-----------------------------*/
+      .btn {
+        background-color: #e74c3c;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        transform: skew(-10deg);
+        transition: 0.5s;
+        cursor: pointer;
+      }
+      .btn:hover {
+        transform: skew(10deg) scale(1.1);
+      }
+      /*-----------------------------*/
+      .skew {
+        background-color: #9b59b6;
+        color: #fff;
+        padding: 50px;
+        margin: 15px 0;
+        transform: skew(-5deg);
+      }
+
+      .skew h4::selection {
+        background-color: white;
+        color: #9b59b6;
+      }
+      /*--------------------------------------*/
+      .card {
+        width: 200px;
+        background-color: #f1c40f;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transform: skew(-10deg);
+      }
+      .card * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .card h4 {
+        margin-left: -16px;
+        margin-bottom: 10px;
+      }
+      .card p {
+        line-height: 22px;
+      }
+
+      .card h4,
+      .card p {
+        transform: skew(10deg);
+        padding-left: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Skewed Navigation Bar</h3>
+    <div class="navbar">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Download</a>
+    </div>
+
+    <h3>Skewed Button</h3>
+    <button class="btn">Login Now</button>
+
+    <h3>Skewed Div Custion Selection Color</h3>
+    <div class="skew">
+      <h4>Sample Heading</h4>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores cum soluta veniam perferendis suscipit molestias quaerat repudiandae dolore impedit, iure expedita sint rerum perspiciatis voluptatibus sit a iusto quidem sapiente!</p>
+    </div>
+
+    <h3>Card Design</h3>
+    <div class="card">
+      <h4>Card Title</h4>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae fuga suscipit nam inventore sequi assumenda.</p>
+    </div>
+  </body>
+</html>

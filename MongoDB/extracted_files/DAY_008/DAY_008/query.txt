@@ -1,0 +1,201 @@
+// $regex   -> /^   $/
+
+db.people.insertMany([
+  { name: "Arun Kumar" },
+  { name: "Aruna Devi" },
+  { name: "Bala Chandran" },
+  { name: "Bhavana Priya" },
+  { name: "Charan Kumar" },
+  { name: "Chitra Devi" },
+  { name: "Dinesh Raju" },
+  { name: "Divya Bharathi" },
+  { name: "Eashwar Raj" },
+  { name: "Eswari Lakshmi" },
+  { name: "Fathima Banu" },
+  { name: "Francis Xavier" },
+  { name: "Ganesh Kumar" },
+  { name: "Gayathri Devi" },
+  { name: "Hari Prasad" },
+  { name: "Harini Suresh" },
+  { name: "Indra Kumar" },
+  { name: "Indhu Priya" },
+  { name: "Jagadeesh" },
+  { name: "Janani Priya" },
+  { name: "Karthik Kumar" },
+  { name: "Kavitha" },
+  { name: "Lakshman" },
+  { name: "Lavanya Devi" },
+  { name: "Manikandan" },
+  { name: "Meenakshi" },
+  { name: "Naveen Kumar" },
+  { name: "Nandhini" },
+  { name: "Om Prakash" },
+  { name: "Oviya" },
+  { name: "Prakash Raj" },
+  { name: "Priya Dharshini" },
+  { name: "Raghav" },
+  { name: "Rajesh Kumar" },
+  { name: "Sakthivel" },
+  { name: "Santhosh Kumar" },
+  { name: "Tamil Selvan" },
+  { name: "Tamilarasi" },
+  { name: "Udhayakumar" },
+  { name: "Uma Devi" },
+  { name: "Vasanth" },
+  { name: "Vijaya Lakshmi" },
+  { name: "Walter Joseph" },
+  { name: "William Raj" },
+  { name: "Xavier Raj" },
+  { name: "Yamini" },
+  { name: "Yogesh Kumar" },
+  { name: "Zahir Hussain" },
+  { name: "Zoya" }
+])
+
+
+//Find name starts with 'A'
+db.people.find({
+  name:{
+    $regex:/^A/
+  }
+})
+//Find name end with 'Kumar'
+db.people.find({
+  name:{
+    $regex:/Kumar$/
+  }
+})
+
+db.people.find({
+  name:{
+    $regex:"priya", $options:"i"
+  }
+})
+
+//Start with vowel (AEIOU)
+db.people.find({name:{$regex:/^[AEIOU]/i}})
+
+//End with 'a'
+db.people.find({name:{$regex:/a$/i}})
+
+//Name has exactly 2 words
+db.people.find({name:{$regex:/^[A-Za-z]+ [A-Za-z]+$/}})
+
+// Contains "Raj" anywhere
+db.people.find({name:{$regex:/Raj/}})
+
+//Starts with 'T' and ends with 'n'
+db.people.find({name:{$regex:/^T.*n$/}})
+
+// Name contains space followed by 'Devi'
+db.people.find({name:{$regex:/ Devi$/}})
+
+
+//Names NOT containing space (single name only)
+db.people.find({name:{$regex:/^[A-Za-z]+$/}})
+
+
+db.sales.insertMany([
+  { product: "Apple", price: 120, cost: 80, quantity: 10, discount: 5 },
+  { product: "Banana", price: 60, cost: 30, quantity: 25, discount: 0 },
+  { product: "Carrot", price: 40, cost: 20, quantity: 50, discount: 2 },
+  { product: "Dates", price: 200, cost: 150, quantity: 15, discount: 10 },
+  { product: "Eggplant", price: 90, cost: 60, quantity: 20, discount: 5 },
+  { product: "Fig", price: 150, cost: 120, quantity: 12, discount: 8 },
+  { product: "Grapes", price: 70, cost: 40, quantity: 30, discount: 3 },
+  { product: "Honeydew", price: 250, cost: 200, quantity: 8, discount: 15 },
+  { product: "Ice Apple", price: 50, cost: 25, quantity: 40, discount: 2 },
+  { product: "Jackfruit", price: 300, cost: 250, quantity: 5, discount: 20 },
+  { product: "Kiwi", price: 180, cost: 120, quantity: 10, discount: 10 },
+  { product: "Lemon", price: 30, cost: 10, quantity: 60, discount: 1 },
+  { product: "Mango", price: 150, cost: 100, quantity: 18, discount: 5 },
+  { product: "Nectarine", price: 220, cost: 160, quantity: 7, discount: 12 },
+  { product: "Orange", price: 80, cost: 50, quantity: 25, discount: 4 },
+  { product: "Papaya", price: 100, cost: 70, quantity: 22, discount: 6 },
+  { product: "Quince", price: 210, cost: 160, quantity: 6, discount: 10 },
+  { product: "Raspberry", price: 300, cost: 250, quantity: 4, discount: 15 },
+  { product: "Strawberry", price: 250, cost: 200, quantity: 9, discount: 12 },
+  { product: "Tomato", price: 40, cost: 20, quantity: 45, discount: 2 },
+  { product: "Ugli Fruit", price: 190, cost: 140, quantity: 8, discount: 8 },
+  { product: "Vanilla Bean", price: 500, cost: 400, quantity: 3, discount: 20 },
+  { product: "Watermelon", price: 100, cost: 70, quantity: 15, discount: 5 },
+  { product: "Xigua", price: 150, cost: 110, quantity: 7, discount: 7 },
+  { product: "Yellow Pepper", price: 90, cost: 60, quantity: 14, discount: 4 },
+  { product: "Zucchini", price: 70, cost: 40, quantity: 25, discount: 3 },
+  { product: "Avocado", price: 250, cost: 180, quantity: 10, discount: 10 },
+  { product: "Blackberry", price: 220, cost: 170, quantity: 6, discount: 12 },
+  { product: "Cucumber", price: 40, cost: 20, quantity: 40, discount: 2 },
+  { product: "Dragonfruit", price: 350, cost: 300, quantity: 4, discount: 15 },
+  { product: "Elderberry", price: 270, cost: 220, quantity: 5, discount: 10 },
+  { product: "Guava", price: 90, cost: 60, quantity: 20, discount: 5 },
+  { product: "Hazelnut", price: 400, cost: 350, quantity: 3, discount: 20 },
+  { product: "Indian Fig", price: 150, cost: 110, quantity: 9, discount: 8 },
+  { product: "Jujube", price: 130, cost: 90, quantity: 12, discount: 6 },
+  { product: "Kale", price: 50, cost: 30, quantity: 35, discount: 2 },
+  { product: "Lychee", price: 200, cost: 150, quantity: 10, discount: 8 },
+  { product: "Mulberry", price: 180, cost: 140, quantity: 8, discount: 7 },
+  { product: "Nutmeg", price: 500, cost: 420, quantity: 2, discount: 25 },
+  { product: "Olive", price: 300, cost: 250, quantity: 5, discount: 15 },
+  { product: "Peach", price: 150, cost: 100, quantity: 14, discount: 5 },
+  { product: "Radish", price: 40, cost: 20, quantity: 50, discount: 2 },
+  { product: "Spinach", price: 60, cost: 30, quantity: 40, discount: 3 },
+  { product: "Turnip", price: 70, cost: 40, quantity: 30, discount: 3 },
+  { product: "Ube", price: 250, cost: 200, quantity: 6, discount: 10 },
+  { product: "Walnut", price: 350, cost: 300, quantity: 4, discount: 15 },
+  { product: "Xanthan Gum", price: 400, cost: 350, quantity: 3, discount: 20 },
+  { product: "Yam", price: 100, cost: 70, quantity: 20, discount: 5 },
+  { product: "Zebra Melon", price: 180, cost: 140, quantity: 7, discount: 8 }
+])
+
+
+//Price is greater than cost
+db.sales.find({
+  $expr:{$gt:["$price","$cost"]}
+})
+
+//Price equals cost
+db.sales.find({
+  $expr:{$eq:["$price","$cost"]}
+})
+
+//Profit (price - cost) is at least 50
+db.sales.find({
+    $expr:{$gte:[{$subtract:["$price","$cost"]},50]}
+})
+
+//Total revenue (price * quantity) is more than 2000
+db.sales.find({
+    $expr:{$gt:[{$multiply:["$price","$quantity"]},2000]}
+})
+
+// Discount is more than 10% of price
+
+db.sales.find({
+    $expr:{$gt:["$discount",{$divide:["$price",10]}]}
+})
+
+//Quantity times cost is less than 1000
+db.sales.find({
+    $expr:{$lt:[{$multiply:["$quantity","$cost"]},1000]}
+})
+
+
+//Price after discount is less than cost
+db.sales.find({
+    $expr:{$lt:[
+      {$subtract:["$price","$siscount"]},"$cost"
+    ]}
+})
+// Price is double the cost
+db.sales.find({
+    $expr:{
+      $eq:["$price",{$multiply:["$cost",2]}]
+    }
+})
+// Price + discount = 200
+
+db.sales.find({
+    $expr:{
+      $eq:[{$add:["$price","$discount"]},200]
+    }
+})

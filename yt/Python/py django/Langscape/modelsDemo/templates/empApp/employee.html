@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+
+  <head>
+    <title>Profile Page</title>
+  </head>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  <body style="font-family: Arial, sans-serif; margin: 0; padding: 0">
+    <!-- Navigation Bar -->
+    <div style="background-color: #333; color: white; padding: 15px">
+      <a
+        href="#"
+        style="color: white; margin-right: 20px; text-decoration: none"
+        >Home</a
+      >
+      <a
+        href="#"
+        style="color: white; margin-right: 20px; text-decoration: none"
+        >Profile</a
+      >
+      <a
+        href="#"
+        style="color: white; margin-right: 20px; text-decoration: none"
+        >Settings</a
+      >
+      <a href="#" style="color: white; text-decoration: none">Logout</a>
+    </div>
+
+    {% if emp_list %} {% for employee in emp_list %}
+
+    <table>
+      <tr>
+        <td>{{employee.empNo}}</td>
+      </tr>
+      <tr>
+        <td>{{employee.empName}}</td>
+      </tr>
+      <tr>
+        <td>{{employee.empSalary}}</td>
+      </tr>
+      <tr>
+        <td>{{employee.empAddress}}</td>
+      </tr>
+    </table>
+
+    {% endfor %} {% endif %}
+  </body>
+</html>

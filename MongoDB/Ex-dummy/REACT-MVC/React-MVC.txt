@@ -1,0 +1,220 @@
+---------------------------------------------------
+MVC Architecture  
+-- --------------------------------------------------
+
+1️⃣ Model
+
+-- Handles database logic
+
+-- Defines schema / structure
+
+-- Performs CRUD operations (Create, Read, Update, Delete)
+
+-- Talks directly to the database
+
+👉 Example: Mongoose schema, MongoDB queries
+
+-- ----------------------------------------------------------
+
+2️⃣ View
+
+-- Handles frontend UI
+
+-- What the user sees
+
+-- HTML, CSS, frontend JS
+
+-- Shows data received from controller
+
+👉 Example: HTML form, table, buttons
+
+--- --------------------------------------------------------
+3️⃣ Controller
+
+-- Acts as a bridge between View and Model
+
+-- Receives data from frontend (View)
+
+-- Processes/validates the data
+
+-- Calls Model methods
+
+-- Sends response back to View
+
+👉 Example: Express route logic (req, res)
+
+-- ------------------------------------------
+
+📌 One-line Flow
+
+View → Controller → Model → Controller → View
+
+-- -----------------------------------------------
+
+🔁 Real Example
+
+-- User submits form → View
+
+-- Data sent to server → Controller
+
+-- Data saved in MongoDB → Model
+
+-- Success response shown → View
+
+-- --------------------------------
+
+✅ Easy memory trick
+
+-- Model = Database
+
+-- View = UI
+
+-- Controller = Brain 🧠
+
+-- ---------------------------------------
+
+🔁 MVC Flow (Important ⭐)
+
+User (View)
+   ↓
+Controller
+   ↓
+Model (Database)
+   ↑
+Controller
+   ↑
+View (Response)
+
+-- -----------------------------------------
+
+1 Create Node js Project 
+
+-- npm init -y
+
+2 create main file - index.js
+
+3 create folders  
+
+-- models
+-- controllers
+-- routers
+-- .env
+
+4 install packages 
+
+-- npm install express mongoose cors dotenv
+-- npm i nodemon -D
+
+-- package.json 
+
+{
+  "name": "react-mvc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+   },
+
+}
+
+5 mongodb connection string :
+
+.env :
+
+PORT=5200
+MONGO_URI=mongodb://localhost:27017/contactdb - dbname
+
+6 create Model or schema :
+
+model/Contact.js
+
+7 create express server
+
+index.js - logics
+
+import express from "express";
+import dotenv from "dotenv";
+//import router from "./router.js";
+
+// config .env
+dotenv.config();
+
+// init express
+const app = express();
+
+//middleware - client to server communication
+app.use(express.json()); // convert data to json
+app.use(cors()); // allow cross origin resource sharing
+ 
+
+// dummy route
+app.get("/", (req, res) => {
+  res.send("Hello from server");
+});
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port http://localhost:${PORT}`);
+});
+
+8 contact to db
+
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
+ 
+// config .env
+dotenv.config();
+
+// init express
+const app = express();
+
+//middleware - client to server communication
+app.use(express.json()); // convert data to json
+app.use(cors()); // allow cross origin resource sharing
+//app.use(router);
+
+// connect to DB
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("DB Connected"))
+  .catch((err) => console.log(err));
+
+// dummy route
+app.get("/", (req, res) => {
+  res.send("Hello from server");
+});
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port http://localhost:${PORT}`);
+});
+
+9 controllers -
+
+contactController.js
+
+import Contact from "../models/Contact.js";
+
+export const getContacts = async (req, res) => {
+    try {
+        const contacts = await Contact.find();
+        res.status(200).json(contacts);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+10 routes 
+
+contactRoutes.js
+
+
+
+

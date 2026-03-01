@@ -1,0 +1,23 @@
+  <!-- base.html styles extends this file -->
+
+{% extends 'base.html' %}
+  
+{% block content %}
+    <div class="container mt-5">
+      <h1>Welcome to MySite!</h1>
+      <p>This is the products adding page.</p>
+
+     <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        {{products_form.as_p}}
+
+        <input type="submit" value="Submit">
+
+     </form>
+
+
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 100px;
+      }
+      .container {
+        width: 500px;
+        height: 500px;
+        border: 2px dashed #333;
+        position: relative;
+        padding: 20px;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 2px solid #333;
+        text-align: center;
+        line-height: 100px;
+        position: absolute;
+      }
+
+      .b1 {
+        background-color: aqua;
+        left: 75px;
+        top: 75px;
+
+        z-index: 1;
+      }
+      .b2 {
+        background-color: lightblue;
+        left: 50px;
+        top: 50px;
+        z-index: 2;
+      }
+      .b3 {
+        background-color: lightgreen;
+        z-index: 99;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="box b1">Box-1</div>
+      <div class="box b2">Box-2</div>
+      <div class="box b3">Box-3</div>
+    </section>
+  </body>
+</html>

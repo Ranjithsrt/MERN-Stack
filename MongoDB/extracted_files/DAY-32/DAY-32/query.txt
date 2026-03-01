@@ -1,0 +1,111 @@
+Conditional Operator
+    $cond      ✔  
+    $switch    ✔  
+    $ifNull    ✔
+
+db.students.insertMany([
+  { _id: 1, name: "Aarav", marks: 95 },
+  { _id: 2, name: "Diya", marks: 82 },
+  { _id: 3, name: "Rohan", marks: 67 },
+  { _id: 4, name: "Sneha", marks: 45 },
+  { _id: 5, name: "Vikram", marks: 30 },
+  { _id: 6, name: "Priya", marks: null }
+])
+//--------------------------------------
+db.students.aggregate([
+    {
+        $project:{
+            name:1,
+            marks:1,
+            result:{
+                $cond:{if:{$gte:["$marks",40]},then:"Passed",else:"Failed"}
+            }
+        }
+    }
+])
+//--------------------------------------
+//>=90 -> "Excellent" >=50 -> "Good" else "Bad"
+
+db.students.aggregate([
+    {
+        $project:{
+            name:1,
+            marks:1,
+            performance:{
+                $cond:{
+                    if:{$gte:["$marks",90]},
+                    then:"Excellent",
+                    else:{
+                        $cond:{
+                            if:{$gte:["$marks",50]},
+                            then:"Good",
+                            else:"Bad"
+                        }
+                    }
+                }
+            }
+        }
+    }
+])
+//--------------------------------------
+>=90  A  | >=75 B  | >=50 C | Fail using $switch Operator
+
+db.students.aggregate([
+    {
+        $project:{
+            name:1,
+            marks:1,
+            grade:{
+                $switch:{
+                    branches:[
+                        {case:{$gte:["$marks",90]},then:"A"},
+                        {case:{$gte:["$marks",75]},then:"B"},
+                        {case:{$gte:["$marks",50]},then:"C"},
+                    ],
+                    default:"Fail"
+                }
+            }
+        }
+    }
+])
+
+//--------------------------------------
+
+db.users.insertMany([
+  { _id: 1, name: "Rahul", email: "rahul@gmail.com" },
+  { _id: 2, name: "Ananya" },
+  { _id: 3, name: "Manoj", email: null },
+  { _id: 4, name: "Kavya", email: "kavya@mail.com" }
+])
+
+$ifNull
+
+db.users.aggregate([
+    {
+        $project:{
+            name:1,
+            email:{$ifNull:["$email","no-email@domain.in"]}
+        }
+    }
+])
+//--------------------------------------
+db.contacts.insertMany([
+  { name: "Arjun", mobile: "9876543210", phone: null, email: "arjun@gmail.com" },
+  { name: "Meera", phone: "022-2345678" },
+  { name: "Kiran", email: "kiran@yahoo.com" },
+  { name: "Lakshmi" }
+])
+
+db.contacts.aggregate([{
+    $project:{
+        name:1,
+        primaryContact:{
+            $ifNull:[
+                "$mobile",
+                {$ifNull:["$phone",
+                    {$ifNull:["$email","No Contact Available"]}
+                ]}
+            ]
+        }
+    }
+}])

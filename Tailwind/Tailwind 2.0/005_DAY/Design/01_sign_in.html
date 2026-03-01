@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>User Login</title>
+    <style></style>
+  </head>
+  <body class="bg-neutral-50">
+    <div class="max-w-sm w-full bg-white p-6 mx-auto mt-[100px] rounded shadow-sm">
+      <form action="#" autocomplete="off">
+        <h5 class="text-xl font-semibold mb-6">Sign in to access</h5>
+        <div class="mb-4">
+          <label for="email" class="block mb-2.5 font-medium">Your Email</label>
+          <input type="email" placeholder="example@tutorjoes.com" id="email" class="border border-gray-300 rounded w-full px-2 py-2.5 outline-none focus:ring-2 ring-blue-600 placeholder:text-gray-300" />
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block mb-2.5 font-medium">Your Password</label>
+          <input type="password" id="password" class="border border-gray-300 rounded w-full px-2 py-2.5 outline-none focus:ring-2 ring-blue-600 placeholder:text-gray-300" placeholder="your password" />
+        </div>
+        <div class="flex justify-between my-6">
+          <div class="flex items-center gap-2">
+            <input type="checkbox" id="remember" class="w-4 h-4 border border-gray-300 focus:ring ring-blue-300 accent-blue-500" />
+            <label for="remember" class="font-medium text-sm">Remember me</label>
+          </div>
+
+          <a href="#" class="text-sm font-medium text-blue-500 hover:underline">Forget Password?</a>
+        </div>
+        <button class="bg-blue-600 text-white w-full block p-2.5 font-semibold tracking-wide rounded">Login to your account</button>
+        <div class="text-sm mt-6 font-medium">Not registered? <a href="#" class="text-sm font-medium text-blue-500 hover:underline">Create account</a></div>
+      </form>
+    </div>
+  </body>
+</html>

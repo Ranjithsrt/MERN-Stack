@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+    
+      .card{
+        width: 200px;
+        height: 225px;
+        background-color: aliceblue;
+        background-image: url();
+        background-size: cover;
+        position: relative;
+        
+      }
+      .card-profile{
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.129);
+        width: 100%;
+        height: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        gap: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        visibility: visible;
+
+       }
+
+       .card-profile h3{
+        font-size: 20px;
+        font-size: 600;
+        letter-spacing: 1px;
+       }
+
+       .card-profile p{
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1px;
+       }
+       .social-media-icons{
+        display: flex;
+        gap: 10px;
+        background-color: white;
+        padding: 5px;
+       }
+
+       .card:hover .card-profile{
+        display: flex;
+        visibility: visible;
+         
+       }
+    </style>
+  </head>
+  <body>
+    
+   <div class="card">
+       <div class="card-profile">
+           <img src="https://placehold.co/100" alt="">
+          <h3>Tutor Joe</h3>
+          <p>marketing manager</p>
+          <div class="social-media-icons">
+             <!-- Social media icons -->
+              <span>
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>                
+              </span>
+          </div>
+       </div>
+
+   </div>
+
+
+
+  </body>
+</html>

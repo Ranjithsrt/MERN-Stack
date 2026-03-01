@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>background-blend-mode</title>
+    <style>
+      body {
+        background-size: cover;
+
+        background-image: linear-gradient(to right, #12c2e9, #c471ed, red), url("1.jpg"), url("girl.jpg");
+        background-blend-mode: overlay;
+        background-blend-mode: multiply;
+        background-blend-mode: screen;
+        background-blend-mode: hard-light;
+        background-blend-mode: color-dodge;
+        background-blend-mode: soft-light;
+
+        /* background-blend-mode: hard-light, color-burn, overlay; */
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

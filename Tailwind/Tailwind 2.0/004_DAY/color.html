@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Colors in tailwindcss</title>
+    <style>
+      body {
+        padding: 50px;
+      }
+      :root {
+        --my-color: brown;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      .container div {
+        width: 50px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bg-purple-50"></div>
+      <div class="bg-purple-100"></div>
+      <div class="bg-purple-200"></div>
+      <div class="bg-purple-300"></div>
+      <div class="bg-purple-400"></div>
+      <div class="bg-purple-500"></div>
+      <div class="bg-purple-600"></div>
+      <div class="bg-purple-700"></div>
+      <div class="bg-purple-800"></div>
+      <div class="bg-purple-950"></div>
+      <div class="bg-purple-950"></div>
+    </div>
+
+    <div class="container">
+      <div class="bg-blue-50"></div>
+      <div class="bg-blue-100"></div>
+      <div class="bg-blue-200"></div>
+      <div class="bg-blue-300"></div>
+      <div class="bg-blue-400"></div>
+      <div class="bg-blue-500"></div>
+      <div class="bg-blue-600"></div>
+      <div class="bg-blue-700"></div>
+      <div class="bg-blue-800"></div>
+      <div class="bg-blue-950"></div>
+      <div class="bg-blue-950"></div>
+    </div>
+
+    <p class="text-3xl font-bold text-red-500">Tutor Joes</p>
+    <p class="text-3xl font-bold text-[#589696]">Tutor Joes</p>
+    <p class="text-3xl font-bold text-[color:var(--my-color)]">Tutor Joes</p>
+
+    <div class="container">
+      <div class="bg-sky-500/10"></div>
+      <div class="bg-sky-500/20"></div>
+      <div class="bg-sky-500/30"></div>
+      <div class="bg-sky-500/40"></div>
+      <div class="bg-sky-500/50"></div>
+      <div class="bg-sky-500/60"></div>
+      <div class="bg-sky-500/70"></div>
+      <div class="bg-sky-500/80"></div>
+      <div class="bg-sky-500/90"></div>
+      <div class="bg-sky-500/100"></div>
+    </div>
+  </body>
+</html>

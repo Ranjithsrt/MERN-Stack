@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ol {
+        list-style: none;
+        counter-reset: chapter;
+      }
+
+      li {
+        counter-increment: chapter;
+      }
+
+      li::before {
+        content: "Chapter " counter(chapter) ": ";
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>CSS animations</li>
+      <ol>
+        <li>Transform</li>
+        <li>Timing Function</li>
+        <li>Delay</li>
+      </ol>
+      <li>CSS backgrounds</li>
+      <li>CSS combinators</li>
+      <li>CSS comments</li>
+      <li>CSS display</li>
+    </ol>
+    <ol>
+      <li>CSS animations</li>
+      <li>CSS backgrounds</li>
+      <li>CSS combinators</li>
+      <li>CSS comments</li>
+      <li>CSS display</li>
+    </ol>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(224, 224, 224, 0.825);
+}
+
+/* .container */
+
+.container {
+  max-width: 500px;
+  /* height: 100vh; */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* title */
+
+h1 {
+  color: blue;
+  text-transform: uppercase;
+}
+
+p {
+  color: rgb(133, 129, 129);
+  margin: 10px 0;
+}
+
+/* form label */
+
+label {
+  display: block;
+  padding: 8px 0;
+  color: rgb(12, 12, 96);
+  cursor: pointer;
+ }
+
+ /* form input */
+
+input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* form textarea */
+
+textarea,input:hover {
+  border: 1px solid rgba(162, 159, 159, 0.9);
+}
+
+select,
+option {
+  display: block;
+  width: 185px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+}
+
+/* form */
+
+.form-group {
+  margin-bottom: 3px;
+  display: flex;
+  gap: 0 50px;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: aqua; */
+}
+
+input[type="pincode"] {
+  width: 150px;
+}
+
+.form-ph {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  /* background-color: blanchedalmond; */
+}
+
+.form-ph label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-ph input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+}
+
+.form-ph input[type="tel"] {
+  width: 330px;
+  margin-left: 10px;
+}
+
+input::placeholder {
+  color: #989898;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+}
+
+.resume {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin: 10px 0;
+  border: none;
+}
+
+.resume label {
+  display: block;
+  /* width: 300px; */
+  text-wrap: nowrap;
+}
+
+input[type="file"] {
+  border: none;
+  margin-left: 100px;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

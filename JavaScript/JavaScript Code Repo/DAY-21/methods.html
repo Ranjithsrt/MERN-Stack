@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      const fruits = ["apple", "banana", "orange", "banana"];
+      console.log(fruits.indexOf("banana"));
+      console.log(fruits.indexOf("orange"));
+      console.log(fruits.indexOf("grape"));
+
+      const str = "Hello, world!";
+      console.log(str.indexOf("o"));
+      console.log(str.indexOf("x"));
+
+      console.log(fruits.indexOf("banana", 2)); //startIndex
+
+      console.log(fruits.lastIndexOf("banana"));
+      console.log(fruits.lastIndexOf("grapes"));
+      console.log(fruits.lastIndexOf("banana", 2));
+
+      const arr = [1, , [2, 3], [4, [5, 6, [10, 11]]]];
+      console.log(arr.length);
+      console.table(arr);
+      console.log(arr.flat());
+      console.log(arr.flat(2));
+      console.log(arr.flat(3));
+      console.log(arr.flat(Infinity));
+
+      const numbers = [1, 2, 3];
+      console.log(numbers.map((x) => [x, x * 2]));
+      console.log(numbers.flatMap((x) => [x, x * 2]));
+
+      const words = ["hello world", "js is fun"];
+      console.log(words.flatMap((word) => word.split(" ")));
+      console.log(words.map((word) => word.split(" ")));
+
+      const mixed = [1, [2, 3], 4];
+
+      mixed.forEach((element) => console.log(Array.isArray(element)));
+
+      console.log(mixed.flatMap((x) => (Array.isArray(x) ? x : [])));
+      console.log(mixed.map((x) => (Array.isArray(x) ? x : [])));
+  */
+
+      const arr = ["apple", "banana", "orange"];
+      console.log(arr[0]);
+      console.log(arr.at(0));
+      console.log(arr.at(1));
+      console.log(arr.at(2));
+      console.log(arr.at(-1));
+      console.log(arr.at(-2));
+      console.log(arr.at(-3));
+      console.log(arr.at(5));
+
+      //entries
+      const letters = ["a", "b", "c"];
+      const iterator = arr.entries();
+      console.log(iterator);
+
+      for (const [index, value] of iterator) {
+        console.log(index, value);
+      }
+
+      console.log([...arr.entries()]);
+
+      const keys = letters.keys();
+      console.log(keys);
+
+      for (key of keys) {
+        console.log(key);
+      }
+
+      console.log([...letters.keys()]);
+      console.log([...letters.values()]);
+
+      for (value of letters.values()) {
+        console.log(value);
+      }
+
+      console.log(Array.isArray([1, 2, 3]));
+      console.log(Array.isArray("Ram"));
+      console.log(Array.isArray([]));
+
+      const set = new Set([1, 1, 2, 5, 5, 6, 2]);
+      console.log(set);
+      console.log(Array.from(set));
+
+      console.log(Array.from([1, 2, 3], (x) => x * 2));
+
+      console.log(Array.of(1, "Hello", true));
+      console.log(Array.of(5));
+      console.log(Array.of());
+    </script>
+  </body>
+</html>

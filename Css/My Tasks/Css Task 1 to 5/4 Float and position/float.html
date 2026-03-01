@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>float</title>
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!-- css style -->
+    <style>
+      main {
+        width: 950px;
+
+        margin: 100px auto 100px auto;
+      }
+
+      .left-card {
+        float: left;
+        width: 50%;
+        height: 250px;
+        background-color: #ff0404;
+        color: white;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .right-card {
+        float: left;
+        width: 50%;
+        height: 250px;
+        background-color: #f1f1f1;
+        padding: 20px;
+        box-sizing: border-box;
+        margin-bottom: 150px;
+      }
+
+      h1 {
+        font-weight: bolder;
+        font-size: 25px;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      button {
+        background-color: #ff0404;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .fas {
+        font-size: 10px;
+        /* font-weight: lighter; */
+      }
+
+      .yt-btn {
+        clear: both;
+        background-color: #b2b2b26d;
+        padding: 100px;
+        position: relative;
+        text-align: center;
+        margin-top: 100px;
+      }
+
+      .yt-btn div {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: white;
+        border: 1px solid black;
+      }
+
+      .yt-card {
+        /* position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%, -50%);  */
+        border-radius: 5px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+          rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        height: 330px;
+      }
+
+      ion-icon {
+        font-size: 100px;
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Float -->
+    <main>
+      <h1 style="position: absolute; left: 25px; top: 15px">Float</h1>
+      <!-- left-card -->
+      <section class="left-card">
+        <h5>COURSE</h5>
+        <h1>Javascript <br />Fundamentals</h1>
+        <span>
+          <a href="#">View all chapters </a>
+          <i class="fas fa-greater-than fa-2x"></i>
+        </span>
+      </section>
+      <!-- right-card -->
+      <section class="right-card">
+        <div style="float: left">
+          <h5>CHAPTER</h5>
+        </div>
+        <div style="position: relative; right: 20px; float: right; top: 19px">
+          <meter
+            value="0.2"
+            min="0"
+            max="1"
+            low="0.3"
+            high="0.8"
+            optimum="1"
+            style="width: 200px"
+          ></meter>
+          <label
+            for="file"
+            style="position: absolute; top: 30px; right: 1px; color: grey"
+          >
+            06/16 challenges</label
+          >
+        </div>
+
+        <div style="clear: both; margin-top: 100px">
+          <h1>Types of Array & Strings</h1>
+          <button style="float: right"><a href="#">Continue</a></button>
+        </div>
+      </section>
+    </main>
+    <!-- position -->
+    <h1 style="clear: both; margin-left: 25px">Position</h1>
+    <!-- youtube card -->
+    <section class="yt-btn">
+      <div class="yt-card">
+        <ion-icon name="logo-youtube"></ion-icon>
+        <h1>YOUTUBE</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <button><a href="#">READ MORE</a></button>
+      </div>
+    </section>
+    <!-- ionicons link -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

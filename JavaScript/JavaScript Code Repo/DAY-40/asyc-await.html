@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const url = "https://jsonplaceholder.typicode.com/users";
+
+      function loadUsersByPromise() {
+        fetch(url)
+          .then((response) => {
+            console.log(response);
+            const data = response.json();
+            return data;
+          })
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((err) => console.error(err))
+          .finally(() => {
+            console.log("Program End");
+          });
+      }
+
+      async function loadUserByAsyncAwait() {
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      //loadUsersByPromise();
+      loadUserByAsyncAwait();
+    </script>
+  </body>
+</html>

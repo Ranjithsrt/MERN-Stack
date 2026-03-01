@@ -1,0 +1,38 @@
+React.js (commonly called React) is a JavaScript library used to build fast, interactive, and component-based user interfaces, especially for single-page applications (SPAs).
+
+It was developed by Facebook (Meta) on 2011 and first released in 2013 (Open Source).
+
+
+Why React?
+    - Build reusable UI components
+    - Make fast applications using a virtual DOM
+    - Manage data and views easily
+    - Create single-page applications (SPA)
+    - Work with other tools and libraries (Router, Redux, Axios, etc.)
+
+Advantages of React
+    - Fast performance
+    - Component-based structure
+    - Reusable code
+    - Easy to build mobile apps using React Native
+    - Strong community support
+
+Where React is Used?
+    - Facebook
+    - Instagram
+    - Netflix
+    - WhatsApp Web
+    - Airbnb
+    - Uber
+
+Prerequisite Knowledge to Learn ReactJS
+    - HTML
+    - CSS
+    - JavaScript (Advance Knowledge) ES6
+        - let, const, arrow functions
+        - Template literals
+        - Destructuring
+        - Spread / Rest operators
+        - Modules (import/export)
+        - Promises, async/await
+        - Ajax / Fetch

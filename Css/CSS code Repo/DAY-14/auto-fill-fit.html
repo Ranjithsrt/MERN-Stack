@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .grid div {
+        border-radius: 5px;
+        background-color: rgba(197, 18, 18, 0.8);
+        color: #fff;
+        font-size: 40px;
+        text-align: center;
+        padding: 10px;
+      }
+      .grid div:nth-child(even) {
+        background-color: rgba(249, 109, 109, 0.8);
+      }
+      /*-----------------------------*/
+      .grid {
+        display: grid;
+        gap: 20px;
+        /* grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fill, 150px); 
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        */
+
+        /* grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); */
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+    </div>
+  </body>
+</html>

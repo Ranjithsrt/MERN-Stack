@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* custom select */
+
+      .custom-select {
+        position: relative;
+        width: 300px;
+        margin-bottom: 50px;
+      }
+
+      .custom-select select {
+        appearance: none;
+        border: 1px solid #ccc;
+        padding: 10px 20px;
+        width: 100%;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .custom-select select:focus {
+        outline: none;
+        border-color: #333;
+      }
+
+      .custom-select::before,
+      .custom-select::after {
+        content: "";
+        position: absolute;
+        size: 5px;
+        right: 16px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+      }
+
+      .custom-select::before {
+        border-bottom: 5px solid #333;
+        top: 40%;
+      }
+
+      .custom-select::after {
+        border-top: 5px solid #333;
+        top: 60%;
+      }
+
+      .custom-select select option {
+        padding: 10px;
+      }
+
+      /* custom checkbox */
+
+      .checkbox {
+        width: 350px;
+        margin-bottom: 50px;
+      }
+
+      .form-group {
+        display: block;
+        margin-bottom: 15px;
+      }
+
+      .form-group input {
+        display: none;
+      }
+
+      .form-group label {
+        cursor: pointer;
+        position: relative;
+      }
+
+      .form-group label::before {
+        content: "";
+        border: 1px solid #ccc;
+        padding: 8px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+
+      .form-group input:checked + label {
+        color: #eb3107;
+      }
+
+      .form-group input:checked + label::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 6px;
+        height: 16px;
+        top: -2px;
+        left: 10px;
+        border: solid #eb3107;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+
+      .form-group input:checked + label::before {
+        border-color: #eb3107;
+      }
+
+      /* custom radio */
+
+      .radio {
+        width: 350px;
+        margin-bottom: 50px;
+      }
+
+      .radio p {
+        position: relative;
+      }
+
+      .radio input {
+        display: none;
+      }
+
+      .radio input label {
+        position: absolute;
+      }
+
+      .radio input + label {
+        padding-left: 30px;
+      }
+
+      .radio input + label::before {
+        position: absolute;
+        content: "";
+        border: 1px solid #ccc;
+        left: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+      }
+
+      .radio input:checked + label::after {
+        position: absolute;
+        content: "";
+        left: 5px;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #eb3107;
+      }
+
+      .radio input:checked + label {
+        color: #eb3107;
+      }
+
+      .radio input:checked + label::before {
+        border-color: #eb3107;
+      }
+
+      /* custom range */
+
+      .range {
+        margin-bottom: 50px;
+        width: 300px;
+      }
+
+      .range input {
+        width: 100%;
+        cursor: pointer;
+        appearance: none;
+      }
+
+      .range input::-webkit-slider-runnable-track {
+        background-color: #ccc;
+        height: 10px;
+        border-radius: 5px;
+      }
+
+      .range input::-webkit-slider-thumb {
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        background-color: #eb3107;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- custom select -->
+
+    <div class="custom-select">
+      <select name="" id="">
+        <option value="">Select course</option>
+        <option value="c">c language</option>
+        <option value="c++">C++</option>
+        <option value="java">java</option>
+      </select>
+    </div>
+
+    <!-- custom checkbox -->
+
+    <div class="checkbox">
+      <div class="form-group">
+        <input type="checkbox" name="" id="html" />
+        <label for="html">Html</label>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" name="" id="css" />
+        <label for="css">CSS</label>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" name="" id="js" />
+        <label for="js">javascript</label>
+      </div>
+    </div>
+
+    <!-- custom radio -->
+
+    <div class="radio">
+      <p>
+        <input type="radio" name="gender" id="male" />
+        <label for="male">male</label>
+      </p>
+      <p>
+        <input type="radio" name="gender" id="female" />
+        <label for="female">female</label>
+      </p>
+
+      <p>
+        <input type="radio" name="gender" id="other" />
+        <label for="other">other</label>
+      </p>
+    </div>
+
+    <!-- custom range -->
+
+    <div class="range">
+      <input type="range" min="1" max="5" />
+
+      <!-- 
+      <br />
+
+      <input type="checkbox" id="javascript" />
+      <label for="javascript">javascript</label>
+
+      <br />
+
+      <input type="radio" id="gender" />
+      <label for="gender">others</label>
+
+ 
+
+      .range>input[type="range"],[type="checkbox"],
+      [type="radio"] {
+        accent-color: #eb3107;
+      }
+          -->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h2>Sample Title</h2>
+      <p>This is Paragraph</p>
+    </div>
+    <script>
+      const para = document.getElementsByTagName("p")[0];
+      const parent = para.parentNode;
+      parent.style.background = "aqua";
+      parent.style.padding = "15px";
+
+      document.querySelector("h2").parentNode.style.color = "blue";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+-----
+Django
+------
+
+VENV
+
+python -m venv Env 
+Env\Scripts\activate
+
+-----
+
+install Django
+
+python -m pip install --upgrade pip  
+
+Django> pip install django
+
+--------------
+version:
+
+python --version
+django-admin --version
+
+------------
+
+project
+
+Django> django-admin startproject myapp  
+
+cd myapp
+
+python manage.py runserver         
+
+April 26, 2025 - 17:20:39
+Django version 5.1.7, using settings 'myapp.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+------------------
+
+App
+
+python manage.py startapp blog  
+
+reg -- setting -- install apps -- blog
+
+-----
+
+
+app -- 1st views -- logics
+
+from django.http import HttpResponse
+
+# Create your views here.
+
+def index(request):
+    return HttpResponse("Hello, world. You're at the blog index.")
+
+app -- create new file urls.py
+
+
+
+project urls redirect particular app.urls
+
+from django.urls import path
+from blog import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+  
+  ]
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    # register blog urls
+    path('blog/', include('blog.urls')),
+]
+
+------
+more urls
+-------
+
+app - views
+
+def index(request):
+    return HttpResponse("Hello, world. You're at the blog index.")
+
+def detail(request):
+    return HttpResponse("Hello world. You're at the blog detail.")
+
+app - urls
+
+from django.urls import path
+from blog import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('post/detail', views.detail, name='detail'),
+  ]
+
+-----------
+
+dynamic urls
+
+views
+
+# dynamic urls
+
+    # path('post/<int:post_id>/', views.detail, name='detail'), # int
+
+    path('post/<str:post_id>/', views.detail, name='detail'), # str
+
+urls
+
+def detail(request, post_id):
+    return HttpResponse(f"Hello world. You're at the blog detail. {post_id}" )
+
+http://127.0.0.1:8000/blog/post/5/
+
+Hello world. You're at the blog detail. 5
+
+http://127.0.0.1:8000/blog/post/str
+
+Hello world. You're at the blog detail. str
+
+
+-------------
+
+app url redirects
+

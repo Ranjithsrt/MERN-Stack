@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        background-color: purple;
+        width: 100px;
+        height: 100px;
+        transition: 0.5s;
+      }
+      body:hover .box {
+        transform: translateX(200px);
+        transform: translateY(200px);
+        transform: translateY(-200px);
+        transform: translateX(-200px);
+        transform: translate(-200px, -200px);
+
+        transform: scaleX(1.5);
+        transform: scaleY(1.5);
+        transform: scale(1.5);
+        transform: scale(2.5);
+
+        transform: rotate(360deg);
+        transform: rotate(4turn);
+        transform: rotate(45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

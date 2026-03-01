@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>2. Write a program to find whether the given number is prime or not.</p>
+
+    <script>
+      let number = 457;
+      let isPrime = true;
+      if (number < 1) {
+        isPrime = false;
+      }
+
+      for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i == 0) {
+          isPrime = false;
+        }
+      }
+      if (isPrime) {
+        console.log(`${number} is a prime number`);
+      } else {
+        console.log(`${number} is not a prime number`);
+      }
+    </script>
+  </body>
+</html>

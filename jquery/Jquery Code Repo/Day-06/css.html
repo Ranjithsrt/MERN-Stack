@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        margin: 15px 0;
+        padding: 10px;
+        border: 2px solid #333;
+        width: 150px;
+      }
+      .design {
+        font-size: 18px;
+        color: #fff;
+        background-color: tomato;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>CSS in jQuery</h3>
+    <ul>
+      <li>addClass</li>
+      <li>removeClass</li>
+      <li>toggleClass</li>
+      <li>css</li>
+    </ul>
+    <button id="btnAddClass">addClass</button>
+    <button id="btnRemoveClass">removeClass</button>
+    <button id="btnToggleClass">toggleClass</button>
+    <button id="btnCss">css</button>
+
+    <div>Sample Text</div>
+    <div>Sample Text</div>
+    <div>Sample Text</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script>
+      // $("#btnAddClass").click(function () {
+      //   $("div").addClass("design");
+      // });
+
+      // $("#btnRemoveClass").click(function () {
+      //   $("div").removeClass("design");
+      // });
+
+      // $("#btnToggleClass").click(function () {
+      //   $("div").toggleClass("design");
+      // });
+
+      // $("#btnCss").click(function () {
+      //   // $("div").css("background", "red");
+      //   $("div").css({ background: "red", color: "#fff" });
+      // });
+
+      // document.querySelector("#btnAddClass").addEventListener("click", function () {
+      //   document.querySelector("div").classList.add("design");
+      // });
+
+      // document.querySelector("#btnRemoveClass").addEventListener("click", function () {
+      //   document.querySelector("div").classList.remove("design");
+      // });
+
+      // document.querySelector("#btnToggleClass").addEventListener("click", function () {
+      //   const div = document.querySelector("div");
+      //   if (div.classList.contains("design")) {
+      //     div.classList.remove("design");
+      //   } else {
+      //     div.classList.add("design");
+      //   }
+      // });
+
+      document.querySelector("#btnCss").addEventListener("click", function () {
+        // const div = document.querySelector("div");
+        // div.style.color = "#fff";
+        // div.style.background = "red";
+
+        const divElements = document.querySelectorAll("div");
+        divElements.forEach((div) => {
+          div.style.color = "#fff";
+          div.style.background = "red";
+        });
+      });
+    </script>
+  </body>
+</html>

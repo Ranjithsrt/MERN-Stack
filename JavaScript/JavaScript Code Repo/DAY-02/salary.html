@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="p-5 w-[450px] border border-gray-300 mx-auto mt-5">
+      <p class="text-blue-800 mb-3">1. Ramesh’s basic salary is input through the keyboard. His dearness allowance is 40% of basic salary, and house rent allowance is 20% of basic salary. Write a program to calculate his gross salary.</p>
+
+      <div class="flex w-full gap-2">
+        <input
+          id="txtSalary"
+          type="text"
+          placeholder="Enter Basic Salary"
+          class="w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-400 transition duration-200"
+        />
+
+        <button class="bg-blue-700 text-white p-2 rounded hover:bg-blue-800" onclick="calculate()">Calculate</button>
+      </div>
+      <p class="text-sm mt-3" id="output">Please fill all the details</p>
+    </div>
+    <script>
+      function calculate() {
+        bs = Number(document.getElementById("txtSalary").value);
+        da = bs * 0.4;
+        hra = bs * 0.2;
+        gs = bs + da + hra;
+
+        //  document.getElementById("output").innerHTML = "Basic Salary : " + bs + "<br>Dearness Allowance : " + da + "<br>House Rent Allowance : " + hra + "<br>Gross Salary : " + gs;
+
+        document.getElementById("output").innerHTML = `
+            Basic Salary :  ${bs}
+            <br>Dearness Allowance :  ${da}
+            <br>House Rent Allowance : ${hra}
+            <br>Gross Salary : ${gs}
+        `;
+      }
+    </script>
+  </body>
+</html>
+
+<!---
+    <script>
+      bs = 10000;
+      da = bs * 0.4;
+      hra = bs * 0.2;
+      gs = bs + da + hra;
+      console.log("Basic Salary : ", bs);
+      console.log("Dearness Allowance : ", da);
+      console.log("House Rent Allowance : ", hra);
+      console.log("Gross Salary : ", gs);
+    </script>
+-->

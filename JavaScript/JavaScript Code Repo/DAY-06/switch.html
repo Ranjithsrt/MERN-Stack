@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre>
+switch (expression) {
+  case value1:
+    // Code to execute if expression === value1
+    break;
+  case value2:
+    // Code to execute if expression === value2
+    break;
+  // ... more cases
+  default:
+    // Code to execute if no cases match
+}
+
+
+    </pre>
+
+    <script>
+      let day = 1;
+      let dayName;
+
+      switch (day) {
+        case 1:
+          dayName = "Monday";
+          break;
+        case 2:
+          dayName = "Tuesday";
+          break;
+        case 3:
+          dayName = "Wednesday";
+          break;
+        case 4:
+          dayName = "Thursday";
+          break;
+        case 5:
+          dayName = "Friday";
+          break;
+        case 6:
+        case 7:
+          dayName = "Weekend";
+          break;
+        default:
+          dayName = "Invalid day";
+      }
+
+      console.log(dayName);
+    </script>
+  </body>
+</html>

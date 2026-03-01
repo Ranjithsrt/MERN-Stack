@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Page Title -->
+    <title>Netflix</title>
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="./img/Netflix-Logo-PNG-File.png  "
+      alt="Netflix Logo"
+      width="200"
+    />
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS style sheet -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body class="bg-dark text-light" style="font-family: 'Poppins', sans-serif">
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-black p-3"
+      aria-label="Offcanvas na"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="./img/Logo.svg" alt="" class="img-fluid w-25"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">TV shows</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">New & Popular</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Recently Added</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                my list
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- Header Section -->
+    <div
+      id="carouselExampleCaptions"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+      style="height: 500px"
+    >
+      <!-- <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div> -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="./img/netflix-carouseljpg.jpg"
+            class="d-block w-100 img-fluid"
+            alt="..."
+            style="height: 500px"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <div
+              class="w-50 text-start position-relative"
+              style="left: 10px; bottom: 100px"
+            >
+              <h5
+                class="fw-bold display-5"
+                style="
+                  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                    sans-serif;
+                "
+              >
+                STRANGER <br />THINGS
+              </h5>
+              <p class="small lh-lg m-3">
+                when a young boy vanishes, a small town uncovers a mystery
+                involving secret experiments, supernatural forces, and one
+                strange little girl.
+              </p>
+              <button class="btn btn-danger btn-sm">Watch Now</button>
+              <button class="btn btn-secondary btn-sm">
+                <span>+</span>My List
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./img/netflix-carouseljpg.jpg"
+            class="d-block w-100 img-fluid"
+            alt="..."
+            style="height: 500px"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <div
+              class="w-50 text-start position-relative"
+              style="left: 10px; bottom: 100px"
+            >
+              <h5
+                class="fw-bold display-5"
+                style="
+                  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                    sans-serif;
+                "
+              >
+                STRANGER <br />THINGS
+              </h5>
+              <p class="small lh-lg m-3">
+                when a young boy vanishes, a small town uncovers a mystery
+                involving secret experiments, supernatural forces, and one
+                strange little girl.
+              </p>
+              <button class="btn btn-danger btn-sm">Watch Now</button>
+              <button class="btn btn-secondary btn-sm">
+                <span>+</span>My List
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./img/netflix-carouseljpg.jpg"
+            class="d-block w-100 img-fluid"
+            alt="..."
+            style="height: 500px"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <div
+              class="w-50 text-start position-relative"
+              style="left: 10px; bottom: 100px"
+            >
+              <h5
+                class="fw-bold display-5"
+                style="
+                  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                    sans-serif;
+                "
+              >
+                STRANGER <br />THINGS
+              </h5>
+              <p class="small lh-lg m-3">
+                when a young boy vanishes, a small town uncovers a mystery
+                involving secret experiments, supernatural forces, and one
+                strange little girl.
+              </p>
+              <button class="btn btn-danger btn-sm">Watch Now</button>
+              <button class="btn btn-secondary btn-sm">
+                <span>+</span>My List
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button> -->
+    </div>
+
+    <!-- Movie Cards -->
+    <!-- Trending Now -->
+    <div class="container mt-5">
+      <div class="row">
+        <h4>Trending Now</h4>
+        <div
+          class="col my-2 d-flex gap-3 overflow-x-auto Trending-Now"
+          style="-ms-overflow-style: none; scrollbar-width: none"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/d/d6/Avatar_%282009_film%29_poster.jpg"
+            width="200"
+            height="280"
+            alt="Avatar Movie Poster"
+            title="Avatar Movie"
+            class="img-fluid img-hover"
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg"
+            width="200"
+            height="280"
+            alt="Avengers Endgame Poster"
+            title="Avengers Endgame"
+            class="img-fluid img-hover"
+          />
+          <img
+            src=" https://m.media-amazon.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_.jpg"
+            width="200"
+            height="280"
+            alt="Inception Movie Poster "
+            title="Inception Movie"
+            class="img-fluid img-hover"
+          />
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg"
+            width="200"
+            height="280"
+            alt="The Dark Knight Poster"
+            title="The Dark Knight"
+            class="img-fluid img-hover"
+          />
+          <img
+            src=" https://cdn.shopify.com/s/files/1/1057/4964/products/Spider-Man-No-Way-Home-Vintage-Movie-Poster-Original-1-Sheet-27x41_25b5dfd9-d4d0-45f1-ad92-c7a118525092.jpg?v=1652936730"
+            alt="spider man"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="spider man  "
+          />
+          <img
+            src="./img/65_1671448856.avif"
+            alt="adam driver"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="Adam driver 65 "
+          />
+          <img
+            src="./img/hollywood-movies-8.jpg"
+            alt=" the king of the jungle"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="the king of the jungle "
+          />
+          <img
+            src="./img/top-13-movies-based-off-true-stories.jpg"
+            alt=" 127 hours"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="127 hours "
+          />
+          <img
+            src="./img/zodiac-movie-based-on-true-story-1517346932.avif"
+            alt=" the zodiac"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="the zodiac "
+          />
+          <img
+            src="https://www.tubewp.com/wp-content/uploads/2023/03/john-wick-wallpapers-6.jpg"
+            alt=" john wick"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="john wick  "
+          />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- popular web series  -->
+    <div class="container my-2">
+      <div class="row">
+        <h4>Popular web series</h4>
+        <div
+          class="col my-4 d-flex gap-3 overflow-x-auto Trending-Now"
+          style="-ms-overflow-style: none; scrollbar-width: none"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/d/d6/Avatar_%282009_film%29_poster.jpg"
+            width="200"
+            height="280"
+            alt="Avatar Movie Poster"
+            title="Avatar Movie"
+            class="img-fluid img-hover"
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg"
+            width="200"
+            height="280"
+            alt="Avengers Endgame Poster"
+            title="Avengers Endgame"
+            class="img-fluid img-hover"
+          />
+          <img
+            src=" https://m.media-amazon.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_.jpg"
+            width="200"
+            height="280"
+            alt="Inception Movie Poster "
+            title="Inception Movie"
+            class="img-fluid img-hover"
+          />
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg"
+            width="200"
+            height="280"
+            alt="The Dark Knight Poster"
+            title="The Dark Knight"
+            class="img-fluid img-hover"
+          />
+          <img
+            src=" https://cdn.shopify.com/s/files/1/1057/4964/products/Spider-Man-No-Way-Home-Vintage-Movie-Poster-Original-1-Sheet-27x41_25b5dfd9-d4d0-45f1-ad92-c7a118525092.jpg?v=1652936730"
+            alt="spider man"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="spider man  "
+          />
+          <img
+            src="./img/65_1671448856.avif"
+            alt="adam driver"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="Adam driver 65 "
+          />
+          <img
+            src="./img/hollywood-movies-8.jpg"
+            alt=" the king of the jungle"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="the king of the jungle "
+          />
+          <img
+            src="./img/top-13-movies-based-off-true-stories.jpg"
+            alt=" 127 hours"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="127 hours "
+          />
+          <img
+            src="./img/zodiac-movie-based-on-true-story-1517346932.avif"
+            alt=" the zodiac"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="the zodiac "
+          />
+          <img
+            src="https://www.tubewp.com/wp-content/uploads/2023/03/john-wick-wallpapers-6.jpg"
+            alt=" john wick"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="john wick  "
+          />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- Hollywood -->
+    <div class="container my-2">
+      <div class="row">
+        <h4>Hollywood</h4>
+        <div
+          class="col my-4 d-flex gap-3 overflow-x-auto Trending-Now"
+          style="-ms-overflow-style: none; scrollbar-width: none"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/d/d6/Avatar_%282009_film%29_poster.jpg"
+            width="200"
+            height="280"
+            alt="Avatar Movie Poster"
+            title="Avatar Movie"
+            class="img-fluid img-hover"
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg"
+            width="200"
+            height="280"
+            alt="Avengers Endgame Poster"
+            title="Avengers Endgame"
+            class="img-fluid img-hover"
+          />
+          <img
+            src=" https://m.media-amazon.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_.jpg"
+            width="200"
+            height="280"
+            alt="Inception Movie Poster "
+            title="Inception Movie"
+            class="img-fluid img-hover"
+          />
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg"
+            width="200"
+            height="280"
+            alt="The Dark Knight Poster"
+            title="The Dark Knight"
+            class="img-fluid img-hover"
+          />
+          <img
+            src=" https://cdn.shopify.com/s/files/1/1057/4964/products/Spider-Man-No-Way-Home-Vintage-Movie-Poster-Original-1-Sheet-27x41_25b5dfd9-d4d0-45f1-ad92-c7a118525092.jpg?v=1652936730"
+            alt="spider man"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="spider man  "
+          />
+          <img
+            src="./img/65_1671448856.avif"
+            alt="adam driver"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="Adam driver 65 "
+          />
+          <img
+            src="./img/hollywood-movies-8.jpg"
+            alt=" the king of the jungle"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="the king of the jungle "
+          />
+          <img
+            src="./img/top-13-movies-based-off-true-stories.jpg"
+            alt=" 127 hours"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="127 hours "
+          />
+          <img
+            src="./img/zodiac-movie-based-on-true-story-1517346932.avif"
+            alt=" the zodiac"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="the zodiac "
+          />
+          <img
+            src="https://www.tubewp.com/wp-content/uploads/2023/03/john-wick-wallpapers-6.jpg"
+            alt=" john wick"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="john wick  "
+          />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- Tamil -->
+    <div class="container my-2">
+      <div class="row">
+        <h4>Tamil</h4>
+        <div
+          class="col my-4 d-flex gap-3 overflow-x-auto Trending-Now"
+          style="-ms-overflow-style: none; scrollbar-width: none"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/d/d6/Avatar_%282009_film%29_poster.jpg"
+            width="200"
+            height="280"
+            alt="Avatar Movie Poster"
+            title="Avatar Movie"
+            class="img-fluid img-hover"
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg"
+            width="200"
+            height="280"
+            alt="Avengers Endgame Poster"
+            title="Avengers Endgame"
+            class="img-fluid img-hover"
+          />
+          <img
+            src=" https://m.media-amazon.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_.jpg"
+            width="200"
+            height="280"
+            alt="Inception Movie Poster "
+            title="Inception Movie"
+            class="img-fluid img-hover"
+          />
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg"
+            width="200"
+            height="280"
+            alt="The Dark Knight Poster"
+            title="The Dark Knight"
+            class="img-fluid img-hover"
+          />
+          <img
+            src=" https://cdn.shopify.com/s/files/1/1057/4964/products/Spider-Man-No-Way-Home-Vintage-Movie-Poster-Original-1-Sheet-27x41_25b5dfd9-d4d0-45f1-ad92-c7a118525092.jpg?v=1652936730"
+            alt="spider man"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="spider man  "
+          />
+          <img
+            src="./img/65_1671448856.avif"
+            alt="adam driver"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="Adam driver 65 "
+          />
+          <img
+            src="./img/hollywood-movies-8.jpg"
+            alt=" the king of the jungle"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="the king of the jungle "
+          />
+          <img
+            src="./img/top-13-movies-based-off-true-stories.jpg"
+            alt=" 127 hours"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="127 hours "
+          />
+          <img
+            src="./img/zodiac-movie-based-on-true-story-1517346932.avif"
+            alt=" the zodiac"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="the zodiac "
+          />
+          <img
+            src="https://www.tubewp.com/wp-content/uploads/2023/03/john-wick-wallpapers-6.jpg"
+            alt=" john wick"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="john wick  "
+          />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- Malayalam -->
+    <div class="container my-2">
+      <div class="row">
+        <h4>Malayalam</h4>
+        <div
+          class="col my-4 d-flex gap-3 overflow-x-auto Trending-Now"
+          style="-ms-overflow-style: none; scrollbar-width: none"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/d/d6/Avatar_%282009_film%29_poster.jpg"
+            width="200"
+            height="280"
+            alt="Avatar Movie Poster"
+            title="Avatar Movie"
+            class="img-fluid img-hover"
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg"
+            width="200"
+            height="280"
+            alt="Avengers Endgame Poster"
+            title="Avengers Endgame"
+            class="img-fluid img-hover"
+          />
+          <img
+            src=" https://m.media-amazon.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_.jpg"
+            width="200"
+            height="280"
+            alt="Inception Movie Poster "
+            title="Inception Movie"
+            class="img-fluid img-hover"
+          />
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg"
+            width="200"
+            height="280"
+            alt="The Dark Knight Poster"
+            title="The Dark Knight"
+            class="img-fluid img-hover"
+          />
+          <img
+            src=" https://cdn.shopify.com/s/files/1/1057/4964/products/Spider-Man-No-Way-Home-Vintage-Movie-Poster-Original-1-Sheet-27x41_25b5dfd9-d4d0-45f1-ad92-c7a118525092.jpg?v=1652936730"
+            alt="spider man"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="spider man  "
+          />
+          <img
+            src="./img/65_1671448856.avif"
+            alt="adam driver"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="Adam driver 65 "
+          />
+          <img
+            src="./img/hollywood-movies-8.jpg"
+            alt=" the king of the jungle"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="the king of the jungle "
+          />
+          <img
+            src="./img/top-13-movies-based-off-true-stories.jpg"
+            alt=" 127 hours"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="127 hours "
+          />
+          <img
+            src="./img/zodiac-movie-based-on-true-story-1517346932.avif"
+            alt=" the zodiac"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="the zodiac "
+          />
+          <img
+            src="https://www.tubewp.com/wp-content/uploads/2023/03/john-wick-wallpapers-6.jpg"
+            alt=" john wick"
+            width="200"
+            height="280"
+            class="img-fluid img-hover"
+            title="john wick  "
+          />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+          <img src="https://placehold.co/200x350" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <!-- popper js CDN -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap Bundle JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h2 {
+        font-variant: small-caps;
+      }
+
+      .f1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size-adjust: 0.5;
+      }
+
+      .f2 {
+        font-family: "Times New Roman", Times, serif;
+        font-size-adjust: 0.5;
+      }
+
+      .box {
+        width: 300px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-indent: 50px;
+        margin-bottom: 10px;
+      }
+
+      .small-box {
+        text-indent: 0px;
+        height: 30px;
+        white-space: wrap;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        text-overflow: ellipsis;
+      }
+      .text-shadow {
+        /* text-shadow: h-shadow v-shadow blur-radius color; */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        text-shadow: 2px 2px 2px red, -2px -2px 2px blue;
+
+        background-color: #333;
+        padding: 10px;
+        color: white;
+        text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+      }
+
+      .break {
+        width: 200px;
+        word-wrap: normal;
+        word-wrap: break-word;
+
+        /* word-break: keep-all;
+        word-break: break-all; */
+      }
+
+      .hypen {
+        width: 150px;
+        height: 100px;
+        margin: 30px;
+        border: 1px solid #000;
+        background: pink;
+        word-wrap: break-word;
+        hyphens: none;
+        hyphens: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Text and Font Details</h1>
+    <ul>
+      <li>font-variant</li>
+      <li>font-size-adjust</li>
+      <li>text-indent</li>
+      <li>text-overflow</li>
+      <li>text-shadow</li>
+      <li>word-break</li>
+      <li>word-wrap</li>
+      <li>hyphens</li>
+    </ul>
+
+    <!--- font-variant  -->
+    <h2>Tutor Joes</h2>
+
+    <!-- font-size-adjust -->
+    <p class="f1">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+    <p class="f2">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+
+    <!-- text-indent -->
+
+    <div class="box"><b>text-indent</b> ipsum dolor sit, amet consectetur adipisicing elit. Fugit veritatis autem earum doloribus ducimus numquam quaerat deserunt illum, dicta debitis at distinctio cumque voluptatem repellendus sapiente illo beatae quas incidunt?</div>
+    <!-- text-overflow -->
+
+    <a href="https://fonts.google.com/" style="text-decoration: none; color: inherit">
+      <div class="box small-box"><b>text-overflow</b> ipsum dolor sit, amet consectetur adipisicing elit. Fugit veritatis autem earum doloribus ducimus numquam quaerat deserunt illum, dicta debitis at distinctio cumque voluptatem repellendus sapiente illo beatae quas incidunt?</div>
+    </a>
+
+    <!---  text-shadow  -->
+
+    <h2 class="text-shadow">Tutor Joes</h2>
+
+    <!--- word-break -->
+
+    <div class="box break">ThisIsAVerrrrrrrrrrrrrrrrrrrrryLongWordThatWillBreak computer</div>
+
+    <!-- hypen -->
+    <div class="hypen">Web design is the process of planning,pneumonoul&shy;tramicroscopicsil&hyphen;icovolcanoconiosis creating, and arranging content on a website to be shared and accessed online. I</div>
+  </body>
+</html>
+
+<!--- 
+&shy;
+&hyphen;
+-->

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      body {
+        padding: 50px;
+      }
+      :root {
+        --characters: 400;
+      }
+      p {
+        width: 400px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+      }
+      @theme {
+      }
+    </style>
+  </head>
+  <!---
+  line-clamp-1
+  line-clamp-2
+  line-clamp-3
+  line-clamp-4
+  line-clamp-5
+  line-clamp-6
+
+  # Resposive Line Clamp
+
+  line-clamp-3 lg:line-clamp-none
+  -->
+  <body>
+    <h1 class="text-3xl font-bold underline">line-clamp</h1>
+    <p class="line-clamp-1">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus aliquid necessitatibus commodi corporis! Asperiores libero quae earum alias placeat rerum cupiditate voluptas id, nam ab beatae vero expedita ullam iusto, nisi hic. Molestias odit provident aspernatur nihil suscipit libero
+      tenetur amet vitae corrupti alias rem, error repudiandae quis delectus at optio necessitatibus rerum. Omnis, laboriosam quam accusamus culpa deleniti recusandae ipsa distinctio ipsam est amet, consectetur molestias libero harum ut praesentium unde id. Recusandae magnam placeat impedit soluta
+      pariatur perspiciatis atque iure accusantium voluptatem facilis minus officia aspernatur reprehenderit corrupti saepe, necessitatibus expedita unde nihil, quos sapiente doloribus? Cumque, sapiente?
+    </p>
+    <p class="line-clamp-2">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus aliquid necessitatibus commodi corporis! Asperiores libero quae earum alias placeat rerum cupiditate voluptas id, nam ab beatae vero expedita ullam iusto, nisi hic. Molestias odit provident aspernatur nihil suscipit libero
+      tenetur amet vitae corrupti alias rem, error repudiandae quis delectus at optio necessitatibus rerum. Omnis, laboriosam quam accusamus culpa deleniti recusandae ipsa distinctio ipsam est amet, consectetur molestias libero harum ut praesentium unde id. Recusandae magnam placeat impedit soluta
+      pariatur perspiciatis atque iure accusantium voluptatem facilis minus officia aspernatur reprehenderit corrupti saepe, necessitatibus expedita unde nihil, quos sapiente doloribus? Cumque, sapiente?
+    </p>
+
+    <p class="line-clamp-3">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus aliquid necessitatibus commodi corporis! Asperiores libero quae earum alias placeat rerum cupiditate voluptas id, nam ab beatae vero expedita ullam iusto, nisi hic. Molestias odit provident aspernatur nihil suscipit libero
+      tenetur amet vitae corrupti alias rem, error repudiandae quis delectus at optio necessitatibus rerum. Omnis, laboriosam quam accusamus culpa deleniti recusandae ipsa distinctio ipsam est amet, consectetur molestias libero harum ut praesentium unde id. Recusandae magnam placeat impedit soluta
+      pariatur perspiciatis atque iure accusantium voluptatem facilis minus officia aspernatur reprehenderit corrupti saepe, necessitatibus expedita unde nihil, quos sapiente doloribus? Cumque, sapiente?
+    </p>
+
+    <p class="line-clamp-3 lg:line-clamp-none">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus aliquid necessitatibus commodi corporis! Asperiores libero quae earum alias placeat rerum cupiditate voluptas id, nam ab beatae vero expedita ullam iusto, nisi hic. Molestias odit provident aspernatur nihil suscipit libero
+      tenetur amet vitae corrupti alias rem, error repudiandae quis delectus at optio necessitatibus rerum. Omnis, laboriosam quam accusamus culpa deleniti recusandae ipsa distinctio ipsam est amet, consectetur molestias libero harum ut praesentium unde id. Recusandae magnam placeat impedit soluta
+      pariatur perspiciatis atque iure accusantium voluptatem facilis minus officia aspernatur reprehenderit corrupti saepe, necessitatibus expedita unde nihil, quos sapiente doloribus? Cumque, sapiente?
+    </p>
+
+    <p class="line-clamp-[3]">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus aliquid necessitatibus commodi corporis! Asperiores libero quae earum alias placeat rerum cupiditate voluptas id, nam ab beatae vero expedita ullam iusto, nisi hic. Molestias odit provident aspernatur nihil suscipit libero
+      tenetur amet vitae corrupti alias rem, error repudiandae quis delectus at optio necessitatibus rerum. Omnis, laboriosam quam accusamus culpa deleniti recusandae ipsa distinctio ipsam est amet, consectetur molestias libero harum ut praesentium unde id. Recusandae magnam placeat impedit soluta
+      pariatur perspiciatis atque iure accusantium voluptatem facilis minus officia aspernatur reprehenderit corrupti saepe, necessitatibus expedita unde nihil, quos sapiente doloribus? Cumque, sapiente?
+    </p>
+
+    <p class="line-clamp-[calc(var(--characters)/100)]">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus aliquid necessitatibus commodi corporis! Asperiores libero quae earum alias placeat rerum cupiditate voluptas id, nam ab beatae vero expedita ullam iusto, nisi hic. Molestias odit provident aspernatur nihil suscipit libero
+      tenetur amet vitae corrupti alias rem, error repudiandae quis delectus at optio necessitatibus rerum. Omnis, laboriosam quam accusamus culpa deleniti recusandae ipsa distinctio ipsam est amet, consectetur molestias libero harum ut praesentium unde id. Recusandae magnam placeat impedit soluta
+      pariatur perspiciatis atque iure accusantium voluptatem facilis minus officia aspernatur reprehenderit corrupti saepe, necessitatibus expedita unde nihil, quos sapiente doloribus? Cumque, sapiente?
+    </p>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+http module in node.js
+
+The built-in http module allows you to:
+  Create web servers
+  Handle requests (GET, POST, etc.)
+  Send responses
+  Build APIs
+  Work without any framework (pure Node.js)
+
+ Handle request
+ GET
+ POST
+ PUT
+ DELETE

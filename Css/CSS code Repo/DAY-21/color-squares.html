@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /*-------------------------------------------*/
+
+      .colorful {
+        height: 80px;
+        width: 80px;
+        position: relative;
+      }
+
+      .square {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: 0;
+        left: 0;
+        background-color: #9b59b6;
+      }
+
+      .square1 {
+        animation: animation1 2.5s ease infinite;
+      }
+      .square2 {
+        animation: animation2 2.5s ease infinite;
+      }
+      .square3 {
+        animation: animation3 2.5s ease infinite;
+      }
+      .square4 {
+        animation: animation4 2.5s ease infinite;
+      }
+      @keyframes animation1 {
+        0% {
+          transform: translateX(0px) translateY(0px);
+        }
+        50% {
+          transform: translateX(-40px) translateY(-40px);
+          border-radius: 50%;
+          background-color: #3498db;
+        }
+        100% {
+          transform: translateX(0px) translateY(0px);
+        }
+      }
+
+      @keyframes animation2 {
+        0% {
+          transform: translateX(0px) translateY(0px);
+        }
+        50% {
+          transform: translateX(40px) translateY(-40px);
+          border-radius: 50%;
+          background-color: #3498db;
+        }
+        100% {
+          transform: translateX(0px) translateY(0px);
+        }
+      }
+
+      @keyframes animation3 {
+        0% {
+          transform: translateX(0px) translateY(0px);
+        }
+        50% {
+          transform: translateX(40px) translateY(40px);
+          border-radius: 50%;
+          background-color: #3498db;
+        }
+        100% {
+          transform: translateX(0px) translateY(0px);
+        }
+      }
+
+      @keyframes animation4 {
+        0% {
+          transform: translateX(0px) translateY(0px);
+        }
+        50% {
+          transform: translateX(-40px) translateY(40px);
+          border-radius: 50%;
+          background-color: #3498db;
+        }
+        100% {
+          transform: translateX(0px) translateY(0px);
+        }
+      }
+
+      /*-------------------------------------------*/
+    </style>
+  </head>
+  <body>
+    <div class="colorful">
+      <div class="square square1"></div>
+      <div class="square square2"></div>
+      <div class="square square3"></div>
+      <div class="square square4"></div>
+    </div>
+  </body>
+</html>

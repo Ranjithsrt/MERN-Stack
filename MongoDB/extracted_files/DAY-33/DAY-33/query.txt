@@ -1,0 +1,187 @@
+Date Operator
+year                ✔
+month               ✔
+dayOfMonth          ✔
+week                ✔
+dayOfWeek           ✔
+hour                ✔
+minute              ✔
+second              ✔
+millisecond         ✔
+dateAdd             ✔    
+    - year
+    - quarter
+    - week
+    - month
+    - day
+    - hour
+    - minute
+    - second
+    - millisecond
+dateSubtract        ✔
+dateDiff            ✔
+dateFromParts       ✔
+dateToParts         ✔
+dateTrunc           ✔
+dateFromString      ✔ 
+toDate              ✔
+dateToString        ✔
+isoDayOfWeek        ✔
+isoWeek             ✔
+isoWeekYear         ✔
+
+//-----------------------------------------------
+
+
+db.orders.insertMany([
+  {
+    _id: 1,
+    customer: "Arun Kumar",
+    totalAmount: 1200,
+    orderDate: ISODate("2024-01-10T10:30:00Z")
+  },
+  {
+    _id: 2,
+    customer: "Priya R",
+    totalAmount: 850,
+    orderDate: ISODate("2024-03-22T15:45:30Z")
+  },
+  {
+    _id: 3,
+    customer: "Vijay S",
+    totalAmount: 2000,
+    orderDate: ISODate("2024-07-18T07:15:00Z")
+  }
+])
+
+
+db.orders.aggregate([
+    {
+        $project:{
+            customer:1,
+            year:{$year:"$orderDate"},
+            month:{$month:"$orderDate"},
+            day:{$dayOfMonth:"$orderDate"},
+            dayOfWeek:{$dayOfWeek:"$orderDate"},//Returns a number 1–7, where 1 = Sunday and 7 = Saturday
+            weekNumber:{$week:"$orderDate"},
+            hours:{$hour:"$orderDate"},
+            hour:{$minute:"$orderDate"},
+            minute:{$minute:"$orderDate"},
+            second:{$second:"$orderDate"},
+            millisecond:{$millisecond:"$orderDate"},
+        } 
+    }
+])
+
+
+db.orders.aggregate([
+    {
+        $project:{
+            customer:1,
+            orderDate:1,
+            delivery:{
+                $dateAdd:{startDate:"$orderDate",unit:"day",amount:3}
+            },
+            subtract:{
+                  $dateSubtract:{startDate:"$orderDate",unit:"day",amount:3} 
+            },
+            dateDiffrence:{
+                $dateDiff:{startDate:"$orderDate",endDate:ISODate("2025-01-01T00:00:00Z"),unit:"day"}
+            }
+        }
+    }
+])
+
+db.orders.aggregate([
+    {
+        $project:{
+            customer:1,
+            createDate:{
+                $dateFromParts:{
+                    year:2025,
+                    month:2,
+                    day:7,
+                    hour:15,
+                    minute:30,
+                    second:15,
+                    millisecond:253,
+                    timezone:"Asia/Kolkata"
+                }
+            },
+            constructDate:{
+                $dateToParts:{
+                    date:"$orderDate",
+                    timezone:"Asia/Kolkata"
+                }
+            },
+        }
+    }
+])
+
+
+
+db.orders.aggregate([
+    {
+        $project:{
+            customer:1,
+            orderDate:1,
+            truncate:{
+                $dateTrunc:{
+                     date:"$orderDate",
+                     unit:"year"
+                }
+            }
+        }
+    }
+])
+
+
+db.orders.aggregate([
+    {
+        $project:{
+            customer:1,
+            orderDate:1,
+            newDate:{
+                $dateToString:{date:"$orderDate",format:"%Y-%m-%d"}
+            },
+            newDate2:{
+                $dateToString:{date:"$orderDate",format:"%m %B %Y"}
+            },
+            millisecondToDate:{
+                $toDate:1740787200000
+            },
+            stringToDate:{
+                $toDate:"2019-04-20"
+            },
+            isoDayOfWeek:{
+                $isoDayOfWeek:"$orderDate"
+            },
+             isoWeek:{
+                $isoWeek:"$orderDate"
+            },
+            isoWeekYear:{
+                $isoWeekYear:"$orderDate"
+            }
+        }
+    }
+])
+
+
+
+db.orders.aggregate([
+    {
+        $project:{
+            customer:1,
+            orderDate:1,
+            isoDayOfWeek:{
+                $isoDayOfWeek:"$orderDate"
+            },
+             isoWeek:{
+                $isoWeek:"$orderDate"
+            },
+            isoWeekYear:{
+                $isoWeekYear:"$orderDate"
+            }
+        }
+    }
+])

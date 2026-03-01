@@ -1,0 +1,330 @@
+------------------------------
+    LINUX COMMANDS GUIDE
+------------------------------
+
+# This file contains essential Linux commands organized by categories.
+# Note: Some typos have been corrected, and explanatory comments have been added for clarity.
+
+# 1. Navigation Commands
+# These commands help you move around the file system and manage the terminal display.
+
+pwd - Display your current directory (folder) path
+ls - List files and folders in the current directory
+cd - Change directory - moves you from one directory to another
+cd .. - Go back one level (to the parent directory)
+cd ~ - Return to the home directory
+clear - Clear the terminal screen
+cd / - Go to the root directory
+
+# 2. Files and Directory Commands
+# Commands for creating, copying, moving, and deleting files and directories.
+
+mkdir s1 - Create a folder named 's1'
+rmdir s1 - Delete an empty folder named 's1'
+
+touch notes.txt - Create a text file named 'notes.txt'
+touch f1.txt f2.txt f3.txt - Create multiple text files at once
+
+rm -r s1 - Remove a folder recursively (including contents)
+rm -rf s1 - Remove a folder recursively and force (ignores errors)
+
+cp f1.txt copy.txt - Copy a file
+cp -r s1 s1_folder - Copy a folder recursively
+
+cat notes.txt - Display the contents of a file in the terminal
+
+nano notes.txt - Open a file in the Nano editor
+# In Nano:
+# i - Insert mode
+# Alt + U - Undo
+# Alt + E - Redo
+# Esc - Exit insert mode
+# Ctrl + O - Save
+# Ctrl + X - Exit (prompts to save if unsaved)
+
+vi notes.txt - Open a file in the Vi editor
+# Note: Vi is basic; Vim is an enhanced version.
+
+sudo apt install vim - Install the Vim editor (if not already installed)
+
+vim notes.txt - Open a file in the Vim editor
+# In Vim:
+# i - Enter insert mode
+# Esc - Exit insert mode
+# :wq - Save and exit
+# :q! - Exit without saving
+
+mv notes.txt /home/admin/Documents/projects - Move a file to a new location
+# Note: Corrected 'Docments' to 'Documents'
+
+mv notes.txt summary.txt - Rename a file
+
+rm file.txt - Remove a file
+rm -r file.txt - Remove a file recursively (though typically for directories)
+rm -rf file.txt - Remove a file recursively and force
+
+# Additional Commands
+history - Show command history
+man ls - Display the manual page for the 'ls' command
+reboot - Restart the system
+
+# Hard Links and Soft Links
+# Links allow multiple names for the same file or directory.
+
+ln file1.txt file2.txt - Create a hard link (shares the same inode)
+ln -s file1.txt file2.txt - Create a soft (symbolic) link (points to the original)
+
+# 3. Users, Groups, Permissions, and Ownership
+# Linux file permissions are divided into three categories: user (owner), group, and others.
+
+# Managing Users:
+whoami - Display the current logged-in user
+
+cat /etc/passwd - List system users (user IDs start from 1000 for regular users)
+
+sudo adduser harini - Create a new user named 'harini'
+sudo deluser harini - Delete a user named 'harini'
+
+su harini - Switch to user 'harini'
+su admin - Switch to user 'admin'
+
+sudo passwd harini - Change the password for user 'harini'
+
+# Managing Groups:
+cat /etc/group - List system groups (group IDs start from 1000)
+
+sudo addgroup DEV - Create a group named 'DEV'
+sudo delgroup DEV - Delete a group named 'DEV'
+# Alternative commands:
+sudo groupadd DEV - Create a group
+sudo groupdel DEV - Delete a group
+
+sudo usermod -aG DEV harini - Add user 'harini' to group 'DEV'
+
+groups harini - Show groups that 'harini' belongs to
+
+getent group DEV - Show details of group 'DEV'
+grep DEV /etc/group - Search for 'DEV' in the group file
+
+sudo gpasswd -d harini DEV - Remove user 'harini' from group 'DEV'
+
+# Permissions:
+# File permissions: read (r), write (w), execute (x)
+# Displayed with 'ls -l':
+# -rw-rw-r-- : Owner has read/write, group has read/write, others have read
+# File types: - (regular file), d (directory), l (link), c (character device), b (block device), p (pipe), s (socket)
+
+# Granting sudo permissions:
+sudo visudo - Edit the sudoers file safely
+# Examples:
+# harini ALL=(ALL) NOPASSWD: ALL - Allow 'harini' to run all commands without password
+# harini ALL=(ALL) ALL - Allow 'harini' to run all commands with password
+# %DEV ALL=(ALL:ALL) ALL - Allow all users in 'DEV' group sudo access
+
+sudo usermod -aG sudo harini - Add 'harini' to the sudo group
+sudo deluser harini sudo - Remove 'harini' from the sudo group
+
+x 1
+w 2
+r 4
+0 - no permissions
+
+chmod 424 saple.txt
+
+
+# 4. Package Management
+# Using apt (for Debian-based systems like Ubuntu).
+
+sudo apt install vim - Install Vim
+sudo apt install git - Install Git
+git --version - Check Git version
+which git - Show Git's installation path
+
+apt list --installed - List all installed packages
+apt list --installed | grep git - Search for 'git' in installed packages
+
+sudo apt update - Update package lists
+sudo apt upgrade - Upgrade installed packages
+
+apt search git - Search for packages related to 'git'
+apt show git - Show details about the 'git' package
+
+sudo apt remove git - Remove Git (keep config)
+sudo apt purge git - Remove Git and its configuration
+sudo apt autoremove - Remove unused dependencies
+sudo apt clean - Delete cached package files
+
+# 5. Process and System Monitoring
+# Commands to view and manage running processes.
+
+ps - Show current processes
+pidof firefox - Get process ID of 'firefox'
+ps -e - Show all processes
+ps -ef - Show all processes with full details
+
+top - Interactive process viewer
+# In top: Shift + M (sort by memory), Shift + P (sort by CPU), k (kill process), q (quit)
+
+htop - Advanced interactive process viewer (install if needed: sudo apt install htop)
+
+kill 258563 - Kill process by ID
+kill -9 258563 - Force kill process by ID
+pkill firefox - Kill processes by name
+
+ping google.com - Ping a host
+# Ctrl + C - Cancel ping
+# Ctrl + Z - Suspend ping
+
+jobs - Show background jobs
+
+# 6. System Load and Resource Monitoring
+
+uptime - Show system uptime and load averages
+free -h - Show memory usage in human-readable format
+vmstat - Show virtual memory statistics
+vmstat 2 5 - Run vmstat every 2 seconds for 5 times
+df -h - Show disk space usage in human-readable format
+
+# 7. Networking in Linux
+
+ip a - Show IP addresses and network interfaces
+hostname - Show the system's hostname
+cat /etc/resolv.conf - Show DNS resolver configuration
+cat /etc/hosts - Show local hostname mappings
+
+# Connecting to a Linux Server or VM
+
+# Via SSH:
+# Set up bridge adapter in VM network settings
+ip a - Show IP address
+sudo apt install openssh-server -y
+sudo systemctl start ssh
+sudo systemctl enable ssh
+sudo systemctl status ssh
+ssh harini@192.168.1.37 - Connect via SSH
+
+# Via PuTTY (from Windows):
+# Download PuTTY, enter IP, port 22, click Open
+
+# Via Remote Desktop (RDP):
+# Set video memory to at least 128MB
+sudo apt install xrdp
+sudo systemctl enable xrdp
+sudo systemctl start xrdp
+sudo ufw allow 3389/tcp
+sudo systemctl status xrdp
+sudo apt install xfce4 xfce4-goodies
+echo xfce4-session > ~/.Xsession
+sudo systemctl restart xrdp
+
+# Edit /etc/xrdp/startwm.sh if needed:
+# Add: startxfce4
+# Then: echo xfce4-session > ~/.Xsession
+# sudo systemctl restart xrdp
+
+# From Windows: Win + R, type 'mstsc', enter IP, username, password
+
+# 8. Shell Scripting
+# Basic Bash scripting examples.
+
+# Create and edit a script:
+cd Documents
+touch s1.sh
+nano s1.sh
+
+# Script content:
+#!/bin/bash
+echo "Hello world"
+date
+whoami
+
+bash s1.sh - Run the script
+
+# Variables:
+name="ranjith"
+echo "Hello $name"
+
+# Conditions:
+read -p "Enter a number: " num
+if ((num > 10)); then
+  echo "Number is greater than 10"
+else
+  echo "Number is less than or equal to 10"
+fi
+
+# Loops:
+# For loop:
+for i in 1 2 3
+do
+  echo "Number: $i"
+done
+
+# While loop:
+count=1
+while ((count <= 5))
+do
+  echo "Count: $count"
+  ((count++))
+done
+
+# Redirect output:
+echo "Backup completed successfully" > backup.txt
+
+# 9. Cron Jobs
+# Automating tasks with cron.
+
+# Create a backup script:
+tar -czf backup.tar.gz backup.txt
+chmod +x backup.sh
+
+crontab -e - Edit crontab
+# Format: min hour day month day-of-week command
+# Examples:
+# * * * * * - Every minute
+# */5 * * * * - Every 5 minutes
+# 0 0 * * * - Daily at midnight
+# 0 0 * * 0 - Weekly on Sunday
+# 0 0 1 * * - Monthly on the 1st
+# @reboot - At system startup
+
+# Shortcuts:
+# @reboot - Run at startup
+# @hourly - Run hourly
+# @daily - Run daily
+# @weekly - Run weekly
+# @monthly - Run monthly
+
+# Managing crontabs:
+crontab -l - List current cron jobs
+crontab -e - Edit cron jobs
+crontab -r - Remove crontab
+sudo systemctl status cron - Check cron service status
+
+# Example: */1 * * * * /home/admin/doc/backup.sh
+tail -f backup.txt - Monitor the backup file
+
+# 10. Firewall Management with UFW
+# Uncomplicated Firewall (UFW) for Ubuntu.
+
+sudo ufw enable - Enable UFW
+sudo ufw status - Check status
+sudo ufw allow ssh - Allow SSH (port 22)
+sudo ufw allow 80 - Allow HTTP (port 80)
+sudo ufw allow 443 - Allow HTTPS (port 443)
+sudo ufw delete allow 80 - Remove rule for port 80
+sudo ufw deny 443 - Deny port 443
+sudo ufw disable - Disable UFW
+
+# 11. System Services and Boot Management
+# Using systemctl for service management.
+
+systemctl --version - Check systemctl version
+
+sudo systemctl start ssh - Start SSH service
+sudo systemctl restart ssh - Restart SSH service
+sudo systemctl stop ssh - Stop SSH service
+sudo systemctl status ssh - Check SSH status
+sudo systemctl enable ssh - Enable SSH at boot
+sudo systemctl disable ssh - Disable SSH at boot
+
+systemctl list-units --type=service - List all services

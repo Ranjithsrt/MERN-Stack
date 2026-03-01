@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, 2, 3];
+      //push() adds one or more elements to the end of the array and returns the new length
+
+      let n = arr.push(4, 5);
+      console.log(arr);
+      console.log(n);
+      arr.push(6);
+
+      console.log(arr);
+      let x = [10, 20, 30];
+      arr.push(...x); //Spread Operator
+      console.log(arr);
+
+      //pop()
+      //Removes and returns the last element of the array.
+      console.log(arr);
+      let last = arr.pop();
+      console.log(arr);
+      console.log(last);
+
+      //unshift()
+      //Adds one or more elements to the beginning of the array and returns the new length.
+      let a = [1, 2, 3];
+      let len = a.unshift(10, 20, 30);
+      console.log(len);
+      console.log(a);
+
+      //shift()
+      //Removes and returns the first element of the array.
+      let removedElement = a.shift();
+      console.log(a);
+      console.log(removedElement);
+
+      //splice()
+      //Adds, removes, or replaces elements at a specified index. Syntax: splice(start index, deleteCount, item1, item2, ...)
+      let b = [10, 20, 30, 40];
+      //       0   1    2  3
+
+      // Remove 2 elements from index 1 and add "a","b"
+      let removed = b.splice(1, 2, "a", "b");
+      console.log(b);
+      console.log(removed);
+
+      //Add elements without removing
+      console.log(b);
+      b.splice(2, 0, "x", "Y");
+      console.log(b);
+
+      //sort()
+      let c = [5, 12, 10, 4, 7, 6];
+      c.sort(); //Default Sort (treats as strings)
+      console.log(c);
+
+      //Numeric Sort
+      c.sort((a, b) => a - b);
+      console.log(c);
+
+      c.sort((a, b) => b - a);
+      console.log(c);
+
+      let fruits = ["grapes", "apple", "orange", "banana"];
+      fruits.sort();
+      console.log(fruits);
+
+      //reverse
+      fruits.reverse();
+      console.log(fruits);
+
+      /*
+      - push
+      - pop
+      - unshift
+      - shift
+      - splice
+      - sort
+      - reverse
+      
+      */
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+FrontEnd
+  - HTML 
+  - CSS 
+  - Bootstrap 5.3
+  - Tailwind CSS
+
+  - JavaScript
+  - jQuery
+  - ReactJS
+BackEnd
+  - Node.js
+  - Express
+  Database
+  - MySQL
+  - MongoDB
+
+
+- GIT / GitHub 
+- RESTful API
+
+
+Data 
+  A-Z
+  0-9
+  Space
+  Symbols (*&^%$#@!...)
+
+  Hi my name is ram i am 6 years old and from salem.
+
+---------------------------------------------
+Conditional Statements
+if
+if else
+else if
+nested if
+switch
+Conditional operator ?:
+//----------------------------------------//
+Looping Statement
+for
+while
+do while
+for in
+for of
+
+Control Flow Keywords
+break
+continue
+return
+
+
+<!--
+Name
+Roll No
+5 Marks
+Total
+Average
+Result >=35
+Grade
+90-100 A
+80-89  B
+70-79  C
+<70    D
+-->
+
+
+https://www.tutorjoes.in/JS_tutorial/index

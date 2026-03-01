@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form</title>
+  <style>
+    section {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    div {
+      width: 100%;
+    }
+
+    fieldset {
+      border: 2px solid rgb(0, 0, 0);
+      padding: 25px;
+    }
+
+    #services {
+      width: 50%;
+    }
+
+    #services>div {
+      width: 100%;
+    }
+
+    #services>input[type="text"],
+    input[type="password"] {
+      /* width: 95%;
+      padding: 10px; */
+      display: inline-block;
+      margin: 10px 0;
+    }
+
+    table {
+      width: 60%;
+    }
+
+    table>tbody>tr>td {
+      padding: 5px 0;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 95%;
+      padding: 10px;
+      display: block;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Day 5</h3>
+  <section>
+    <div>
+      <h1>User Personal Informatiuon Form </h1>
+      <br><br>
+      <form autocomplete="off">
+        <fieldset>
+          <legend> <strong>User Personal Informatin</strong></legend>
+          <label for="name">Enter Your Name</label>
+          <input type="text" placeholder="Name" name="name" id="name" required />
+          <label for="email">Enter Your Email</label>
+          <input type="email" placeholder="Email" name="email" id="email" required />
+          <label for="password">Enter Your Password</label>
+          <input type="password" placeholder="password" id="password" name="password" required />
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" placeholder="Confirm Password" id="confirm-password" name="confirm-password"
+            required />
+          <label>Enter Your Gender</label><br /> <br>
+
+          <input type="radio" id="male" name="gender" value="male" checked />
+          <label for="male">Male</label>
+
+          <input type="radio" id="female" name="gender" value="female" />
+          <label for="female">Female</label>
+
+          <input type="radio" id="other" name="gender" value="other" />
+          <label for="other">Other</label> <br> <br>
+
+          <label for="date">Enter your Date of Birth</label> <br>
+          <input type="date" id="date" name="date" required style="margin-top: 10px;" />
+          <br>
+          <br>
+
+          <label for="textarea" style="display: block; margin: 10px 0">Enter your Address</label>
+          <textarea name="textarea" id="textarea" cols="50" rows="5" required>
+            </textarea>
+          <br>
+          <br>
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+
+
+  <section style=" margin-top: 150px">
+    <h1>Service Login</h1>
+    <div style="margin-top: 70px;">
+      <form autocomplete="off">
+        <table cellpadding="5px" width="50%">
+          <tr>
+            <td><label for="username">UserName</label></td>
+            <td><input type="text" name="username" id="name" style="padding: 5px;" required></td>
+          </tr>
+          <tr>
+            <td><label for="password">Password</label></td>
+            <td><input type="password" name="password" id="password" required style="padding: 5px;"></td>
+          </tr>
+          <tr>
+            <td><label for="city">City of Employment</label></td>
+            <td><input type="text" name="role" id="city" required style="padding: 5px;"></td>
+          </tr>
+          <tr>
+            <td><label for="server">Web Server</label></td>
+            <td>
+              <select name="server" id="server" style="width: 100%; padding: 5px;">
+                <option value=""> -- Choose a server -- </option>
+                <option value="TamilNadu">Tamil Nadu</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Karnataka">Karnataka</option>
+              </select>
+            </td>
+          </tr>
+
+          <td colspan="2"><label for="role">Please specify your role</label> <br> <br>
+            <input type="radio" name="role" id="admin">
+            <label for="admin">Admin</label> <br>
+
+            <input type="radio" id="manager" name="role" value="manager" required />
+            <label for="manager">Manager</label> <br>
+
+            <input type="radio" id="developer" name="role" value="developer" required />
+            <label for="developer">Developer</label> <br>
+
+            <input type="radio" id="user" name="role" value="user" required />
+            <label for="user">User</label>
+
+          </td>
+          </tr>
+
+          <tr>
+            <td colspan="2"><label for="mail">Single Sign-on to the following:</label> <br> <br>
+              <input type="checkbox" id="mail" name="mail" />
+              <label for="mail">Mail</label> <br>
+
+              <input type="checkbox" id="payroll" name="payroll" />
+              <label for="payroll">Payroll</label> <br>
+
+              <input type="checkbox" id="service" name="service" />
+              <label for="service">Self-Service</label>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              <button type="submit">Login</button>
+              <button type="reset">Reset</button>
+            </td>
+          </tr>
+
+        </table>
+      </form>
+    </div>
+  </section>
+</body>
+
+</html>

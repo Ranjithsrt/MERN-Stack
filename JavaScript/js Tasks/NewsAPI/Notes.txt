@@ -1,0 +1,262 @@
+const Technology = document.querySelector("#Technology");
+
+const Business = document.querySelector("#Business");
+
+const General = document.querySelector("#General");
+
+const Entertainment = document.querySelector("#Entertainment");
+
+const Health = document.querySelector("#Health");
+
+const Science = document.querySelector("#Science");
+
+const Sports = document.querySelector("#Sports");
+
+const Search = document.querySelector("#searchInput");
+
+
+// search function
+
+Search.addEventListener("input", function (e) {
+    console.log(e.target.value);
+    URL = `https://newsapi.org/v2/everything?q=${e.target.value}&apiKey=ab810cfea28d497fa9415ee223a9f2d8`;
+
+    // NewsAPI_General();
+    NewsAPI_Technology();
+
+});
+
+
+
+Technology.addEventListener("click", function () {
+  // URL = 'https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=ab810cfea28d497fa9415ee223a9f2d8';
+  console.log("clicked");
+
+  NewsAPI_Technology();
+});
+
+async function NewsAPI_Technology() {
+  URL =
+    "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=ab810cfea28d497fa9415ee223a9f2d8";
+
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
+    console.log(data);
+    const newsContainer = document.getElementById("newsContainer");
+    data.articles.forEach((article) => {
+      const newsCard = document.createElement("div");
+      newsCard.classList.add("newsCard");
+      newsCard.id = "newsCard";
+      newsCard.innerHTML = `
+                <h2>${article.title}</h2>
+                <p>${article.description}</p>
+                <img src="${article.urlToImage}" alt="${article.title}">
+                <a href="${article.url}" target="_blank">Read More</a>
+            `;
+      newsContainer.appendChild(newsCard);
+    });
+  } catch (error) {
+    console.error("Error fetching news:", error);
+  }
+}
+
+//  NewsAPI();
+
+Business.addEventListener("click", function () {
+  // URL = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=ab810cfea28d497fa9415ee223a9f2d8';
+  console.log("clicked");
+
+  NewsAPI_Business();
+});
+
+async function NewsAPI_Business() {
+  URL =
+    "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=ab810cfea28d497fa9415ee223a9f2d8";
+
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
+    console.log(data);
+    const newsContainer = document.getElementById("newsContainer");
+    data.articles.forEach((article) => {
+      const newsCard = document.createElement("div");
+      newsCard.classList.add("newsCard");
+      newsCard.id = "newsCard";
+      newsCard.innerHTML = `
+               <h2>${article.title}</h2>
+               <p>${article.description}</p>
+               <img src="${article.urlToImage}" alt="${article.title}">
+               <a href="${article.url}" target="_blank">Read More</a>
+           `;
+      newsContainer.appendChild(newsCard);
+    });
+  } catch (error) {
+    console.error("Error fetching news:", error);
+  }
+}
+
+General.addEventListener("click", function () {
+  // URL = 'https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=ab810cfea28d497fa9415ee223a9f2d8';
+  console.log("clicked");
+
+  NewsAPI_General();
+});
+
+async function NewsAPI_General() {
+  URL =
+    "https://newsapi.org/v2/everything?q=apple&from=2025-11-02&to=2025-11-02&sortBy=popularity&apiKey=ab810cfea28d497fa9415ee223a9f2d8";
+
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
+    console.log(data);
+    const newsContainer = document.getElementById("newsContainer");
+    data.articles.forEach((article) => {
+      const newsCard = document.createElement("div");
+      newsCard.classList.add("newsCard");
+      newsCard.id = "newsCard";
+      newsCard.innerHTML = `
+               <h2>${article.title}</h2>
+               <p>${article.description}</p>
+               <img src="${article.urlToImage}" alt="${article.title}">
+               <a href="${article.url}" target="_blank">Read More</a>
+           `;
+      newsContainer.appendChild(newsCard);
+    });
+  } catch (error) {
+    console.error("Error fetching news:", error);
+  }
+}
+
+Entertainment.addEventListener("click", function () {
+  // URL = 'https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=ab810cfea28d497fa9415ee223a9f2d8';
+  console.log("clicked");
+
+  NewsAPI_Entertainment();
+});
+
+async function NewsAPI_Entertainment() {
+  URL =
+    "https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=ab810cfea28d497fa9415ee223a9f2d8";
+
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
+    console.log(data);
+    const newsContainer = document.getElementById("newsContainer");
+    data.articles.forEach((article) => {
+      const newsCard = document.createElement("div");
+      newsCard.classList.add("newsCard");
+      newsCard.id = "newsCard";
+      newsCard.innerHTML = `
+               <h2>${article.title}</h2>
+               <p>${article.description}</p>
+               <img src="${article.urlToImage}" alt="${article.title}">
+               <a href="${article.url}" target="_blank">Read More</a>
+           `;
+      newsContainer.appendChild(newsCard);
+    });
+  } catch (error) {
+    console.error("Error fetching news:", error);
+  }
+}
+
+Health.addEventListener("click", function () {
+  // URL = 'https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=ab810cfea28d497fa9415ee223a9f2d8';
+  console.log("clicked");
+
+  NewsAPI_Health();
+});
+
+async function NewsAPI_Health() {
+  URL =
+    "https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=ab810cfea28d497fa9415ee223a9f2d8";
+
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
+    console.log(data);
+    const newsContainer = document.getElementById("newsContainer");
+    data.articles.forEach((article) => {
+      const newsCard = document.createElement("div");
+      newsCard.classList.add("newsCard");
+      newsCard.id = "newsCard";
+      newsCard.innerHTML = `
+               <h2>${article.title}</h2>
+               <p>${article.description}</p>
+               <img src="${article.urlToImage}" alt="${article.title}">
+               <a href="${article.url}" target="_blank">Read More</a>
+           `;
+      newsContainer.appendChild(newsCard);
+    });
+  } catch (error) {
+    console.error("Error fetching news:", error);
+  }
+}
+
+Science.addEventListener("click", function () {
+  // URL = 'https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=ab810cfea28d497fa9415ee223a9f2d8';
+  console.log("clicked");
+
+  NewsAPI_Science();
+});
+
+async function NewsAPI_Science() {
+  URL =
+    "https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=ab810cfea28d497fa9415ee223a9f2d8";
+
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
+    console.log(data);
+    const newsContainer = document.getElementById("newsContainer");
+    data.articles.forEach((article) => {
+      const newsCard = document.createElement("div");
+      newsCard.classList.add("newsCard");
+      newsCard.id = "newsCard";
+      newsCard.innerHTML = `
+               <h2>${article.title}</h2>
+               <p>${article.description}</p>
+               <img src="${article.urlToImage}" alt="${article.title}">
+               <a href="${article.url}" target="_blank">Read More</a>
+           `;
+      newsContainer.appendChild(newsCard);
+    });
+  } catch (error) {
+    console.error("Error fetching news:", error);
+  }
+}
+
+Sports.addEventListener("click", function () {
+  // URL = 'https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ab810cfea28d497fa9415ee223a9f2d8';
+  console.log("clicked");
+
+  NewsAPI_Sports();
+});
+
+async function NewsAPI_Sports() {
+  URL =
+    "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=ab810cfea28d497fa9415ee223a9f2d8";
+
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
+    console.log(data);
+    const newsContainer = document.getElementById("newsContainer");
+    data.articles.forEach((article) => {
+      const newsCard = document.createElement("div");
+      newsCard.classList.add("newsCard");
+      newsCard.id = "newsCard";
+      newsCard.innerHTML = `
+               <h2>${article.title}</h2>
+               <p>${article.description}</p>
+               <img src="${article.urlToImage}" alt="${article.title}">
+               <a href="${article.url}" target="_blank">Read More</a>
+           `;
+      newsContainer.appendChild(newsCard);
+    });
+  } catch (error) {
+    console.error("Error fetching news:", error);
+  }
+}

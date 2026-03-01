@@ -1,0 +1,71 @@
+Semantic Tags
+    Structural Semantic Tags
+        header
+        nav
+        main
+        article
+        section
+        aside
+        footer
+
+    Text-Level Semantic Tags
+       h1 to h6 
+       p
+       blockquote
+       cite
+       q
+       time
+       address
+       pre
+       code
+       kbd
+       samp
+       var
+       abbr
+       strong
+       em
+       mark
+       del
+       ins
+    Grouping and Media Semantic Tags
+        figure
+        figcaption
+        picture
+        audio
+        video
+        source
+        track
+    List Semantic Tags
+        ul
+        ol
+        li
+        dl
+        dt
+        dd
+    Table Semantic Tags
+        table
+        thead
+        tbody
+        tfoot
+        tr
+        td
+        th
+        caption
+    Form Semantic Tags
+        form
+        label
+        input
+        button
+        select
+        option
+        textarea
+        fieldset
+        legend
+        datalist
+        output
+        progress
+        meter
+    Other Semantic Tags
+        details
+        summary
+        dialog

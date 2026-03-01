@@ -1,0 +1,97 @@
+/* reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* global style */
+
+body {
+  background-color: #442c2c29;
+  /* margin: 100px auto; */
+}
+
+/* card container */
+
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* my card */
+
+.card {
+  width: 350px;
+  height: 200px;
+  background-color: orangered;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 2;
+  transition: 0.8s;
+}
+
+/* card content */
+
+.card-content {
+  width: 350px;
+  height: 200px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  z-index: 1;
+  transition: 1s;
+}
+
+/* card hover */
+
+.card:hover {
+  z-index: 0;
+  transition: 1s all ease-in-out;
+
+  transform: translateX(200px);
+  transform: translateY(-200px);
+}
+
+/* card content hover */
+
+.card-content:hover {
+  z-index: 3;
+  transition: 1s all ease-in-out;
+  /* transform: translateY(200px); */
+  /* visibility: visible; */
+}
+
+/* card content styles */
+
+.card h1 {
+  color: white;
+  text-align: center;
+  line-height: 200px;
+}
+.card-content p {
+  color: rgb(0, 0, 0);
+  text-align: justify;
+  line-height: 25px;
+  padding: 10px 5px;
+  margin: 10px;
+}
+.card-content button {
+  padding: 5px 20px;
+  margin-left: 15px;
+  border-radius: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  outline: none;
+  color: black;
+  /* background-color: orangered; */
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}

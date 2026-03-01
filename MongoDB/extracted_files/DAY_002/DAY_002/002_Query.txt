@@ -1,0 +1,78 @@
+#-------------------------------------------------------
+    1. CREATE / DROP DATABASE & COLLECTIONS
+#-------------------------------------------------------
+
+show dbs
+
+#create database or use existing databse
+use joes
+
+#create collections
+db.createCollection("users");
+db.createCollection("library");
+
+#Show all collections
+show collections;
+
+#rename collection
+db.library.renameCollection("books");
+
+#help
+db.help()
+
+#drop collection
+db.books.drop();
+
+#drop current database
+db.dropDatabase()
+
+#-------------------------------------------------------
+   2. INSERT DOCUMENT IN COLLECTIONS
+#-------------------------------------------------------
+
+1.insertOne
+2.insertMany
+
+Syntax : 
+
+db.collection_name.insertOne({
+    field1:"Value",
+    field2:"Value",
+})
+
+db.collection_name.insertMany(
+    [
+        {field1:"Value",field2:"Value",},
+        {field1:"Value",field2:"Value",},
+    ]
+)
+
+
+db.users.insertOne({
+  name: "Tiya",
+  age: 12,
+});
+
+#Select All
+db.users.find()
+
+db.users.insertMany([
+    {name:"Riya",age:5},
+    {name:"Sara",age:12},
+])
+
+
+db.users.insertOne({
+	name:"Tivin Parker",
+	age:12,
+	married:false,
+	dob:ISODate("2000-10-15T08:00:00Z"),
+	weight:78.50,
+	kids:null,
+	hobbies:["music","sports"],
+	address:{
+		street:"cherry road",
+		city:"Salem",
+		picode:"636007",
+	}
+})

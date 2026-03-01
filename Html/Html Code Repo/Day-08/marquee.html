@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .marquee {
+        width: 150px;
+        padding: 10px;
+        white-space: nowrap;
+        animation: scroll 10s linear infinite;
+      }
+      @keyframes scroll {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+  </head>
+  <body bgcolor="black" text="white">
+    <!--
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis culpa deserunt quidem officiis veniam autem labore consequatur dicta eaque doloribus vel laborum, accusamus error ipsum soluta sequi, molestiae, quos quam.</p>
+    <marquee bgcolor="green">Welcome to HTML</marquee>
+    <marquee bgcolor="green" direction="right">Welcome to HTML</marquee>
+    <marquee bgcolor="green" direction="up" height="100px">Welcome to HTML</marquee>
+    <marquee bgcolor="green" direction="down" height="100px">Welcome to HTML</marquee>
+   
+    <marquee bgcolor="green" behavior="scroll">Welcome to HTML</marquee>
+    <marquee bgcolor="green" behavior="slide">Welcome to HTML</marquee>
+    <marquee bgcolor="green" behavior="alternate">Welcome to HTML</marquee>
+    <marquee bgcolor="green" scrollamount="3">Welcome to HTML</marquee>
+    <marquee bgcolor="green" scrollamount="5" behavior="slide" loop="2">Welcome to HTML</marquee>
+  -->
+
+    <div style="background-color: green; overflow: hidden">
+      <div class="marquee">Welcome to HTML the simple as easy class</div>
+    </div>
+  </body>
+</html>

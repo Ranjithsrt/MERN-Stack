@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      setTimeout(() => {
+        console.log("Task-1 Done");
+        setTimeout(() => {
+          console.log("Task-2 Done");
+          setTimeout(() => {
+            console.log("Task-3 Done");
+            setTimeout(() => {
+              console.log("Task-4 Done");
+              setTimeout(() => {
+                console.log("Task-5 Done");
+              }, 2000);
+            }, 2000);
+          }, 2000);
+        }, 2000);
+      }, 2000);
+    </script>
+  </body>
+</html>

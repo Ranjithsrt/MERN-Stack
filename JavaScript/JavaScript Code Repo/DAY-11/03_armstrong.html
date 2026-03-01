@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>3. Write a program to find the given number is Armstrong number or not.</p>
+    <script>
+      let numStr = "1634";
+      let digits = numStr.length; //3
+      let number = Number(numStr); // "153" => 153
+      let sum = 0;
+      while (number > 0) {
+        //153>0 => 15>0   =>1>0   =>0>0
+        rem = number % 10; // 3  5  1
+        console.log(rem);
+        sum += Math.pow(rem, digits); //27+125+1
+        number = Math.floor(number / 10);
+        //15.3=>15   1.5=>1  0
+      }
+      console.log(sum);
+      if (numStr == sum) {
+        console.log(`${numStr} is an armstrong number`);
+      } else {
+        console.log(`${numStr} is not an armstrong number`);
+      }
+    </script>
+  </body>
+</html>

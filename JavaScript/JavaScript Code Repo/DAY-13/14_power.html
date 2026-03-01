@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Two numbers are entered through the keyboard. Write a program to find the value of one number raised to the power of another. Eg: Enter the Base: 2 Enter the Power:3 (clue 2*2*2=8) Result: 8
+
+    <script>
+      const base = 2;
+      const power = 3;
+      let result = 1;
+
+      console.log(Math.pow(base, power));
+
+      for (let i = 1; i <= power; i++) {
+        result *= base;
+      }
+      console.log(`Result : ${result}`);
+    </script>
+  </body>
+</html>

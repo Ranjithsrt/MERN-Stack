@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ol {
+        counter-reset: section;
+        list-style: none;
+      }
+      ol li::before {
+        content: counters(section, ".") ". ";
+        counter-increment: section;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>Table of Content</h4>
+    <ol>
+      <li>Item</li>
+      <ol>
+        <li><a href="#">Subitem</a></li>
+        <li>Subitem</li>
+      </ol>
+      <li>Item</li>
+      <ol>
+        <li>Subitem</li>
+        <li>Subitem</li>
+        <li>Subitem</li>
+        <li>Subitem</li>
+        <ol>
+          <li>Subitem</li>
+          <li>Subitem</li>
+        </ol>
+      </ol>
+    </ol>
+  </body>
+</html>

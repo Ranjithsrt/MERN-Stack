@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-weight: 600;
+}
+body {
+  background-color: rgb(160, 158, 156);
+}
+
+table {
+  margin: 100px auto;
+  width: 35%;
+  /* height: 600px; */
+  border-collapse: collapse;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.1),
+    0 0 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  background-color: white;
+}
+
+tr,
+th,
+td {
+  padding: 15px;
+}
+
+/* tr td:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+} */
+
+.date {
+  background-color: rgba(202, 198, 198, 0.285);
+  padding: 15px;
+}
+
+.date span {
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  letter-spacing: 0px;
+}
+
+.month {
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  letter-spacing: 0px;
+  font-weight: 800;
+}
+
+.arrow-down {
+  color: rgb(0, 0, 0);
+  font-size: 10px;
+  cursor: pointer;
+  padding: 10px;
+  /* border-radius: 50%; */
+  position: absolute;
+  right: 15px;
+  top: 7px;
+
+  background-color: rgba(210, 212, 213, 0.405);
+  /* display: inline-block; */
+}
+
+.arrow-up {
+  color: rgba(136, 132, 132, 0.552);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.today {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
+  padding: 12px;
+  text-align: center;
+}
+
+.Day-five {
+  background-color: rgba(148, 142, 142, 0.208);
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  padding: 15px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.date-opacity {
+  background-color: rgb(255, 255, 255);
+  color: rgba(0, 0, 0, 0.5);
+  opacity: 0.8;
+}
+
+.footer {
+  background-color: rgba(220, 220, 220, 0.233);
+  padding: 15px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  padding: 20px;
+}
+
+.mins-left {
+  background-color: rgba(252, 248, 248, 0.605);
+  padding: 10px 20px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.plus-right {
+  background-color: rgba(252, 248, 248, 0.605);
+  padding: 10px 20px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+.arrow-right {
+  color: rgb(0, 0, 0);
+  font-size: 10px;
+  cursor: pointer;
+  padding: 15px;
+  background-color: white;
+  word-spacing: 2px;
+}

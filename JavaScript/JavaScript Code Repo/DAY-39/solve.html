@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function task(duration) {
+        return new Promise((resolve, reject) => {
+          setTimeout(resolve, duration);
+        });
+      }
+      task(2000)
+        .then(() => {
+          console.log("Task-1 Done");
+          return task(2000);
+        })
+        .then(() => {
+          console.log("Task-2 Done");
+          return task(2000);
+        })
+        .then(() => {
+          console.log("Task-3 Done");
+          return task(2000);
+        })
+        .then(() => {
+          console.log("Task-4 Done");
+          return task(2000);
+        })
+        .then(() => {
+          console.log("Task-5 Done");
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("ul li:first-child").hide();
+            });
+        });
+    </script>
+
+    <!-- JavaScript -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let button = document.querySelector("button");
+            let lists = document.querySelectorAll("ul li");
+            button.addEventListener("click", function () {
+                lists[0].style.display = "none";
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <p>List 1:</p>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Tea</li>
+    </ul>
+
+    <p>List 2:</p>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Tea</li>
+    </ul>
+
+    <button>Click me</button>
+
+</body>
+
+</html>

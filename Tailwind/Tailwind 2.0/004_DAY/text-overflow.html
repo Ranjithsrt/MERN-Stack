@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Colors in tailwindcss</title>
+    <style>
+      body {
+        padding: 50px;
+      }
+      p {
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-center uppercase font-semibold tracking-wider">text-overflow</h1>
+
+    <p class="truncate">The longest word in any of the major</p>
+
+    <p class="overflow-hidden text-ellipsis">
+      The longest word in any of the major English language dictionaries is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano;
+      medically, it is the same as silicosis.
+    </p>
+
+    <p class="overflow-hidden text-clip">
+      The longest word in any of the major English language dictionaries is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano;
+      medically, it is the same as silicosis.
+    </p>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+/* font */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Browser Reset */
+
+:root {
+  --primary-color: black;
+  --secondary-color: white;
+  --primary-font: '"Times New Roman", Times, serif';
+  --secondary-font: "Roboto", sans-serif;
+}
+
+/* Global style */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+/* main {
+  width: 80%;
+  margin: 0 auto;
+} */
+
+/* Header */
+
+header h1 {
+  padding: 15px 0;
+}
+
+header p {
+  padding-bottom: 15px;
+}
+
+/* Photo Gallery Event img */
+
+.bg-welcome-img {
+  background-image: url("./img/event1.png");
+}
+
+/* Fashion Store img */
+
+.bg-fashion-img {
+  background-image: url("./img/event2.png");
+  background-attachment: scroll;
+}
+
+section p {
+  font-family: var(--primary-font);
+  line-height: 1.5;
+  padding: 30px 0;
+  text-align: center;
+}
+
+section h2 {
+  margin: 15px 0;
+}
+
+/* navbar */
+
+nav {
+  text-align: right;
+  margin: 50px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #2514e5;
+  margin-right: 15px;
+}
+
+a:hover {
+  color: white;
+  transition: 1s;
+}
+
+/* footer */
+
+footer h2 {
+  margin: 15px 0;
+}
+
+footer p {
+  margin: 15px 0;
+}

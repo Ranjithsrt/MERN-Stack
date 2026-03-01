@@ -1,0 +1,554 @@
+Django create project
+----------------------------
+
+step 1 
+
+django-admin startproject firstProjects
+
+cd firstProject
+
+python manage.py runserver
+
+localhost
+---------
+
+   ip / port no
+http://127.0.0.1:8000/ - namma system aa django servser raa maathurathu
+
+
+
+--------------
+firstProjects files  :
+------------------
+
+__init_. py
+
+Blank python script.
+Django wilt consider the particular folder as python package 
+
+setting.py
+
+Project settings, Configurations, installed applications database configurations,
+middleware configurations
+
+urls.py
+
+URL: dinakaran .com/chennai
+dinaka ran . com/employment
+
+url-patterns will be stored
+Website - Web pages
+/chennai
+/madu rai
+
+wsgi.py: Web Server Gateway Interface
+
+This file is used when we deploy our application in Production Server
+DEV Environment
+UAT User Acceptance Test Environment
+PROD
+
+asgi.py - asynchronous
+
+
+manage.py
+
+running our server, running tests, creating migration
+
+--------------------
+ django create app
+ -------------------
+
+step 2
+
+python manage.py startapp firstApp 
+
+----------
+ app files :
+ -----------
+
+ __init__.py
+
+admin.py 
+
+-- admin interface -Django models
+
+apps.py
+
+models. py 
+
+- application data models
+
+tests.py
+
+ - testing Production
+
+views.py
+
+URL = http://127.0.0.1:8000/Wish
+
+- application logic
+- application business logic
+
+1 function based views
+2 class based views
+ 
+migration -
+
+db specific information
+
+-------------
+
+
+--------
+Reg application
+-----------
+
+firstProject --- setting.py -- install app -- "firstApp"
+
+-------------
+
+firstApp -- views.py -- urls logic
+
+http://127.0.0.1:8000/Wish
+
+Httpreq ,res
+
+1 import 
+
+from django.http import HttpResponse
+
+function - res
+
+def wish(request):
+ return HttpResponse("Hello, world. You're at the polls index.")
+
+------------
+
+-----
+conncet the url
+------------
+
+firstProject -- urls.py -- 
+
+from firstApp import views
+
+path('welcome/',views.wish ,name='welcome'),
+
+run server
+
+browser laa tharaa url /wish laayumm django ulla view.py fun wish yum  connect pannannum
+
+Ex : http://127.0.0.1:8000/wish/
+
+-------------------------------
+
+#Django Server
+#Django project
+#startapp
+#Project -- Settings --- firstApp
+#views.py
+#project -- urls --  path url
+
+http://127.0.0.1:8000/welcome/
+
+-------
+
+------
+
+1 Creation of Django Project
+
+
+django-admin startproject projectname
+
+2 Creation of Django Application
+
+python3 manage. py startapp appname
+
+3 Adding application to my project
+
+settings. py - INSTALLED APPS -- firstApp
+
+4 views . py (Business Logic)
+
+def wish
+
+5 urls.py
+
+url-pattern
+
+6 Server
+python3 manage. py runserver 8080
+
+---------
+
+create new url file -- application level 
+
+don't toch project level urls.. that is only use for urls redirect app views.py
+
+firstProject ---- urls.py  ---  write redirect path -- app urls
+
+from django.conf.urls import include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+
+    #redirect to testApp
+    path('testApp/', include('testApp.urls')),
+
+]
+
+http://127.0.0.1:8000/testApp/second/
+
+-----------
+
+------------
+file location
+---------------
+
+print(__file__) # to print file name
+
+import os  
+print(os.path.abspath(__file__)) # absolute path (folder name and location)
+
+print (os.path.dirname(os.path.abspath(__file__))) #directory location and dir name
+
+-------------------------------
+
+-------------
+templates
+---------
+
+project file --- create templates folder -- demoApp -- html file
+
+reg templates
+
+setting -- 
+
+# absl path
+
+import os
+
+# Template directory
+BASE_DIR2 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATES_DIR = os.path.join(BASE_DIR2, 'templates')
+
+--- templates -- 
+
+TEMPLATES = [
+    { 
+        'DIRS': [TEMPLATES_DIR],
+    }
+]
+
+ mange.py file kitta template folder create pannanum.
+
+templates-- demoApp-- abc.html
+
+demoApp -- views.py --- redirect --
+
+ # redirect template folder 
+def display(request):
+    return render(request,'demoApp/abc.html')
+
+--------------
+
+template tags  # dynamic
+
+-------
+
+import datetime
+
+# simple text response
+def check(request):
+    return HttpResponse("This is the check page.")
+
+# to render HTML template
+
+App --view.py
+
+# DIctionary must
+
+ def display(request):
+    date = datetime.datetime.now()
+
+    # dynamic data  
+
+    context = {
+        "display_date": date,
+        "name": "Ajith Kumar",
+        "email": "ajith@example.com"
+    }
+    return render(request,'demoApp/abc.html', context)
+                                               # pass data abc.html
+-----
+
+abc.html file
+
+add template tags
+
+    <!-- tamplate  tags -->
+     <span style="color: red; font-weight: bolder ; font-size: 50px ;">{{display_date}}</span>
+
+
+
+ 
+------------
+
+urls
+
+urls -- redirect --- view -- demoApp --abc.html
+
+
+-----------
+
+app -- new file static -
+
+
+css styles - images irukkum static laa.
+
+setting -- folder location
+
+# static directory
+BASE_DIR2 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_DIR = os.path.join(BASE_DIR2, 'static')
+
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    STATIC_DIR, # static directory name
+]
+
+images folder to html connection:
+
+<!-- static files -- images -->
+
+ {% load static %}
+
+
+<!-- static images -->
+     
+<img src="{% static 'images/STOZ.png' %}" alt="my image">
+
+http://127.0.0.1:8000/display/
+
+<!-- static files -- css -- style.css
+
+ <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="{% static 'css/add.css' %}">
+
+-------------------------------
+
+db connection
+
+setting -- database
+
+# Database
+
+terminal comments
+
+python manage.py shell -- view Interactive shell
+
+db configurations
+
+from django.db import connection
+
+con = connection.cursor()
+
+exit()
+
+---------------
+
+models (data manipulation)
+
+django vaa yum data base yum connect pannum.
+
+document :
+thedocs.dev/en/django/3.1/#the-model-layer
+
+Generally, each model maps to a single database table
+
+• Each model is a Python class which is a subclass of
+django.db.models.Model.
+
+app -- models.py
+
+req table from db
+
+python manage.py makemigrations -- create sql table
+python manage.py makemigrations empApp -- i use empApp table
+python manage.py migrate  -- sql query execution
+python manage.py sqlmigrate empApp 0001 -- check
+
+db connection :
+
+app - admin 
+
+reg model in admin.py :
+
+# Register your models here.
+
+# import models
+from empApp.models import Employee
+
+admin.site.register(Employee)
+
+commend:
+
+access table:
+
+python manage.py createsuperuser   
+
+Username (leave blank to use 'ranji'): ranjith
+Email address: ranjith@gmail.com
+Password:12345678 
+Password (again):12345678 
+This password is too common.
+This password is entirely numeric.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.
+
+python manage.py runserver 
+
+http://127.0.0.1:8000/admin/login/?next=/admin/
+
+ ----
+
+ view.py -- def
+
+ ------------
+
+------------
+model working flow
+--------------
+
+http://127.0.0.1.8080 -- views.py --- models.py --- db
+
+admin
+
+db --- models.py -- views.py --- html
+
+
+view --- urls --- setting
+
+------------
+
+---------
+forms
+-------
+
+app ---cerate py file --  forms.py
+
+import django import forms
+
+
+port 8000 wrk qgulaa naa 8080 try pannalaam
+change port python manage.py runserver 8080
+
+
+---------
+cookies
+-----------
+
+app -- view
+
+# session
+def cookies_count_view(request):
+    count = request.session.get('count',0)
+    totalCount = int(count) + 1
+    request.session['count'] = totalCount
+    return render(request,'cookiseApp/cookies.html',{'count':totalCount})
+
+
+
+# cookies
+# def cookies_count_view(request):
+#     count = request.COOKIES.get('count',0)
+#     totalCount = int(count) + 1
+#     response = render(request,'cookiseApp/cookies.html',{'count':totalCount})
+#     response.set_cookie('count',totalCount)
+#     return response
+
+python manage.py  migrate  
+
+------------------------
+
+no securtity
+
+less information , only string values
+
+count of cookies
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------
+
+Day - 1
+
+intro
+
+Day - 2
+
+firstProject
+
+create project
+create app
+
+Day - 3
+
+second project
+
+-- ore application laa multiple urls eppdi koodukurathu
+
+third project
+
+-- oru project laa multiple application irukkannum but project urls file aa use panna koodathu (redirect)... athukku alternative vaa app laa urls file create panni use pannanum.
+
+Day - 4
+
+templates  -- html files
+static  -- css , img
+
+dynamic data render abc.html
+bussiness logic
+
+Day - 5
+
+add css styles
+
+learn database ,db connection
+
+Day - 6
+
+db connection
+
+Models:
+Model
+db
+
+View
+views.py
+
+Template
+--> template
+
+db data render ui
+
+day - 7
+
+{% %} --- jinjaTT
+

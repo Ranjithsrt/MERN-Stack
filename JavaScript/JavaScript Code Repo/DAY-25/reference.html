@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a = 10;
+      let b = a;
+      console.log(b);
+      b = 45;
+      console.log(b);
+      console.log(a);
+
+      let x = { name: "Ram", age: 25 }; //0X44
+      let y = x; //0X44
+      y.name = "Joes";
+      console.log(x);
+
+      let z = { ...x };
+      console.log(z);
+      z.name = "Rakesh";
+      console.log(x);
+      console.log(z);
+    </script>
+  </body>
+</html>

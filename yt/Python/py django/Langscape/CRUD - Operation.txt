@@ -1,0 +1,316 @@
+
+create --- data -- insert
+
+retrieve --- select*from tablename
+
+update --  r / col update
+
+delete -- r/ col delete
+
+function base view
+
+class base view
+
+--------------
+
+front end -- from  -- db data transfer to html file
+
+back -- models.model -- help database connection
+
+---------------
+
+django-admin startproject crudDemo
+cd crudDemo
+python manage.py startapp crudApp 
+
+
+project -- new file -- templates -- floder name -- html.file
+
+project -- new file -- static -- floder name -- css, img
+
+project --- setting -- install --- startapp
+
+----------
+
+import os
+
+# templates dir
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+BASE_DIR2 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATES_DIR = os.path.join(BASE_DIR2,'templates')
+
+# static dir
+
+STATIC_DIR = os.path.join(BASE_DIR2, 'static')
+
+INSTALLED_APPS = [
+   
+    'crudApp',
+]
+
+TEMPLATES = [
+    {
+       
+        'DIRS': [TEMPLATES_DIR],
+       
+        },
+  
+]
+
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+
+--------------
+
+app -- models.py  --- create child parent class
+
+from django.db import models
+
+# Create your models here.
+
+class Student(models.Model):
+    sno = models.IntegerField()
+    sname = models.CharField(max_length=100)
+    sclass = models.CharField(max_length=100)
+    saddress = models.CharField(max_length=100)
+    
+# convert to table db area
+
+terminal cmd : 
+
+--- python manage.py makemigrations  #table venum
+
+Migrations for 'crudApp':
+  crudApp\migrations\0001_initial.py
+    + Create model Student
+
+-- 
+
+--- python manage.py  migrate  # create table  
+
+
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, crudApp, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying crudApp.0001_initial... OK
+  Applying sessions.0001_initial... OK
+ 
+ --------------------
+
+----------
+ app --- admin.py
+-------
+
+ db kooda coonnect panna models.py file vechu irukkenu admin.py kitta  poi sollannum
+ 
+models ulla class dhan db nadakura activitiea aa paathu paru admin.py kitta solla 
+
+from django.contrib import admin
+from crudApp.models import Student
+
+# Register your models here.
+
+class StudentAdmin(admin.ModelAdmin):
+    list = ['sno', 'sname', 'sclass', 'saddress'] # enna ena venum ithu dhan nanga ude paanuvom.
+
+admin.site.register(Student, StudentAdmin)
+                        # connection
+
+--- python manage.py createsuperuser   
+
+Username (leave blank to use 'ranji'): ak
+Email address: ak@123.com
+Password: 
+Password (again): 
+This password is too common.
+This password is entirely numeric.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.
+
+---  python manage.py runserver  
+
+http://127.0.0.1:8000/admin/
+
+model class laa ketta ella details yum inga admin.py pglaa form aa kattum
+--------------------
+
+pip install faker
+Collecting faker
+  Downloading faker-37.1.0-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: tzdata in c:\users\ranji\appdata\local\programs\python\python312\lib\site-packages (from faker) (2024.1)
+Downloading faker-37.1.0-py3-none-any.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 5.9 MB/s eta 0:00:00        
+Installing collected packages: faker
+Successfully installed faker-37.1.0
+PS C:\Users\ranji\Desktop\Langscape\crudDemo> 
+
+-------------------
+
+project --- new py.file -- logics
+-------------
+
+import os
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'crudDemo.settings')
+
+import django
+
+django.setup()
+
+from crudApp.models import *
+from faker import Faker
+
+from random import *
+fake = Faker()
+
+
+def generate(n):
+    for i in range(n):
+        fsno = randint(1, 100)
+        fsname = fake.name()
+        fsclass = randint(1, 100)
+        fsaddress = fake.city()
+        stud_record = Student.objects.get_or_create(sno=fsno, sname=fsname, sclass=fsclass, saddress=fsaddress)
+
+
+generate(10)
+
+terminal cmd :
+
+python generate.py
+python manage.py runserver  
+
+------------------------------
+
+creation froms
+
+app --- view.py 
+
+
+from django.shortcuts import render
+
+#connect db (models)
+
+from crudApp.models import Student
+
+# Create your views here.
+
+def retrieve_view(request):
+    students = Student.objects.all()
+    return render(request,'crudApp/retrieve.html',{'students':students})
+
+
+--------------------
+
+basr.html  --- index.html 
+
+urls --- view -- html
+
+http://127.0.0.1:8000/check/
+
+Student List
+sno	sname	sclass	saddress
+1	ak ajith	12th	1\180 north street ,chennai 641 104
+2	Dhoni	7	vadakaan,Ranji
+3	vk	18	vadakaan,bangalore
+58	Kelly Craig	99	South Kimberlyfurt
+54	Nicholas Carr	89	Calhounland
+61	Luke Patterson	35	Nicoletown
+15	David Lyons	27	Lake Julie
+73	Brittany Roberts	2	Michaelmouth
+67	Chelsea Johnson	37	Vanessahaven
+38	Kathryn Walsh	87	East Jasmineport
+69	Amber Diaz	54	Briannaberg
+16	Dustin Cook	92	Hullside
+64	Courtney Orozco	4	Racheltown
+
+-----------
+
+input form
+
+app --- new file  -- forms.py
+
+
+forms yum model yum connect pannanum.
+
+
+from django import forms
+from crudApp.models import Student
+
+# Create your models here.
+
+class StudentForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = '__all__'
+ 
+   
+proj --- new htmlfile for forms
+
+
+db --- form --- create,html
+
+---------
+
+
+<!DOCTYPE html>
+<html lang="en">
+  {% extends 'crudApp/base.html'%}
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% block content %} {%csrf_token%} {{form.as_p}}
+
+    <input type="submit" value="Add student" />
+
+    {% endblock %}
+  </body>
+</html>
+
+view --- create htnl
+
+
+def create_view(request):
+    form = StudentForm()
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return retrieve_view(request)
+    return render(request,'crudApp/create.html',{'form':form})
+
+urls --- view -- html
+
+
+http://127.0.0.1:8000/check/
+http://127.0.0.1:8000/create
+-------------

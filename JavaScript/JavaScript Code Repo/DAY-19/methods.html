@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Includes Method</h3>
+    <ul>
+      <li>String : string.includes(searchValue,startIndex)</li>
+      <li>Arrays : array.includes(searchValue,fromIndex)</li>
+    </ul>
+
+    <script>
+      const products = ["Laptop", "Phone", "Tablet", "laptop Stand"];
+      const userInput = "Lap";
+      const suggestions = products.filter((product) => product.toLowerCase().includes(userInput.toLowerCase()));
+      console.log(suggestions);
+
+      const registeredEmails = ["user1@example.com", "user2@example.com", "user3@example.com"];
+      const newEmail = "user3@example.com";
+      const emailIndex = registeredEmails.indexOf(newEmail);
+      console.log(emailIndex);
+      if (emailIndex !== -1) {
+        console.log("Email already registered");
+      } else {
+        console.log("Email is available");
+      }
+
+      const emailLastIndex = registeredEmails.lastIndexOf(newEmail);
+      console.log(emailLastIndex);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,285 @@
+
+<!-- 
+ 
+
+[attributename]
+In CSS, the [attribute-name] selector is a type of attribute selector that targets HTML elements based on the presence of a specific attribute, regardless of the attribute's value. This selector is used to select elements that have a particular attribute, without considering the value of that attribute.
+
+Selector Syntax: To use the [attribute-name] selector, you enclose the attribute name within square brackets.
+
+[attribute-name] {
+    /* CSS rules */
+}
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute Selector</title>
+    <style>
+      a[target] {
+        color: green;
+      }
+      img[alt] {
+        border: 2px solid blue;
+      }
+      input[title] {
+        border: 1px solid brown;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Attribute Selector tag[attributename]</h3>
+    <img src="images/1.jpg" alt="Man" width="70px" />
+    <p>
+      This selector represents an
+
+      <a href="#">element</a>
+
+      with an "attribute name" attribute, whatever the value of the attribute
+
+      <a target="_blank" href="#"> Read More </a>
+
+      .
+    </p>
+    <img src="images/2.jpg" width="70px" />
+    <hr />
+    <label for="name">Name</label>
+    <input type="text" id="name" title="Enter Name" /><br /><br />
+    <label for="gender">Gender</label>
+    <input type="radio" name="gender" checked />Male <input type="radio" name="gender" />Female <br /><br />
+    <label for="address">Address</label>
+    <input type="text" id="address" />
+  </body>
+</html>
+
+<!-- 
+
+[attributename="value"]
+In CSS, the [attribute-name="value"] selector is an attribute selector that targets HTML elements based on the presence of a specific attribute with a specific value. This selector allows you to select and style elements that have a particular attribute and a matching attribute value.
+
+Selector Syntax: To use the [attribute-name="value"] selector, you enclose both the attribute name and the attribute value within square brackets, separated by an equal sign.
+
+[attribute-name="value"] {
+    /* CSS rules */
+}
+
+
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute Selector</title>
+    <style>
+      p[class="para"] {
+        color: red;
+      }
+      input[type="text"] {
+        background-color: pink;
+      }
+      img[width="75px"] {
+        border: 2px solid red;
+      }
+    </style>
+  </head>
+  <body></body>
+  <h3>[attributename="value"] Selector</h3>
+  <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dolor nulla sequi accusantium sed ad dolore culpa ab, velit fugiat repudiandae eveniet provident at animi blanditiis! In, explicabo quae! Quibusdam!</p>
+  <img src="images/1.jpg" alt="Man" width="70px" />
+  <p class="sample">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dolor nulla sequi accusantium sed ad dolore culpa ab, velit fugiat repudiandae eveniet provident at animi blanditiis! In, explicabo quae! Quibusdam!</p>
+  <img src="images/2.jpg" width="75px" />
+  <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dolor nulla sequi accusantium sed ad dolore culpa ab, velit fugiat repudiandae eveniet provident at animi blanditiis! In, explicabo quae! Quibusdam!</p>
+
+  <label for="name">Name</label>
+  <input type="text" id="name" title="Enter Name" /><br /><br />
+  <label for="gender">Gender</label>
+  <input type="radio" name="gender" checked />Male
+  <input type="radio" name="gender" />Female
+  <br /><br />
+  <label for="address">Email Address</label>
+  <input type="email" id="address" />
+</html>
+
+<!-- 
+
+[attributename~="value"]
+In CSS, the [attribute-name~="value"] selector is an attribute selector that targets HTML elements based on the presence of a specific attribute with a value that is part of a space-separated list. This selector allows you to select elements where the specified attribute contains a value within a list of values separated by spaces.
+
+Selector Syntax: To use the [attribute-name~="value"] selector, you enclose both the attribute name and the attribute value within square brackets, separated by the tilde (~) character.
+
+[attribute-name~="value"] {
+    /* CSS rules */
+}
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute Selector</title>
+    <style>
+      /*
+      p[class~="title"] {
+        color: orange;
+      }*/
+      [class~="title"] {
+        color: orange;
+      }
+    </style>
+  </head>
+  <body></body>
+  <h3>[attributename~="value"] selector</h3>
+  <p>Value matches attribute in space separated list.</p>
+  <p class="title">Tutor Joes - P1</p>
+  <p class="titleColors">Tutor Joes - P2</p>
+  <p class="black title red">Tutor Joes - P3</p>
+
+  <div class="title">Tutor Joes - D1</div>
+</html>
+
+
+<!-- 
+[attributename^="value"]
+The [attribute^="value"] selector in CSS is an attribute selector that targets elements based on whether a specific attribute starts with a specified value.
+
+[attribute^="value"]: This selector syntax consists of square brackets and an attribute name (attribute) followed by the ^= operator and the desired value (value). It selects elements that have an attribute (attribute) whose value begins with the specified value.
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute Selector</title>
+    <style>
+      p[class^="content"] {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>[attributename^=value] Selector</h3>
+    <p>This selector represents an element with the "attribute name" attribute whose value begins with the prefix "content".</p>
+    <p class="content">Tutor Joes - P1</p>
+    <p class="left-content">Tutor Joes - P2</p>
+    <p class="content-right">Tutor Joes - P3</p>
+    <p class="contenttext">Tutor Joes - P4</p>
+  </body>
+</html>
+
+<!-- 
+
+[attributename*="value"]
+The [attribute*="value"] selector in CSS is an attribute selector that targets elements based on whether a specific attribute contains a specified value anywhere within its attribute value.
+
+[attribute*="value"]: This selector syntax consists of square brackets and an attribute name (attribute) followed by the *= operator and the desired value (value). It selects elements that have an attribute (attribute) containing the specified value as a substring.w
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute Selector</title>
+    <style>
+      span[class*="test"] {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>[attributename*="value"] Selector</h3>
+    <p>Value occurs anywhere in attribute</p>
+
+    <span class="text"> Content1... </span>
+    <span class="test"> Content2... </span>
+    <span class="test-demo"> Content3... </span>
+    <span class="demo-test"> Content4... </span>
+    <span class="demotest"> Content5... </span>
+    <span class="demo test"> Content6... </span>
+  </body>
+</html>
+
+<!-- 
+
+[attributename$="value"]
+The [attribute$="value"] selector is used to select elements whose attribute value ends with a specified value.
+
+It matches every element whose attribute value ends with a specified value.
+
+Instead of using the circumflex accent, the ends with attribute selector uses the dollar sign, $ , within the square brackets of a selector between the attribute name and equals sign. Using the dollar sign denotes that the attribute value needs to end with the stated value.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute Selector</title>
+    <style>
+      /*
+      span[class$="test"] {
+        color: red;
+      }*/
+
+      [class$="test"] {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>[attributename$="value"] Selector</h3>
+    <p class="test">Attribute end with the value (test)</p>
+
+    <span class="text"> Content0... </span>
+    <span class="test"> Content1... </span>
+    <span class="test-demo"> Content2... </span>
+    <span class="demo-test"> Content3... </span>
+    <span class="demotest"> Content4... </span>
+    <span class="demotest00"> Content5... </span>
+  </body>
+</html>
+
+<!-- 
+
+[attributename|="value"]
+The [attribute|="value"] selector is used to select elements with the specified attribute, whose value can be exactly the specified value, or the specified value followed by a hyphen (-).
+
+Syntax
+
+[attributename|="value"]
+Represents elements with an attribute name of attr whose value can be exactly value or can begin with value immediately followed by a hyphen. It is often used for language subcode matches.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute Selector</title>
+    <style>
+      p[class|="text"] {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>[attributename|=value] Selector</h3>
+    <p>Attribute begin with value OR is first in a dash separated list</p>
+
+    <p class="text">Tutor Joes - P1</p>
+    <p class="text-small">Tutor Joes - P2</p>
+    <p class="sample-wtext-value">Tutor Joes - P3</p>
+    <p class="text-down">Tutor Joes - P4</p>
+    <p class="textdown">Tutor Joes - P5</p>
+  </body>
+</html>

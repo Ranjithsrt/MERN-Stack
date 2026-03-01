@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Resize the Window</h1>
+    <p>Window size : <span id="size"></span></p>
+    <script>
+      const size = document.getElementById("size");
+      window.addEventListener("resize", function () {
+        size.textContent = `${window.innerWidth}px / ${window.innerHeight}px`;
+      });
+      size.textContent = `${window.innerWidth}px / ${window.innerHeight}px`;
+    </script>
+  </body>
+</html>

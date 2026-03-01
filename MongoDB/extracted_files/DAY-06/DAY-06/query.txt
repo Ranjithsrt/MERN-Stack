@@ -1,0 +1,49 @@
+
+db.students.insertMany([
+  { name: "Arun", age: 21, gender: "Male", city: "Chennai", language: "Tamil" },
+  { name: "Sneha", age: 22, gender: "Female", city: "Bangalore", language: "Kannada" },
+  { name: "Rahul", age: 20, gender: "Male", city: "Hyderabad", language: "Telugu" },
+  { name: "Meera", age: 23, gender: "Female", city: "Kochi", language: "Malayalam" },
+  { name: "Karthik", age: 24, gender: "Male", city: "Chennai", language: "Tamil" },
+  { name: "Anjali", age: 21, gender: "Female", city: "Bangalore", language: "Kannada" },
+  { name: "Vikram", age: 22, gender: "Male", city: "Hyderabad", language: "Telugu" },
+  { name: "Divya", age: 20, gender: "Female", city: "Kochi", language: "Malayalam" }
+])
+
+
+// $and Operator
+db.students.find({
+  $and:[{city:"Chennai",language:"Tamil"}]
+})
+
+// $or Operator
+
+db.students.find({
+  $or:[
+    {city:"Kochi"},
+    {city:"Bangalore"}
+  ]
+})
+
+
+db.students.find({
+  $or:[
+    {city:"Kochi"},
+    {city:"Bangalore"}
+  ]
+},{name:1,age:1,_id:0})
+
+
+//$nor Operator
+db.students.find({
+  $nor:[
+    {city:"Chennai"},
+    {gender:"Male"}
+  ]
+}).projection({name:1})
+
+//$not Operator
+
+db.students.find({
+  age:{$not:{$eq:21}}
+},{name:1,age:1,_id:0})

@@ -1,0 +1,72 @@
+ form {
+     width: 800px;
+     margin: 0 auto;
+     padding: 100px;
+ }
+
+ /* heading */
+
+ h3 {
+     text-align: center;
+     margin: 30px 0;
+     color: var(--primary-color);
+ }
+
+ h3::before {
+     content: "----------";
+     position: relative;
+     bottom: 3px;
+     padding: 0 10px;
+     color: black;
+
+ }
+
+ h3::after {
+     content: "----------";
+     position: relative;
+     bottom: 3px;
+     padding: 0 10px;
+     color: black;
+ }
+
+ /* fieldset {
+  border: 1px solid #ccc;
+  padding: 30px;
+  border-radius: 5px;
+} */
+
+ /* input */
+
+ input {
+     display: block;
+     margin: 10px 0;
+     padding: 15px;
+     width: 100%;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+     outline: none;
+     cursor: pointer;
+ }
+
+ /* 
+legend {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+} */
+
+
+ input[type="submit"] {
+     background-color: var(--primary-color);
+     color: var(--text-color4);
+     border: none;
+     cursor: pointer;
+ }
+
+
+ p {
+     text-align: center;
+     margin: 30px 0;
+ }

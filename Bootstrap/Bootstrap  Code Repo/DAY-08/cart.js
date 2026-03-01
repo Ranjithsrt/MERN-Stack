@@ -1,0 +1,231 @@
+let products = [
+  {
+    id: 1,
+    name: "Nothing Phone (2a) Plus",
+    brand: "nothing",
+    color: "grey",
+    ram: 8,
+    storage: 256,
+    display: 6.7,
+    mrp: 29999,
+    price: 20200,
+    image: "https://m.media-amazon.com/images/I/81lRPeeHZgL._SL1500_.jpg",
+  },
+  {
+    id: 2,
+    name: "Nothing Phone (2a) Plus",
+    brand: "nothing",
+    color: "black",
+    ram: 8,
+    storage: 256,
+    display: 6.7,
+    mrp: 29999,
+    price: 26399,
+    image: "https://m.media-amazon.com/images/I/815GZSdDxgL._SL1500_.jpg",
+  },
+  {
+    id: 3,
+    name: "Nothing Phone 2",
+    brand: "nothing",
+    color: "white",
+    ram: 8,
+    storage: 128,
+    display: 6.7,
+    mrp: 49999,
+    price: 30998,
+    image: "https://m.media-amazon.com/images/I/810CVfjgGIL._SL1500_.jpg",
+  },
+  {
+    id: 4,
+    name: "realme 13 5G",
+    brand: "realme",
+    color: "purple",
+    ram: 8,
+    storage: 256,
+    display: 6.7,
+    mrp: 22999,
+    price: 16400,
+    image: "https://m.media-amazon.com/images/I/71SHM2rQG3L._SL1500_.jpg",
+  },
+  {
+    id: 5,
+    name: "Redmi 14C 5G",
+    brand: "redmi",
+    color: "purple",
+    ram: 4,
+    storage: 64,
+    display: 6.8,
+    mrp: 12999,
+    price: 9499,
+    image: "https://m.media-amazon.com/images/I/81-FAwtrstL._SL1500_.jpg",
+  },
+  {
+    id: 6,
+    name: "Redmi 13 5G",
+    brand: "redmi",
+    color: "black",
+    ram: 8,
+    storage: 128,
+    display: 6.7,
+    mrp: 19999,
+    price: 13999,
+    image: "https://m.media-amazon.com/images/I/81ndCd07RuL._SL1500_.jpg",
+  },
+  {
+    id: 7,
+    name: "Samsung Galaxy M35 5G",
+    brand: "samsung",
+    color: "blue",
+    ram: 8,
+    storage: 128,
+    display: 6.6,
+    mrp: 25999,
+    price: 18499,
+    image: "https://m.media-amazon.com/images/I/81nt-RGKpyL._SL1500_.jpg",
+  },
+  {
+    id: 8,
+    name: "Moto G85 5G",
+    brand: "moto",
+    color: "green",
+    ram: 8,
+    storage: 128,
+    display: 6.6,
+    mrp: 20999,
+    price: 16040,
+    image: "https://m.media-amazon.com/images/I/61y2gkO89wL._SL1280_.jpg",
+  },
+  {
+    id: 9,
+    name: "iQOO Z10x 5G",
+    brand: "iqoo",
+    color: "titanium",
+    ram: 8,
+    storage: 128,
+    display: 7,
+    mrp: 18999,
+    price: 14999,
+    image: "https://m.media-amazon.com/images/I/61BupubdJqL._SL1200_.jpg",
+  },
+  {
+    id: 10,
+    name: "OnePlus Nord CE4 Lite 5G",
+    brand: "oneplus",
+    color: "silver",
+    ram: 8,
+    storage: 128,
+    display: 6.6,
+    mrp: 20999,
+    price: 17998,
+    image: "https://m.media-amazon.com/images/I/61Io5-ojWUL._SL1500_.jpg",
+  },
+  {
+    id: 11,
+    name: "OnePlus 13R",
+    brand: "oneplus",
+    color: "grey",
+    ram: 12,
+    storage: 256,
+    display: 6.8,
+    mrp: 44999,
+    price: 42998,
+    image: "https://m.media-amazon.com/images/I/61muVCIy-uL._SL1500_.jpg",
+  },
+  {
+    id: 12,
+    name: "OnePlus Nord CE4",
+    brand: "oneplus",
+    color: "titanium",
+    ram: 8,
+    storage: 256,
+    display: 6.6,
+    mrp: 26999,
+    price: 23998,
+    image: "https://m.media-amazon.com/images/I/61g1pqSjAhL._SL1500_.jpg",
+  },
+  {
+    id: 13,
+    name: "VIVO T4x 5G",
+    brand: "vivo",
+    color: "purple",
+    ram: 6,
+    storage: 128,
+    display: 6,
+    mrp: 17999,
+    price: 14698,
+    image: "https://m.media-amazon.com/images/I/81SpTOTVQAL._SL1500_.jpg",
+  },
+  {
+    id: 14,
+    name: "Vivo Y19e",
+    brand: "vivo",
+    color: "green",
+    ram: 4,
+    storage: 64,
+    display: 6,
+    mrp: 11999,
+    price: 7999,
+    image: "https://m.media-amazon.com/images/I/71U8h0hNFRL._SL1500_.jpg",
+  },
+  {
+    id: 15,
+    name: "Vivo T3 Lite 5G",
+    brand: "vivo",
+    color: "green",
+    ram: 6,
+    storage: 128,
+    display: 6,
+    mrp: 13999,
+    price: 11599,
+    image: "https://m.media-amazon.com/images/I/61VxzkiD1EL._SL1500_.jpg",
+  },
+];
+
+const productList = document.getElementById("product-list");
+
+function displayProduct() {
+  productList.innerHTML = "";
+  products.forEach((product) => {
+    const card = ` <div class="col">
+          <div class="card  bg-body-tertiary">
+            <img src="${product.image}" alt="mobile" class="object-fit-contain" style="height: 200px" />
+            <div class="card-body bg-white border-top mt-3">
+              <h5 class="card-title">${product.name}</h5>
+              <span class="card-text text-muted"><b>Brand</b> : ${product.brand}</span>
+
+              <table class="table table-sm table-borderless">
+                <tr>
+                  <th>Color</th>
+                  <td>${product.color}</td>
+                </tr>
+                <tr>
+                  <th>Ram</th>
+                  <td>${product.ram} GB</td>
+                </tr>
+                <tr>
+                  <th>Storage</th>
+                  <td>${product.storage} GB</td>
+                </tr>
+                <tr>
+                  <th>Display</th>
+                  <td>${product.display}"</td>
+                </tr>
+              </table>
+
+              <p class="card-text d-flex justify-content-between">
+                <span class="text-danger text-decoration-line-through">MRP ₹${product.mrp}</span>
+                <span class="text-success fw-semibold">Offer ₹ ${product.price}</span>
+              </p>
+              <a href="#" class="btn btn-primary">
+              <i class="bi bi-bag-plus-fill"></i>
+              Add to Cart
+              </a>
+            </div>
+          </div>
+        </div>`;
+
+    productList.innerHTML += card;
+  });
+}
+
+displayProduct();

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css" />
+    <style>
+      .container {
+        display: grid;
+        height: 800px;
+        grid-template: repeat(3, 100px) / repeat(3, 100px);
+        gap: 5px;
+
+        /* x-axis */
+        justify-content: center;
+        justify-content: end;
+        justify-content: space-around;
+        justify-content: space-between;
+        justify-content: space-evenly;
+        justify-content: start;
+
+        /* y-axis */
+        align-content: start;
+        align-content: center;
+        align-content: end;
+        align-content: space-around;
+        align-content: space-between;
+        align-content: space-evenly;
+
+        /* align-content  justify-content*/
+        place-content: start end;
+        place-content: center center;
+        place-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="grid-item box-1">Box-1</div>
+      <div class="grid-item box-2">Box-2</div>
+      <div class="grid-item box-3">Box-3</div>
+      <div class="grid-item box-4">Box-4</div>
+      <div class="grid-item box-5">Box-5</div>
+      <div class="grid-item box-6">Box-6</div>
+      <div class="grid-item box-7">Box-7</div>
+      <div class="grid-item box-8">Box-8</div>
+      <div class="grid-item box-9">Box-9</div>
+    </div>
+  </body>
+</html>

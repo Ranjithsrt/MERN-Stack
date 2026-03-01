@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@theme {
+  --tracking-joes: 15px;
+}

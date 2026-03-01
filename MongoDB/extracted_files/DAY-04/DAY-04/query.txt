@@ -1,0 +1,117 @@
+use school
+
+db.createCollection("students")
+
+db.students.insertMany([
+  { name: "Ram", age: 18, class: "12A", marks: 75 },
+  { name: "Shyam", age: 17, class: "11B", marks: 85 },
+  { name: "Radha", age: 18, class: "12A", marks: 92 },
+  { name: "Mohan", age: 16, class: "10C", marks: 65 }
+])
+
+
+# ---- Update Mark of Ram from 75 to 80
+
+db.students.updateOne(
+  {name:"Ram"},
+  {$set:{marks:80}}
+)
+
+#---- Update Multiple Document
+db.students.updateMany(
+  {class:"12A"},
+  {$inc:{marks:5}}
+)
+
+#---- Replace Entire Document
+db.students.replaceOne(
+  {name:"Mohan"},
+  {name:"Mohan Kumar",age:18,class:"11B",marks:95}
+)
+
+#---- Add a new Entire
+db.students.updateOne({name:"Ram"},{$set:{passed:true}})
+
+#---- Remove a field
+db.students.updateOne(
+  {name:"Shyam"},
+  {$unset:{marks:""}}
+)
+
+#---- Update With Upsert (Insert if record not found)
+db.students.updateOne(
+  {name:"Sita"},
+  {$set:{age:18,class:"11A",marks:80}},
+  {upsert:true}
+)
+
+//-------------------------------------------------
+
+db.students.drop()
+db.createCollection("students")
+db.students.insertMany([
+  {
+    name: { first: "Ram", last: "Kumar" },
+    class: "12A",
+    age: 18,
+    address: {
+      city: "Chennai",
+      pincode: 600001
+    }
+  },
+  {
+    name: { first: "Sita", last: "Devi" },
+    class: "11B",
+    age: 17,
+    address: {
+      city: "Madurai",
+      pincode: 625001
+    }
+  }
+])
+
+
+
+#-- Update Nested Objects
+
+db.students.updateOne(
+  {"name.first":"Ram"},
+  {$set:{"name.first":"Ramu"}}
+)
+
+db.students.updateOne(
+  {"name.first":"Sita"},
+  {$set:{"address.city":"Salem"}}
+)
+
+db.students.updateOne(
+  {"name.first":"Ramu"},
+  {$unset:{"address.pincode":""}}
+)
+
+
+//-------------------------------------------------
+
+db.students.drop()
+db.createCollection("students")
+db.students.insertMany([
+  {
+    name: "Ram",
+    age: 18,
+    marks: 75,
+    fees: 1000,
+    subjects: ["Math", "English"]
+  },
+  {
+    name: "Sita",
+    age: 17,
+    marks: 88,
+    fees: 1500,
+    subjects: ["Science", "History"]
+  }
+])
+
+db.students.updateOne(
+  {name:"Sita"},
+  {$mul:{fees:1.1}}
+)

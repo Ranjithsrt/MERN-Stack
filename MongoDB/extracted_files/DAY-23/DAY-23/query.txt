@@ -1,0 +1,202 @@
+db.products.insertMany([
+  { name: "Pen", price: 5 },
+  { name: "Notebook", price: 20 },
+  { name: "Bag", price: 50 },
+  { name: "Laptop", price: 1000 },
+  { name: "Mouse", price: 25 },
+  { name: "Keyboard", price: 80 },
+  { name: "Headphones", price: 150 }
+]);
+
+//------------------$bucket | $bucketAuto-----------------------
+
+
+db.products.aggregate([
+  {
+    $bucket:{
+      groupBy: "$price",
+      boundaries: [10, 50, 200, Infinity], 
+      default: "Other",
+      output:{
+        count:{$sum:1}
+      }  
+    }
+  }
+])
+
+
+db.products.aggregate([
+  {
+    $bucketAuto:{
+      groupBy: "$price",
+      buckets:3,
+      output:{
+        count:{$sum:1}
+      }  
+    }
+  }
+])
+
+//------------------ $addFields -----------------------
+
+
+db.students.insertMany([
+  {
+    "id": 1,
+    "firstName": "Arjun",
+    "lastName": "Rao",
+    "marks": [65, 22, 58],
+    "city": "Chennai"
+  },
+  {
+    "id": 2,
+    "firstName": "Karthik",
+    "lastName": "Menon",
+    "marks": [78, 69, 82],
+    "city": "Bengaluru"
+  },
+  {
+    "id": 3,
+    "firstName": "Divya",
+    "lastName": "Sharma",
+    "marks": [85, 70, 76],
+    "city": null
+  },
+  {
+    "id": 4,
+    "firstName": "Vignesh",
+    "lastName": "Iyer",
+    "marks": [55, 67, 63],
+    "city": "Hyderabad"
+  },
+  {
+    "id": 5,
+    "firstName": "Priya",
+    "lastName": "Nair",
+    "marks": [73, 68, 71]
+  }
+])
+
+db.students.aggregate(
+  {
+    $addFields:{
+      fullName:{$concat:["$firstName"," ","$lastName"]}
+    }
+  }
+)
+
+
+db.students.aggregate(
+  {
+    $addFields:{
+      fullName:{$concat:["$firstName"," ","$lastName"]},
+      firstName:"$$REMOVE",
+      lastName:"$$REMOVE",
+    }
+  }
+)
+
+db.students.aggregate([
+  {
+    $project:{
+       fullName:{$concat:["$firstName"," ","$lastName"]},
+       _id:0
+    }
+  }
+])
+
+
+db.students.aggregate(
+  {
+    $addFields:{
+      fullName:{$concat:["$firstName"," ","$lastName"]},
+      firstName:"$$REMOVE",
+      lastName:"$$REMOVE",
+      city:{
+        $ifNull:["$city","$$REMOVE"]
+      }
+    }
+  }
+)
+
+db.students.aggregate(
+  {
+    $addFields:{
+      fullName:{$concat:["$firstName"," ","$lastName"]},
+      firstName:"$$REMOVE",
+      lastName:"$$REMOVE",
+      city:{
+        $cond:{
+          if:{$eq:["$city","Chennai"]},
+          then:"$$REMOVE",
+          else:"$city"
+        }
+      }
+    }
+  }
+)
+
+
+
+db.students.aggregate([
+  {
+    $addFields:{
+        fullName:{$concat:["$firstName"," ","$lastName"]},
+        totalMarks:{$sum:"$marks"},
+        averageMarks:{$avg:"$marks"},
+        result:{
+          $cond:{
+            if:{
+              $allElementsTrue:{
+                $map:{
+                  input:"$marks",
+                  as: "mark",
+                  in:{$gt:["$$mark",34]}
+                }
+              }
+            },
+            then:"Pass",
+            else:"Fail"
+          }
+        },
+         grade:{
+          $cond:{
+            if:{
+              $allElementsTrue:{
+                $map:{
+                  input:"$marks",
+                  as: "mark",
+                  in:{$gt:["$$mark",34]}
+                }
+              }
+            },
+            then:{
+              $switch:{
+                branches:[
+                
+                  {case: {$gte:["$averageMarks",90]},then:"A"},
+                  {case: {$gte:["$averageMarks",80]},then:"B"},
+                  {case: {$gte:["$averageMarks",70]},then:"C"},
+                  {case: {$lt:["$averageMarks",70]},then:"D"},
+                  
+                ],
+                default:"Invalid"
+              }
+            },
+            else:"No Grade"
+          }
+        }
+    }
+  },
+  {
+    $project:{
+      fullName:1,
+      marks:1,
+      totalMarks:1,
+      averageMarks:1,
+      result:1,
+      grade:1,
+      _id:0
+    }
+  }
+]);

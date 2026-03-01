@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+      .important {
+        font-weight: bold;
+        font-size: xx-large;
+      }
+
+      .blue {
+        color: blue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p id="test">This is some <b>bold</b> text in a paragraph.</p>
+
+    <button id="btn1">Show Text</button>
+    <button id="btn2">Show HTML</button>
+
+    <p>Name: <input type="text" id="test" value="Mickey Mouse" /></p>
+
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+    <ol>
+      <li>List item 1</li>
+      <li>List item 2</li>
+      <li>List item 3</li>
+    </ol>
+
+    <button id="btn1">Append text</button>
+    <button id="btn2">Append list items</button>
+
+    <div
+      id="div1"
+      style="
+        height: 100px;
+        width: 300px;
+        border: 1px solid black;
+        background-color: yellow;
+      "
+    >
+      This is some text in the div.
+      <p>This is a paragraph in the div.</p>
+      <p>This is another paragraph in the div.</p>
+    </div>
+    <br />
+
+    <button>Remove div element</button>
+
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+    <div>This is some important text!</div>
+    <br />
+
+    <button>Add classes to elements</button>
+  </body>
+  <!-- jQuery -->
+  <script>
+    // get
+    // text and html
+    $(document).ready(function () {
+      $("#btn1").click(function () {
+        alert("Text: " + $("#test").text());
+      });
+      $("#btn2").click(function () {
+        alert("HTML: " + $("#test").html());
+      });
+    });
+    // val
+    $(document).ready(function () {
+      $("button").click(function () {
+        alert("Value: " + $("#test").val());
+      });
+    });
+
+    // attr
+    $(document).ready(function () {
+      $("button").click(function () {
+        alert("Attribute: " + $("#test").attr("value"));
+      });
+    });
+
+    // set
+
+    // text
+    $(document).ready(function () {
+      $("button").click(function () {
+        $("#test").text("Minnie Mouse");
+      });
+    });
+    // html
+    $(document).ready(function () {
+      $("button").click(function () {
+        $("#test").html("<b>Minnie Mouse</b>");
+      });
+    });
+    // val
+    $(document).ready(function () {
+      $("button").click(function () {
+        $("#test").val("Minnie Mouse");
+      });
+    });
+    // attr
+    $(document).ready(function () {
+      $("button").click(function () {
+        $("#test").attr("value", "Minnie Mouse");
+      });
+    });
+
+    // add
+
+    // append
+    $("p").append("Some appended text.");
+
+    // prepend
+    $("p").prepend("Some prepended text.");
+
+    // before
+    $("p").before("<b>Some text before the paragraph.</b>");
+
+    // after
+    $("p").after("<b>Some text after the paragraph.</b>");
+
+    // remove
+    $("#div1").remove();
+
+    // empty
+    $("#div1").empty();
+
+    // add class
+    $("div").addClass("important blue");
+
+    // remove class
+    $("div").removeClass("blue");
+
+    // toggle class
+    $("div").toggleClass("blue");
+
+    // css
+
+    $("p").css("background-color");
+    $("p").css({ "background-color": "yellow", "font-size": "200%" });
+  </script>
+  <!-- JavaScript -->
+  <script>
+    // get
+    // text and html
+    document.addEventListener("DOMContentLoaded", function () {
+      let button1 = document.querySelector("#btn1");
+      let button2 = document.querySelector("#btn2");
+      button1.addEventListener("click", function () {
+        let text = document.querySelector("#test").textContent;
+        alert("Text: " + text);
+      });
+      button2.addEventListener("click", function () {
+        let html = document.querySelector("#test").innerHTML;
+        alert("HTML: " + html);
+      });
+    });
+
+    // val
+    document.addEventListener("DOMContentLoaded", function () {
+      let button = document.querySelector("button");
+      button.addEventListener("click", function () {
+        let value = document.querySelector("#test").value;
+        alert("Value: " + value);
+      });
+    });
+
+    // attr
+    document.addEventListener("DOMContentLoaded", function () {
+      let button = document.querySelector("button");
+      button.addEventListener("click", function () {
+        let value = document.querySelector("#test").getAttribute("value");
+        alert("Attribute: " + value);
+      });
+    });
+
+    // set
+
+    // text
+    document.addEventListener("DOMContentLoaded", function () {
+      let button = document.querySelector("button");
+      button.addEventListener("click", function () {
+        document.querySelector("#test").textContent = "Minnie Mouse";
+      });
+    });
+    // html
+    document.addEventListener("DOMContentLoaded", function () {
+      let button = document.querySelector("button");
+      button.addEventListener("click", function () {
+        document.querySelector("#test").innerHTML = "<b>Minnie Mouse</b>";
+      });
+    });
+    // val
+    document.addEventListener("DOMContentLoaded", function () {
+      let button = document.querySelector("button");
+      button.addEventListener("click", function () {
+        document.querySelector("#test").value = "Minnie Mouse";
+      });
+    });
+    // attr
+    document.addEventListener("DOMContentLoaded", function () {
+      let button = document.querySelector("button");
+      button.addEventListener("click", function () {
+        document.querySelector("#test").setAttribute("value", "Minnie Mouse");
+      });
+    });
+
+    // add
+
+    // append
+    document
+      .querySelector("p")
+      .appendChild(document.createTextNode("Some appended text."));
+
+    // prepend
+    document.querySelector("p").prepend("Some prepended text.");
+
+    // before
+    document
+      .querySelector("p")
+      .before("<b>Some text before the paragraph.</b>");
+
+    // after
+    document.querySelector("p").after("<b>Some text after the paragraph.</b>");
+
+    // remove
+    document.querySelector("#div1").remove();
+
+    // empty
+    document.querySelector("#div1").innerHTML = "";
+
+    // add class
+    document.querySelector("div").classList.add("important", "blue");
+
+    // remove class
+    document.querySelector("div").classList.remove("blue");
+
+    // toggle class
+    document.querySelector("div").classList.toggle("blue");
+
+    // css
+    document.querySelector("p").style.backgroundColor = "yellow";
+    document.querySelector("p").style.fontSize = "200%";
+  </script>
+</html>

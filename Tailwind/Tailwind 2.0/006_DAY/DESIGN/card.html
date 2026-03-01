@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Card Design tailwind css</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="page" class="max-w-7xl w-full flex flex-wrap gap-3 mx-auto"></div>
+
+    <script>
+      const propertyData = [
+        {
+          id: 1,
+          builder: "Vijaya Sree Builders",
+          description: "Experience luxury living with breathtaking views of the city skyline and private harbor access.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 2,
+          builder: "Skyline Developers",
+          description: "Modern minimalist apartments located in the heart of the tech district with smart home features.",
+          image: "https://images.unsplash.com/photo-1597582063548-572c669c186b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 3,
+          builder: "Green Valley Estates",
+          description: "Eco-friendly villas surrounded by lush botanical gardens and sustainable solar energy systems.",
+          image: "https://images.unsplash.com/photo-1738176962189-fd0ef3d53e39?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 4,
+          builder: "Heritage Homes",
+          description: "Classic architecture meets modern comfort in these renovated historical townhouses.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 5,
+          builder: "Ocean Breeze Realty",
+          description: "Stunning beachfront condos featuring floor-to-ceiling windows and infinity pools.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 6,
+          builder: "Urban Nest Construction",
+          description: "Compact and stylish studio lofts perfect for young professionals and urban explorers.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 7,
+          builder: "Summit Peak Properties",
+          description: "Mountain-side retreats offering cozy fireplaces and panoramic views of the alpine range.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 8,
+          builder: "Royal Crown Builders",
+          description: "Regal penthouses with private elevator access and 360-degree views of the capital.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 9,
+          builder: "Blue Lagoon Housing",
+          description: "Quiet suburban living with community parks, jogging tracks, and family-friendly amenities.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 10,
+          builder: "Terra Firma Group",
+          description: "Spacious multi-story duplexes featuring private backyards and designer kitchens.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 11,
+          builder: "Astra Infinity",
+          description: "Futuristic high-rise residences with automated parking and rooftop helipads.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 12,
+          builder: "Oakridge Developments",
+          description: "Charming woodland cabins providing the ultimate escape from the hustle and bustle.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 13,
+          builder: "Marble Arch Homes",
+          description: "Sophisticated apartments with Italian marble flooring and premium gold-plated fixtures.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 14,
+          builder: "Zenith Living",
+          description: "Wellness-focused housing with on-site yoga studios, spas, and organic cafes.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 15,
+          builder: "Metro Prime Builders",
+          description: "Convenient transit-oriented apartments located steps away from the central railway station.",
+          image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        },
+      ];
+
+      const page = document.getElementById("page");
+      page.innerHTML = "";
+      propertyData.forEach(
+        (flat) =>
+          (page.innerHTML += `
+      
+       <div class="max-w-sm bg-white rounded overflow-hidden border border-gray-100 shadow-sm">
+        <div class="relative">
+          <img src="${flat.image}" alt="" class="h-48 w-full object-cover" />
+          <div class="absolute top-2 left-2 bg-indigo-600 text-white px-2 py-1 font-bold rounded text-xs">New</div>
+        </div>
+        <div class="p-6">
+          <div class="uppercase tracking-wide text-sm font-semibold text-indigo-500">Real Estate</div>
+          <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">${flat.builder}</a>
+          <p class="mt-2 text-slate-500 line-clamp-2">${flat.description}</p>
+          <a href="" class="mt-4 block text-indigo-600 font-semibold hover:text-indigo-700 transition duration-200">Read More</a>
+        </div>
+      </div>
+      `)
+      );
+    </script>
+  </body>
+</html>

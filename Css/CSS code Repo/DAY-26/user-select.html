@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS user-select Examples</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      .box {
+        border: 1px solid #999;
+        padding: 10px;
+        margin: 20px 0;
+      }
+
+      .none {
+        user-select: none;
+        background: #ffebee;
+      }
+
+      .text {
+        user-select: text;
+        background: #e8f5e9;
+      }
+
+      .all {
+        user-select: all;
+        background: #e3f2fd;
+      }
+
+      .auto {
+        user-select: auto;
+        background: #f3e5f5;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS <code>user-select</code> Property</h1>
+
+    <div class="box none">
+      <strong>user-select: none;</strong><br />
+      You <b>cannot</b> select this text.
+    </div>
+
+    <div class="box text">
+      <strong>user-select: text;</strong><br />
+      You can select this text freely, just like normal behavior.
+    </div>
+
+    <div class="box all">
+      <strong>user-select: all;</strong><br />
+      Click and drag any part — the <b>entire content</b> is selected.
+    </div>
+
+    <div class="box auto">
+      <strong>user-select: auto;</strong><br />
+      This uses the browser's default selection behavior.
+    </div>
+  </body>
+</html>

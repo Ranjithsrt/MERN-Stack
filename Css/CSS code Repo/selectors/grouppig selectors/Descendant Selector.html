@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Descendant Selector</title>
+    <!-- descendant selector -->
+    <style>
+        div p {
+            color: green;
+        }
+
+        div p b {
+            color: brown;
+        }
+    </style>
+
+    <!-- child selector -->
+    <style>
+        div>p {
+            color: blueviolet;
+        }
+    </style>
+
+    <!-- adjacent sibling selector -->
+
+    <style>
+        div+p {
+            color: red;
+        }
+    </style>
+
+    <!-- general sibling selector -->
+
+    <style>
+        div~p {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Descendant Selector</h2>
+
+    <p>
+        The descendant selector matches all elements that are descendants of a
+        specified element.
+    </p>
+
+    <div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            <b>Natus molestias</b>, illum at veniam dolorem et eveniet nihil tempora
+            vel corrupti.
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            <b>Natus molestias</b>, illum at veniam dolorem et eveniet nihil tempora
+            vel corrupti.
+        </p>
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus molestias,
+        illum at veniam dolorem et eveniet nihil tempora vel corrupti.
+    </p>
+
+    <h2>Child Selector ></h2>
+
+    <p>
+        The child selector (>) selects all elements that are the children of a
+        specified element.
+    </p>
+
+    <div>
+        <p>
+            DIV PARA - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Optio repellendus, inventore architecto dolorum reiciendis et.
+        </p>
+        <p>
+            DIV PARA - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Optio repellendus, inventore architecto dolorum reiciendis et.
+        </p>
+        <section>
+            <p>
+                SECTION PARA - Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Optio repellendus, inventore architecto dolorum reiciendis et.
+            </p>
+            <p>
+                SECTION PARA - Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Optio repellendus, inventore architecto dolorum reiciendis et.
+            </p>
+        </section>
+    </div>
+
+    <p>
+        PARA - Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+        repellendus, inventore architecto dolorum reiciendis et.
+    </p>
+
+    <h2>Adjacent Sibling Selector (+)</h2>
+
+    <p>
+        The + selector is used to select an element that is directly after another
+        specific element.
+    </p>
+
+    <div>
+        <p>
+            DIV PARA - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Optio repellendus, inventore architecto dolorum reiciendis et.
+        </p>
+        <section>
+            <p>
+                SECTION PARA - Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Optio repellendus, inventore architecto dolorum reiciendis et.
+            </p>
+        </section>
+    </div>
+    <p>
+        PARA - Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+        repellendus, inventore architecto dolorum reiciendis et.
+    </p>
+
+    <p>
+        PARA - Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+        repellendus, inventore architecto dolorum reiciendis et.
+    </p>
+
+    <h2>General Sibling Selector (~)</h2>
+
+    <p>
+        The general sibling selector (~) selects all elements that are next
+        siblings of a specified element.
+    </p>
+
+    <div>
+        <p>
+            DIV PARA - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Optio repellendus, inventore architecto dolorum reiciendis et.
+        </p>
+        <section>
+            <p>
+                SECTION PARA - Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Optio repellendus, inventore architecto dolorum reiciendis et.
+            </p>
+        </section>
+    </div>
+    <h2>Heading</h2>
+    <p>
+        PARA - Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+        repellendus, inventore architecto dolorum reiciendis et.
+    </p>
+
+    <p>
+        PARA - Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+        repellendus, inventore architecto dolorum reiciendis et.
+    </p>
+
+    <section>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum odit sunt
+            modi enim. Quod, porro!
+        </p>
+    </section>
+</body>
+
+</html>

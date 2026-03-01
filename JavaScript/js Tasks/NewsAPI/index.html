@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Web Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <h1>News API</h1>
+    <div class="container">
+      <div class="search-container">
+        <p>NewsAPI</p>
+        <input type="search" id="searchInput" placeholder="Search for news" />
+      </div>
+      <div class="category-container">
+        <button id="All" >All</button>
+        <button id="General">General</button>
+        <button id="Business">Business</button>
+        <button id="Entertainment">Entertainment</button>
+        <button id="Health">Health</button>
+        <button id="Science">Science</button>
+        <button id="Sports">Sports</button>
+        <button id="Technology">Technology</button>
+      </div>
+      <div id="newsContainer">
+        <div id="newsCard"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

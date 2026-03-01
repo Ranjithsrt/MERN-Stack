@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>localStorage in JavaScript</title>
+  </head>
+  <body>
+    <script>
+      localStorage.setItem("username", "Tutor Joes");
+      const data = localStorage.getItem("username");
+      console.log(data);
+      localStorage.setItem("username", "Joes");
+      localStorage.setItem("theme", "dark");
+      let marks = [98, 89, 77, 88, 97];
+      localStorage.setItem("marks", JSON.stringify(marks));
+      const getMarks = JSON.parse(localStorage.getItem("marks"));
+      console.log(getMarks, typeof getMarks);
+
+      let student = {
+        name: "Raja",
+        age: 25,
+        city: "Salem",
+        married: false,
+        marks: [98, 89, 77, 88, 97],
+      };
+      localStorage.setItem("user", JSON.stringify(student));
+      const user = JSON.parse(localStorage.getItem("user"));
+      console.log(user);
+
+      //localStorage.removeItem("marks");
+      //localStorage.clear();
+
+      console.log(localStorage.length);
+      console.log(localStorage.key(0));
+      console.log(localStorage.key(1));
+      console.log(localStorage.key(2));
+      console.log(localStorage.key(3));
+    </script>
+  </body>
+</html>
